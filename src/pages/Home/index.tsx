@@ -17,10 +17,13 @@ export const Home = () => {
   return (
     <div
       style={{
-        width: "100vw",
-        height: "100vh",
-        position: "relative",
+        position: "fixed",
+        inset: 0,
+        width: "100%",
+        height: "100dvh",
         overflow: "hidden",
+        overscrollBehavior: "none",
+        touchAction: "none",
         background: "#0a0a0a",
       }}
     >
