@@ -1,15 +1,39 @@
 {
   "pages": {
-    "home": {
-      "home": "Accueil"
-    }
+    "home": { "home": "Accueil" },
+    "concept": { "title": "Le Concept" },
+    "parcours": { "title": "Le Parcours" },
+    "infos": { "title": "Infos Pratiques" },
+    "inscriptions": { "title": "Inscriptions" },
+    "resultats": { "title": "Résultats" },
+    "faq": { "title": "FAQ" },
+    "sponsors": { "title": "Sponsors" },
+    "galerie": { "title": "Galerie" },
+    "contact": { "title": "Contact" }
   },
   "navbar": {
     "home": "Accueil",
-    "language": "Langage",
-    "languageChanged": "Langage changé en français."
+    "concept": "Concept",
+    "parcours": "Parcours",
+    "infos": "Infos Pratiques",
+    "inscriptions": "Inscriptions",
+    "resultats": "Résultats",
+    "faq": "FAQ",
+    "sponsors": "Sponsors",
+    "galerie": "Galerie",
+    "contact": "Contact",
+    "language": "Langue",
+    "languageChanged": "Langue changée en français.",
+    "newsletter": "S'inscrire"
   },
   "footer": {
-    "rights": "Votre entreprise. Tous droits réservés."
+    "rights": "Breizh Backyard Ultra. Tous droits réservés.",
+    "tagline": "L'ultra-endurance au bout du bout de la Bretagne.",
+    "nav_title": "Navigation",
+    "info_title": "Informations",
+    "social_title": "Réseaux sociaux",
+    "mentions": "Mentions légales",
+    "cookies": "Politique de cookies",
+    "contact": "Contact"
   }
 }

@@ -1,15 +1,39 @@
 {
   "pages": {
-    "home": {
-      "home": "Home"
-    }
+    "home": { "home": "Home" },
+    "concept": { "title": "The Concept" },
+    "parcours": { "title": "The Course" },
+    "infos": { "title": "Practical Info" },
+    "inscriptions": { "title": "Registration" },
+    "resultats": { "title": "Results" },
+    "faq": { "title": "FAQ" },
+    "sponsors": { "title": "Sponsors" },
+    "galerie": { "title": "Gallery" },
+    "contact": { "title": "Contact" }
   },
   "navbar": {
     "home": "Home",
+    "concept": "Concept",
+    "parcours": "Course",
+    "infos": "Practical Info",
+    "inscriptions": "Register",
+    "resultats": "Results",
+    "faq": "FAQ",
+    "sponsors": "Sponsors",
+    "galerie": "Gallery",
+    "contact": "Contact",
     "language": "Language",
-    "languageChanged": "Language changed to English."
+    "languageChanged": "Language changed to English.",
+    "newsletter": "Sign up"
   },
   "footer": {
-    "rights": "Your company. All rights reserved."
+    "rights": "Breizh Backyard Ultra. All rights reserved.",
+    "tagline": "Ultra-endurance at the end of Brittany.",
+    "nav_title": "Navigation",
+    "info_title": "Information",
+    "social_title": "Social media",
+    "mentions": "Legal notice",
+    "cookies": "Cookie policy",
+    "contact": "Contact"
   }
 }

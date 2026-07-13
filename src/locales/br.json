@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "home": { "home": "Degemer" },
+    "concept": { "title": "An Abeg" },
+    "parcours": { "title": "Hent ar Ren" },
+    "infos": { "title": "Titouroù Fentus" },
+    "inscriptions": { "title": "Enskrivañ" },
+    "resultats": { "title": "Distoioù" },
+    "faq": { "title": "Ar Goulennoù" },
+    "sponsors": { "title": "Parteneriou" },
+    "galerie": { "title": "Galerie" },
+    "contact": { "title": "Darempred" }
+  },
+  "navbar": {
+    "home": "Degemer",
+    "concept": "Abeg",
+    "parcours": "Hent",
+    "infos": "Titouroù",
+    "inscriptions": "Enskrivañ",
+    "resultats": "Distoioù",
+    "faq": "Goulennoù",
+    "sponsors": "Parteneriou",
+    "galerie": "Galerie",
+    "contact": "Darempred",
+    "language": "Yezh",
+    "languageChanged": "Yezh kemmet e brezhoneg.",
+    "newsletter": "Enskrivañ"
+  },
+  "footer": {
+    "rights": "Breizh Backyard Ultra. Pep gwir miret.",
+    "tagline": "Ar rederez ultra e penn-draw Breizh.",
+    "nav_title": "Merdeiñ",
+    "info_title": "Titouroù",
+    "social_title": "Rouedadoù sokial",
+    "mentions": "Meneg lezennel",
+    "cookies": "Politikerezh toudennoù",
+    "contact": "Darempred"
+  }
+}
