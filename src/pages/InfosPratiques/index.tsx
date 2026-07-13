@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { MapPin, Shield, Heart, Phone, Utensils, Backpack, BookOpen } from "lucide-react";
+import { MapPin, Utensils, Backpack, BookOpen } from "lucide-react";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>

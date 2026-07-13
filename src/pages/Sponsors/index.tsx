@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
-import { Mail, Star, ChevronRight, Download } from "lucide-react";
+import { Mail, Star, Download } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>

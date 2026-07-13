@@ -100,8 +100,8 @@ const StatCard = ({ number, suffix, label, desc }: { number: number; suffix: str
 
 export const Home = () => {
   const { ref: conceptRef, visible: conceptVisible } = useReveal();
-  const { ref: parcours, visible: parcoursVisible } = useReveal();
-  const { ref: ctaRef, visible: ctaVisible } = useReveal();
+  const { ref: parcours } = useReveal();
+  const { ref: ctaRef } = useReveal();
 
   return (
     <div style={{ background: "#EFEFEF" }}>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 
 interface CountdownProps {
   targetDateStr?: string; // ISO format
