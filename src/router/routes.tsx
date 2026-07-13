@@ -18,6 +18,8 @@ const Sponsors = lazy(() => import("@/pages/Sponsors").then((m) => ({ default: m
 const Contact = lazy(() => import("@/pages/Contact").then((m) => ({ default: m.Contact })));
 const Benevoles = lazy(() => import("@/pages/Benevoles").then((m) => ({ default: m.Benevoles })));
 
+const NotFound = lazy(() => import("@/pages/NotFound").then((m) => ({ default: m.NotFound })));
+
 // Minimal loading fallback
 const PageLoader = () => (
   <div
@@ -63,6 +65,9 @@ export const Router = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/benevoles" element={<Benevoles />} />
           <Route path="/mentions-legales" element={<Contact />} />
+          
+          {/* 404 Page Not Found (with navbar/footer) */}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>

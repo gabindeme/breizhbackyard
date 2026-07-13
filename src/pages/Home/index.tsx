@@ -442,16 +442,18 @@ export const Home = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
             >
               <div
-                className="placeholder-img"
-                style={{ minHeight: "350px", borderRadius: "1.5rem" }}
+                style={{
+                  borderRadius: "1.5rem",
+                  overflow: "hidden",
+                  minHeight: "350px",
+                  display: "flex",
+                }}
               >
-                <Mountain size={40} style={{ opacity: 0.5, position: "relative", zIndex: 1 }} />
-                <span style={{ position: "relative", zIndex: 1, fontFamily: "'Inter', sans-serif" }}>
-                  {t("home.parcours.placeholder1")}
-                </span>
-                <span style={{ position: "relative", zIndex: 1, fontSize: "0.75rem" }}>
-                  {t("home.parcours.placeholder2")}
-                </span>
+                <img
+                  src="/lac-automne.webp"
+                  alt="Aperçu du parcours"
+                  style={{ width: "100%", minHeight: "350px", objectFit: "cover", display: "block", borderRadius: "1.5rem" }}
+                />
               </div>
             </motion.div>
           </div>

@@ -712,5 +712,16 @@
       "success_title": "Candidature envoyée !",
       "success_desc": "Merci {{nom}} ! Nous vous recontacterons très vite pour vous donner plus de détails."
     }
+  },
+  "notfound": {
+    "title": "404 - Hors piste",
+    "desc": "Il semble que vous ayez quitté la boucle. Aidez le coureur à sauter par-dessus les sapins en attendant de retrouver votre chemin !",
+    "score": "Score",
+    "btn_play": "Jouer",
+    "btn_replay": "Rejouer",
+    "game_over": "Game Over!",
+    "final_score": "Score final",
+    "controls_help": "Appuyez sur Espace, Flèche Haut ou touchez l'écran pour sauter.",
+    "btn_home": "Retour au camp de base"
   }
 }

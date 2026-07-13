@@ -712,5 +712,16 @@
       "success_title": "Application sent!",
       "success_desc": "Thank you {{nom}}! We'll get back to you very soon with more details."
     }
+  },
+  "notfound": {
+    "title": "404 - Off trail",
+    "desc": "It seems you've left the loop. Help the runner jump over the pine trees while you find your way back!",
+    "score": "Score",
+    "btn_play": "Play",
+    "btn_replay": "Play again",
+    "game_over": "Game Over!",
+    "final_score": "Final score",
+    "controls_help": "Press Space, Up Arrow, or tap the screen to jump.",
+    "btn_home": "Back to base camp"
   }
 }

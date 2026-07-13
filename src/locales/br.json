@@ -712,5 +712,16 @@
       "success_title": "Goulenn kaset!",
       "success_desc": "Trugarez {{nom}}! Evit muioc'h a ditouroù ez eimp e darempred ganeoc'h buan-tre."
     }
+  },
+  "notfound": {
+    "title": "404 - E-maez ar roudenn",
+    "desc": "War a seblant oc'h aet kuit eus ar c'helc'h. Sikourit ar reder da lammat dreist ar gwez sapr e-keit ha ma klaskit ho hent!",
+    "score": "Skor",
+    "btn_play": "C'hoari",
+    "btn_replay": "C'hoari en-dro",
+    "game_over": "C'hoari echu!",
+    "final_score": "Skor diwezhañ",
+    "controls_help": "Poueziñ war an Esaouenn, ar Saezh d'an Nec'h, pe touchañ ar skramm evit lammat.",
+    "btn_home": "Distro d'ar c'hamp"
   }
 }
