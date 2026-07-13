@@ -1,15 +1,35 @@
 {
   "pages": {
-    "home": { "home": "Accueil" },
-    "concept": { "title": "Le Concept" },
-    "parcours": { "title": "Le Parcours" },
-    "infos": { "title": "Infos Pratiques" },
-    "inscriptions": { "title": "Inscriptions" },
-    "resultats": { "title": "Résultats" },
-    "faq": { "title": "FAQ" },
-    "sponsors": { "title": "Sponsors" },
-    "galerie": { "title": "Galerie" },
-    "contact": { "title": "Contact" }
+    "home": {
+      "home": "Accueil"
+    },
+    "concept": {
+      "title": "Le Concept"
+    },
+    "parcours": {
+      "title": "Le Parcours"
+    },
+    "infos": {
+      "title": "Infos Pratiques"
+    },
+    "inscriptions": {
+      "title": "Inscriptions"
+    },
+    "resultats": {
+      "title": "Résultats"
+    },
+    "faq": {
+      "title": "FAQ"
+    },
+    "sponsors": {
+      "title": "Sponsors"
+    },
+    "galerie": {
+      "title": "Galerie"
+    },
+    "contact": {
+      "title": "Contact"
+    }
   },
   "navbar": {
     "home": "Accueil",
@@ -24,16 +44,673 @@
     "contact": "Contact",
     "language": "Langue",
     "languageChanged": "Langue changée en français.",
-    "newsletter": "S'inscrire"
+    "newsletter": "S'inscrire",
+    "benevoles": "Bénévoles"
   },
   "footer": {
-    "rights": "Breizh Backyard Ultra. Tous droits réservés.",
+    "rights": "© {{year}} Breizh Backyard Ultra — Tous droits réservés",
     "tagline": "L'ultra-endurance au bout du bout de la Bretagne.",
     "nav_title": "Navigation",
     "info_title": "Informations",
     "social_title": "Réseaux sociaux",
     "mentions": "Mentions légales",
     "cookies": "Politique de cookies",
-    "contact": "Contact"
+    "contact": "Contact",
+    "description": "L'ultra-endurance au bout du bout de la Bretagne. Un tour. Toutes les heures. Jusqu'au dernier.",
+    "course_title": "La course",
+    "location": "Parc des Gayeulles, Rennes",
+    "depart_dans": "Départ dans",
+    "date": "Samedi 15 Mai 2027 · 10h00",
+    "benevoles": "Devenir bénévole"
+  },
+  "countdown": {
+    "depart_dans": "Départ dans :",
+    "days_short": "J",
+    "hours_short": "H",
+    "minutes_short": "M",
+    "seconds_short": "S"
+  },
+  "home": {
+    "hero": {
+      "date": "Samedi 15 Mai 2027 · 10h00",
+      "title": "BREIZH BACKYARD",
+      "subtitle": "Ultra",
+      "desc_line1": "6,706 km. Toutes les heures. Jusqu'au dernier debout.",
+      "desc_line2": "La course sans distance. Sans limite.",
+      "btn_newsletter": "Je veux mon dossard →",
+      "btn_concept": "Découvrir le concept",
+      "scroll": "Défiler"
+    },
+    "concept": {
+      "subtitle": "Le format",
+      "title": "Une course sans fin",
+      "desc": "Le Backyard Ultra est une épreuve d'ultra-endurance unique : pas de distance fixée, pas d'horaire d'arrivée — seulement un tour de 6,706 km à boucler toutes les heures, pile.",
+      "card1_title": "Toutes les heures",
+      "card1_text": "Un top départ est donné chaque heure. Tous les coureurs encore en course repartent ensemble, sans exception.",
+      "card2_title": "6,706 km par tour",
+      "card2_text": "Chaque boucle fait exactement 6,706 km — 4,1667 miles. À compléter dans l'heure, sinon c'est l'élimination.",
+      "card3_title": "Un seul vainqueur",
+      "card3_text": "La course continue jusqu'à ce qu'il ne reste plus qu'un seul coureur capable de boucler un tour supplémentaire.",
+      "card4_title": "Un esprit unique",
+      "card4_text": "Entre les tours, le camp de base réunit coureurs, équipes et supporters dans une ambiance conviviale et solidaire.",
+      "btn": "En savoir plus sur le concept"
+    },
+    "stats": {
+      "subtitle": "L'événement en chiffres",
+      "title": "Breizh Backyard Ultra",
+      "stat1_suffix": ",706 km",
+      "stat1_label": "Par tour",
+      "stat1_desc": "La distance exacte du Backyard Ultra",
+      "stat2_suffix": "",
+      "stat2_label": "Coureurs attendus",
+      "stat2_desc": "Toutes catégories confondues",
+      "stat3_suffix": "h",
+      "stat3_label": "Record mondial",
+      "stat3_desc": "Plus de 760 km parcourus",
+      "stat4_suffix": "ère",
+      "stat4_label": "Édition à Rennes",
+      "stat4_desc": "Un nouveau rendez-vous ultra"
+    },
+    "parcours": {
+      "subtitle": "Le tracé",
+      "title": "Un parcours en pleine nature bretonne",
+      "desc": "Le circuit serpente à travers la nature bretonne : sentiers forestiers, sous-bois, chemins champêtres... Un cadre inspirant pour repousser vos limites, heure après heure.",
+      "list1_label": "Distance par tour",
+      "list1_value": "6,706 km",
+      "list2_label": "Dénivelé (indicatif)",
+      "list2_value": "à venir",
+      "list3_label": "Type de terrain",
+      "list3_value": "Sentiers nature, forêt",
+      "list4_label": "Localisation",
+      "list4_value": "Parc des Gayeulles, Rennes",
+      "btn": "Voir le parcours",
+      "placeholder1": "📍 Photo du parcours à venir",
+      "placeholder2": "Remplacer par vos vraies photos"
+    },
+    "ambiance": {
+      "subtitle": "L'ambiance",
+      "title": "Bien plus qu'une course",
+      "card1_title": "Le camp de base",
+      "card1_text": "Entre chaque tour, coureurs et accompagnants se retrouvent dans la zone de vie. Tentes, chaises longues, ravitaillement maison... L'ambiance est unique.",
+      "card2_title": "L'entraide",
+      "card2_text": "Dans le Backyard, les coureurs se soutiennent mutuellement. On se connaît au fil des heures, on s'encourage, on partage. Un esprit de communauté rare en compétition.",
+      "card3_title": "La Bretagne",
+      "card3_text": "Un cadre naturel exceptionnel : forêts, sentiers, air iodé... La Bretagne offre le décor parfait pour cette aventure d'ultra-endurance."
+    },
+    "cta": {
+      "badge": "Départ : 15 mai 2027",
+      "title": "Ne ratez pas l'ouverture des inscriptions",
+      "desc": "Les places sont limitées. Inscrivez-vous à notre newsletter pour être prévenu(e) en priorité dès l'ouverture.",
+      "btn": "Je veux être prévenu(e) →"
+    }
+  },
+  "concept_page": {
+    "header": {
+      "subtitle": "Le format",
+      "title": "Le Concept Backyard Ultra",
+      "desc": "Une épreuve inventée par Gary Cantrell (alias Lazarus Lake) en 2011, dans le Tennessee. Un format unique qui a bouleversé le monde de l'ultra-endurance."
+    },
+    "principe": {
+      "subtitle": "Le principe",
+      "title_line1": "Simple à comprendre,",
+      "title_line2": "impossible à maîtriser",
+      "desc1_start": "Le principe du Backyard Ultra est d'une simplicité désarmante : boucler un circuit de ",
+      "desc1_bold": " 6,706 km ",
+      "desc1_end": " (4,1667 miles — soit 100 miles au bout de 24h), et ce toutes les heures, sans exception.",
+      "desc2": "À chaque nouvelle heure, un signal sonore retentit : c'est le top départ. Tous les coureurs encore en course repartent ensemble, qu'ils soient frais ou épuisés. Pas de départ individuel, pas d'exception.",
+      "desc3_start": "Si vous n'avez pas terminé votre boucle avant le top départ suivant, ",
+      "desc3_bold": "c'est fini",
+      "desc3_end": ". Vous êtes éliminé(e). Aucune tolérance.",
+      "desc4_start": "La course se poursuit heure après heure, jusqu'à ce qu'il ne reste plus qu'un seul coureur capable de boucler un tour supplémentaire. Ce coureur doit ensuite effectuer ce tour ",
+      "desc4_bold": "seul",
+      "desc4_end": " pour être déclaré vainqueur officiel — sans cela, il n'y a pas de vainqueur."
+    },
+    "cards": {
+      "km": "6,706 km",
+      "km_desc": "par tour — toutes les heures, pile",
+      "c1_title": "Un tour = une heure",
+      "c1_text": "Chaque boucle doit être complétée avant le top départ suivant. Le chronomètre tourne en permanence.",
+      "c2_title": "Pas de vainqueur garanti",
+      "c2_text": "Si personne ne peut terminer un tour de plus que les autres, il n'y a officiellement aucun vainqueur.",
+      "c3_title": "Un seul peut gagner",
+      "c3_text": "Le vainqueur est le dernier debout — celui qui boucle un tour de plus que tous les autres, seul."
+    },
+    "schema": {
+      "subtitle": "Comprendre le format",
+      "title": "Une course qui n'a pas de fin prévue",
+      "step_depart": "Départ",
+      "step_vainqueur": "Vainqueur !",
+      "legend_depart": "Top départ toutes les heures",
+      "legend_vainqueur": "Vainqueur = dernier à terminer"
+    },
+    "rules": {
+      "r1_title": "Top départ toutes les heures",
+      "r1_text": "Le signal retentit pile à l'heure. Tous les coureurs repartent ensemble, quelles que soient leurs conditions physiques.",
+      "r2_title": "Boucle de 6,706 km exactement",
+      "r2_text": "La distance est standardisée à l'échelle mondiale. Chaque course Backyard Ultra utilise ce même circuit de base.",
+      "r3_title": "Élimination immédiate",
+      "r3_text": "Tout coureur qui n'a pas franchi la ligne d'arrivée avant le top départ suivant est immédiatement éliminé.",
+      "r4_title": "Le tour du vainqueur",
+      "r4_text": "Pour être déclaré vainqueur officiel, le dernier coureur en lice doit effectuer un tour supplémentaire, seul."
+    },
+    "faq": {
+      "subtitle": "Questions fréquentes",
+      "title": "Vos premières questions",
+      "q1": "Que se passe-t-il si je n'arrive pas dans l'heure ?",
+      "a1": "Vous êtes éliminé(e) immédiatement. Si le top départ du tour suivant est donné avant que vous ne franchissiez la ligne d'arrivée, vous ne pouvez pas repartir.",
+      "q2": "Combien de temps peut durer une course ?",
+      "a2": "Personne ne le sait à l'avance ! Le record du monde dépasse les 100 heures, soit plus de 4 jours sans s'arrêter. En pratique, la majorité des courses se terminent entre 24 et 48 heures.",
+      "q3": "Peut-il y avoir plusieurs vainqueurs ?",
+      "a3": "Non. Si tous les coureurs abandonnent au même tour (sans qu'un seul ait pu terminer un tour de plus que les autres), il n'y a pas de vainqueur officiel. Le vainqueur doit toujours effectuer un tour supplémentaire seul.",
+      "q4": "Puis-je dormir entre les tours ?",
+      "a4": "Oui ! Vous disposez d'une fenêtre de temps (variable selon votre rapidité sur le tour) pour vous reposer, manger, vous soigner... C'est là que la gestion de la récupération devient stratégique.",
+      "q5": "Le format est-il adapté aux débutants en ultra ?",
+      "a5": "Le format est accessible à tout le monde — il n'y a pas de seuil technique. Mais il demande une préparation mentale et physique sérieuse, car la durée peut être très longue. Nous conseillons d'avoir déjà couru un trail ou un marathon avant de se lancer.",
+      "btn": "Voir toutes les questions"
+    }
+  },
+  "parcours_page": {
+    "header": {
+      "subtitle": "Le circuit",
+      "title": "Le Parcours",
+      "desc": "Un tracé de 6,706 km conçu pour le format Backyard Ultra, au cœur de la nature bretonne. Chaque tour est une nouvelle aventure."
+    },
+    "terrainFeatures": {
+      "f1_label": "Sentiers forestiers",
+      "f1_desc": "La majorité du tracé serpente sous les frondaisons, offrant une ombre bienvenue et une atmosphère immersive.",
+      "f2_label": "Terrain varié",
+      "f2_desc": "Chemins de terre, petites montées et descentes douces, passages en sous-bois. Accessible mais exigeant sur la durée.",
+      "f3_label": "Exposition lumière",
+      "f3_desc": "Quelques portions à découvert permettent de profiter de la lumière naturelle. Pensez à la protection solaire en été.",
+      "f4_label": "Sol meuble et ferme",
+      "f4_desc": "Alternance de sol meuble (terre) et de chemin plus stabilisé. Des chaussures de trail sont recommandées."
+    },
+    "stats": {
+      "s1_val": "6,706",
+      "s1_unit": "km",
+      "s1_label": "Distance exacte",
+      "s2_val": "45",
+      "s2_unit": "m",
+      "s2_label": "Dénivelé positif",
+      "s3_val": "100%",
+      "s3_unit": "",
+      "s3_label": "Sentiers nature",
+      "s4_val": "Coral",
+      "s4_unit": "",
+      "s4_label": "Base entre les tours"
+    },
+    "description": {
+      "subtitle": "Le tracé",
+      "title": "Présentation du circuit",
+      "p1_start": "Le tracé du Breizh Backyard Ultra a été pensé pour être à la fois beau et équitable pour tous les coureurs. Une boucle unique de ",
+      "p1_bold": "6,706 km",
+      "p1_end": ", parcourue dans le même sens à chaque tour.",
+      "p2_start": "Le départ et l'arrivée sont situés dans la ",
+      "p2_bold": "zone de vie",
+      "p2_end": " — le camp de base où coureurs et accompagnants se retrouvent entre les boucles. Vous disposez du temps non couru (si vous terminez en 45 minutes, vous avez 15 minutes pour récupérer) avant le prochain top départ.",
+      "p3": "Retrouvez ci-dessous la carte interactive du tracé officiel ainsi que les options de téléchargement.",
+      "btn_gpx": " Télécharger le GPX"
+    },
+    "map": {
+      "title": "Carte interactive",
+      "subtitle": "Tracé officiel de la course",
+      "info": "Cliquez pour explorer en détail sur Strava",
+      "location": "Parc des Gayeulles, Rennes"
+    },
+    "terrain": {
+      "subtitle": "Le terrain",
+      "title": "Ce que vous trouverez sur le tracé"
+    },
+    "zone_vie": {
+      "subtitle": "Entre les tours",
+      "title": "La zone de vie & camp de base",
+      "p1": "Au centre de la boucle se trouve le camp de base : votre QG pendant toute la durée de la course. C'est ici que vous revenez après chaque tour pour récupérer, manger, dormir si nécessaire.",
+      "p2": "Vous pouvez installer votre propre installation (tente, chaise longue, table...). Vos accompagnants, famille et amis peuvent rester dans cette zone pour vous soutenir tout au long de la course.",
+      "placeholder": "📸 Photo de la zone de vie à venir"
+    },
+    "galerie": {
+      "subtitle": "Aperçu",
+      "title": "Photos du parcours",
+      "desc": "Les vraies photos seront ajoutées prochainement — emplacements réservés ci-dessous.",
+      "p1_label": "Sentier forestier",
+      "p1_desc": "Votre photo ici",
+      "p2_label": "Vue sur la nature",
+      "p2_desc": "Votre photo ici",
+      "p3_label": "Le départ / arrivée",
+      "p3_desc": "Votre photo ici",
+      "p4_label": "Zone de vie",
+      "p4_desc": "Votre photo ici",
+      "p5_label": "Vue panoramique",
+      "p5_desc": "Votre photo ici",
+      "p6_label": "Détail du tracé",
+      "p6_desc": "Votre photo ici"
+    }
+  },
+  "infos_page": {
+    "header": {
+      "subtitle": "Organisation",
+      "title": "Infos Pratiques",
+      "desc": "Tout ce que vous devez savoir avant de vous engager dans le Breizh Backyard Ultra. Préparez-vous bien — votre confort dépend de votre organisation."
+    },
+    "nav": {
+      "acces": "Accès & Lieu",
+      "materiel": "Matériel",
+      "ravitaillement": "Ravitaillement",
+      "reglement": "Règlement"
+    },
+    "acces": {
+      "title": "Accès & Lieu",
+      "loc_title": "📍 Localisation",
+      "loc_p1_start": "Le Breizh Backyard Ultra se déroule en Bretagne, dans un cadre naturel préservé.",
+      "loc_p1_bold": " L'adresse exacte sera communiquée",
+      "loc_p1_end": " aux inscrits par email avant la course.",
+      "loc_info": "ℹ️ Les coordonnées GPS et l'accès détaillé seront partagés dans le pack participant, disponible 2 semaines avant la course.",
+      "parking_title": "🚗 Accès & Parking",
+      "p1": "Parking gratuit sur place (nombre de places limitées)",
+      "p2": "Covoiturage fortement encouragé — forum disponible après inscription",
+      "p3": "Accès en transport en commun possible (informations à venir)",
+      "p4": "Signalétique fléchée depuis la route principale"
+    },
+    "materiel": {
+      "title": "Matériel & Équipement",
+      "ob_title": "Obligatoire",
+      "ob1": "Dossard officiel (fourni)",
+      "ob2": "Chaussures de trail (recommandé)",
+      "ob3": "Vêtements adaptés à la météo",
+      "ob4": "Lampe frontale (pour la nuit)",
+      "ob5": "Téléphone portable chargé",
+      "rec_title": "Recommandé",
+      "rec1": "Tente ou abri pour le camp de base",
+      "rec2": "Chaise longue / matelas",
+      "rec3": "Sac de couchage",
+      "rec4": "Vêtements de rechange (x5 min.)",
+      "rec5": "Kit de soins / ampoules",
+      "ut_title": "Utile",
+      "ut1": "Bâtons de marche (autorisés)",
+      "ut2": "Montre GPS",
+      "ut3": "Casque / écouteurs",
+      "ut4": "Cache-oreilles / bonnet",
+      "ut5": "Crème solaire & anti-moustiques"
+    },
+    "ravitaillement": {
+      "title": "Ravitaillement",
+      "fourni_title": "✅ Ce qui est fourni",
+      "f1": "Point d'eau potable permanent sur la zone de vie",
+      "f2": "Fruits frais (bananes, oranges...) entre chaque tour",
+      "f3": "Bouillons chauds pendant la nuit",
+      "f4": "Café / thé en continu",
+      "apporter_title": "🎒 À apporter",
+      "a1": "Vos aliments préférés et éprouvés (pas d'expérimentation en course !)",
+      "a2": "Gels / barres énergétiques selon vos habitudes",
+      "a3": "Boissons de récupération",
+      "a4": "Repas complets (pâtes, riz...) pour les longues durées",
+      "a5": "Thermos personnel conseillé pour la nuit"
+    },
+    "reglement": {
+      "title": "Règlement & Format",
+      "r_bu_title": "Règles du format Backyard Ultra",
+      "r1": "Un tour de 6,706 km doit être complété avant chaque top départ horaire.",
+      "r2": "Tout coureur qui n'a pas franchi la ligne avant le signal est immédiatement éliminé.",
+      "r3": "Le vainqueur est le dernier coureur capable de terminer un tour de plus que tous les autres.",
+      "r4": "Le vainqueur doit effectuer un tour supplémentaire seul pour être officiellement déclaré.",
+      "r_breizh_title": "Règles spécifiques Breizh BU",
+      "br1": "Le dossard doit être porté visible à l'avant pendant toute la course.",
+      "br2": "Tout coureur abandonnant doit signaler son abandon à un membre de l'organisation.",
+      "br3": "Les accompagnants restent dans la zone de vie — pas d'assistance sur le circuit.",
+      "br4": "Toute aide extérieure sur le circuit entraîne la disqualification immédiate.",
+      "br5": "Le règlement complet est disponible dans le pack participant."
+    }
+  },
+  "inscriptions_page": {
+    "header": {
+      "subtitle": "Rejoignez-nous",
+      "title": "Inscriptions",
+      "desc": "Les inscriptions pour la prochaine édition ne sont pas encore ouvertes. Laissez-nous votre email pour être prévenu(e) en priorité."
+    },
+    "errors": {
+      "email_req": "L'email est requis.",
+      "email_inv": "Email invalide."
+    },
+    "info": {
+      "badge": "Inscriptions fermées — Ouverture prochaine",
+      "title": "Soyez parmi les premiers à courir",
+      "desc": "Les places pour le Breizh Backyard Ultra sont limitées. En vous inscrivant à notre newsletter, vous serez alerté(e) dès l'ouverture officielle des inscriptions, bien avant l'annonce publique.",
+      "list1": "Notification immédiate à l'ouverture des inscriptions",
+      "list2": "Accès prioritaire avant les listes d'attente",
+      "list3": "Actualités exclusives sur la course et le parcours",
+      "depart_title": "Prochain départ",
+      "depart_date": "Samedi 15 Mai 2027",
+      "depart_loc": "10h00 — Parc des Gayeulles, Rennes"
+    },
+    "form": {
+      "title": "Restez informé(e)",
+      "desc": "Laissez-nous votre email pour être prévenu(e) dès l'ouverture des inscriptions. Nous ne vous enverrons que des emails importants.",
+      "prenom_label": "Prénom",
+      "prenom_ph": "Marie",
+      "nom_label": "Nom",
+      "nom_ph": "Dupont",
+      "email_label": "Email",
+      "email_ph": "marie.dupont@example.com",
+      "btn_loading": "Envoi en cours...",
+      "btn_submit": "Je veux être prévenu(e) →",
+      "consent": "En vous inscrivant, vous acceptez de recevoir nos emails. Désabonnement possible à tout moment."
+    },
+    "success": {
+      "title": "Merci !",
+      "desc": "Vous serez informé(e) dès l'ouverture des inscriptions. Préparez vos chaussures de trail — ça ne devrait plus tarder !",
+      "confirm": "Confirmation envoyée à :"
+    }
+  },
+  "sponsors_page": {
+    "header": {
+      "subtitle": "Partenariat",
+      "title": "Sponsors & Partenaires",
+      "desc": "Associez votre marque à un événement sportif unique, ancré dans les valeurs de nature, dépassement de soi et convivialité bretonne."
+    },
+    "dossier": {
+      "title": "Kit Partenaire & Dossier de Sponsoring",
+      "desc": "Découvrez en détail notre événement, nos valeurs, nos chiffres clés et l'ensemble de nos offres de visibilité en téléchargeant notre dossier complet.",
+      "btn": "Télécharger le dossier (PDF)"
+    },
+    "niveaux": {
+      "subtitle": "Devenez partenaire",
+      "title": "Niveaux de partenariat",
+      "or_name": "Or",
+      "or_desc": "Visibilité maximale — logo XXL sur dossard et toute communication",
+      "or_price": "Sur devis",
+      "argent_name": "Argent",
+      "argent_desc": "Forte visibilité — logo prominent sur site, réseaux et signalétique",
+      "argent_price": "Sur devis",
+      "bronze_name": "Bronze",
+      "bronze_desc": "Bonne visibilité — logo sur site et communication de course",
+      "bronze_price": "Sur devis",
+      "tarif": "Tarif",
+      "logo": "Logo"
+    },
+    "avantages": {
+      "title": "Avantages communs à tous les niveaux",
+      "b1": "Logo sur le site internet",
+      "b2": "Mention sur les réseaux sociaux",
+      "b3": "Présence dans le kit participant",
+      "b4": "Stand possible sur la zone de vie"
+    },
+    "contact": {
+      "subtitle": "Intéressé(e) ?",
+      "title": "Contactez-nous",
+      "nom_label": "Nom",
+      "nom_ph": "Votre nom",
+      "societe_label": "Société / Organisation",
+      "societe_ph": "Nom de votre entreprise",
+      "email_label": "Email",
+      "email_ph": "contact@votre-entreprise.fr",
+      "message_label": "Message",
+      "message_ph": "Décrivez votre intérêt, le niveau de partenariat envisagé...",
+      "btn_loading": "Envoi...",
+      "btn_submit": "Envoyer ma demande →",
+      "success_title": "Message envoyé !",
+      "success_desc": "Nous vous répondrons dans les meilleurs délais pour discuter d'un partenariat."
+    }
+  },
+  "faq_page": {
+    "header": {
+      "subtitle": "Aide",
+      "title": "Questions Fréquentes",
+      "desc": "Vous avez des questions sur le format, l'organisation ou la course ? Vous trouverez probablement la réponse ici."
+    },
+    "filters": {
+      "toutes": "Toutes"
+    },
+    "data": [
+      {
+        "category": "🏃 Le format Backyard Ultra",
+        "items": [
+          {
+            "q": "Qu'est-ce que le format Backyard Ultra ?",
+            "a": "Le Backyard Ultra est un format de course d'ultra-endurance inventé par Gary Cantrell (alias Lazarus Lake) en 2011. Le principe : boucler un circuit de 6,706 km toutes les heures, jusqu'à ce qu'il ne reste plus qu'un seul coureur capable de compléter un tour supplémentaire."
+          },
+          {
+            "q": "D'où vient la distance de 6,706 km ?",
+            "a": "Cette distance correspond exactement à 4,16667 miles, soit un centième de mile dans une heure. Multiplié par le nombre de tours, cela donne toujours un nombre entier de miles parcourus."
+          },
+          {
+            "q": "Combien de temps peut durer une course ?",
+            "a": "La durée est totalement indéterminée. Des courses de moins de 10 heures existent, mais le record mondial dépasse les 100 heures (plus de 4 jours). En pratique, la plupart des courses régionales se terminent entre 20 et 40 heures."
+          },
+          {
+            "q": "Peut-il y avoir plusieurs vainqueurs ?",
+            "a": "Non, un seul vainqueur officiel est possible. Si plusieurs coureurs abandonnent au même tour, ou si le dernier coureur restant ne peut pas compléter le tour supplémentaire solo, il n'y a pas de vainqueur officiel pour l'édition."
+          },
+          {
+            "q": "Qu'est-ce que la 'big's backyard ultra' ?",
+            "a": "C'est la course originale créée par Lazarus Lake dans le Tennessee, aux États-Unis. Elle est considérée comme le championnat mondial non officiel du format. Les meilleurs coureurs de chaque course qualificative peuvent y être invités."
+          }
+        ]
+      },
+      {
+        "category": "📋 Les inscriptions",
+        "items": [
+          {
+            "q": "Quand ouvrent les inscriptions ?",
+            "a": "Les inscriptions pour la prochaine édition ne sont pas encore ouvertes. Inscrivez-vous à notre newsletter pour être prévenu(e) en priorité dès leur ouverture."
+          },
+          {
+            "q": "Combien de places sont disponibles ?",
+            "a": "Le nombre de places sera précisé lors de l'ouverture des inscriptions. Le format Backyard Ultra fonctionne mieux avec un nombre modéré de participants — attendez-vous à des places limitées."
+          },
+          {
+            "q": "Y a-t-il un niveau minimum requis ?",
+            "a": "Il n'y a pas de qualification technique obligatoire, mais nous recommandons d'avoir une expérience en trail ou en courses de longue durée (marathon minimum). Le format est physiquement et mentalement très exigeant."
+          },
+          {
+            "q": "Les inscriptions sont-elles remboursables ?",
+            "a": "La politique de remboursement sera précisée lors de l'ouverture des inscriptions. Des conditions d'annulation seront indiquées dans le règlement."
+          }
+        ]
+      },
+      {
+        "category": "🎒 Matériel & Logistique",
+        "items": [
+          {
+            "q": "De quoi ai-je besoin comme matériel ?",
+            "a": "L'essentiel : des chaussures de trail, une lampe frontale, des vêtements adaptés à la météo et votre ravitaillement. Pour le camp de base : une tente ou un abri, une chaise longue, un sac de couchage et des vêtements de rechange. Voir la page 'Infos pratiques' pour la liste complète."
+          },
+          {
+            "q": "Puis-je avoir une équipe de soutien ?",
+            "a": "Oui ! Vos accompagnants peuvent être présents dans la zone de vie tout au long de la course. Ils ne peuvent cependant pas vous assister sur le circuit lui-même."
+          },
+          {
+            "q": "Les bâtons de trail sont-ils autorisés ?",
+            "a": "Oui, les bâtons de marche / trail sont autorisés pendant toute la course."
+          },
+          {
+            "q": "Y a-t-il des douches ou sanitaires sur place ?",
+            "a": "Des sanitaires seront disponibles sur la zone de vie. Les détails complets seront communiqués dans le pack participant."
+          }
+        ]
+      },
+      {
+        "category": "🍌 Ravitaillement",
+        "items": [
+          {
+            "q": "Qu'est-ce qui est fourni par l'organisation ?",
+            "a": "L'organisation fournit de l'eau potable en continu, des fruits frais (bananes, oranges) entre les tours, des bouillons chauds de nuit et du café/thé. Un ravitaillement complet sera détaillé dans le règlement."
+          },
+          {
+            "q": "Puis-je apporter mes propres aliments ?",
+            "a": "Oui, et c'est fortement recommandé ! Vous connaissez mieux que quiconque ce qui fonctionne pour vous lors des longues efforts. Évitez tout aliment que vous n'avez pas testé à l'entraînement."
+          },
+          {
+            "q": "Y a-t-il un point de ravitaillement sur le circuit ?",
+            "a": "Non. Le seul ravitaillement se trouve à la zone de vie, au départ/arrivée. Vous disposerez du temps restant après chaque tour pour vous ravitailler avant le prochain départ."
+          }
+        ]
+      },
+      {
+        "category": "🌙 La nuit & La récupération",
+        "items": [
+          {
+            "q": "Comment gère-t-on les nuits ?",
+            "a": "La course se poursuit 24h/24, y compris la nuit. Le circuit est balisé avec des rubalises réfléchissantes. La lampe frontale est obligatoire dès la tombée de la nuit."
+          },
+          {
+            "q": "Peut-on dormir entre les tours ?",
+            "a": "Oui ! Si vous terminez votre tour en 45 minutes, vous avez 15 minutes pour vous reposer. Certains coureurs utilisent des alarmes pour des micro-siestes de 10-12 minutes. C'est une des clés tactiques du format."
+          },
+          {
+            "q": "Que se passe-t-il si un coureur est blessé ?",
+            "a": "Une équipe médicale est présente 24h/24. Tout coureur en difficulté peut être pris en charge immédiatement. Nous préférons un abandon volontaire à une mise en danger."
+          }
+        ]
+      }
+    ],
+    "contact": {
+      "title": "Vous n'avez pas trouvé votre réponse ?",
+      "desc": "Notre équipe se fera un plaisir de répondre à toutes vos questions.",
+      "btn": "Nous contacter"
+    }
+  },
+  "contact_page": {
+    "header": {
+      "subtitle": "Écrivez-nous",
+      "title": "Contact",
+      "desc": "Une question, une demande de partenariat, un besoin d'information ? Notre équipe vous répondra dans les meilleurs délais."
+    },
+    "subjects": {
+      "s1": "Question générale",
+      "s2": "Demande de partenariat / sponsor",
+      "s3": "Presse / Média",
+      "s4": "Bénévolat",
+      "s5": "Question médicale / sécurité",
+      "s6": "Autre"
+    },
+    "errors": {
+      "nom_req": "Votre nom est requis.",
+      "email_req": "L'email est requis.",
+      "email_inv": "Email invalide.",
+      "msg_req": "Votre message est requis."
+    },
+    "info": {
+      "title": "Nous trouver",
+      "email": "Email",
+      "loc": "Localisation",
+      "loc_val": "Parc des Gayeulles, Rennes",
+      "socials": "Réseaux sociaux",
+      "delay": "⏱ Délai de réponse",
+      "delay_text": " : nous répondons généralement sous 48h ouvrées. Pour les demandes urgentes, merci de l'indiquer dans votre message."
+    },
+    "form": {
+      "title": "Envoyer un message",
+      "nom_label": "Nom complet",
+      "nom_ph": "Mathieu Blanchard",
+      "email_label": "Email",
+      "email_ph": "mat@ilovekiprun.com",
+      "sujet_label": "Sujet",
+      "sujet_ph": "Choisir un sujet...",
+      "msg_label": "Message",
+      "msg_ph": "Votre message...",
+      "btn_loading": "Envoi en cours...",
+      "btn_submit": "Envoyer le message",
+      "success_title": "Message envoyé !",
+      "success_desc": "Merci pour votre message, {{nom}} ! Nous vous répondrons sous 48h ouvrées."
+    }
+  },
+  "resultats_page": {
+    "header": {
+      "subtitle": "Édition #1",
+      "title": "Résultats & Suivi Live",
+      "desc": "Il n'y a pas encore d'historique de résultats car c'est la toute première édition du Breizh Backyard Ultra."
+    },
+    "live": {
+      "title": "Le Suivi Live sera ici !",
+      "desc_start": "Le jour de la course, cette page se transformera en ",
+      "desc_bold": "tableau de bord en direct",
+      "desc_end": ". Vous pourrez y suivre l'évolution de la course heure par heure, voir les éliminations et soutenir le dernier coureur debout.",
+      "ind1": "Temps au tour",
+      "ind2": "Coureurs en lice",
+      "ind3": "Le vainqueur final",
+      "btn": "Être prévenu de l'ouverture"
+    }
+  },
+  "galerie_page": {
+    "header": {
+      "subtitle": "Photos",
+      "title": "Galerie",
+      "desc": "Revivez les moments forts du Breizh Backyard Ultra. Les vraies photos seront ajoutées après chaque édition."
+    },
+    "categories": {
+      "toutes": "Toutes",
+      "coureurs": "Coureurs",
+      "parcours": "Parcours",
+      "ambiance": "Ambiance"
+    },
+    "photos": {
+      "p1_label": "Départ de course",
+      "p1_desc": "Remplacer par vos vraies photos",
+      "p2_label": "Sentier forestier",
+      "p2_desc": "Photo du tracé",
+      "p3_label": "Zone de vie",
+      "p3_desc": "Camp de base",
+      "p4_label": "Dans le vif",
+      "p4_desc": "Action de course",
+      "p5_label": "Vue nature",
+      "p5_desc": "Paysage breton",
+      "p6_label": "La communauté",
+      "p6_desc": "Moments entre coureurs",
+      "p7_label": "Nuit de course",
+      "p7_desc": "Lampes frontales",
+      "p8_label": "Détail terrain",
+      "p8_desc": "Variété des sentiers",
+      "p9_label": "Ravitaillement",
+      "p9_desc": "L'équipe bénévole",
+      "p10_label": "Arrivée du vainqueur",
+      "p10_desc": "Moment unique",
+      "p11_label": "Lever de soleil",
+      "p11_desc": "Lumière du matin",
+      "p12_label": "L'organisation",
+      "p12_desc": "Coulisses de l'événement"
+    },
+    "lightbox": {
+      "photo": "Photo"
+    }
+  },
+  "benevoles_page": {
+    "header": {
+      "subtitle": "Rejoignez l'équipe",
+      "title": "Devenir Bénévole",
+      "desc": "Vivez le Breizh Backyard Ultra de l'intérieur. Sans nos bénévoles, l'aventure n'existerait pas."
+    },
+    "intro": {
+      "title": "Pourquoi devenir bénévole ?",
+      "card1_title": "Une ambiance unique",
+      "card1_text": "Rejoignez une équipe de passionnés dans une ambiance conviviale, au cœur d'un événement sportif exceptionnel.",
+      "card2_title": "Au plus près de la course",
+      "card2_text": "Vivez l'intensité de l'ultra-endurance et accompagnez les coureurs dans leur quête de dépassement de soi.",
+      "card3_title": "Goodies & Repas",
+      "card3_text": "Repas offerts pendant vos créneaux et dotation bénévole (t-shirt, goodies) pour vous remercier de votre aide."
+    },
+    "roles": {
+      "title": "Les missions",
+      "r1_title": "Ravitaillement & Zone de vie",
+      "r1_text": "Préparation des ravitaillements, accueil des coureurs, gestion de la base de vie.",
+      "r2_title": "Signaleur & Sécurité",
+      "r2_text": "Orientation sur le parcours, sécurité aux intersections, encouragements.",
+      "r3_title": "Logistique & Montage",
+      "r3_text": "Aide au montage et démontage du village, gestion du parking, logistique générale."
+    },
+    "form": {
+      "title": "Rejoindre l'équipe",
+      "nom_label": "Nom complet",
+      "nom_ph": "Jean Dupont",
+      "email_label": "Email",
+      "email_ph": "jean@example.com",
+      "dispo_label": "Disponibilités",
+      "dispo_ph": "Ex: Samedi matin, tout le week-end...",
+      "msg_label": "Message / Préférences",
+      "msg_ph": "Si vous avez une préférence de mission (ravitaillement, signaleur...)",
+      "btn_loading": "Envoi en cours...",
+      "btn_submit": "Envoyer ma candidature",
+      "success_title": "Candidature envoyée !",
+      "success_desc": "Merci {{nom}} ! Nous vous recontacterons très vite pour vous donner plus de détails."
+    }
   }
 }

@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import { Mail, MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { Countdown } from "@/components/customs/countdown";
 
 const footerLinks = [
-  { to: "/", label: "Accueil" },
-  { to: "/concept", label: "Concept" },
-  { to: "/parcours", label: "Parcours" },
-  { to: "/infos-pratiques", label: "Infos pratiques" },
-  { to: "/inscriptions", label: "Inscriptions" },
-  // { to: "/resultats", label: "Résultats" },
-  { to: "/faq", label: "FAQ" },
-  // { to: "/galerie", label: "Galerie" },
-  { to: "/sponsors", label: "Sponsors" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", labelKey: "home" },
+  { to: "/concept", labelKey: "concept" },
+  { to: "/parcours", labelKey: "parcours" },
+  { to: "/infos-pratiques", labelKey: "infos" },
+  { to: "/inscriptions", labelKey: "inscriptions" },
+  // { to: "/resultats", labelKey: "resultats" },
+  { to: "/faq", labelKey: "faq" },
+  // { to: "/galerie", labelKey: "galerie" },
+  { to: "/sponsors", labelKey: "sponsors" },
+  { to: "/contact", labelKey: "contact" },
+  { to: "/benevoles", labelKey: "benevoles" },
 ];
 
 const socialLinks = [
@@ -24,6 +26,7 @@ const socialLinks = [
 ];
 
 export const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -40,7 +43,8 @@ export const Footer = () => {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: `radial-gradient(circle at 20% 80%, rgba(39,121,86,0.15) 0%, transparent 50%),
+          backgroundImage: `linear-gradient(to bottom, #0f2d1d 0px, transparent 30px),
+                            radial-gradient(circle at 20% 80%, rgba(39,121,86,0.15) 0%, transparent 50%),
                             radial-gradient(circle at 80% 20%, rgba(45,145,133,0.1) 0%, transparent 50%)`,
           pointerEvents: "none",
         }}
@@ -88,7 +92,7 @@ export const Footer = () => {
               </div>
             </Link>
             <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: "1.5rem" }}>
-              L'ultra-endurance au bout du bout de la Bretagne. Un tour. Toutes les heures. Jusqu'au dernier.
+              {t("footer.description")}
             </p>
 
             {/* Social links */}
@@ -133,7 +137,7 @@ export const Footer = () => {
           {/* Navigation */}
           <div>
             <h4 style={{ color: "#F5C92C", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.25rem", fontFamily: "'Inter', sans-serif" }}>
-              Navigation
+              {t("footer.nav_title")}
             </h4>
             <nav style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {footerLinks.slice(0, 5).map((link) => (
@@ -153,7 +157,7 @@ export const Footer = () => {
                   onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)"}
                 >
                   <span style={{ color: "#4DA154", fontSize: "0.7rem" }}>›</span>
-                  {link.label}
+                  {t(`navbar.${link.labelKey}`)}
                 </Link>
               ))}
             </nav>
@@ -161,7 +165,7 @@ export const Footer = () => {
 
           <div>
             <h4 style={{ color: "#F5C92C", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.25rem", fontFamily: "'Inter', sans-serif" }}>
-              La course
+              {t("footer.course_title")}
             </h4>
             <nav style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {footerLinks.slice(5).map((link) => (
@@ -181,7 +185,7 @@ export const Footer = () => {
                   onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)"}
                 >
                   <span style={{ color: "#4DA154", fontSize: "0.7rem" }}>›</span>
-                  {link.label}
+                  {t(`navbar.${link.labelKey}`)}
                 </Link>
               ))}
             </nav>
@@ -190,13 +194,13 @@ export const Footer = () => {
           {/* Contact & Infos */}
           <div>
             <h4 style={{ color: "#F5C92C", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.25rem", fontFamily: "'Inter', sans-serif" }}>
-              Informations
+              {t("footer.info_title")}
             </h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", color: "rgba(255,255,255,0.7)" }}>
                 <MapPin size={18} style={{ color: "#277956", flexShrink: 0, marginTop: "2px" }} />
                 <span>
-                  Parc des Gayeulles, Rennes
+                  {t("footer.location")}
                 </span>
               </div>
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
@@ -218,11 +222,11 @@ export const Footer = () => {
                 }}
               >
                 <div style={{ fontSize: "0.7rem", color: "#F5C92C", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "0.25rem" }}>
-                  Départ dans
+                  {t("footer.depart_dans")}
                 </div>
                 <Countdown targetDateStr="2027-05-15T10:00:00+02:00" hidePrefix />
                 <div style={{ fontSize: "0.95rem", color: "#fff", fontFamily: "'Hobo', sans-serif", marginBottom: "0.5rem" }}>
-                  Samedi 15 Mai 2027 · 10h00
+                  {t("footer.date")}
                 </div>
               </div>
             </div>
@@ -247,17 +251,17 @@ export const Footer = () => {
               onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#8CBE4F"}
               onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.4)"}
             >
-              Mentions légales
+              {t("footer.mentions")}
             </Link>
             <Link to="/contact" style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.78rem", textDecoration: "none", transition: "color 0.2s ease" }}
               onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#8CBE4F"}
               onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.4)"}
             >
-              Contact
+              {t("footer.contact")}
             </Link>
           </div>
           <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.78rem", textAlign: "center" }}>
-            © {currentYear} Breizh Backyard Ultra — Tous droits réservés
+            {t("footer.rights", { year: currentYear })}
           </p>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Navbar } from "@/components/customs/navbar";
 import { Footer } from "@/components/customs/footer";
 import { Countdown } from "@/components/customs/countdown";
+import { useTranslation } from "react-i18next";
 import {
   Timer,
   Footprints,
@@ -99,6 +100,7 @@ const StatCard = ({ number, suffix, label, desc }: { number: number; suffix: str
 };
 
 export const Home = () => {
+  const { t } = useTranslation();
   const { ref: conceptRef, visible: conceptVisible } = useReveal();
   const { ref: parcours } = useReveal();
   const { ref: ctaRef } = useReveal();
@@ -168,7 +170,7 @@ export const Home = () => {
           >
             <span className="bbu-badge" style={{ background: "rgba(245,201,44,0.15)", color: "#F5C92C", borderColor: "rgba(245,201,44,0.4)" }}>
               <Timer size={12} />
-              Samedi 15 Mai 2027 · 10h00
+              {t("home.hero.date")}
             </span>
             <div style={{ color: "rgba(255,255,255,0.9)", fontSize: "0.9rem" }}>
               <Countdown targetDateStr="2027-05-15T10:00:00+02:00" />
@@ -189,7 +191,7 @@ export const Home = () => {
               marginBottom: "0.3rem",
             }}
           >
-            BREIZH BACKYARD
+            {t("home.hero.title")}
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -204,7 +206,7 @@ export const Home = () => {
               marginBottom: "1.25rem",
             }}
           >
-            Ultra
+            {t("home.hero.subtitle")}
           </motion.div>
 
           <motion.p
@@ -219,9 +221,9 @@ export const Home = () => {
               marginBottom: "2rem",
             }}
           >
-            6,706 km. Toutes les heures. Jusqu'au dernier debout.
+            {t("home.hero.desc_line1")}
             <br />
-            La course sans distance. Sans limite.
+            {t("home.hero.desc_line2")}
           </motion.p>
 
           <motion.div
@@ -231,10 +233,10 @@ export const Home = () => {
             style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}
           >
             <Link to="/inscriptions" className="btn-primary" style={{ fontSize: "1rem", padding: "0.85rem 2rem" }}>
-              S'inscrire à la newsletter →
+              {t("home.hero.btn_newsletter")}
             </Link>
             <Link to="/concept" className="btn-outline-white" style={{ fontSize: "1rem", padding: "0.85rem 2rem" }}>
-              Découvrir le concept
+              {t("home.hero.btn_concept")}
             </Link>
           </motion.div>
         </div>
@@ -260,7 +262,7 @@ export const Home = () => {
             zIndex: 10,
           }}
         >
-          <span>Défiler</span>
+          <span>{t("home.hero.scroll")}</span>
           <div
             style={{
               width: "1px",
@@ -282,13 +284,12 @@ export const Home = () => {
             style={{ textAlign: "center", marginBottom: "3rem" }}
             className={`reveal ${conceptVisible ? "revealed" : ""}`}
           >
-            <p className="section-subtitle">Le format</p>
+            <p className="section-subtitle">{t("home.concept.subtitle")}</p>
             <h2 className="section-title" style={{ marginTop: "0.5rem", marginBottom: "1rem" }}>
-              Une course sans fin
+              {t("home.concept.title")}
             </h2>
             <p style={{ color: "#4a6b56", maxWidth: "560px", margin: "0 auto", fontSize: "1.05rem", lineHeight: 1.75 }}>
-              Le Backyard Ultra est une épreuve d'ultra-endurance unique : pas de distance fixée,
-              pas d'horaire d'arrivée — seulement un tour de 6,706 km à boucler toutes les heures, pile.
+              {t("home.concept.desc")}
             </p>
           </div>
 
@@ -304,29 +305,29 @@ export const Home = () => {
               {
                 icon: Timer,
                 color: "#277956",
-                title: "Toutes les heures",
-                text: "Un top départ est donné chaque heure. Tous les coureurs encore en course repartent ensemble, sans exception.",
+                title: t("home.concept.card1_title"),
+                text: t("home.concept.card1_text"),
                 delay: 0,
               },
               {
                 icon: Footprints,
                 color: "#2D9185",
-                title: "6,706 km par tour",
-                text: "Chaque boucle fait exactement 6,706 km — 4,1667 miles. À compléter dans l'heure, sinon c'est l'élimination.",
+                title: t("home.concept.card2_title"),
+                text: t("home.concept.card2_text"),
                 delay: 0.1,
               },
               {
                 icon: Trophy,
                 color: "#F5C92C",
-                title: "Un seul vainqueur",
-                text: "La course continue jusqu'à ce qu'il ne reste plus qu'un seul coureur capable de boucler un tour supplémentaire.",
+                title: t("home.concept.card3_title"),
+                text: t("home.concept.card3_text"),
                 delay: 0.2,
               },
               {
                 icon: Users,
                 color: "#8CBE4F",
-                title: "Un esprit unique",
-                text: "Entre les tours, le camp de base réunit coureurs, équipes et supporters dans une ambiance conviviale et solidaire.",
+                title: t("home.concept.card4_title"),
+                text: t("home.concept.card4_text"),
                 delay: 0.3,
               },
             ].map((card, i) => (
@@ -344,7 +345,7 @@ export const Home = () => {
 
           <div style={{ textAlign: "center" }}>
             <Link to="/concept" className="btn-outline">
-              En savoir plus sur le concept <ChevronRight size={16} />
+              {t("home.concept.btn")} <ChevronRight size={16} />
             </Link>
           </div>
         </div>
@@ -363,9 +364,9 @@ export const Home = () => {
         </div>
         <div className="page-container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="section-subtitle" style={{ color: "#8CBE4F" }}>L'événement en chiffres</p>
+            <p className="section-subtitle" style={{ color: "#8CBE4F" }}>{t("home.stats.subtitle")}</p>
             <h2 className="section-title-light" style={{ marginTop: "0.5rem" }}>
-              Breizh Backyard Ultra
+              {t("home.stats.title")}
             </h2>
           </div>
           <div
@@ -375,10 +376,10 @@ export const Home = () => {
               gap: "1.25rem",
             }}
           >
-            <StatCard number={6} suffix=",706 km" label="Par tour" desc="La distance exacte du Backyard Ultra" />
-            <StatCard number={150} suffix="" label="Coureurs attendus" desc="Toutes catégories confondues" />
-            <StatCard number={114} suffix="h" label="Record mondial" desc="Plus de 760 km parcourus" />
-            <StatCard number={1} suffix="ère" label="Édition à Rennes" desc="Un nouveau rendez-vous ultra" />
+            <StatCard number={6} suffix={t("home.stats.stat1_suffix")} label={t("home.stats.stat1_label")} desc={t("home.stats.stat1_desc")} />
+            <StatCard number={150} suffix={t("home.stats.stat2_suffix")} label={t("home.stats.stat2_label")} desc={t("home.stats.stat2_desc")} />
+            <StatCard number={114} suffix={t("home.stats.stat3_suffix")} label={t("home.stats.stat3_label")} desc={t("home.stats.stat3_desc")} />
+            <StatCard number={1} suffix={t("home.stats.stat4_suffix")} label={t("home.stats.stat4_label")} desc={t("home.stats.stat4_desc")} />
           </div>
         </div>
       </section>
@@ -388,28 +389,27 @@ export const Home = () => {
           ============================================================ */}
       <section className="section-light section-py" ref={parcours}>
         <div className="page-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3rem", alignItems: "center" }}>
+          <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3rem", alignItems: "center" }}>
             <motion.div
               initial={{ opacity: 0, x: -32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <p className="section-subtitle">Le tracé</p>
+              <p className="section-subtitle">{t("home.parcours.subtitle")}</p>
               <h2 className="section-title" style={{ marginTop: "0.5rem", marginBottom: "1.25rem" }}>
-                Un parcours en pleine nature bretonne
+                {t("home.parcours.title")}
               </h2>
               <p style={{ color: "#4a6b56", lineHeight: 1.75, marginBottom: "1.75rem" }}>
-                Le circuit serpente à travers la nature bretonne : sentiers forestiers, sous-bois,
-                chemins champêtres... Un cadre inspirant pour repousser vos limites, heure après heure.
+                {t("home.parcours.desc")}
               </p>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem", marginBottom: "2rem" }}>
                 {[
-                  { icon: Footprints, label: "Distance par tour", value: "6,706 km" },
-                  { icon: Mountain, label: "Dénivelé (indicatif)", value: "à venir" },
-                  { icon: Leaf, label: "Type de terrain", value: "Sentiers nature, forêt" },
-                  { icon: MapPin, label: "Localisation", value: "Parc des Gayeulles, Rennes" },
+                  { icon: Footprints, label: t("home.parcours.list1_label"), value: t("home.parcours.list1_value") },
+                  { icon: Mountain, label: t("home.parcours.list2_label"), value: t("home.parcours.list2_value") },
+                  { icon: Leaf, label: t("home.parcours.list3_label"), value: t("home.parcours.list3_value") },
+                  { icon: MapPin, label: t("home.parcours.list4_label"), value: t("home.parcours.list4_value") },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
                     <div
@@ -431,7 +431,7 @@ export const Home = () => {
               </div>
 
               <Link to="/parcours" className="btn-outline">
-                Voir le parcours <ChevronRight size={16} />
+                {t("home.parcours.btn")} <ChevronRight size={16} />
               </Link>
             </motion.div>
 
@@ -447,10 +447,10 @@ export const Home = () => {
               >
                 <Mountain size={40} style={{ opacity: 0.5, position: "relative", zIndex: 1 }} />
                 <span style={{ position: "relative", zIndex: 1, fontFamily: "'Inter', sans-serif" }}>
-                  📍 Photo du parcours à venir
+                  {t("home.parcours.placeholder1")}
                 </span>
                 <span style={{ position: "relative", zIndex: 1, fontSize: "0.75rem" }}>
-                  Remplacer par vos vraies photos
+                  {t("home.parcours.placeholder2")}
                 </span>
               </div>
             </motion.div>
@@ -464,29 +464,29 @@ export const Home = () => {
       <section className="section-white section-py">
         <div className="page-container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="section-subtitle">L'ambiance</p>
+            <p className="section-subtitle">{t("home.ambiance.subtitle")}</p>
             <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
-              Bien plus qu'une course
+              {t("home.ambiance.title")}
             </h2>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
             {[
               {
-                title: "Le camp de base",
-                text: "Entre chaque tour, coureurs et accompagnants se retrouvent dans la zone de vie. Tentes, chaises longues, ravitaillement maison... L'ambiance est unique.",
+                title: t("home.ambiance.card1_title"),
+                text: t("home.ambiance.card1_text"),
                 icon: Wind,
                 color: "#2D9185",
               },
               {
-                title: "L'entraide",
-                text: "Dans le Backyard, les coureurs se soutiennent mutuellement. On se connaît au fil des heures, on s'encourage, on partage. Un esprit de communauté rare en compétition.",
+                title: t("home.ambiance.card2_title"),
+                text: t("home.ambiance.card2_text"),
                 icon: Users,
                 color: "#277956",
               },
               {
-                title: "La Bretagne",
-                text: "Un cadre naturel exceptionnel : forêts, sentiers, air iodé... La Bretagne offre le décor parfait pour cette aventure d'ultra-endurance.",
+                title: t("home.ambiance.card3_title"),
+                text: t("home.ambiance.card3_text"),
                 icon: Leaf,
                 color: "#8CBE4F",
               },
@@ -560,17 +560,16 @@ export const Home = () => {
           >
             <span className="bbu-badge" style={{ background: "rgba(255,255,255,0.15)", color: "#fff", borderColor: "rgba(255,255,255,0.3)", marginBottom: "1.5rem" }}>
               <Timer size={12} />
-              Départ : 15 mai 2027
+              {t("home.cta.badge")}
             </span>
             <h2 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", color: "#fff", marginBottom: "1rem" }}>
-              Ne ratez pas l'ouverture des inscriptions
+              {t("home.cta.title")}
             </h2>
             <p style={{ color: "rgba(255,255,255,0.85)", fontSize: "1.05rem", maxWidth: "480px", margin: "0 auto 2rem", lineHeight: 1.7 }}>
-              Les places sont limitées. Inscrivez-vous à notre newsletter pour être
-              prévenu(e) en priorité dès l'ouverture.
+              {t("home.cta.desc")}
             </p>
             <Link to="/inscriptions" className="btn-primary" style={{ fontSize: "1.05rem", padding: "0.9rem 2.5rem" }}>
-              Je veux être prévenu(e) →
+              {t("home.cta.btn")}
             </Link>
           </motion.div>
         </div>

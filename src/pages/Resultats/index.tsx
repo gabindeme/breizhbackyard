@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 import { Activity, Timer, Users, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
+  <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
     <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.08) 0%, transparent 60%)` }} />
     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}>
@@ -19,12 +20,14 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
 );
 
 export const Resultats = () => {
+  const { t } = useTranslation();
+
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
       <PageHeader
-        subtitle="Édition #1"
-        title="Résultats & Suivi Live"
-        description="Il n'y a pas encore d'historique de résultats car c'est la toute première édition du Breizh Backyard Ultra."
+        subtitle={t("resultats_page.header.subtitle")}
+        title={t("resultats_page.header.title")}
+        description={t("resultats_page.header.desc")}
       />
 
       <section className="section-light section-py">
@@ -73,20 +76,18 @@ export const Resultats = () => {
             </div>
 
             <h2 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "2rem", color: "#1a2e22", marginBottom: "1rem" }}>
-              Le Suivi Live sera ici !
+              {t("resultats_page.live.title")}
             </h2>
             
             <p style={{ color: "#4a6b56", fontSize: "1.05rem", lineHeight: 1.7, marginBottom: "2.5rem", maxWidth: "600px", margin: "0 auto 2.5rem" }}>
-              Le jour de la course, cette page se transformera en <strong>tableau de bord en direct</strong>. 
-              Vous pourrez y suivre l'évolution de la course heure par heure, voir les éliminations et soutenir 
-              le dernier coureur debout.
+              {t("resultats_page.live.desc_start")}<strong>{t("resultats_page.live.desc_bold")}</strong>{t("resultats_page.live.desc_end")}
             </p>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "1rem", marginBottom: "2.5rem", textAlign: "left" }}>
               {[
-                { icon: Timer, label: "Temps au tour" },
-                { icon: Users, label: "Coureurs en lice" },
-                { icon: Trophy, label: "Le vainqueur final" }
+                { icon: Timer, label: t("resultats_page.live.ind1") },
+                { icon: Users, label: t("resultats_page.live.ind2") },
+                { icon: Trophy, label: t("resultats_page.live.ind3") }
               ].map(({ icon: Icon, label }, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.75rem", padding: "1rem", background: "#f0f4f1", borderRadius: "1rem", border: "1px solid #D0D0D0" }}>
                   <Icon size={20} style={{ color: "#277956" }} />
@@ -97,7 +98,7 @@ export const Resultats = () => {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
               <Link to="/inscriptions" className="btn-primary" style={{ padding: "0.85rem 2rem" }}>
-                Être prévenu de l'ouverture
+                {t("resultats_page.live.btn")}
               </Link>
             </div>
           </motion.div>

@@ -1,8 +1,10 @@
 import { motion } from "motion/react";
-import { MapPin, Mountain, Leaf, Footprints, Sun, Compass, Camera, ExternalLink } from "lucide-react";
+import { useEffect } from "react";
+import { Mountain, Leaf, Footprints, Sun, Camera, ExternalLink } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
+  <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
     <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.08) 0%, transparent 60%)` }} />
     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}>
@@ -17,29 +19,47 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
   </div>
 );
 
-const terrainFeatures = [
-  { icon: Leaf, label: "Sentiers forestiers", desc: "La majorité du tracé serpente sous les frondaisons, offrant une ombre bienvenue et une atmosphère immersive." },
-  { icon: Mountain, label: "Terrain varié", desc: "Chemins de terre, petites montées et descentes douces, passages en sous-bois. Accessible mais exigeant sur la durée." },
-  { icon: Sun, label: "Exposition lumière", desc: "Quelques portions à découvert permettent de profiter de la lumière naturelle. Pensez à la protection solaire en été." },
-  { icon: Footprints, label: "Sol meuble et ferme", desc: "Alternance de sol meuble (terre) et de chemin plus stabilisé. Des chaussures de trail sont recommandées." },
-];
-
 export const Parcours = () => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    const oldScript = document.getElementById("strava-embed-script");
+    if (oldScript) oldScript.remove();
+    
+    const script = document.createElement("script");
+    script.id = "strava-embed-script";
+    script.src = "https://strava-embeds.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      const s = document.getElementById("strava-embed-script");
+      if (s) s.remove();
+    };
+  }, []);
+
+  const terrainFeatures = [
+    { icon: Leaf, label: t("parcours_page.terrainFeatures.f1_label"), desc: t("parcours_page.terrainFeatures.f1_desc") },
+    { icon: Mountain, label: t("parcours_page.terrainFeatures.f2_label"), desc: t("parcours_page.terrainFeatures.f2_desc") },
+    { icon: Sun, label: t("parcours_page.terrainFeatures.f3_label"), desc: t("parcours_page.terrainFeatures.f3_desc") },
+    { icon: Footprints, label: t("parcours_page.terrainFeatures.f4_label"), desc: t("parcours_page.terrainFeatures.f4_desc") },
+  ];
+
   const photos = [
-    { label: "Sentier forestier", desc: "Votre photo ici" },
-    { label: "Vue sur la nature", desc: "Votre photo ici" },
-    { label: "Le départ / arrivée", desc: "Votre photo ici" },
-    { label: "Zone de vie", desc: "Votre photo ici" },
-    { label: "Vue panoramique", desc: "Votre photo ici" },
-    { label: "Détail du tracé", desc: "Votre photo ici" },
+    { label: t("parcours_page.galerie.p1_label"), desc: t("parcours_page.galerie.p1_desc") },
+    { label: t("parcours_page.galerie.p2_label"), desc: t("parcours_page.galerie.p2_desc") },
+    { label: t("parcours_page.galerie.p3_label"), desc: t("parcours_page.galerie.p3_desc") },
+    { label: t("parcours_page.galerie.p4_label"), desc: t("parcours_page.galerie.p4_desc") },
+    { label: t("parcours_page.galerie.p5_label"), desc: t("parcours_page.galerie.p5_desc") },
+    { label: t("parcours_page.galerie.p6_label"), desc: t("parcours_page.galerie.p6_desc") },
   ];
 
   return (
     <div style={{ background: "#EFEFEF" }}>
       <PageHeader
-        subtitle="Le circuit"
-        title="Le Parcours"
-        description="Un tracé de 6,706 km conçu pour le format Backyard Ultra, au cœur de la nature bretonne. Chaque tour est une nouvelle aventure."
+        subtitle={t("parcours_page.header.subtitle")}
+        title={t("parcours_page.header.title")}
+        description={t("parcours_page.header.desc")}
       />
 
       {/* ============================================================
@@ -49,10 +69,10 @@ export const Parcours = () => {
         <div className="page-container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "1.25rem" }}>
             {[
-              { value: "6,706", unit: "km", label: "Distance exacte" },
-              { value: "À venir", unit: "", label: "Dénivelé positif" },
-              { value: "100%", unit: "", label: "Sentiers nature" },
-              { value: "Coral", unit: "", label: "Base entre les tours" },
+              { value: t("parcours_page.stats.s1_val"), unit: t("parcours_page.stats.s1_unit"), label: t("parcours_page.stats.s1_label") },
+              { value: t("parcours_page.stats.s2_val"), unit: t("parcours_page.stats.s2_unit"), label: t("parcours_page.stats.s2_label") },
+              { value: t("parcours_page.stats.s3_val"), unit: t("parcours_page.stats.s3_unit"), label: t("parcours_page.stats.s3_label") },
+              { value: t("parcours_page.stats.s4_val"), unit: t("parcours_page.stats.s4_unit"), label: t("parcours_page.stats.s4_label") },
             ].map((s) => (
               <div key={s.label} className="bbu-card" style={{ textAlign: "center", padding: "1.5rem 1rem" }}>
                 <div style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.8rem", color: "#277956", lineHeight: 1 }}>
@@ -70,79 +90,58 @@ export const Parcours = () => {
           ============================================================ */}
       <section className="section-white section-py">
         <div className="page-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
+          <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
             <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <p className="section-subtitle">Le tracé</p>
+              <p className="section-subtitle">{t("parcours_page.description.subtitle")}</p>
               <h2 className="section-title" style={{ marginTop: "0.5rem", marginBottom: "1.5rem" }}>
-                Présentation du circuit
+                {t("parcours_page.description.title")}
               </h2>
               <p style={{ color: "#4a6b56", lineHeight: 1.8, marginBottom: "1.25rem" }}>
-                Le tracé du Breizh Backyard Ultra a été pensé pour être à la fois beau et équitable
-                pour tous les coureurs. Une boucle unique de <strong style={{ color: "#277956" }}>6,706 km</strong>,
-                parcourue dans le même sens à chaque tour.
+                {t("parcours_page.description.p1_start")}<strong style={{ color: "#277956" }}>{t("parcours_page.description.p1_bold")}</strong>{t("parcours_page.description.p1_end")}
               </p>
               <p style={{ color: "#4a6b56", lineHeight: 1.8, marginBottom: "1.25rem" }}>
-                Le départ et l'arrivée sont situés dans la <strong>zone de vie</strong> — le camp de
-                base où coureurs et accompagnants se retrouvent entre les boucles. Vous disposez du
-                temps non couru (si vous terminez en 45 minutes, vous avez 15 minutes pour récupérer)
-                avant le prochain top départ.
+                {t("parcours_page.description.p2_start")}<strong>{t("parcours_page.description.p2_bold")}</strong>{t("parcours_page.description.p2_end")}
               </p>
               <p style={{ color: "#4a6b56", lineHeight: 1.8, marginBottom: "2rem" }}>
                 <em style={{ color: "#2D9185" }}>
-                  Le détail complet du tracé (carte interactive, profil alti) sera publié prochainement.
+                  {t("parcours_page.description.p3")}
                 </em>
               </p>
 
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <button className="btn-outline" style={{ cursor: "not-allowed", opacity: 0.6 }}>
-                  <MapPin size={16} /> Voir sur Strava (à venir)
-                </button>
-                <button className="btn-outline" style={{ cursor: "not-allowed", opacity: 0.6 }}>
-                  <ExternalLink size={16} /> Télécharger le GPX (à venir)
-                </button>
+                <a
+                  href="https://www.strava.com/routes/3511871122974369520/export_gpx"
+                  download
+                  className="btn-outline"
+                >
+                  <ExternalLink size={16} />{t("parcours_page.description.btn_gpx")}
+                </a>
               </div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}>
-              {/* Carte placeholder */}
+              {/* Carte Strava Embed */}
               <div
                 style={{
                   borderRadius: "1.5rem",
                   overflow: "hidden",
                   border: "1.5px solid #D0D0D0",
                   boxShadow: "0 8px 32px rgba(39,121,86,0.12)",
+                  background: "#fff",
+                  minHeight: "400px",
                 }}
               >
-                <div
-                  style={{
-                    background: "linear-gradient(135deg, #2D9185 0%, #277956 50%, #4DA154 100%)",
-                    minHeight: "320px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "1rem",
-                    color: "rgba(255,255,255,0.8)",
-                    padding: "2rem",
-                  }}
-                >
-                  <Compass size={48} style={{ opacity: 0.5 }} />
-                  <div style={{ textAlign: "center" }}>
-                    <div style={{ fontWeight: "700", color: "#fff", fontSize: "1.1rem", marginBottom: "0.5rem" }}>
-                      Carte interactive
-                    </div>
-                    <div style={{ fontSize: "0.85rem" }}>
-                      Publication du tracé définitif à venir
-                    </div>
-                    <div style={{ fontSize: "0.78rem", marginTop: "0.5rem", color: "rgba(255,255,255,0.6)" }}>
-                      Intégration Strava / Google Maps / IGN prévue
-                    </div>
-                  </div>
-                </div>
-                <div style={{ background: "#fff", padding: "1rem 1.5rem", display: "flex", alignItems: "center", gap: "0.5rem", borderTop: "1px solid #D0D0D0" }}>
-                  <MapPin size={14} style={{ color: "#277956" }} />
-                  <span style={{ fontSize: "0.82rem", color: "#4a6b56" }}>Parc des Gayeulles, Rennes</span>
-                </div>
+                <div 
+                  className="strava-embed-placeholder" 
+                  data-embed-type="route" 
+                  data-embed-id="3511871122974369520" 
+                  data-hide-elevation="true"
+                  data-style="standard" 
+                  data-terrain="2d" 
+                  data-map-hash="13.13/48.1345/-1.6449" 
+                  data-from-embed="true" 
+                  data-token="IOn6tL0nyVGfAaWdqoU2QCEpLxwZJ5Jue1GI8U8s7JI"
+                ></div>
               </div>
             </motion.div>
           </div>
@@ -155,9 +154,9 @@ export const Parcours = () => {
       <section className="section-light section-py">
         <div className="page-container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="section-subtitle">Le terrain</p>
+            <p className="section-subtitle">{t("parcours_page.terrain.subtitle")}</p>
             <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
-              Ce que vous trouverez sur le tracé
+              {t("parcours_page.terrain.title")}
             </h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1.5rem" }}>
@@ -186,25 +185,23 @@ export const Parcours = () => {
           ============================================================ */}
       <section className="section-dark section-py">
         <div className="page-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
+          <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
             <div>
-              <p className="section-subtitle" style={{ color: "#8CBE4F" }}>Entre les tours</p>
+              <p className="section-subtitle" style={{ color: "#8CBE4F" }}>{t("parcours_page.zone_vie.subtitle")}</p>
               <h2 className="section-title-light" style={{ marginTop: "0.5rem", marginBottom: "1.5rem" }}>
-                La zone de vie & camp de base
+                {t("parcours_page.zone_vie.title")}
               </h2>
               <p style={{ color: "rgba(255,255,255,0.8)", lineHeight: 1.8, marginBottom: "1.25rem" }}>
-                Au centre de la boucle se trouve le camp de base : votre QG pendant toute la durée de la course.
-                C'est ici que vous revenez après chaque tour pour récupérer, manger, dormir si nécessaire.
+                {t("parcours_page.zone_vie.p1")}
               </p>
               <p style={{ color: "rgba(255,255,255,0.8)", lineHeight: 1.8 }}>
-                Vous pouvez installer votre propre installation (tente, chaise longue, table...).
-                Vos accompagnants, famille et amis peuvent rester dans cette zone pour vous soutenir tout au long de la course.
+                {t("parcours_page.zone_vie.p2")}
               </p>
             </div>
             <div>
               <div className="placeholder-img" style={{ minHeight: "280px", borderRadius: "1.25rem" }}>
                 <Camera size={36} style={{ opacity: 0.5, position: "relative", zIndex: 1 }} />
-                <span style={{ position: "relative", zIndex: 1 }}>📸 Photo de la zone de vie à venir</span>
+                <span style={{ position: "relative", zIndex: 1 }}>{t("parcours_page.zone_vie.placeholder")}</span>
               </div>
             </div>
           </div>
@@ -217,10 +214,10 @@ export const Parcours = () => {
       <section className="section-white section-py">
         <div className="page-container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="section-subtitle">Aperçu</p>
-            <h2 className="section-title" style={{ marginTop: "0.5rem" }}>Photos du parcours</h2>
+            <p className="section-subtitle">{t("parcours_page.galerie.subtitle")}</p>
+            <h2 className="section-title" style={{ marginTop: "0.5rem" }}>{t("parcours_page.galerie.title")}</h2>
             <p style={{ color: "#4a6b56", marginTop: "0.75rem", fontSize: "0.9rem" }}>
-              Les vraies photos seront ajoutées prochainement — emplacements réservés ci-dessous.
+              {t("parcours_page.galerie.desc")}
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1rem" }}>

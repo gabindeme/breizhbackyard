@@ -14,22 +14,11 @@ const navLinks = [
   { to: "/sponsors", key: "sponsors" },
   // { to: "/galerie", key: "galerie" },
   { to: "/contact", key: "contact" },
+  { to: "/benevoles", key: "benevoles" },
 ];
 
 const BRFlag = ({ style }: { style?: React.CSSProperties }) => (
-  <svg viewBox="0 0 900 600" style={style} xmlns="http://www.w3.org/2000/svg">
-    <rect width="900" height="600" fill="#fff" />
-    <rect y="66.6" width="900" height="66.6" fill="#000" />
-    <rect y="200" width="900" height="66.6" fill="#000" />
-    <rect y="333.3" width="900" height="66.6" fill="#000" />
-    <rect y="466.6" width="900" height="66.6" fill="#000" />
-    <rect width="400" height="266.6" fill="#fff" />
-    <g fill="#000">
-      <path d="M 50 50 L 60 70 L 40 70 Z M 150 50 L 160 70 L 140 70 Z M 250 50 L 260 70 L 240 70 Z M 350 50 L 360 70 L 340 70 Z" />
-      <path d="M 100 150 L 110 170 L 90 170 Z M 200 150 L 210 170 L 190 170 Z M 300 150 L 310 170 L 290 170 Z" />
-      <path d="M 50 220 L 60 240 L 40 240 Z M 150 220 L 160 240 L 140 240 Z M 250 220 L 260 240 L 240 240 Z M 350 220 L 360 240 L 340 240 Z" />
-    </g>
-  </svg>
+  <img src="/Gwenn_ha_du.svg" alt="Drapeau Breton" style={{ ...style, objectFit: "cover" }} />
 );
 
 const LanguageDropdown = ({ closeMenu, isMobile = false }: { closeMenu?: () => void, isMobile?: boolean }) => {

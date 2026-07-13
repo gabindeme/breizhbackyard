@@ -1,15 +1,35 @@
 {
   "pages": {
-    "home": { "home": "Home" },
-    "concept": { "title": "The Concept" },
-    "parcours": { "title": "The Course" },
-    "infos": { "title": "Practical Info" },
-    "inscriptions": { "title": "Registration" },
-    "resultats": { "title": "Results" },
-    "faq": { "title": "FAQ" },
-    "sponsors": { "title": "Sponsors" },
-    "galerie": { "title": "Gallery" },
-    "contact": { "title": "Contact" }
+    "home": {
+      "home": "Home"
+    },
+    "concept": {
+      "title": "The Concept"
+    },
+    "parcours": {
+      "title": "The Course"
+    },
+    "infos": {
+      "title": "Practical Info"
+    },
+    "inscriptions": {
+      "title": "Registration"
+    },
+    "resultats": {
+      "title": "Results"
+    },
+    "faq": {
+      "title": "FAQ"
+    },
+    "sponsors": {
+      "title": "Sponsors"
+    },
+    "galerie": {
+      "title": "Gallery"
+    },
+    "contact": {
+      "title": "Contact"
+    }
   },
   "navbar": {
     "home": "Home",
@@ -24,16 +44,673 @@
     "contact": "Contact",
     "language": "Language",
     "languageChanged": "Language changed to English.",
-    "newsletter": "Sign up"
+    "newsletter": "Sign up",
+    "benevoles": "Volunteers"
   },
   "footer": {
-    "rights": "Breizh Backyard Ultra. All rights reserved.",
+    "rights": "© {{year}} Breizh Backyard Ultra — All rights reserved",
     "tagline": "Ultra-endurance at the end of Brittany.",
     "nav_title": "Navigation",
     "info_title": "Information",
     "social_title": "Social media",
     "mentions": "Legal notice",
     "cookies": "Cookie policy",
-    "contact": "Contact"
+    "contact": "Contact",
+    "description": "Ultra-endurance at the very edge of Brittany. One loop. Every hour. Until the last one standing.",
+    "course_title": "The race",
+    "location": "Parc des Gayeulles, Rennes",
+    "depart_dans": "Starting in",
+    "date": "Saturday, May 15, 2027 · 10:00 AM",
+    "benevoles": "Become a volunteer"
+  },
+  "countdown": {
+    "depart_dans": "Starting in:",
+    "days_short": "D",
+    "hours_short": "H",
+    "minutes_short": "M",
+    "seconds_short": "S"
+  },
+  "home": {
+    "hero": {
+      "date": "Saturday, May 15, 2027 · 10:00 AM",
+      "title": "BREIZH BACKYARD",
+      "subtitle": "Ultra",
+      "desc_line1": "6.706 km. Every hour. Until the last one standing.",
+      "desc_line2": "The race without a distance. Without a limit.",
+      "btn_newsletter": "I want my bib →",
+      "btn_concept": "Discover the concept",
+      "scroll": "Scroll"
+    },
+    "concept": {
+      "subtitle": "The format",
+      "title": "A race without an end",
+      "desc": "The Backyard Ultra is a unique ultra-endurance event: no fixed distance, no finish time — just a 6.706 km loop to complete every hour, on the dot.",
+      "card1_title": "Every hour",
+      "card1_text": "A starting signal is given every hour. All runners still in the race set off together, without exception.",
+      "card2_title": "6.706 km per loop",
+      "card2_text": "Each loop is exactly 6.706 km — 4.1667 miles. It must be completed within the hour, or you're eliminated.",
+      "card3_title": "A single winner",
+      "card3_text": "The race continues until only one runner remains able to complete one more loop.",
+      "card4_title": "A unique spirit",
+      "card4_text": "Between loops, the base camp brings together runners, crews, and supporters in a friendly, close-knit atmosphere.",
+      "btn": "Learn more about the concept"
+    },
+    "stats": {
+      "subtitle": "The event in numbers",
+      "title": "Breizh Backyard Ultra",
+      "stat1_suffix": ".706 km",
+      "stat1_label": "Per loop",
+      "stat1_desc": "The exact distance of the Backyard Ultra",
+      "stat2_suffix": "",
+      "stat2_label": "Runners expected",
+      "stat2_desc": "All categories combined",
+      "stat3_suffix": "h",
+      "stat3_label": "World record",
+      "stat3_desc": "Over 760 km covered",
+      "stat4_suffix": "st",
+      "stat4_label": "Edition in Rennes",
+      "stat4_desc": "A brand-new ultra event"
+    },
+    "parcours": {
+      "subtitle": "The route",
+      "title": "A course through the Breton countryside",
+      "desc": "The course winds through the Breton countryside: forest trails, woodland paths, rural tracks... An inspiring setting to push your limits, hour after hour.",
+      "list1_label": "Distance per loop",
+      "list1_value": "6.706 km",
+      "list2_label": "Elevation gain (indicative)",
+      "list2_value": "coming soon",
+      "list3_label": "Terrain type",
+      "list3_value": "Nature trails, forest",
+      "list4_label": "Location",
+      "list4_value": "Parc des Gayeulles, Rennes",
+      "btn": "View the course",
+      "placeholder1": "📍 Course photo coming soon",
+      "placeholder2": "Replace with your real photos"
+    },
+    "ambiance": {
+      "subtitle": "The atmosphere",
+      "title": "Much more than a race",
+      "card1_title": "The base camp",
+      "card1_text": "Between each loop, runners and crews gather in the living area. Tents, deck chairs, homemade food... The atmosphere is unique.",
+      "card2_title": "Mutual support",
+      "card2_text": "In the Backyard, runners support one another. You get to know each other hour by hour, encourage one another, share. A sense of community rare in competitive sport.",
+      "card3_title": "Brittany",
+      "card3_text": "An exceptional natural setting: forests, trails, sea air... Brittany offers the perfect backdrop for this ultra-endurance adventure."
+    },
+    "cta": {
+      "badge": "Start: May 15, 2027",
+      "title": "Don't miss the opening of registration",
+      "desc": "Spots are limited. Sign up for our newsletter to be notified first as soon as registration opens.",
+      "btn": "Notify me →"
+    }
+  },
+  "concept_page": {
+    "header": {
+      "subtitle": "The format",
+      "title": "The Backyard Ultra Concept",
+      "desc": "An event invented by Gary Cantrell (aka Lazarus Lake) in 2011, in Tennessee. A unique format that changed the world of ultra-endurance."
+    },
+    "principe": {
+      "subtitle": "The principle",
+      "title_line1": "Simple to understand,",
+      "title_line2": "impossible to master",
+      "desc1_start": "The principle of the Backyard Ultra is disarmingly simple: complete a loop of ",
+      "desc1_bold": " 6.706 km ",
+      "desc1_end": " (4.1667 miles — or 100 miles after 24h), every single hour, without exception.",
+      "desc2": "Every new hour, a signal sounds: it's the start. All runners still in the race set off together, whether fresh or exhausted. No individual starts, no exceptions.",
+      "desc3_start": "If you haven't finished your loop before the next start signal, ",
+      "desc3_bold": "it's over",
+      "desc3_end": ". You are eliminated. No tolerance.",
+      "desc4_start": "The race continues hour after hour, until only one runner remains able to complete one more loop. That runner must then complete this loop ",
+      "desc4_bold": "alone",
+      "desc4_end": " to be declared the official winner — without that, there is no winner."
+    },
+    "cards": {
+      "km": "6.706 km",
+      "km_desc": "per loop — every hour, on the dot",
+      "c1_title": "One loop = one hour",
+      "c1_text": "Each loop must be completed before the next start signal. The clock is always running.",
+      "c2_title": "No guaranteed winner",
+      "c2_text": "If no one can complete one more loop than the others, there is officially no winner.",
+      "c3_title": "Only one can win",
+      "c3_text": "The winner is the last one standing — the one who completes one more loop than everyone else, alone."
+    },
+    "schema": {
+      "subtitle": "Understanding the format",
+      "title": "A race with no scheduled end",
+      "step_depart": "Start",
+      "step_vainqueur": "Winner!",
+      "legend_depart": "Starting signal every hour",
+      "legend_vainqueur": "Winner = last to finish"
+    },
+    "rules": {
+      "r1_title": "Starting signal every hour",
+      "r1_text": "The signal sounds right on the hour. All runners set off together, regardless of their physical condition.",
+      "r2_title": "Exactly 6.706 km loop",
+      "r2_text": "The distance is standardized worldwide. Every Backyard Ultra race uses this same base course.",
+      "r3_title": "Immediate elimination",
+      "r3_text": "Any runner who has not crossed the finish line before the next start signal is immediately eliminated.",
+      "r4_title": "The winner's lap",
+      "r4_text": "To be declared the official winner, the last runner remaining must complete one additional loop, alone."
+    },
+    "faq": {
+      "subtitle": "Frequently asked questions",
+      "title": "Your first questions",
+      "q1": "What happens if I don't make it within the hour?",
+      "a1": "You are immediately eliminated. If the next loop's start signal is given before you cross the finish line, you cannot set off again.",
+      "q2": "How long can a race last?",
+      "a2": "No one knows in advance! The world record exceeds 100 hours, more than 4 days without stopping. In practice, most races end between 24 and 48 hours.",
+      "q3": "Can there be several winners?",
+      "a3": "No. If all runners drop out at the same loop (without a single one managing to complete one more loop than the others), there is no official winner. The winner must always complete one additional loop alone.",
+      "q4": "Can I sleep between loops?",
+      "a4": "Yes! You have a time window (which varies depending on how fast you complete your loop) to rest, eat, tend to injuries... This is where managing your recovery becomes strategic.",
+      "q5": "Is the format suitable for ultra beginners?",
+      "a5": "The format is accessible to everyone — there is no technical threshold. But it requires serious mental and physical preparation, as the duration can be very long. We recommend having already run a trail race or a marathon before taking it on.",
+      "btn": "See all questions"
+    }
+  },
+  "parcours_page": {
+    "header": {
+      "subtitle": "The course",
+      "title": "The Course",
+      "desc": "A 6.706 km route designed for the Backyard Ultra format, in the heart of the Breton countryside. Each loop is a new adventure."
+    },
+    "terrainFeatures": {
+      "f1_label": "Forest trails",
+      "f1_desc": "Most of the route winds beneath the tree canopy, offering welcome shade and an immersive atmosphere.",
+      "f2_label": "Varied terrain",
+      "f2_desc": "Dirt paths, gentle climbs and descents, wooded sections. Accessible but demanding over time.",
+      "f3_label": "Light exposure",
+      "f3_desc": "A few open sections let you enjoy natural light. Remember sun protection in summer.",
+      "f4_label": "Soft and firm ground",
+      "f4_desc": "Alternating soft ground (dirt) and more stable paths. Trail running shoes are recommended."
+    },
+    "stats": {
+      "s1_val": "6.706",
+      "s1_unit": "km",
+      "s1_label": "Exact distance",
+      "s2_val": "45",
+      "s2_unit": "m",
+      "s2_label": "Elevation gain",
+      "s3_val": "100%",
+      "s3_unit": "",
+      "s3_label": "Nature trails",
+      "s4_val": "Coral",
+      "s4_unit": "",
+      "s4_label": "Base between loops"
+    },
+    "description": {
+      "subtitle": "The route",
+      "title": "Course overview",
+      "p1_start": "The Breizh Backyard Ultra route was designed to be both beautiful and fair to all runners. A single loop of ",
+      "p1_bold": "6.706 km",
+      "p1_end": ", covered in the same direction on every loop.",
+      "p2_start": "The start and finish are located in the ",
+      "p2_bold": "living area",
+      "p2_end": " — the base camp where runners and crews gather between loops. You get to keep any time you didn't use (if you finish in 45 minutes, you have 15 minutes to recover) before the next start signal.",
+      "p3": "Find below the interactive map of the official route and download options.",
+      "btn_gpx": " Download the GPX"
+    },
+    "map": {
+      "title": "Interactive map",
+      "subtitle": "Official race route",
+      "info": "Click to explore in detail on Strava",
+      "location": "Parc des Gayeulles, Rennes"
+    },
+    "terrain": {
+      "subtitle": "The terrain",
+      "title": "What you'll find on the course"
+    },
+    "zone_vie": {
+      "subtitle": "Between loops",
+      "title": "The living area & base camp",
+      "p1": "At the center of the loop is the base camp: your headquarters for the entire race. This is where you come back after each loop to recover, eat, and sleep if needed.",
+      "p2": "You can set up your own space (tent, deck chair, table...). Your crew, family, and friends can stay in this area to support you throughout the race.",
+      "placeholder": "📸 Photo of the living area coming soon"
+    },
+    "galerie": {
+      "subtitle": "Preview",
+      "title": "Course photos",
+      "desc": "Real photos will be added soon — placeholders reserved below.",
+      "p1_label": "Forest trail",
+      "p1_desc": "Your photo here",
+      "p2_label": "Nature view",
+      "p2_desc": "Your photo here",
+      "p3_label": "Start / finish",
+      "p3_desc": "Your photo here",
+      "p4_label": "Living area",
+      "p4_desc": "Your photo here",
+      "p5_label": "Panoramic view",
+      "p5_desc": "Your photo here",
+      "p6_label": "Course detail",
+      "p6_desc": "Your photo here"
+    }
+  },
+  "infos_page": {
+    "header": {
+      "subtitle": "Organization",
+      "title": "Practical Info",
+      "desc": "Everything you need to know before taking on the Breizh Backyard Ultra. Prepare well — your comfort depends on your organization."
+    },
+    "nav": {
+      "acces": "Access & Location",
+      "materiel": "Gear",
+      "ravitaillement": "Aid station",
+      "reglement": "Rules"
+    },
+    "acces": {
+      "title": "Access & Location",
+      "loc_title": "📍 Location",
+      "loc_p1_start": "The Breizh Backyard Ultra takes place in Brittany, in a protected natural setting.",
+      "loc_p1_bold": " The exact address will be provided",
+      "loc_p1_end": " to registered runners by email before the race.",
+      "loc_info": "ℹ️ GPS coordinates and detailed access information will be shared in the participant pack, available 2 weeks before the race.",
+      "parking_title": "🚗 Access & Parking",
+      "p1": "Free parking on site (limited spaces)",
+      "p2": "Carpooling strongly encouraged — forum available after registration",
+      "p3": "Public transport access possible (details coming soon)",
+      "p4": "Signposted access from the main road"
+    },
+    "materiel": {
+      "title": "Gear & Equipment",
+      "ob_title": "Mandatory",
+      "ob1": "Official bib (provided)",
+      "ob2": "Trail running shoes (recommended)",
+      "ob3": "Weather-appropriate clothing",
+      "ob4": "Headlamp (for the night)",
+      "ob5": "Charged mobile phone",
+      "rec_title": "Recommended",
+      "rec1": "Tent or shelter for the base camp",
+      "rec2": "Deck chair / mat",
+      "rec3": "Sleeping bag",
+      "rec4": "Spare clothing (5 sets min.)",
+      "rec5": "First-aid kit / blister care",
+      "ut_title": "Useful",
+      "ut1": "Trekking poles (allowed)",
+      "ut2": "GPS watch",
+      "ut3": "Headphones / earbuds",
+      "ut4": "Ear warmers / beanie",
+      "ut5": "Sunscreen & insect repellent"
+    },
+    "ravitaillement": {
+      "title": "Aid station",
+      "fourni_title": "✅ What's provided",
+      "f1": "Continuous supply of drinking water at the living area",
+      "f2": "Fresh fruit (bananas, oranges...) between each loop",
+      "f3": "Hot broth during the night",
+      "f4": "Coffee / tea throughout",
+      "apporter_title": "🎒 What to bring",
+      "a1": "Your favorite, tried-and-tested foods (no experimenting during the race!)",
+      "a2": "Energy gels / bars as you're used to",
+      "a3": "Recovery drinks",
+      "a4": "Full meals (pasta, rice...) for longer efforts",
+      "a5": "Personal thermos recommended for the night"
+    },
+    "reglement": {
+      "title": "Rules & Format",
+      "r_bu_title": "Backyard Ultra format rules",
+      "r1": "A 6.706 km loop must be completed before each hourly start signal.",
+      "r2": "Any runner who hasn't crossed the line before the signal is immediately eliminated.",
+      "r3": "The winner is the last runner able to complete one more loop than everyone else.",
+      "r4": "The winner must complete one additional loop alone to be officially declared.",
+      "r_breizh_title": "Breizh BU specific rules",
+      "br1": "The bib must be worn visibly at the front throughout the race.",
+      "br2": "Any runner dropping out must report it to a member of the organization.",
+      "br3": "Crews stay in the living area — no assistance on the course itself.",
+      "br4": "Any outside assistance on the course results in immediate disqualification.",
+      "br5": "The full rulebook is available in the participant pack."
+    }
+  },
+  "inscriptions_page": {
+    "header": {
+      "subtitle": "Join us",
+      "title": "Registration",
+      "desc": "Registration for the next edition is not yet open. Leave us your email to be notified first."
+    },
+    "errors": {
+      "email_req": "Email is required.",
+      "email_inv": "Invalid email."
+    },
+    "info": {
+      "badge": "Registration closed — Opening soon",
+      "title": "Be among the first to run",
+      "desc": "Spots for the Breizh Backyard Ultra are limited. By signing up for our newsletter, you'll be alerted as soon as registration officially opens, well before the public announcement.",
+      "list1": "Immediate notification when registration opens",
+      "list2": "Priority access ahead of waiting lists",
+      "list3": "Exclusive news about the race and the course",
+      "depart_title": "Next start",
+      "depart_date": "Saturday, May 15, 2027",
+      "depart_loc": "10:00 AM — Parc des Gayeulles, Rennes"
+    },
+    "form": {
+      "title": "Stay informed",
+      "desc": "Leave us your email to be notified as soon as registration opens. We'll only send you important emails.",
+      "prenom_label": "First name",
+      "prenom_ph": "Marie",
+      "nom_label": "Last name",
+      "nom_ph": "Dupont",
+      "email_label": "Email",
+      "email_ph": "marie.dupont@example.com",
+      "btn_loading": "Sending...",
+      "btn_submit": "Notify me →",
+      "consent": "By signing up, you agree to receive our emails. You can unsubscribe at any time."
+    },
+    "success": {
+      "title": "Thank you!",
+      "desc": "You'll be notified as soon as registration opens. Get your trail shoes ready — it shouldn't be long now!",
+      "confirm": "Confirmation sent to:"
+    }
+  },
+  "sponsors_page": {
+    "header": {
+      "subtitle": "Partnership",
+      "title": "Sponsors & Partners",
+      "desc": "Associate your brand with a unique sporting event, rooted in the values of nature, self-improvement, and Breton conviviality."
+    },
+    "dossier": {
+      "title": "Partner Kit & Sponsorship Package",
+      "desc": "Discover our event in detail, our values, key figures, and all our visibility offers by downloading our full package.",
+      "btn": "Download the package (PDF)"
+    },
+    "niveaux": {
+      "subtitle": "Become a partner",
+      "title": "Partnership levels",
+      "or_name": "Gold",
+      "or_desc": "Maximum visibility — XXL logo on bib and all communications",
+      "or_price": "Quote on request",
+      "argent_name": "Silver",
+      "argent_desc": "High visibility — prominent logo on website, social media and signage",
+      "argent_price": "Quote on request",
+      "bronze_name": "Bronze",
+      "bronze_desc": "Good visibility — logo on website and race communications",
+      "bronze_price": "Quote on request",
+      "tarif": "Price",
+      "logo": "Logo"
+    },
+    "avantages": {
+      "title": "Benefits common to all levels",
+      "b1": "Logo on the website",
+      "b2": "Mention on social media",
+      "b3": "Presence in the participant kit",
+      "b4": "Possible booth at the living area"
+    },
+    "contact": {
+      "subtitle": "Interested?",
+      "title": "Contact us",
+      "nom_label": "Name",
+      "nom_ph": "Your name",
+      "societe_label": "Company / Organization",
+      "societe_ph": "Your company's name",
+      "email_label": "Email",
+      "email_ph": "contact@your-company.com",
+      "message_label": "Message",
+      "message_ph": "Describe your interest, the partnership level you're considering...",
+      "btn_loading": "Sending...",
+      "btn_submit": "Send my request →",
+      "success_title": "Message sent!",
+      "success_desc": "We'll get back to you as soon as possible to discuss a partnership."
+    }
+  },
+  "faq_page": {
+    "header": {
+      "subtitle": "Help",
+      "title": "Frequently Asked Questions",
+      "desc": "Have questions about the format, the organization, or the race? You'll probably find the answer here."
+    },
+    "filters": {
+      "toutes": "All"
+    },
+    "data": [
+      {
+        "category": "🏃 The Backyard Ultra format",
+        "items": [
+          {
+            "q": "What is the Backyard Ultra format?",
+            "a": "The Backyard Ultra is an ultra-endurance race format invented by Gary Cantrell (aka Lazarus Lake) in 2011. The principle: complete a 6.706 km loop every hour, until only one runner remains able to complete one more loop."
+          },
+          {
+            "q": "Where does the 6.706 km distance come from?",
+            "a": "This distance corresponds exactly to 4.16667 miles, or one hundredth of a mile per hour. Multiplied by the number of loops, it always gives a whole number of miles covered."
+          },
+          {
+            "q": "How long can a race last?",
+            "a": "The duration is completely unpredictable. Races lasting less than 10 hours have happened, but the world record exceeds 100 hours (more than 4 days). In practice, most regional races finish between 20 and 40 hours."
+          },
+          {
+            "q": "Can there be several winners?",
+            "a": "No, only one official winner is possible. If several runners drop out at the same loop, or if the last remaining runner cannot complete the extra solo loop, there is no official winner for that edition."
+          },
+          {
+            "q": "What is the 'Big's Backyard Ultra'?",
+            "a": "This is the original race created by Lazarus Lake in Tennessee, USA. It is considered the unofficial world championship of the format. The top runners from each qualifying race may be invited."
+          }
+        ]
+      },
+      {
+        "category": "📋 Registration",
+        "items": [
+          {
+            "q": "When does registration open?",
+            "a": "Registration for the next edition is not yet open. Sign up for our newsletter to be notified first as soon as it opens."
+          },
+          {
+            "q": "How many spots are available?",
+            "a": "The number of spots will be announced when registration opens. The Backyard Ultra format works best with a moderate number of participants — expect limited spots."
+          },
+          {
+            "q": "Is there a minimum required level?",
+            "a": "There is no mandatory technical qualification, but we recommend having trail running or long-distance racing experience (marathon minimum). The format is very demanding, both physically and mentally."
+          },
+          {
+            "q": "Is registration refundable?",
+            "a": "The refund policy will be specified when registration opens. Cancellation terms will be stated in the rulebook."
+          }
+        ]
+      },
+      {
+        "category": "🎒 Gear & Logistics",
+        "items": [
+          {
+            "q": "What gear do I need?",
+            "a": "The essentials: trail running shoes, a headlamp, weather-appropriate clothing, and your own food supplies. For the base camp: a tent or shelter, a deck chair, a sleeping bag, and spare clothing. See the 'Practical Info' page for the full list."
+          },
+          {
+            "q": "Can I have a support crew?",
+            "a": "Yes! Your crew can be present in the living area throughout the race. However, they cannot assist you on the course itself."
+          },
+          {
+            "q": "Are trekking poles allowed?",
+            "a": "Yes, walking / trekking poles are allowed throughout the race."
+          },
+          {
+            "q": "Are there showers or restrooms on site?",
+            "a": "Restrooms will be available in the living area. Full details will be provided in the participant pack."
+          }
+        ]
+      },
+      {
+        "category": "🍌 Aid station",
+        "items": [
+          {
+            "q": "What does the organization provide?",
+            "a": "The organization provides a continuous supply of drinking water, fresh fruit (bananas, oranges) between loops, hot broth at night, and coffee/tea. Full aid station details will be provided in the rulebook."
+          },
+          {
+            "q": "Can I bring my own food?",
+            "a": "Yes, and it's strongly recommended! You know better than anyone what works for you during long efforts. Avoid any food you haven't tested in training."
+          },
+          {
+            "q": "Is there an aid station on the course?",
+            "a": "No. The only aid station is at the living area, at the start/finish. You'll have the remaining time after each loop to refuel before the next start."
+          }
+        ]
+      },
+      {
+        "category": "🌙 Night & recovery",
+        "items": [
+          {
+            "q": "How are nights handled?",
+            "a": "The race continues around the clock, including at night. The course is marked with reflective tape. A headlamp is mandatory after nightfall."
+          },
+          {
+            "q": "Can you sleep between loops?",
+            "a": "Yes! If you finish your loop in 45 minutes, you have 15 minutes to rest. Some runners use alarms for 10-12 minute micro-naps. This is one of the key tactics of the format."
+          },
+          {
+            "q": "What happens if a runner is injured?",
+            "a": "A medical team is present around the clock. Any runner in difficulty can be cared for immediately. We prefer a voluntary withdrawal to putting oneself in danger."
+          }
+        ]
+      }
+    ],
+    "contact": {
+      "title": "Didn't find your answer?",
+      "desc": "Our team will be happy to answer all your questions.",
+      "btn": "Contact us"
+    }
+  },
+  "contact_page": {
+    "header": {
+      "subtitle": "Write to us",
+      "title": "Contact",
+      "desc": "A question, a partnership request, a need for information? Our team will get back to you as soon as possible."
+    },
+    "subjects": {
+      "s1": "General question",
+      "s2": "Partnership / sponsorship request",
+      "s3": "Press / Media",
+      "s4": "Volunteering",
+      "s5": "Medical / safety question",
+      "s6": "Other"
+    },
+    "errors": {
+      "nom_req": "Your name is required.",
+      "email_req": "Email is required.",
+      "email_inv": "Invalid email.",
+      "msg_req": "Your message is required."
+    },
+    "info": {
+      "title": "Find us",
+      "email": "Email",
+      "loc": "Location",
+      "loc_val": "Parc des Gayeulles, Rennes",
+      "socials": "Social media",
+      "delay": "⏱ Response time",
+      "delay_text": ": we usually reply within 48 business hours. For urgent requests, please mention it in your message."
+    },
+    "form": {
+      "title": "Send a message",
+      "nom_label": "Full name",
+      "nom_ph": "Mathieu Blanchard",
+      "email_label": "Email",
+      "email_ph": "mat@ilovekiprun.com",
+      "sujet_label": "Subject",
+      "sujet_ph": "Choose a subject...",
+      "msg_label": "Message",
+      "msg_ph": "Your message...",
+      "btn_loading": "Sending...",
+      "btn_submit": "Send message",
+      "success_title": "Message sent!",
+      "success_desc": "Thank you for your message, {{nom}}! We'll reply within 48 business hours."
+    }
+  },
+  "resultats_page": {
+    "header": {
+      "subtitle": "Edition #1",
+      "title": "Results & Live Tracking",
+      "desc": "There is no history of results yet, as this is the very first edition of the Breizh Backyard Ultra."
+    },
+    "live": {
+      "title": "Live Tracking will be here!",
+      "desc_start": "On race day, this page will turn into a ",
+      "desc_bold": "live dashboard",
+      "desc_end": ". You'll be able to follow the race's progress hour by hour, see eliminations, and cheer on the last runner standing.",
+      "ind1": "Lap time",
+      "ind2": "Runners remaining",
+      "ind3": "The final winner",
+      "btn": "Get notified when it opens"
+    }
+  },
+  "galerie_page": {
+    "header": {
+      "subtitle": "Photos",
+      "title": "Gallery",
+      "desc": "Relive the highlights of the Breizh Backyard Ultra. Real photos will be added after each edition."
+    },
+    "categories": {
+      "toutes": "All",
+      "coureurs": "Runners",
+      "parcours": "Course",
+      "ambiance": "Atmosphere"
+    },
+    "photos": {
+      "p1_label": "Race start",
+      "p1_desc": "Replace with your real photos",
+      "p2_label": "Forest trail",
+      "p2_desc": "Photo of the route",
+      "p3_label": "Living area",
+      "p3_desc": "Base camp",
+      "p4_label": "In the thick of it",
+      "p4_desc": "Race action",
+      "p5_label": "Nature view",
+      "p5_desc": "Breton landscape",
+      "p6_label": "The community",
+      "p6_desc": "Moments between runners",
+      "p7_label": "Night racing",
+      "p7_desc": "Headlamps",
+      "p8_label": "Terrain detail",
+      "p8_desc": "Variety of trails",
+      "p9_label": "Aid station",
+      "p9_desc": "The volunteer team",
+      "p10_label": "Winner's finish",
+      "p10_desc": "A unique moment",
+      "p11_label": "Sunrise",
+      "p11_desc": "Morning light",
+      "p12_label": "The organization",
+      "p12_desc": "Behind the scenes of the event"
+    },
+    "lightbox": {
+      "photo": "Photo"
+    }
+  },
+  "benevoles_page": {
+    "header": {
+      "subtitle": "Join the team",
+      "title": "Become a Volunteer",
+      "desc": "Experience the Breizh Backyard Ultra from the inside. Without our volunteers, the adventure wouldn't exist."
+    },
+    "intro": {
+      "title": "Why volunteer?",
+      "card1_title": "A unique atmosphere",
+      "card1_text": "Join a passionate team in a friendly atmosphere, at the heart of an exceptional sporting event.",
+      "card2_title": "Close to the race",
+      "card2_text": "Experience the intensity of ultra-endurance and support the runners in their quest to push their limits.",
+      "card3_title": "Goodies & Meals",
+      "card3_text": "Free meals during your shifts and a volunteer kit (t-shirt, goodies) to thank you for your help."
+    },
+    "roles": {
+      "title": "The roles",
+      "r1_title": "Aid station & Living area",
+      "r1_text": "Preparing food and drinks, welcoming runners, managing the base camp.",
+      "r2_title": "Marshalling & Safety",
+      "r2_text": "Course direction, safety at intersections, cheering.",
+      "r3_title": "Logistics & Setup",
+      "r3_text": "Help with setting up and taking down the village, parking management, general logistics."
+    },
+    "form": {
+      "title": "Join the team",
+      "nom_label": "Full name",
+      "nom_ph": "John Doe",
+      "email_label": "Email",
+      "email_ph": "john@example.com",
+      "dispo_label": "Availability",
+      "dispo_ph": "E.g. Saturday morning, the whole weekend...",
+      "msg_label": "Message / Preferences",
+      "msg_ph": "If you have a preferred role (aid station, marshall...)",
+      "btn_loading": "Sending...",
+      "btn_submit": "Send my application",
+      "success_title": "Application sent!",
+      "success_desc": "Thank you {{nom}}! We'll get back to you very soon with more details."
+    }
   }
 }

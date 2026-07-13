@@ -16,6 +16,7 @@ const FAQ = lazy(() => import("@/pages/FAQ").then((m) => ({ default: m.FAQ })));
 const Sponsors = lazy(() => import("@/pages/Sponsors").then((m) => ({ default: m.Sponsors })));
 // const Galerie = lazy(() => import("@/pages/Galerie").then((m) => ({ default: m.Galerie })));
 const Contact = lazy(() => import("@/pages/Contact").then((m) => ({ default: m.Contact })));
+const Benevoles = lazy(() => import("@/pages/Benevoles").then((m) => ({ default: m.Benevoles })));
 
 // Minimal loading fallback
 const PageLoader = () => (
@@ -60,6 +61,7 @@ export const Router = () => {
           <Route path="/sponsors" element={<Sponsors />} />
           {/* <Route path="/galerie" element={<Galerie />} /> */}
           <Route path="/contact" element={<Contact />} />
+          <Route path="/benevoles" element={<Benevoles />} />
           <Route path="/mentions-legales" element={<Contact />} />
         </Route>
       </Routes>

@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 import { Mail, Star, Download } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
+  <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
     <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.08) 0%, transparent 60%)` }} />
     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}>
@@ -18,44 +19,46 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
   </div>
 );
 
-const sponsorLevels = [
-  {
-    level: "Or",
-    color: "#F5C92C",
-    bg: "rgba(245,201,44,0.1)",
-    border: "rgba(245,201,44,0.4)",
-    count: 2,
-    desc: "Visibilité maximale — logo XXL sur dossard et toute communication",
-    price: "Sur devis",
-  },
-  {
-    level: "Argent",
-    color: "#9AA8B8",
-    bg: "rgba(154,168,184,0.1)",
-    border: "rgba(154,168,184,0.35)",
-    count: 4,
-    desc: "Forte visibilité — logo prominent sur site, réseaux et signalétique",
-    price: "Sur devis",
-  },
-  {
-    level: "Bronze",
-    color: "#CD7F32",
-    bg: "rgba(205,127,50,0.1)",
-    border: "rgba(205,127,50,0.35)",
-    count: 6,
-    desc: "Bonne visibilité — logo sur site et communication de course",
-    price: "Sur devis",
-  },
-];
-
-const benefits = [
-  "Logo sur le site internet",
-  "Mention sur les réseaux sociaux",
-  "Présence dans le kit participant",
-  "Stand possible sur la zone de vie",
-];
-
 export const Sponsors = () => {
+  const { t } = useTranslation();
+
+  const sponsorLevels = [
+    {
+      level: t("sponsors_page.niveaux.or_name"),
+      color: "#F5C92C",
+      bg: "rgba(245,201,44,0.1)",
+      border: "rgba(245,201,44,0.4)",
+      count: 2,
+      desc: t("sponsors_page.niveaux.or_desc"),
+      price: t("sponsors_page.niveaux.or_price"),
+    },
+    {
+      level: t("sponsors_page.niveaux.argent_name"),
+      color: "#9AA8B8",
+      bg: "rgba(154,168,184,0.1)",
+      border: "rgba(154,168,184,0.35)",
+      count: 4,
+      desc: t("sponsors_page.niveaux.argent_desc"),
+      price: t("sponsors_page.niveaux.argent_price"),
+    },
+    {
+      level: t("sponsors_page.niveaux.bronze_name"),
+      color: "#CD7F32",
+      bg: "rgba(205,127,50,0.1)",
+      border: "rgba(205,127,50,0.35)",
+      count: 6,
+      desc: t("sponsors_page.niveaux.bronze_desc"),
+      price: t("sponsors_page.niveaux.bronze_price"),
+    },
+  ];
+
+  const benefits = [
+    t("sponsors_page.avantages.b1"),
+    t("sponsors_page.avantages.b2"),
+    t("sponsors_page.avantages.b3"),
+    t("sponsors_page.avantages.b4"),
+  ];
+
   const [formData, setFormData] = useState({ nom: "", societe: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -72,9 +75,9 @@ export const Sponsors = () => {
   return (
     <div style={{ background: "#EFEFEF" }}>
       <PageHeader
-        subtitle="Partenariat"
-        title="Sponsors & Partenaires"
-        description="Associez votre marque à un événement sportif unique, ancré dans les valeurs de nature, dépassement de soi et convivialité bretonne."
+        subtitle={t("sponsors_page.header.subtitle")}
+        title={t("sponsors_page.header.title")}
+        description={t("sponsors_page.header.desc")}
       />
 
       {/* ============================================================
@@ -106,10 +109,10 @@ export const Sponsors = () => {
             </div>
             <div style={{ position: "relative", zIndex: 1 }}>
               <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#1a2e22", marginBottom: "0.5rem" }}>
-                Kit Partenaire & Dossier de Sponsoring
+                {t("sponsors_page.dossier.title")}
               </h3>
               <p style={{ color: "#4a6b56", fontSize: "1rem", margin: 0, maxWidth: "600px", lineHeight: 1.6 }}>
-                Découvrez en détail notre événement, nos valeurs, nos chiffres clés et l'ensemble de nos offres de visibilité en téléchargeant notre dossier complet.
+                {t("sponsors_page.dossier.desc")}
               </p>
             </div>
             <a
@@ -131,7 +134,7 @@ export const Sponsors = () => {
               }}
             >
               <Download size={18} strokeWidth={2.5} />
-              Télécharger le dossier (PDF)
+              {t("sponsors_page.dossier.btn")}
             </a>
           </motion.div>
         </div>
@@ -143,13 +146,13 @@ export const Sponsors = () => {
       <section className="section-white section-py">
         <div className="page-container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="section-subtitle">Devenez partenaire</p>
+            <p className="section-subtitle">{t("sponsors_page.niveaux.subtitle")}</p>
             <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
-              Niveaux de partenariat
+              {t("sponsors_page.niveaux.title")}
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginBottom: "3rem" }}>
+          <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginBottom: "3rem" }}>
             {sponsorLevels.map((level, i) => (
               <motion.div
                 key={level.level}
@@ -176,7 +179,7 @@ export const Sponsors = () => {
                 <p style={{ margin: 0, fontSize: "0.88rem", color: "#4a6b56", lineHeight: 1.6 }}>{level.desc}</p>
                 <div style={{ marginTop: "auto" }}>
                   <div style={{ fontSize: "0.72rem", color: "#4a6b56", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                    Tarif
+                    {t("sponsors_page.niveaux.tarif")}
                   </div>
                   <div style={{ fontWeight: "700", color: "#1a2e22", fontSize: "1rem" }}>{level.price}</div>
                 </div>
@@ -185,7 +188,7 @@ export const Sponsors = () => {
                 <div style={{ display: "grid", gridTemplateColumns: `repeat(${Math.min(level.count, 2)}, 1fr)`, gap: "0.5rem", marginTop: "0.5rem" }}>
                   {Array.from({ length: level.count }).map((_, j) => (
                     <div key={j} className="sponsor-logo-placeholder" style={{ minHeight: "60px" }}>
-                      Logo {j + 1}
+                      {t("sponsors_page.niveaux.logo")} {j + 1}
                     </div>
                   ))}
                 </div>
@@ -203,7 +206,7 @@ export const Sponsors = () => {
             }}
           >
             <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.2rem", color: "#277956", marginBottom: "1.5rem" }}>
-              Avantages communs à tous les niveaux
+              {t("sponsors_page.avantages.title")}
             </h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "0.75rem" }}>
               {benefits.map((benefit) => (
@@ -225,42 +228,42 @@ export const Sponsors = () => {
       <section className="section-light section-py">
         <div className="page-container" style={{ maxWidth: "700px" }}>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="section-subtitle">Intéressé(e) ?</p>
+            <p className="section-subtitle">{t("sponsors_page.contact.subtitle")}</p>
             <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
-              Contactez-nous
+              {t("sponsors_page.contact.title")}
             </h2>
           </div>
 
           {!submitted ? (
             <div style={{ background: "#fff", borderRadius: "1.5rem", padding: "2.5rem", border: "1px solid #D0D0D0", boxShadow: "0 4px 24px rgba(39,121,86,0.08)" }}>
               <form onSubmit={handleSubmit}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                <div className="form-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                   <div>
-                    <label className="bbu-label">Nom</label>
-                    <input className="bbu-input" type="text" value={formData.nom} onChange={(e) => setFormData(p => ({ ...p, nom: e.target.value }))} placeholder="Votre nom" />
+                    <label className="bbu-label">{t("sponsors_page.contact.nom_label")}</label>
+                    <input className="bbu-input" type="text" value={formData.nom} onChange={(e) => setFormData(p => ({ ...p, nom: e.target.value }))} placeholder={t("sponsors_page.contact.nom_ph")} />
                   </div>
                   <div>
-                    <label className="bbu-label">Société / Organisation</label>
-                    <input className="bbu-input" type="text" value={formData.societe} onChange={(e) => setFormData(p => ({ ...p, societe: e.target.value }))} placeholder="Nom de votre entreprise" />
+                    <label className="bbu-label">{t("sponsors_page.contact.societe_label")}</label>
+                    <input className="bbu-input" type="text" value={formData.societe} onChange={(e) => setFormData(p => ({ ...p, societe: e.target.value }))} placeholder={t("sponsors_page.contact.societe_ph")} />
                   </div>
                 </div>
                 <div style={{ marginBottom: "1rem" }}>
-                  <label className="bbu-label">Email <span style={{ color: "#c44" }}>*</span></label>
-                  <input className="bbu-input" type="email" required value={formData.email} onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))} placeholder="contact@votre-entreprise.fr" />
+                  <label className="bbu-label">{t("sponsors_page.contact.email_label")} <span style={{ color: "#c44" }}>*</span></label>
+                  <input className="bbu-input" type="email" required value={formData.email} onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))} placeholder={t("sponsors_page.contact.email_ph")} />
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                  <label className="bbu-label">Message</label>
+                  <label className="bbu-label">{t("sponsors_page.contact.message_label")}</label>
                   <textarea
                     className="bbu-input"
                     rows={4}
                     value={formData.message}
                     onChange={(e: any) => setFormData(p => ({ ...p, message: e.target.value }))}
-                    placeholder="Décrivez votre intérêt, le niveau de partenariat envisagé..."
+                    placeholder={t("sponsors_page.contact.message_ph")}
                     style={{ resize: "vertical" }}
                   />
                 </div>
                 <button type="submit" className="btn-primary" disabled={loading} style={{ width: "100%", justifyContent: "center" }}>
-                  {loading ? "Envoi..." : "Envoyer ma demande →"}
+                  {loading ? t("sponsors_page.contact.btn_loading") : t("sponsors_page.contact.btn_submit")}
                 </button>
               </form>
             </div>
@@ -269,8 +272,8 @@ export const Sponsors = () => {
               <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "rgba(39,121,86,0.1)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem" }}>
                 <Mail size={28} style={{ color: "#277956" }} />
               </div>
-              <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.4rem", color: "#277956", marginBottom: "0.75rem" }}>Message envoyé !</h3>
-              <p style={{ color: "#4a6b56", lineHeight: 1.75 }}>Nous vous répondrons dans les meilleurs délais pour discuter d'un partenariat.</p>
+              <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.4rem", color: "#277956", marginBottom: "0.75rem" }}>{t("sponsors_page.contact.success_title")}</h3>
+              <p style={{ color: "#4a6b56", lineHeight: 1.75 }}>{t("sponsors_page.contact.success_desc")}</p>
             </div>
           )}
         </div>

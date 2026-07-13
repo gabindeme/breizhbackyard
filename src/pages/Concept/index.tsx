@@ -2,9 +2,11 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Timer, Repeat, AlertTriangle, Trophy, ChevronRight, Clock, Footprints } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div
+    className="page-header-inner"
     style={{
       background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)",
       paddingTop: "8rem",
@@ -62,9 +64,10 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
 
 // Schéma visuel du format
 const FormatTimeline = () => {
+  const { t } = useTranslation();
   const hours = [0, 1, 2, 3, 4, 5, "...", "N"];
   return (
-    <div style={{ overflowX: "auto", paddingBottom: "1rem" }}>
+    <div style={{ overflowX: "auto", paddingBottom: "1rem", maxWidth: "100%" }}>
       <div style={{ minWidth: "600px" }}>
         {/* Timeline track */}
         <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "3rem" }}>
@@ -107,7 +110,7 @@ const FormatTimeline = () => {
                   {isDots ? "···" : isLast ? <Trophy size={20} /> : h === 0 ? <Timer size={18} /> : h}
                 </div>
                 <div style={{ textAlign: "center", fontSize: "0.72rem", color: isDots ? "transparent" : "#4a6b56", fontWeight: "600", whiteSpace: "nowrap" }}>
-                  {isDots ? "." : isLast ? "Vainqueur !" : h === 0 ? "Départ" : `+${h}h`}
+                  {isDots ? "." : isLast ? t("concept_page.schema.step_vainqueur") : h === 0 ? t("concept_page.schema.step_depart") : `+${h}h`}
                 </div>
               </div>
             );
@@ -117,8 +120,8 @@ const FormatTimeline = () => {
         {/* Legend */}
         <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}>
           {[
-            { color: "#277956", label: "Top départ toutes les heures" },
-            { color: "#F5C92C", label: "Vainqueur = dernier à terminer" },
+            { color: "#277956", label: t("concept_page.schema.legend_depart") },
+            { color: "#F5C92C", label: t("concept_page.schema.legend_vainqueur") },
           ].map(({ color, label }) => (
             <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.8rem", color: "#4a6b56" }}>
               <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: color, flexShrink: 0 }} />
@@ -172,35 +175,36 @@ const FaqMini = ({ items }: { items: { q: string; a: string }[] }) => {
 };
 
 export const Concept = () => {
+  const { t } = useTranslation();
   const faqItems = [
     {
-      q: "Que se passe-t-il si je n'arrive pas dans l'heure ?",
-      a: "Vous êtes éliminé(e) immédiatement. Si le top départ du tour suivant est donné avant que vous ne franchissiez la ligne d'arrivée, vous ne pouvez pas repartir.",
+      q: t("concept_page.faq.q1"),
+      a: t("concept_page.faq.a1"),
     },
     {
-      q: "Combien de temps peut durer une course ?",
-      a: "Personne ne le sait à l'avance ! Le record du monde dépasse les 100 heures, soit plus de 4 jours sans s'arrêter. En pratique, la majorité des courses se terminent entre 24 et 48 heures.",
+      q: t("concept_page.faq.q2"),
+      a: t("concept_page.faq.a2"),
     },
     {
-      q: "Peut-il y avoir plusieurs vainqueurs ?",
-      a: "Non. Si tous les coureurs abandonnent au même tour (sans qu'un seul ait pu terminer un tour de plus que les autres), il n'y a pas de vainqueur officiel. Le vainqueur doit toujours effectuer un tour supplémentaire seul.",
+      q: t("concept_page.faq.q3"),
+      a: t("concept_page.faq.a3"),
     },
     {
-      q: "Puis-je dormir entre les tours ?",
-      a: "Oui ! Vous disposez d'une fenêtre de temps (variable selon votre rapidité sur le tour) pour vous reposer, manger, vous soigner... C'est là que la gestion de la récupération devient stratégique.",
+      q: t("concept_page.faq.q4"),
+      a: t("concept_page.faq.a4"),
     },
     {
-      q: "Le format est-il adapté aux débutants en ultra ?",
-      a: "Le format est accessible à tout le monde — il n'y a pas de seuil technique. Mais il demande une préparation mentale et physique sérieuse, car la durée peut être très longue. Nous conseillons d'avoir déjà couru un trail ou un marathon avant de se lancer.",
+      q: t("concept_page.faq.q5"),
+      a: t("concept_page.faq.a5"),
     },
   ];
 
   return (
     <div style={{ background: "#EFEFEF" }}>
       <PageHeader
-        subtitle="Le format"
-        title="Le Concept Backyard Ultra"
-        description="Une épreuve inventée par Gary Cantrell (alias Lazarus Lake) en 2011, dans le Tennessee. Un format unique qui a bouleversé le monde de l'ultra-endurance."
+        subtitle={t("concept_page.header.subtitle")}
+        title={t("concept_page.header.title")}
+        description={t("concept_page.header.desc")}
       />
 
       {/* ============================================================
@@ -208,36 +212,30 @@ export const Concept = () => {
           ============================================================ */}
       <section className="section-light section-py">
         <div className="page-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
+          <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
             <motion.div
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <p className="section-subtitle">Le principe</p>
+              <p className="section-subtitle">{t("concept_page.principe.subtitle")}</p>
               <h2 className="section-title" style={{ marginTop: "0.5rem", marginBottom: "1.5rem" }}>
-                Simple à comprendre,<br />impossible à maîtriser
+                {t("concept_page.principe.title_line1")}<br />{t("concept_page.principe.title_line2")}
               </h2>
               <p style={{ color: "#4a6b56", lineHeight: 1.8, marginBottom: "1.25rem" }}>
-                Le principe du Backyard Ultra est d'une simplicité désarmante : boucler un circuit de
-                <strong style={{ color: "#277956" }}> 6,706 km </strong> (4,1667 miles —
-                soit 100 miles au bout de 24h), et ce toutes les heures, sans exception.
+                {t("concept_page.principe.desc1_start")}
+                <strong style={{ color: "#277956" }}>{t("concept_page.principe.desc1_bold")}</strong>
+                {t("concept_page.principe.desc1_end")}
               </p>
               <p style={{ color: "#4a6b56", lineHeight: 1.8, marginBottom: "1.25rem" }}>
-                À chaque nouvelle heure, un signal sonore retentit : c'est le top départ. Tous les
-                coureurs encore en course repartent ensemble, qu'ils soient frais ou épuisés. Pas de
-                départ individuel, pas d'exception.
+                {t("concept_page.principe.desc2")}
               </p>
               <p style={{ color: "#4a6b56", lineHeight: 1.8, marginBottom: "1.25rem" }}>
-                Si vous n'avez pas terminé votre boucle avant le top départ suivant, <strong style={{ color: "#c44" }}>c'est fini</strong>.
-                Vous êtes éliminé(e). Aucune tolérance.
+                {t("concept_page.principe.desc3_start")}<strong style={{ color: "#c44" }}>{t("concept_page.principe.desc3_bold")}</strong>{t("concept_page.principe.desc3_end")}
               </p>
               <p style={{ color: "#4a6b56", lineHeight: 1.8 }}>
-                La course se poursuit heure après heure, jusqu'à ce qu'il ne reste plus qu'un seul
-                coureur capable de boucler un tour supplémentaire. Ce coureur doit ensuite effectuer
-                ce tour <strong>seul</strong> pour être déclaré vainqueur officiel — sans cela,
-                il n'y a pas de vainqueur.
+                {t("concept_page.principe.desc4_start")}<strong>{t("concept_page.principe.desc4_bold")}</strong>{t("concept_page.principe.desc4_end")}
               </p>
             </motion.div>
 
@@ -261,10 +259,10 @@ export const Concept = () => {
                     <Clock size={28} style={{ color: "#F5C92C", flexShrink: 0, marginTop: "2px" }} />
                     <div>
                       <div style={{ fontFamily: "'Hobo', sans-serif", fontSize: "2rem", color: "#F5C92C", lineHeight: 1 }}>
-                        6,706 km
+                        {t("concept_page.cards.km")}
                       </div>
                       <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.88rem", marginTop: "0.25rem" }}>
-                        par tour — toutes les heures, pile
+                        {t("concept_page.cards.km_desc")}
                       </div>
                     </div>
                   </div>
@@ -273,18 +271,18 @@ export const Concept = () => {
                 {[
                   {
                     icon: Repeat,
-                    title: "Un tour = une heure",
-                    text: "Chaque boucle doit être complétée avant le top départ suivant. Le chronomètre tourne en permanence.",
+                    title: t("concept_page.cards.c1_title"),
+                    text: t("concept_page.cards.c1_text"),
                   },
                   {
                     icon: AlertTriangle,
-                    title: "Pas de vainqueur garanti",
-                    text: "Si personne ne peut terminer un tour de plus que les autres, il n'y a officiellement aucun vainqueur.",
+                    title: t("concept_page.cards.c2_title"),
+                    text: t("concept_page.cards.c2_text"),
                   },
                   {
                     icon: Trophy,
-                    title: "Un seul peut gagner",
-                    text: "Le vainqueur est le dernier debout — celui qui boucle un tour de plus que tous les autres, seul.",
+                    title: t("concept_page.cards.c3_title"),
+                    text: t("concept_page.cards.c3_text"),
                   },
                 ].map((card, i) => (
                   <div key={i} className="bbu-card" style={{ display: "flex", gap: "1rem" }}>
@@ -307,9 +305,9 @@ export const Concept = () => {
       <section className="section-white section-py">
         <div className="page-container">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="section-subtitle">Comprendre le format</p>
+            <p className="section-subtitle">{t("concept_page.schema.subtitle")}</p>
             <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
-              Une course qui n'a pas de fin prévue
+              {t("concept_page.schema.title")}
             </h2>
           </div>
 
@@ -329,26 +327,26 @@ export const Concept = () => {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem" }}>
             <RuleCard
               icon={Timer}
-              title="Top départ toutes les heures"
-              text="Le signal retentit pile à l'heure. Tous les coureurs repartent ensemble, quelles que soient leurs conditions physiques."
+              title={t("concept_page.rules.r1_title")}
+              text={t("concept_page.rules.r1_text")}
               variant="default"
             />
             <RuleCard
               icon={Footprints}
-              title="Boucle de 6,706 km exactement"
-              text="La distance est standardisée à l'échelle mondiale. Chaque course Backyard Ultra utilise ce même circuit de base."
+              title={t("concept_page.rules.r2_title")}
+              text={t("concept_page.rules.r2_text")}
               variant="success"
             />
             <RuleCard
               icon={AlertTriangle}
-              title="Élimination immédiate"
-              text="Tout coureur qui n'a pas franchi la ligne d'arrivée avant le top départ suivant est immédiatement éliminé."
+              title={t("concept_page.rules.r3_title")}
+              text={t("concept_page.rules.r3_text")}
               variant="warning"
             />
             <RuleCard
               icon={Trophy}
-              title="Le tour du vainqueur"
-              text="Pour être déclaré vainqueur officiel, le dernier coureur en lice doit effectuer un tour supplémentaire, seul."
+              title={t("concept_page.rules.r4_title")}
+              text={t("concept_page.rules.r4_text")}
               variant="default"
             />
           </div>
@@ -361,9 +359,9 @@ export const Concept = () => {
       <section className="section-light section-py">
         <div className="page-container" style={{ maxWidth: "800px" }}>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="section-subtitle">Questions fréquentes</p>
+            <p className="section-subtitle">{t("concept_page.faq.subtitle")}</p>
             <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
-              Vos premières questions
+              {t("concept_page.faq.title")}
             </h2>
           </div>
 
@@ -373,7 +371,7 @@ export const Concept = () => {
 
           <div style={{ textAlign: "center" }}>
             <Link to="/faq" className="btn-outline">
-              Voir toutes les questions <ChevronRight size={16} />
+              {t("concept_page.faq.btn")} <ChevronRight size={16} />
             </Link>
           </div>
         </div>

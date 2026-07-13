@@ -1,15 +1,35 @@
 {
   "pages": {
-    "home": { "home": "Degemer" },
-    "concept": { "title": "An Abeg" },
-    "parcours": { "title": "Hent ar Ren" },
-    "infos": { "title": "Titouroù Fentus" },
-    "inscriptions": { "title": "Enskrivañ" },
-    "resultats": { "title": "Distoioù" },
-    "faq": { "title": "Ar Goulennoù" },
-    "sponsors": { "title": "Parteneriou" },
-    "galerie": { "title": "Galerie" },
-    "contact": { "title": "Darempred" }
+    "home": {
+      "home": "Degemer"
+    },
+    "concept": {
+      "title": "An Abeg"
+    },
+    "parcours": {
+      "title": "Hent ar Ren"
+    },
+    "infos": {
+      "title": "Titouroù Fentus"
+    },
+    "inscriptions": {
+      "title": "Enskrivañ"
+    },
+    "resultats": {
+      "title": "Distoioù"
+    },
+    "faq": {
+      "title": "Ar Goulennoù"
+    },
+    "sponsors": {
+      "title": "Parteneriou"
+    },
+    "galerie": {
+      "title": "Galerie"
+    },
+    "contact": {
+      "title": "Darempred"
+    }
   },
   "navbar": {
     "home": "Degemer",
@@ -24,16 +44,673 @@
     "contact": "Darempred",
     "language": "Yezh",
     "languageChanged": "Yezh kemmet e brezhoneg.",
-    "newsletter": "Enskrivañ"
+    "newsletter": "Enskrivañ",
+    "benevoles": "Tud a-youl vat"
   },
   "footer": {
-    "rights": "Breizh Backyard Ultra. Pep gwir miret.",
+    "rights": "© {{year}} Breizh Backyard Ultra — An holl wirioù miret strizh",
     "tagline": "Ar rederez ultra e penn-draw Breizh.",
     "nav_title": "Merdeiñ",
     "info_title": "Titouroù",
     "social_title": "Rouedadoù sokial",
-    "mentions": "Meneg lezennel",
+    "mentions": "Menegoù lezennel",
     "cookies": "Politikerezh toudennoù",
-    "contact": "Darempred"
+    "contact": "Darempred",
+    "description": "Ar rederez ultra e penn pellañ Breizh. Un dro. Bep eur. Betek an hini diwezhañ.",
+    "course_title": "Ar redadeg",
+    "location": "Parc des Gayeulles, Roazhon",
+    "depart_dans": "Loc'hañ a-benn",
+    "date": "Sadorn 15 Mae 2027 · 10e00",
+    "benevoles": "Mont da zen a-youl vat"
+  },
+  "countdown": {
+    "depart_dans": "Loc'hañ a-benn :",
+    "days_short": "D",
+    "hours_short": "E",
+    "minutes_short": "M",
+    "seconds_short": "S"
+  },
+  "home": {
+    "hero": {
+      "date": "Sadorn 15 Mae 2027 · 10e00",
+      "title": "BREIZH BACKYARD",
+      "subtitle": "Ultra",
+      "desc_line1": "6,706 km. Bep eur. Betek an hini diwezhañ war e sav.",
+      "desc_line2": "Ar red hep pellder. Hep bevenn.",
+      "btn_newsletter": "C'hoant am eus en em enskrivañ →",
+      "btn_concept": "Dizoleiñ an abeg",
+      "scroll": "Diskenn"
+    },
+    "concept": {
+      "subtitle": "Ar furm",
+      "title": "Ur red hep dibenn",
+      "desc": "Ar Backyard Ultra a zo ur brouadenn ultra-badezerezh dibar: n'eus ket a bellder fest na eur erruout — nemet un dro 6,706 km da glokaat bep eur, resis.",
+      "card1_title": "Bep eur",
+      "card1_text": "Roet e vez un tan-gregiñ bep eur. An holl redourien c'hoazh er red a ya en-dro asambles, hep nemedenn.",
+      "card2_title": "6,706 km an dro",
+      "card2_text": "Pep tro a ra resis 6,706 km — 4,1667 mil. Da glokaat e-barzh an eur, pe se a vo diverkadur.",
+      "card3_title": "Ur c'hounezer hepken",
+      "card3_text": "Ar red a bad betek na chom nemet ur redour barrek da glokaat un dro ouzhpenn.",
+      "card4_title": "Ur spered dibar",
+      "card4_text": "Etre an troioù, ar c'hamp diazez a zastum redourien, skipailhoù ha skoazellerien en un amva karedik ha kengred.",
+      "btn": "Gouzout hiroc'h diwar-benn an abeg"
+    },
+    "stats": {
+      "subtitle": "An darvoud e niveroù",
+      "title": "Breizh Backyard Ultra",
+      "stat1_suffix": ",706 km",
+      "stat1_label": "An dro",
+      "stat1_desc": "Pellder resis ar Backyard Ultra",
+      "stat2_suffix": "",
+      "stat2_label": "Redourien gortozet",
+      "stat2_desc": "An holl rummadoù kendrec'het",
+      "stat3_suffix": "e",
+      "stat3_label": "Rekord ar bed",
+      "stat3_desc": "Ouzhpenn 760 km graet",
+      "stat4_suffix": "añ",
+      "stat4_label": "Edisyon e Roazhon",
+      "stat4_desc": "Un emgav ultra nevez"
+    },
+    "parcours": {
+      "subtitle": "An hentad",
+      "title": "Un hent e-kreiz natur Breizh",
+      "desc": "Ar c'helc'hiad a stlej dre natur Breizh: hentoù-koad, dindan ar gwez, hentoù-parkeier... Un endro awenus da bouezañ war ho bevennoù, eur goude eur.",
+      "list1_label": "Pellder an dro",
+      "list1_value": "6,706 km",
+      "list2_label": "Uhelder (menegañ)",
+      "list2_value": "da zont",
+      "list3_label": "Doare tachenn",
+      "list3_value": "Hentoù natur, koad",
+      "list4_label": "Lec'hiadur",
+      "list4_value": "Parc des Gayeulles, Roazhon",
+      "btn": "Gwelet an hent",
+      "placeholder1": "📍 Foto an hent da zont",
+      "placeholder2": "Erlerc'hiañ gant ho fotoioù gwirion"
+    },
+    "ambiance": {
+      "subtitle": "An amva",
+      "title": "Kalz muioc'h eget ur red",
+      "card1_title": "Ar c'hamp diazez",
+      "card1_text": "Etre pep tro, redourien ha skoazellerien a gav an eil egile er maez-bevañ. Teltennoù, kadorioù-hir, boued kroget er gêr... An amva a zo dibar.",
+      "card2_title": "Ar skoazell etre an holl",
+      "card2_text": "Er Backyard, ar redourien en em skoazell an eil egile. En em anavezout a reer a-hed an eurioù, en em vroudañ, rannañ. Ur spered kumuniezh diêz da gavout e kevezerezh.",
+      "card3_title": "Breizh",
+      "card3_text": "Un endro natur dibar: koadeier, hentoù, aer ar mor... Breizh a ginnig an dekor pervezh evit an avanturenn ultra-badezerezh-mañ."
+    },
+    "cta": {
+      "badge": "Loc'hañ: 15 Mae 2027",
+      "title": "Na gollit ket digoradur an enskrivadurioù",
+      "desc": "Bevennet eo al leuzioù. En em enskrivit d'hor c'helaouenn evit bezañ kelaouet da gentañ pa vo digor.",
+      "btn": "Fellout a ra din bezañ kelaouet →"
+    }
+  },
+  "concept_page": {
+    "header": {
+      "subtitle": "Ar furm",
+      "title": "Abeg ar Backyard Ultra",
+      "desc": "Ur brouadenn krouet gant Gary Cantrell (galvet ivez Lazarus Lake) e 2011, e Tennessee. Ur furm dibar he deus cheñchet bed an ultra-badezerezh."
+    },
+    "principe": {
+      "subtitle": "Ar reolenn diazez",
+      "title_line1": "Aes da gompren,",
+      "title_line2": "diaes-tre da vestroniañ",
+      "desc1_start": "Reolenn diazez ar Backyard Ultra a zo eeun-kenañ: klokaat ur c'helc'hiad ",
+      "desc1_bold": " 6,706 km ",
+      "desc1_end": " (4,1667 mil — da lâret eo 100 mil goude 24e), hag-se bep eur, hep nemedenn.",
+      "desc2": "Bep eur nevez, ur sin son a zeu er-maez: setu an tan-gregiñ. An holl redourien c'hoazh er red a ya en-dro asambles, fresk pe skuizh e vezont. Ne vez ket a c'hregiñ hiniennel, ne vez ket a nemedenn.",
+      "desc3_start": "Ma n'hoc'h eus ket klokaet ho tro a-raok an tan-gregiñ da zont, ",
+      "desc3_bold": "echu eo",
+      "desc3_end": ". Diverket oc'h. Netra da c'hortoz.",
+      "desc4_start": "Ar red a bad eur goude eur, betek na chom nemet ur redour barrek da glokaat un dro ouzhpenn. Ar redour-se a rank neuze ober an dro-se ",
+      "desc4_bold": "e-unan",
+      "desc4_end": " evit bezañ disklêriet gounezer ofisiel — hep se, n'eus ket a c'hounezer."
+    },
+    "cards": {
+      "km": "6,706 km",
+      "km_desc": "an dro — bep eur, resis",
+      "c1_title": "Un dro = un eur",
+      "c1_text": "Pep tro a rank bezañ klok a-raok an tan-gregiñ da zont. An horolaj a red hep paouez.",
+      "c2_title": "Gounezer ket gwarantet",
+      "c2_text": "Ma ne c'hell den klokaat un dro ouzhpenn eget ar re all, n'eus ket a c'hounezer ofisiel.",
+      "c3_title": "Unan hepken a c'hell gounit",
+      "c3_text": "Ar gounezer eo an hini diwezhañ war e sav — an hini a glok un dro ouzhpenn eget an holl re all, e-unan."
+    },
+    "schema": {
+      "subtitle": "Kompren ar furm",
+      "title": "Ur red hep dibenn rakwelet",
+      "step_depart": "Loc'hañ",
+      "step_vainqueur": "Gounezer!",
+      "legend_depart": "Tan-gregiñ bep eur",
+      "legend_vainqueur": "Gounezer = an hini diwezhañ da glokaat"
+    },
+    "rules": {
+      "r1_title": "Tan-gregiñ bep eur",
+      "r1_text": "Ar sin a zeu er-maez resis war an eur. An holl redourien a ya en-dro asambles, n'eus forzh pe stad fizik int.",
+      "r2_title": "Dro 6,706 km resis",
+      "r2_text": "Ar pellder a zo unvanet er bed a-bezh. Pep red Backyard Ultra a implij an hevelep hentad diazez.",
+      "r3_title": "Diverkadur diouzhtu",
+      "r3_text": "Redour ebet n'en deus tremenet al linenn erruout a-raok an tan-gregiñ da zont a vez diverket diouzhtu.",
+      "r4_title": "Tro ar c'hounezer",
+      "r4_text": "Evit bezañ disklêriet gounezer ofisiel, ar redour diwezhañ o chom er red a rank ober un dro ouzhpenn, e-unan."
+    },
+    "faq": {
+      "subtitle": "Goulennoù boutin",
+      "title": "Ho kentañ goulennoù",
+      "q1": "Petra a c'hoarvez ma ne erruan ket e-barzh an eur?",
+      "a1": "Diverket oc'h diouzhtu. Ma vez roet an tan-gregiñ evit an dro da zont a-raok m'hoc'h eus tremenet al linenn erruout, n'hallit ket adloc'hañ.",
+      "q2": "Pegement amzer a c'hell padout ur red?",
+      "a2": "Den ne oar a-raok! Rekord ar bed a dremen 100 eur, da lâret eo ouzhpenn 4 devezh hep paouez. E gwirionez, an darn vrasañ eus ar redioù a echu etre 24 hag 48 eur.",
+      "q3": "Ha gallout a rafe bezañ meur a c'hounezer?",
+      "a3": "Ket. Ma tegouezh an holl redourien da leuskel an dro d'ar memes tro (hep m'en deus unan bennak gallet klokaat un dro ouzhpenn eget ar re all), n'eus ket a c'hounezer ofisiel. Ar gounezer a rank atav ober un dro ouzhpenn e-unan.",
+      "q4": "Hallañ a ran kousket etre an troioù?",
+      "a4": "Ya! Un amzer c'hoarvezus (a chench hervez ho tizh war an dro) a c'hoarvez ganeoc'h evit diskuizhañ, debriñ, en em zoueriañ... Amañ eo ma teu ar merañ diskuizhañ da vezañ strategel.",
+      "q5": "Ha dereat eo ar furm evit an dud a grog gant an ultra?",
+      "a5": "Digor eo ar furm d'an holl — n'eus ket a live tekniek rekis. Met rekis eo ur prientadur mental ha fizik serius, rak ar bad a c'hell bezañ hir-kenañ. Kuzulet e vez bezañ redet dija ur red-koad pe ur marathon a-raok en em lañsañ.",
+      "btn": "Gwelet an holl c'houlennoù"
+    }
+  },
+  "parcours_page": {
+    "header": {
+      "subtitle": "Ar c'helc'hiad",
+      "title": "An Hent",
+      "desc": "Un hentad 6,706 km savet evit furm ar Backyard Ultra, e-kreiz natur Breizh. Pep tro a zo un avanturenn nevez."
+    },
+    "terrainFeatures": {
+      "f1_label": "Hentoù-koad",
+      "f1_desc": "An darn vrasañ eus an hentad a stlej dindan an dachennoù-gwez, o kinnig un disheol plijadus hag un amva iskiz.",
+      "f2_label": "Tachenn liesseurt",
+      "f2_desc": "Hentoù douar, pignadennoù ha diskennadennoù dous, tremenioù dindan ar gwez. Aes met kalonek war ar pad.",
+      "f3_label": "Sked heol",
+      "f3_desc": "Un nebeud lodennoù dizoloet a laka ar sked naturel da vezañ tapet. Soñjit er wareziñ heol e-pad an hañv.",
+      "f4_label": "Douar mous ha kalet",
+      "f4_desc": "Kemmesk douar mous (douar) ha hentoù ferm-oc'h. Botoù red-koad a zo erbedet."
+    },
+    "stats": {
+      "s1_val": "6,706",
+      "s1_unit": "km",
+      "s1_label": "Pellder resis",
+      "s2_val": "45",
+      "s2_unit": "m",
+      "s2_label": "Uhelder kresket",
+      "s3_val": "100%",
+      "s3_unit": "",
+      "s3_label": "Hentoù natur",
+      "s4_val": "Coral",
+      "s4_unit": "",
+      "s4_label": "Diazez etre an troioù"
+    },
+    "description": {
+      "subtitle": "An hentad",
+      "title": "Kinnigadur ar c'helc'hiad",
+      "p1_start": "An hentad Breizh Backyard Ultra a zo bet soñjet evit bezañ ken kaer ha reizh evit an holl redourien. Un dro hepken a ",
+      "p1_bold": "6,706 km",
+      "p1_end": ", graet en hevelep tu bep tro.",
+      "p2_start": "Al loc'hañ hag an erruout a zo lakaet er ",
+      "p2_bold": "maez-bevañ",
+      "p2_end": " — ar c'hamp diazez el lec'h ma kaver an eil egile redourien ha skoazellerien etre an troioù. Mont a rit gant an amzer n'oc'h eus ket redet (ma glokait en 45 munutenn, hoc'h eus 15 munutenn da ziskuizhañ) a-raok an tan-gregiñ da zont.",
+      "p3": "Kavit amañ dindan kartenn etrewezhiat an hentad ofisiel hag an diskoulmoù pellgargañ.",
+      "btn_gpx": " Pellgargañ ar GPX"
+    },
+    "map": {
+      "title": "Kartenn etrewezhiat",
+      "subtitle": "Hentad ofisiel ar redadeg",
+      "info": "Klikit evit gwelet ar munudoù war Strava",
+      "location": "Parc des Gayeulles, Roazhon"
+    },
+    "terrain": {
+      "subtitle": "An dachenn",
+      "title": "Ar pezh a gavot war an hentad"
+    },
+    "zone_vie": {
+      "subtitle": "Etre an troioù",
+      "title": "Ar maez-bevañ & ar c'hamp diazez",
+      "p1": "E-kreiz an dro emañ ar c'hamp diazez: ho ti-post e-pad ar red a-bezh. Amañ eo e teuit en-dro goude pep tro da ziskuizhañ, debriñ, kousket ma vez ret.",
+      "p2": "Gallout a rit sevel ho stalidigezh hoc'h-unan (teltenn, kador-hir, taol...). Ho skoazellerien, tud vat ha mignoned a c'hell chom en takad-mañ evit ho skoazellañ e-pad ar red a-bezh.",
+      "placeholder": "📸 Foto ar maez-bevañ da zont"
+    },
+    "galerie": {
+      "subtitle": "Un taol-lagad",
+      "title": "Fotoioù an hentad",
+      "desc": "Fotoioù gwirion a vo ouzhpennet a-benn nebeut — lec'hioù miret amañ dindan.",
+      "p1_label": "Hent-koad",
+      "p1_desc": "Ho foto amañ",
+      "p2_label": "Gwel war an natur",
+      "p2_desc": "Ho foto amañ",
+      "p3_label": "Al loc'hañ / an erruout",
+      "p3_desc": "Ho foto amañ",
+      "p4_label": "Maez-bevañ",
+      "p4_desc": "Ho foto amañ",
+      "p5_label": "Gwel panoramek",
+      "p5_desc": "Ho foto amañ",
+      "p6_label": "Munud an hentad",
+      "p6_desc": "Ho foto amañ"
+    }
+  },
+  "infos_page": {
+    "header": {
+      "subtitle": "Aozadur",
+      "title": "Titouroù Fentus",
+      "desc": "Pep tra a rankit gouzout a-raok en em lakaat er Breizh Backyard Ultra. En em brientit mat — ho tespled a zepant eus hoc'h aozadur."
+    },
+    "nav": {
+      "acces": "Tremen & Lec'h",
+      "materiel": "Ostilhoù",
+      "ravitaillement": "Boued & Dour",
+      "reglement": "Reolennoù"
+    },
+    "acces": {
+      "title": "Tremen & Lec'h",
+      "loc_title": "📍 Lec'hiadur",
+      "loc_p1_start": "Ar Breizh Backyard Ultra a c'hoarvez e Breizh, en un endro natur miret.",
+      "loc_p1_bold": " Roet e vo an chomlec'h resis",
+      "loc_p1_end": " d'ar re enskrivet dre bostel a-raok ar red.",
+      "loc_info": "ℹ️ Koordonadoù GPS hag an tremen munudek a vo rannet er pakad kemperzhour, hegerz 2 sizhun a-raok ar red.",
+      "parking_title": "🚗 Tremen & Parking",
+      "p1": "Parking digoust war al lec'h (niver a blasennoù bevennet)",
+      "p2": "Kenrannañ karr broudet start — forom hegerz goude enskrivadur",
+      "p3": "Tremen dre garr-boutin posupl (titouroù da zont)",
+      "p4": "Sinaerezh fleuret adalek an hent pennañ"
+    },
+    "materiel": {
+      "title": "Ostilhoù & Ekipadur",
+      "ob_title": "Ret",
+      "ob1": "Niverenn ofisiel (pourvezet)",
+      "ob2": "Botoù red-koad (erbedet)",
+      "ob3": "Dilhad diouzh an amzer",
+      "ob4": "Lamp-tal (evit an noz)",
+      "ob5": "Pellgomz gwarezet",
+      "rec_title": "Erbedet",
+      "rec1": "Teltenn pe goudor evit ar c'hamp diazez",
+      "rec2": "Kador-hir / matele",
+      "rec3": "Sac'h-kousket",
+      "rec4": "Dilhad ouzhpenn (x5 d'an nebeutañ)",
+      "rec5": "Kaset soagn / c'hloazioù troad",
+      "ut_title": "Talvoudus",
+      "ut1": "Bizhier bale (aotreet)",
+      "ut2": "Horolaj GPS",
+      "ut3": "Klevlec'h / skoulmoù",
+      "ut4": "Godelloù skouarn / tokig",
+      "ut5": "Kremm heol & difenn mistr"
+    },
+    "ravitaillement": {
+      "title": "Boued & Dour",
+      "fourni_title": "✅ Ar pezh a zo pourvezet",
+      "f1": "Poent dour evañ padus war ar maez-bevañ",
+      "f2": "Frouezh fresk (banantez, orañjez) etre pep tro",
+      "f3": "Soubenn tomm e-pad an noz",
+      "f4": "Kafe / te hep dilezel",
+      "apporter_title": "🎒 Da zegas",
+      "a1": "Ho boued muiañ-karet ha klasket dija (n'eo ket amzer da esae en dro red!)",
+      "a2": "Jelaj / barennoù energiezh diouzh hoc'h ijinamant",
+      "a3": "Evajoù diskuizhañ",
+      "a4": "Predoù klok (pastez, riz...) evit ar padoù hir",
+      "a5": "Termosenn hoc'h-unan erbedet evit an noz"
+    },
+    "reglement": {
+      "title": "Reolennoù & Furm",
+      "r_bu_title": "Reolennoù furm ar Backyard Ultra",
+      "r1": "Un dro 6,706 km a rank bezañ klok a-raok pep tan-gregiñ eurel.",
+      "r2": "Redour ebet n'en deus tremenet al linenn a-raok ar sin a vez diverket diouzhtu.",
+      "r3": "Ar gounezer eo ar redour diwezhañ barrek da glokaat un dro ouzhpenn eget an holl re all.",
+      "r4": "Ar gounezer a rank ober un dro ouzhpenn e-unan evit bezañ disklêriet ofisielamant.",
+      "r_breizh_title": "Reolennoù dibar Breizh BU",
+      "br1": "An niverenn a rank bezañ gwisket hewel a-raok e-pad ar red a-bezh.",
+      "br2": "Redour ebet a laosk ar red a rank menegiñ e ehan d'un ezel eus an aozadur.",
+      "br3": "Ar skoazellerien a chom er maez-bevañ — n'eus ket a skoazell war ar c'helc'hiad.",
+      "br4": "Skoazell diavaez ebet war ar c'helc'hiad a zegas diskaraat diouzhtu.",
+      "br5": "Ar reolennoù klok a zo hegerz er pakad kemperzhour."
+    }
+  },
+  "inscriptions_page": {
+    "header": {
+      "subtitle": "En em stagit ouzhimp",
+      "title": "Enskrivañ",
+      "desc": "N'eo ket digor c'hoazh an enskrivadurioù evit an edisyon da zont. Roit deomp ho postel evit bezañ kelaouet da gentañ."
+    },
+    "errors": {
+      "email_req": "Ret eo ar postel.",
+      "email_inv": "Postel didalvoudek."
+    },
+    "info": {
+      "badge": "Enskrivadurioù serret — Digor a-benn nebeut",
+      "title": "Bezit e-touez ar re gentañ da redek",
+      "desc": "Bevennet eo al leuzioù evit ar Breizh Backyard Ultra. En em enskrivet d'hor c'helaouenn, e vefec'h kelaouet pa vo digor ofisiel an enskrivadurioù, a-raok an disklêriadur foran.",
+      "list1": "Kemenn diouzhtu pa vo digor an enskrivadurioù",
+      "list2": "Tremen kentañ a-raok al listennoù gortoz",
+      "list3": "Keleier dibar diwar-benn ar red hag an hentad",
+      "depart_title": "Loc'hañ da zont",
+      "depart_date": "Sadorn 15 Mae 2027",
+      "depart_loc": "10e00 — Parc des Gayeulles, Roazhon"
+    },
+    "form": {
+      "title": "Chomit kelaouet",
+      "desc": "Roit deomp ho postel evit bezañ kelaouet pa vo digor an enskrivadurioù. N'ho po nemet postelioù pouezus.",
+      "prenom_label": "Anv-bihan",
+      "prenom_ph": "Marie",
+      "nom_label": "Anv",
+      "nom_ph": "Dupont",
+      "email_label": "Postel",
+      "email_ph": "marie.dupont@example.com",
+      "btn_loading": "O kas...",
+      "btn_submit": "Fellout a ra din bezañ kelaouet →",
+      "consent": "En ur en em enskrivañ, aotren a rit resev hor postelioù. Dilezel a c'haller pep amzer."
+    },
+    "success": {
+      "title": "Trugarez!",
+      "desc": "Kelaouet e vefec'h pa vo digor an enskrivadurioù. Prientit ho potoù red-koad — ne badafe ket pell ken!",
+      "confirm": "Kadarnadur kaset da:"
+    }
+  },
+  "sponsors_page": {
+    "header": {
+      "subtitle": "Kevredigezh",
+      "title": "Parteneriou & Kevredidi",
+      "desc": "Stagit ho marc'h gant un darvoud sportel dibar, diazezet war talvoudoù an natur, dreistañ ac'hanor, ha karedigezh vreizhat."
+    },
+    "dossier": {
+      "title": "Pakad Kevredad & Teuliad Kevredigezh",
+      "desc": "Dizoleit e-mesk munudoù hon darvoud, hon talvoudoù, hon niveroù pouezus hag hon holl ginnigoù hewelegezh en ur bellgargañ hon teuliad klok.",
+      "btn": "Pellgargañ an teuliad (PDF)"
+    },
+    "niveaux": {
+      "subtitle": "Dont da vezañ kevredad",
+      "title": "Live kevredigezh",
+      "or_name": "Aour",
+      "or_desc": "Hewelegezh uc'hek — logo XXL war an niverenn hag an holl gehentiñ",
+      "or_price": "War c'houlenn",
+      "argent_name": "Arc'hant",
+      "argent_desc": "Hewelegezh kreñv — logo splann war al lec'hienn, ar rouedadoù hag ar sinaerezh",
+      "argent_price": "War c'houlenn",
+      "bronze_name": "Bronz",
+      "bronze_desc": "Hewelegezh mat — logo war al lec'hienn ha kehentiñ ar red",
+      "bronze_price": "War c'houlenn",
+      "tarif": "Priz",
+      "logo": "Logo"
+    },
+    "avantages": {
+      "title": "Talvoudegezhioù boutin d'an holl live",
+      "b1": "Logo war al lec'hienn internet",
+      "b2": "Menegiñ war ar rouedadoù sokial",
+      "b3": "Bezañs er pakad kemperzhour",
+      "b4": "Stand posupl war ar maez-bevañ"
+    },
+    "contact": {
+      "subtitle": "Dedennet?",
+      "title": "Kit e darempred ganeomp",
+      "nom_label": "Anv",
+      "nom_ph": "Hoc'h anv",
+      "societe_label": "Kevredigezh / Aozadur",
+      "societe_ph": "Anv hoc'h embregerezh",
+      "email_label": "Postel",
+      "email_ph": "contact@hoc'h-embregerezh.fr",
+      "message_label": "Kemennadenn",
+      "message_ph": "Deskrivit hoc'h dedenn, al live kevredigezh soñjet...",
+      "btn_loading": "O kas...",
+      "btn_submit": "Kas ma goulenn →",
+      "success_title": "Kemennadenn kaset!",
+      "success_desc": "Respont a raimp deoc'h buanoc'h posupl evit kaozeal diwar-benn ur gevredigezh."
+    }
+  },
+  "faq_page": {
+    "header": {
+      "subtitle": "Skoazell",
+      "title": "Goulennoù Alies",
+      "desc": "Goulennoù ho peus diwar-benn ar furm, an aozadur pe ar red? Moarvat e kavot ar respont amañ."
+    },
+    "filters": {
+      "toutes": "An holl"
+    },
+    "data": [
+      {
+        "category": "🏃 Furm ar Backyard Ultra",
+        "items": [
+          {
+            "q": "Petra eo furm ar Backyard Ultra?",
+            "a": "Ar Backyard Ultra a zo ur furm red ultra-badezerezh krouet gant Gary Cantrell (galvet ivez Lazarus Lake) e 2011. Ar poent diazez: klokaat ur c'helc'hiad 6,706 km bep eur, betek na chom nemet ur redour barrek da glokaat un dro ouzhpenn."
+          },
+          {
+            "q": "A-belec'h e teu ar pellder 6,706 km?",
+            "a": "Ar pellder-mañ a glot resis gant 4,16667 mil, da lâret eo ur c'hantved eus ur mil en un eur. Liesaet dre niver an troioù, sur e vo atav un niver klok a vilioù graet."
+          },
+          {
+            "q": "Pegement amzer a c'hell padout ur red?",
+            "a": "Ne oar den a-raok pegeit e pado. Redoù bihannoc'h eget 10 eur a zo bet gwelet, met rekord ar bed a dremen 100 eur (ouzhpenn 4 devezh). E gwirionez, an darn vrasañ eus ar redoù rannvroel a echu etre 20 ha 40 eur."
+          },
+          {
+            "q": "Ha gallout a rafe bezañ meur a c'hounezer?",
+            "a": "Ket, ur c'hounezer ofisiel hepken a c'hell bezañ. Ma laosk meur a redour an dro d'ar memes eur, pe ma ne c'hell ket ar redour diwezhañ o chom klokaat an dro ouzhpenn e-unan, n'eus ket a c'hounezer ofisiel evit an edisyon."
+          },
+          {
+            "q": "Petra eo ar 'Big's Backyard Ultra'?",
+            "a": "Setu ar red kentañ krouet gant Lazarus Lake e Tennessee, Stadoù-Unanet. Sellet e vez outi evel c'hampionad diofisiel ar bed evit ar furm-mañ. Ar redourien wellañ eus pep red dellezerezh a c'hell bezañ pedet di."
+          }
+        ]
+      },
+      {
+        "category": "📋 An enskrivadurioù",
+        "items": [
+          {
+            "q": "Pegoulz e tigor an enskrivadurioù?",
+            "a": "N'eo ket digor c'hoazh an enskrivadurioù evit an edisyon da zont. En em enskrivit d'hor c'helaouenn evit bezañ kelaouet da gentañ pa vint digor."
+          },
+          {
+            "q": "Pet plas a zo hegerz?",
+            "a": "Niver ar plasennoù a vo roet pa vo digor an enskrivadurioù. Ar furm Backyard Ultra a dalvez gwelloc'h gant un niver poellek a gemperzhourien — gortozit plasennoù bevennet."
+          },
+          {
+            "q": "Ha rekis eo un live izelañ?",
+            "a": "N'eus ket a gelenn tekniek rekis, met erbedet e vez bezañ bet skiant e red-koad pe e redoù hir (marathon d'an nebeutañ). Ar furm a zo kalz ezhomm fizik ha mental."
+          },
+          {
+            "q": "Ha dispignet e vez an enskrivadurioù?",
+            "a": "Ar politikerezh dispign a vo roet pa vo digor an enskrivadurioù. Divizoù dilezel a vo menegiet er reolennoù."
+          }
+        ]
+      },
+      {
+        "category": "🎒 Ostilhoù & Lojerezh",
+        "items": [
+          {
+            "q": "Peseurt ostilhoù am eus ezhomm?",
+            "a": "Ar re bouezusañ: botoù red-koad, ul lamp-tal, dilhad diouzh an amzer hag ho boued. Evit ar c'hamp diazez: un deltenn pe c'houdor, ur c'hador-hir, ur sac'h-kousket ha dilhad ouzhpenn. Sellit ouzh pajenn 'Titouroù Fentus' evit al listenn glok."
+          },
+          {
+            "q": "Ha gallout a ran kaout ur skipailh skoazell?",
+            "a": "Ya! Ho skoazellerien a c'hell bezañ war al lec'h er maez-bevañ e-pad ar red a-bezh. Ne c'hellont ket avat ho skoazellañ war ar c'helc'hiad e-unan."
+          },
+          {
+            "q": "Ha aotreet eo ar bizhier red-koad?",
+            "a": "Ya, ar bizhier bale / red-koad a zo aotreet e-pad ar red a-bezh."
+          },
+          {
+            "q": "Ha bez ez eus kawelloù pe sanitedoù war al lec'h?",
+            "a": "Sanitedoù a vo hegerz er maez-bevañ. Ar munudoù klok a vo roet er pakad kemperzhour."
+          }
+        ]
+      },
+      {
+        "category": "🍌 Boued & Dour",
+        "items": [
+          {
+            "q": "Petra a bourvez an aozadur?",
+            "a": "An aozadur a bourvez dour evañ padus, frouezh fresk (banantez, orañjez) etre an troioù, soubennoù tomm e-pad an noz, ha kafe/te. Ur pourvezadur klok a vo munudet er reolennoù."
+          },
+          {
+            "q": "Ha gallout a ran degas ma boued va-unan?",
+            "a": "Ya, ha kalz erbedet eo! Gwelloc'h eget den ebet ec'h anavezit ar pezh a dalvez deoc'h e-pad an oberoù hir. Diwallit ouzh pep boued n'hoc'h eus ket amprouet en hoc'h ampretadur."
+          },
+          {
+            "q": "Ha bez ez eus ur poent boued war ar c'helc'hiad?",
+            "a": "Ket. An hini boued nemetañ a zo er maez-bevañ, e-tal al loc'hañ/erruout. Ho po an amzer chomus goude pep tro evit en em bourvezañ a-raok an tan-gregiñ da zont."
+          }
+        ]
+      },
+      {
+        "category": "🌙 An noz & An diskuizh",
+        "items": [
+          {
+            "q": "Penaos e verer an nozioù?",
+            "a": "Ar red a bad 24e/24, en noz ivez. Ar c'helc'hiad a zo merket gant bandennoù disvannus. Ret eo ul lamp-tal adalek ma teu an noz."
+          },
+          {
+            "q": "Ha gallout a reer kousket etre an troioù?",
+            "a": "Ya! Ma glokait ho tro e 45 munutenn, hoc'h eus 15 munutenn da ziskuizhañ. Redourien zo a implij alarmoù evit mikro-gousked a 10-12 munutenn. Setu unan eus alc'hwezioù strategel ar furm."
+          },
+          {
+            "q": "Petra a c'hoarvez ma vez gloazet ur redour?",
+            "a": "Ur skipailh mezeg a zo war al lec'h 24e/24. Redour ebet en diaester a c'hell bezañ soursedet diouzhtu. Gwell eo ganeomp ul leuskel a-youl eget lakaat en arvar."
+          }
+        ]
+      }
+    ],
+    "contact": {
+      "title": "N'hoc'h eus ket kavet ho respont?",
+      "desc": "Hor skipailh a vo laouen da respont d'an holl c'houlennoù.",
+      "btn": "Kit e darempred ganeomp"
+    }
+  },
+  "contact_page": {
+    "header": {
+      "subtitle": "Skrivit deomp",
+      "title": "Darempred",
+      "desc": "Ur goulenn, ur c'houlenn kevredigezh, un ezhomm titouroù? Hor skipailh a respont deoc'h e berr amzer."
+    },
+    "subjects": {
+      "s1": "Goulenn hollek",
+      "s2": "Goulenn kevredigezh / kevredad",
+      "s3": "Kazetennerezh / Media",
+      "s4": "Gwazouriezh",
+      "s5": "Goulenn mezeg / diogelroez",
+      "s6": "All"
+    },
+    "errors": {
+      "nom_req": "Ret eo hoc'h anv.",
+      "email_req": "Ret eo ar postel.",
+      "email_inv": "Postel didalvoudek.",
+      "msg_req": "Ret eo ho kemennadenn."
+    },
+    "info": {
+      "title": "Hor c'havout",
+      "email": "Postel",
+      "loc": "Lec'hiadur",
+      "loc_val": "Parc des Gayeulles, Roazhon",
+      "socials": "Rouedadoù sokial",
+      "delay": "⏱ Amzer respont",
+      "delay_text": ": e-doare hor bez respont e-barzh 48 eur labour. Evit goulennoù prim, trugarez o veneg en ho kemennadenn."
+    },
+    "form": {
+      "title": "Kas ur gemennadenn",
+      "nom_label": "Anv klok",
+      "nom_ph": "Mathieu Blanchard",
+      "email_label": "Postel",
+      "email_ph": "mat@ilovekiprun.com",
+      "sujet_label": "Danvez",
+      "sujet_ph": "Dibabit un danvez...",
+      "msg_label": "Kemennadenn",
+      "msg_ph": "Ho kemennadenn...",
+      "btn_loading": "O kas...",
+      "btn_submit": "Kas ar gemennadenn",
+      "success_title": "Kemennadenn kaset!",
+      "success_desc": "Trugarez evit ho kemennadenn, {{nom}}! Respont a raimp deoc'h e-barzh 48 eur labour."
+    }
+  },
+  "resultats_page": {
+    "header": {
+      "subtitle": "Edisyon #1",
+      "title": "Disoc'hoù & Heuliañ Bev",
+      "desc": "N'eus ket c'hoazh un istor disoc'hoù rak setu kentañ edisyon ar Breizh Backyard Ultra."
+    },
+    "live": {
+      "title": "Amañ e vo an Heuliañ Bev!",
+      "desc_start": "Deiz ar red, ar bajenn-mañ a vo cheñchet e ",
+      "desc_bold": "taolenn-vestr vev",
+      "desc_end": ". Gallout a raio heuliañ araokadenn ar red eur goude eur, gwelet an diverkadurioù ha skoazellañ ar redour diwezhañ war e sav.",
+      "ind1": "Amzer an dro",
+      "ind2": "Redourien c'hoazh er red",
+      "ind3": "Ar gounezer diwezhañ",
+      "btn": "Bezañ kelaouet eus an digoradur"
+    }
+  },
+  "galerie_page": {
+    "header": {
+      "subtitle": "Fotoioù",
+      "title": "Galerie",
+      "desc": "Adbevit poentoù kreñv ar Breizh Backyard Ultra. Fotoioù gwirion a vo ouzhpennet goude pep edisyon."
+    },
+    "categories": {
+      "toutes": "An holl",
+      "coureurs": "Redourien",
+      "parcours": "Hentad",
+      "ambiance": "Amva"
+    },
+    "photos": {
+      "p1_label": "Loc'hañ ar red",
+      "p1_desc": "Erlerc'hiañ gant ho fotoioù gwirion",
+      "p2_label": "Hent-koad",
+      "p2_desc": "Foto an hentad",
+      "p3_label": "Maez-bevañ",
+      "p3_desc": "Kamp diazez",
+      "p4_label": "E-kreiz an oberiañs",
+      "p4_desc": "Oberiadur ar red",
+      "p5_label": "Gwel natur",
+      "p5_desc": "Gweledva vreizhat",
+      "p6_label": "Ar gumuniezh",
+      "p6_desc": "Momedoù etre redourien",
+      "p7_label": "Noz red",
+      "p7_desc": "Lampoù-tal",
+      "p8_label": "Munud tachenn",
+      "p8_desc": "Liested an hentoù",
+      "p9_label": "Boued & Dour",
+      "p9_desc": "Ar skipailh wirvoluntour",
+      "p10_label": "Erruout ar gounezer",
+      "p10_desc": "Ur mare dibar",
+      "p11_label": "Sav-heol",
+      "p11_desc": "Sked ar beure",
+      "p12_label": "An aozadur",
+      "p12_desc": "A-dreñv an darvoud"
+    },
+    "lightbox": {
+      "photo": "Foto"
+    }
+  },
+  "benevoles_page": {
+    "header": {
+      "subtitle": "Deuit en hor skipailh",
+      "title": "Mont da Zen A-youl Vat",
+      "desc": "Bevit ar Breizh Backyard Ultra eus an diabarzh. Hep an dud a-youl vat, n'eus ket eus an avantur."
+    },
+    "intro": {
+      "title": "Perak mont da zen a-youl vat?",
+      "card1_title": "Un aergelc'h dreist-ordinal",
+      "card1_text": "Deuit e-barzh ur skipailh tud entanet en un aergelc'h plijus, e-kreiz un darvoud sportel dispar.",
+      "card2_title": "Tost ouzh ar redadeg",
+      "card2_text": "Bevit pizhder an ultra-startijenn ha sikourit ar redourien da vont dreist o harzoù.",
+      "card3_title": "Donezonoù & Predoù",
+      "card3_text": "Predoù profet e-pad ho prantadoù ha madoù (t-shirt, traoùigoù) evit ho trugarekaat eus ho sikour."
+    },
+    "roles": {
+      "title": "Ar c'hefridioù",
+      "r1_title": "Pourveziñ & Kamp diazez",
+      "r1_text": "Aozañ ar boued, degemer ar redourien, merañ ar c'hamp diazez.",
+      "r2_title": "Hentata & Surentez",
+      "r2_text": "Hentata war ar c'helc'hiad, surentez er c'hroazhentoù, reiñ kalon.",
+      "r3_title": "Lojistik & Sevel",
+      "r3_text": "Sikour da sevel ha diskar ar gêriadenn, merañ ar parklec'h, lojistik hollek."
+    },
+    "form": {
+      "title": "Dont e-barzh ar skipailh",
+      "nom_label": "Anv klok",
+      "nom_ph": "Yann Gelt",
+      "email_label": "Postel",
+      "email_ph": "yann@skouer.bzh",
+      "dispo_label": "Lijder",
+      "dispo_ph": "Skouer: Sadorn mintin, an dibenn-sizhun a-bezh...",
+      "msg_label": "Kemennadenn / Dibaboù",
+      "msg_ph": "Ma hoc'h eus ur c'hefridi karetañ (pourveziñ, hentata...)",
+      "btn_loading": "O kas...",
+      "btn_submit": "Kas ma goulenn",
+      "success_title": "Goulenn kaset!",
+      "success_desc": "Trugarez {{nom}}! Evit muioc'h a ditouroù ez eimp e darempred ganeoc'h buan-tre."
+    }
   }
 }

@@ -1,8 +1,10 @@
 import { motion } from "motion/react";
+import { useState, useEffect } from "react";
 import { MapPin, Utensils, Backpack, BookOpen } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
+  <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
     <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.08) 0%, transparent 60%)` }} />
     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}>
@@ -56,12 +58,34 @@ const RuleItem = ({ number, text, variant = "default" }: { number: number; text:
 );
 
 export const InfosPratiques = () => {
+  const { t } = useTranslation();
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-100px 0px -50% 0px" }
+    );
+
+    const sectionIds = ["acces", "materiel", "ravitaillement", "reglement"];
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+    sections.forEach((s) => observer.observe(s as Element));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div style={{ background: "#EFEFEF" }}>
       <PageHeader
-        subtitle="Organisation"
-        title="Infos Pratiques"
-        description="Tout ce que vous devez savoir avant de vous engager dans le Breizh Backyard Ultra. Préparez-vous bien — votre confort dépend de votre organisation."
+        subtitle={t("infos_page.header.subtitle")}
+        title={t("infos_page.header.title")}
+        description={t("infos_page.header.desc")}
       />
 
       {/* Quick nav */}
@@ -88,42 +112,48 @@ export const InfosPratiques = () => {
           className="no-scrollbar"
         >
           {[
-            { anchor: "#acces", label: "Accès & Lieu", icon: MapPin },
-            { anchor: "#materiel", label: "Matériel", icon: Backpack },
-            { anchor: "#ravitaillement", label: "Ravitaillement", icon: Utensils },
-            { anchor: "#reglement", label: "Règlement", icon: BookOpen },
-          ].map((item) => (
-            <a
-              key={item.anchor}
-              href={item.anchor}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.75rem 1.25rem",
-                fontSize: "0.85rem",
-                fontWeight: "700",
-                color: "#277956",
-                textDecoration: "none",
-                borderRadius: "100px",
-                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                whiteSpace: "nowrap",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "#277956";
-                (e.currentTarget as HTMLElement).style.color = "#fff";
-                (e.currentTarget as HTMLElement).style.transform = "scale(1.02)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "transparent";
-                (e.currentTarget as HTMLElement).style.color = "#277956";
-                (e.currentTarget as HTMLElement).style.transform = "scale(1)";
-              }}
-            >
-              <item.icon size={16} strokeWidth={2.5} />
-              {item.label}
-            </a>
-          ))}
+            { anchor: "#acces", label: t("infos_page.nav.acces"), icon: MapPin },
+            { anchor: "#materiel", label: t("infos_page.nav.materiel"), icon: Backpack },
+            { anchor: "#ravitaillement", label: t("infos_page.nav.ravitaillement"), icon: Utensils },
+            { anchor: "#reglement", label: t("infos_page.nav.reglement"), icon: BookOpen },
+          ].map((item) => {
+            const isActive = activeSection === item.anchor.substring(1);
+            return (
+              <a
+                key={item.anchor}
+                href={item.anchor}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "0.75rem 1.25rem",
+                  fontSize: "0.85rem",
+                  fontWeight: "700",
+                  color: isActive ? "#fff" : "#277956",
+                  background: isActive ? "#277956" : "transparent",
+                  textDecoration: "none",
+                  borderRadius: "100px",
+                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                  whiteSpace: "nowrap",
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    (e.currentTarget as HTMLElement).style.background = "rgba(39, 121, 86, 0.1)";
+                    (e.currentTarget as HTMLElement).style.transform = "scale(1.02)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    (e.currentTarget as HTMLElement).style.background = "transparent";
+                    (e.currentTarget as HTMLElement).style.transform = "scale(1)";
+                  }
+                }}
+              >
+                <item.icon size={16} strokeWidth={2.5} />
+                {item.label}
+              </a>
+            );
+          })}
         </motion.div>
       </div>
 
@@ -132,65 +162,66 @@ export const InfosPratiques = () => {
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
 
             {/* ACCÈS & LIEU */}
-            <InfoSection id="acces" icon={MapPin} color="#277956" title="Accès & Lieu">
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+            <InfoSection id="acces" icon={MapPin} color="#277956" title={t("infos_page.acces.title")}>
+              <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                 <div>
-                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>📍 Localisation</h3>
+                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>{t("infos_page.acces.loc_title")}</h3>
                   <p style={{ color: "#4a6b56", lineHeight: 1.75, marginBottom: "1rem" }}>
-                    Le Breizh Backyard Ultra se déroule en Bretagne, dans un cadre naturel préservé.
-                    <strong style={{ color: "#277956" }}> L'adresse exacte sera communiquée</strong> aux inscrits par email avant la course.
+                    {t("infos_page.acces.loc_p1_start")}
+                    <strong style={{ color: "#277956" }}>{t("infos_page.acces.loc_p1_bold")}</strong>
+                    {t("infos_page.acces.loc_p1_end")}
                   </p>
                   <div style={{ padding: "1rem", background: "rgba(245,201,44,0.1)", borderRadius: "0.75rem", border: "1px solid rgba(245,201,44,0.3)" }}>
                     <p style={{ margin: 0, fontSize: "0.85rem", color: "#8a6200" }}>
-                      ℹ️ Les coordonnées GPS et l'accès détaillé seront partagés dans le pack participant, disponible 2 semaines avant la course.
+                      {t("infos_page.acces.loc_info")}
                     </p>
                   </div>
                 </div>
                 <div>
-                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>🚗 Accès & Parking</h3>
-                  <CheckItem text="Parking gratuit sur place (nombre de places limitées)" />
-                  <CheckItem text="Covoiturage fortement encouragé — forum disponible après inscription" />
-                  <CheckItem text="Accès en transport en commun possible (informations à venir)" />
-                  <CheckItem text="Signalétique fléchée depuis la route principale" />
+                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>{t("infos_page.acces.parking_title")}</h3>
+                  <CheckItem text={t("infos_page.acces.p1")} />
+                  <CheckItem text={t("infos_page.acces.p2")} />
+                  <CheckItem text={t("infos_page.acces.p3")} />
+                  <CheckItem text={t("infos_page.acces.p4")} />
                 </div>
               </div>
             </InfoSection>
 
             {/* MATÉRIEL */}
-            <InfoSection id="materiel" icon={Backpack} color="#2D9185" title="Matériel & Équipement">
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.5rem" }}>
+            <InfoSection id="materiel" icon={Backpack} color="#2D9185" title={t("infos_page.materiel.title")}>
+              <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.5rem" }}>
                 {[
                   {
-                    title: "Obligatoire",
+                    title: t("infos_page.materiel.ob_title"),
                     color: "#277956",
                     items: [
-                      "Dossard officiel (fourni)",
-                      "Chaussures de trail (recommandé)",
-                      "Vêtements adaptés à la météo",
-                      "Lampe frontale (pour la nuit)",
-                      "Téléphone portable chargé",
+                      t("infos_page.materiel.ob1"),
+                      t("infos_page.materiel.ob2"),
+                      t("infos_page.materiel.ob3"),
+                      t("infos_page.materiel.ob4"),
+                      t("infos_page.materiel.ob5"),
                     ],
                   },
                   {
-                    title: "Recommandé",
+                    title: t("infos_page.materiel.rec_title"),
                     color: "#2D9185",
                     items: [
-                      "Tente ou abri pour le camp de base",
-                      "Chaise longue / matelas",
-                      "Sac de couchage",
-                      "Vêtements de rechange (x5 min.)",
-                      "Kit de soins / ampoules",
+                      t("infos_page.materiel.rec1"),
+                      t("infos_page.materiel.rec2"),
+                      t("infos_page.materiel.rec3"),
+                      t("infos_page.materiel.rec4"),
+                      t("infos_page.materiel.rec5"),
                     ],
                   },
                   {
-                    title: "Utile",
+                    title: t("infos_page.materiel.ut_title"),
                     color: "#8CBE4F",
                     items: [
-                      "Bâtons de marche (autorisés)",
-                      "Montre GPS",
-                      "Casque / écouteurs",
-                      "Cache-oreilles / bonnet",
-                      "Crème solaire & anti-moustiques",
+                      t("infos_page.materiel.ut1"),
+                      t("infos_page.materiel.ut2"),
+                      t("infos_page.materiel.ut3"),
+                      t("infos_page.materiel.ut4"),
+                      t("infos_page.materiel.ut5"),
                     ],
                   },
                 ].map((col) => (
@@ -205,47 +236,47 @@ export const InfosPratiques = () => {
             </InfoSection>
 
             {/* RAVITAILLEMENT */}
-            <InfoSection id="ravitaillement" icon={Utensils} color="#4DA154" title="Ravitaillement">
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+            <InfoSection id="ravitaillement" icon={Utensils} color="#4DA154" title={t("infos_page.ravitaillement.title")}>
+              <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                 <div>
-                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>✅ Ce qui est fourni</h3>
-                  <CheckItem text="Point d'eau potable permanent sur la zone de vie" />
-                  <CheckItem text="Fruits frais (bananes, oranges...) entre chaque tour" />
-                  <CheckItem text="Bouillons chauds pendant la nuit" />
-                  <CheckItem text="Café / thé en continu" />
+                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>{t("infos_page.ravitaillement.fourni_title")}</h3>
+                  <CheckItem text={t("infos_page.ravitaillement.f1")} />
+                  <CheckItem text={t("infos_page.ravitaillement.f2")} />
+                  <CheckItem text={t("infos_page.ravitaillement.f3")} />
+                  <CheckItem text={t("infos_page.ravitaillement.f4")} />
                 </div>
                 <div>
-                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>🎒 À apporter</h3>
-                  <CheckItem text="Vos aliments préférés et éprouvés (pas d'expérimentation en course !)" />
-                  <CheckItem text="Gels / barres énergétiques selon vos habitudes" />
-                  <CheckItem text="Boissons de récupération" />
-                  <CheckItem text="Repas complets (pâtes, riz...) pour les longues durées" />
-                  <CheckItem text="Thermos personnel conseillé pour la nuit" />
+                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>{t("infos_page.ravitaillement.apporter_title")}</h3>
+                  <CheckItem text={t("infos_page.ravitaillement.a1")} />
+                  <CheckItem text={t("infos_page.ravitaillement.a2")} />
+                  <CheckItem text={t("infos_page.ravitaillement.a3")} />
+                  <CheckItem text={t("infos_page.ravitaillement.a4")} />
+                  <CheckItem text={t("infos_page.ravitaillement.a5")} />
                 </div>
               </div>
             </InfoSection>
 
             {/* RÈGLEMENT */}
-            <InfoSection id="reglement" icon={BookOpen} color="#F5C92C" title="Règlement & Format">
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+            <InfoSection id="reglement" icon={BookOpen} color="#F5C92C" title={t("infos_page.reglement.title")}>
+              <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                 <div>
                   <h4 style={{ fontWeight: "700", fontSize: "0.9rem", color: "#277956", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                    Règles du format Backyard Ultra
+                    {t("infos_page.reglement.r_bu_title")}
                   </h4>
-                  <RuleItem number={1} text="Un tour de 6,706 km doit être complété avant chaque top départ horaire." />
-                  <RuleItem number={2} text="Tout coureur qui n'a pas franchi la ligne avant le signal est immédiatement éliminé." />
-                  <RuleItem number={3} text="Le vainqueur est le dernier coureur capable de terminer un tour de plus que tous les autres." />
-                  <RuleItem number={4} text="Le vainqueur doit effectuer un tour supplémentaire seul pour être officiellement déclaré." variant="warning" />
+                  <RuleItem number={1} text={t("infos_page.reglement.r1")} />
+                  <RuleItem number={2} text={t("infos_page.reglement.r2")} />
+                  <RuleItem number={3} text={t("infos_page.reglement.r3")} />
+                  <RuleItem number={4} text={t("infos_page.reglement.r4")} variant="warning" />
                 </div>
                 <div>
                   <h4 style={{ fontWeight: "700", fontSize: "0.9rem", color: "#277956", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                    Règles spécifiques Breizh BU
+                    {t("infos_page.reglement.r_breizh_title")}
                   </h4>
-                  <RuleItem number={1} text="Le dossard doit être porté visible à l'avant pendant toute la course." />
-                  <RuleItem number={2} text="Tout coureur abandonnant doit signaler son abandon à un membre de l'organisation." />
-                  <RuleItem number={3} text="Les accompagnants restent dans la zone de vie — pas d'assistance sur le circuit." />
-                  <RuleItem number={4} text="Toute aide extérieure sur le circuit entraîne la disqualification immédiate." variant="warning" />
-                  <RuleItem number={5} text="Le règlement complet est disponible dans le pack participant." />
+                  <RuleItem number={1} text={t("infos_page.reglement.br1")} />
+                  <RuleItem number={2} text={t("infos_page.reglement.br2")} />
+                  <RuleItem number={3} text={t("infos_page.reglement.br3")} />
+                  <RuleItem number={4} text={t("infos_page.reglement.br4")} variant="warning" />
+                  <RuleItem number={5} text={t("infos_page.reglement.br5")} />
                 </div>
               </div>
             </InfoSection>

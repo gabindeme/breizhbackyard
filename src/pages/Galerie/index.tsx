@@ -1,9 +1,10 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { Camera, X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
+  <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
     <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.08) 0%, transparent 60%)` }} />
     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}>
@@ -18,22 +19,25 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
   </div>
 );
 
-const photos = [
-  { id: 1, category: "Coureurs", label: "Départ de course", desc: "Remplacer par vos vraies photos", height: "300px" },
-  { id: 2, category: "Parcours", label: "Sentier forestier", desc: "Photo du tracé", height: "220px" },
-  { id: 3, category: "Ambiance", label: "Zone de vie", desc: "Camp de base", height: "260px" },
-  { id: 4, category: "Coureurs", label: "Dans le vif", desc: "Action de course", height: "240px" },
-  { id: 5, category: "Parcours", label: "Vue nature", desc: "Paysage breton", height: "300px" },
-  { id: 6, category: "Ambiance", label: "La communauté", desc: "Moments entre coureurs", height: "220px" },
-  { id: 7, category: "Coureurs", label: "Nuit de course", desc: "Lampes frontales", height: "260px" },
-  { id: 8, category: "Parcours", label: "Détail terrain", desc: "Variété des sentiers", height: "240px" },
-  { id: 9, category: "Ambiance", label: "Ravitaillement", desc: "L'équipe bénévole", height: "280px" },
-  { id: 10, category: "Coureurs", label: "Arrivée du vainqueur", desc: "Moment unique", height: "320px" },
-  { id: 11, category: "Parcours", label: "Lever de soleil", desc: "Lumière du matin", height: "220px" },
-  { id: 12, category: "Ambiance", label: "L'organisation", desc: "Coulisses de l'événement", height: "250px" },
-];
+export const Galerie = () => {
+  const { t } = useTranslation();
 
-const categories = ["Toutes", "Coureurs", "Parcours", "Ambiance"];
+  const photos = [
+    { id: 1, category: t("galerie_page.categories.coureurs"), label: t("galerie_page.photos.p1_label"), desc: t("galerie_page.photos.p1_desc"), height: "300px" },
+    { id: 2, category: t("galerie_page.categories.parcours"), label: t("galerie_page.photos.p2_label"), desc: t("galerie_page.photos.p2_desc"), height: "220px" },
+    { id: 3, category: t("galerie_page.categories.ambiance"), label: t("galerie_page.photos.p3_label"), desc: t("galerie_page.photos.p3_desc"), height: "260px" },
+    { id: 4, category: t("galerie_page.categories.coureurs"), label: t("galerie_page.photos.p4_label"), desc: t("galerie_page.photos.p4_desc"), height: "240px" },
+    { id: 5, category: t("galerie_page.categories.parcours"), label: t("galerie_page.photos.p5_label"), desc: t("galerie_page.photos.p5_desc"), height: "300px" },
+    { id: 6, category: t("galerie_page.categories.ambiance"), label: t("galerie_page.photos.p6_label"), desc: t("galerie_page.photos.p6_desc"), height: "220px" },
+    { id: 7, category: t("galerie_page.categories.coureurs"), label: t("galerie_page.photos.p7_label"), desc: t("galerie_page.photos.p7_desc"), height: "260px" },
+    { id: 8, category: t("galerie_page.categories.parcours"), label: t("galerie_page.photos.p8_label"), desc: t("galerie_page.photos.p8_desc"), height: "240px" },
+    { id: 9, category: t("galerie_page.categories.ambiance"), label: t("galerie_page.photos.p9_label"), desc: t("galerie_page.photos.p9_desc"), height: "280px" },
+    { id: 10, category: t("galerie_page.categories.coureurs"), label: t("galerie_page.photos.p10_label"), desc: t("galerie_page.photos.p10_desc"), height: "320px" },
+    { id: 11, category: t("galerie_page.categories.parcours"), label: t("galerie_page.photos.p11_label"), desc: t("galerie_page.photos.p11_desc"), height: "220px" },
+    { id: 12, category: t("galerie_page.categories.ambiance"), label: t("galerie_page.photos.p12_label"), desc: t("galerie_page.photos.p12_desc"), height: "250px" },
+  ];
+
+  const categories = [t("galerie_page.categories.toutes"), t("galerie_page.categories.coureurs"), t("galerie_page.categories.parcours"), t("galerie_page.categories.ambiance")];
 
 const gradients = [
   "linear-gradient(135deg, #277956 0%, #1a4d36 100%)",
@@ -44,11 +48,10 @@ const gradients = [
   "linear-gradient(135deg, #1a4d36 0%, #2D9185 100%)",
 ];
 
-export const Galerie = () => {
-  const [activeCategory, setActiveCategory] = useState("Toutes");
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const filtered = activeCategory === "Toutes" ? photos : photos.filter((p) => p.category === activeCategory);
+  const filtered = activeCategory === categories[0] ? photos : photos.filter((p) => p.category === activeCategory);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
@@ -58,9 +61,9 @@ export const Galerie = () => {
   return (
     <div style={{ background: "#EFEFEF" }}>
       <PageHeader
-        subtitle="Photos"
-        title="Galerie"
-        description="Revivez les moments forts du Breizh Backyard Ultra. Les vraies photos seront ajoutées après chaque édition."
+        subtitle={t("galerie_page.header.subtitle")}
+        title={t("galerie_page.header.title")}
+        description={t("galerie_page.header.desc")}
       />
 
       <section className="section-light section-py">
@@ -260,7 +263,7 @@ export const Galerie = () => {
                 </div>
                 <div style={{ fontSize: "0.85rem", opacity: 0.7 }}>{filtered[lightboxIndex].desc}</div>
                 <div style={{ fontSize: "0.72rem", opacity: 0.5, marginTop: "0.25rem" }}>
-                  Photo {lightboxIndex + 1} / {filtered.length} — {filtered[lightboxIndex].category}
+                  {t("galerie_page.lightbox.photo")} {lightboxIndex + 1} / {filtered.length} — {filtered[lightboxIndex].category}
                 </div>
               </div>
             </motion.div>

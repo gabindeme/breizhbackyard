@@ -178,6 +178,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  #root {
+    overflow-x: clip;
+    width: 100%;
+  }
+
   /* Headings use Hobo for display, Inter for smaller */
   h1, h2 {
     font-family: 'Hobo', 'Inter', system-ui, sans-serif;
@@ -800,6 +805,102 @@
   background: linear-gradient(90deg, var(--bbu-green-dark), var(--bbu-yellow));
   z-index: 1000;
   transition: width 0.1s linear;
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile First Overrides (max 768px)
+   ============================================================ */
+
+/* ---- Utility helpers ---- */
+.mobile-stack {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* ---------- Page Headers ---------- */
+  /* All pages have headers with paddingTop: 8rem inline — we override via class */
+  .page-header-inner {
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* ---------- Page containers ---------- */
+  .page-container {
+    padding: 0 1rem;
+  }
+
+  /* ---------- Section spacing ---------- */
+  .section-py {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* ---------- Section titles ---------- */
+  .section-title,
+  .section-title-light {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  /* ---------- Grids: force single column ---------- */
+  /* Any grid that uses fixed column definitions > 1 gets overridden */
+  .mobile-grid-1 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* ---------- Footer ---------- */
+  footer > div > div[style*="grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  footer .footer-col-span {
+    grid-column: span 1 !important;
+  }
+
+  /* ---------- Cards ---------- */
+  .bbu-card {
+    padding: 1.5rem;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn-primary,
+  .btn-outline,
+  .btn-outline-white {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* ---------- Forms ---------- */
+  /* Inner form grids: 2 columns → 1 column */
+  .form-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* ---------- Sponsor levels ---------- */
+  .sponsor-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ---- Tablet / medium (min 640 to max 1023) ---- */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .section-py {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 /* Print styles */

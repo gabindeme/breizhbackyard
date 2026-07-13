@@ -2,9 +2,10 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import { Mail, Send, CheckCircle, MapPin } from "lucide-react";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
+import { useTranslation } from "react-i18next";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
+  <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
     <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.08) 0%, transparent 60%)` }} />
     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}>
@@ -19,16 +20,18 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
   </div>
 );
 
-const subjects = [
-  "Question générale",
-  "Demande de partenariat / sponsor",
-  "Presse / Média",
-  "Bénévolat",
-  "Question médicale / sécurité",
-  "Autre",
-];
-
 export const Contact = () => {
+  const { t } = useTranslation();
+
+  const subjects = [
+    t("contact_page.subjects.s1"),
+    t("contact_page.subjects.s2"),
+    t("contact_page.subjects.s3"),
+    t("contact_page.subjects.s4"),
+    t("contact_page.subjects.s5"),
+    t("contact_page.subjects.s6"),
+  ];
+
   const [formData, setFormData] = useState({
     nom: "",
     email: "",
@@ -41,10 +44,10 @@ export const Contact = () => {
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.nom.trim()) newErrors.nom = "Votre nom est requis.";
-    if (!formData.email.trim()) newErrors.email = "L'email est requis.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Email invalide.";
-    if (!formData.message.trim()) newErrors.message = "Votre message est requis.";
+    if (!formData.nom.trim()) newErrors.nom = t("contact_page.errors.nom_req");
+    if (!formData.email.trim()) newErrors.email = t("contact_page.errors.email_req");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = t("contact_page.errors.email_inv");
+    if (!formData.message.trim()) newErrors.message = t("contact_page.errors.msg_req");
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -66,18 +69,18 @@ export const Contact = () => {
   return (
     <div style={{ background: "#EFEFEF" }}>
       <PageHeader
-        subtitle="Écrivez-nous"
-        title="Contact"
-        description="Une question, une demande de partenariat, un besoin d'information ? Notre équipe vous répondra dans les meilleurs délais."
+        subtitle={t("contact_page.header.subtitle")}
+        title={t("contact_page.header.title")}
+        description={t("contact_page.header.desc")}
       />
 
       <section className="section-light section-py">
         <div className="page-container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "4rem", alignItems: "start" }}>
+          <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "4rem", alignItems: "start" }}>
 
             {/* Infos contact */}
             <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
-              <h2 className="section-title" style={{ marginBottom: "2rem" }}>Nous trouver</h2>
+              <h2 className="section-title" style={{ marginBottom: "2rem" }}>{t("contact_page.info.title")}</h2>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "2.5rem" }}>
                 <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
@@ -85,7 +88,7 @@ export const Contact = () => {
                     <Mail size={20} strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div style={{ fontWeight: "700", fontSize: "0.85rem", color: "#1a2e22", marginBottom: "0.2rem" }}>Email</div>
+                    <div style={{ fontWeight: "700", fontSize: "0.85rem", color: "#1a2e22", marginBottom: "0.2rem" }}>{t("contact_page.info.email")}</div>
                     <a href="mailto:contact@breizhbackyard.com" style={{ color: "#277956", textDecoration: "none", fontSize: "0.95rem" }}>
                       contact@breizhbackyard.com
                     </a>
@@ -97,9 +100,9 @@ export const Contact = () => {
                     <MapPin size={20} strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div style={{ fontWeight: "700", fontSize: "0.85rem", color: "#1a2e22", marginBottom: "0.2rem" }}>Localisation</div>
+                    <div style={{ fontWeight: "700", fontSize: "0.85rem", color: "#1a2e22", marginBottom: "0.2rem" }}>{t("contact_page.info.loc")}</div>
                     <p style={{ margin: 0, color: "#4a6b56", fontSize: "0.9rem", lineHeight: 1.6 }}>
-                      Parc des Gayeulles, Rennes
+                      {t("contact_page.info.loc_val")}
                     </p>
                   </div>
                 </div>
@@ -108,7 +111,7 @@ export const Contact = () => {
               {/* Réseaux */}
               <div>
                 <h3 style={{ fontWeight: "700", fontSize: "0.85rem", color: "#4a6b56", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: "1rem" }}>
-                  Réseaux sociaux
+                  {t("contact_page.info.socials")}
                 </h3>
                 <div style={{ display: "flex", gap: "0.75rem" }}>
                   {[
@@ -164,7 +167,7 @@ export const Contact = () => {
                   lineHeight: 1.65,
                 }}
               >
-                <strong style={{ color: "#277956" }}>⏱ Délai de réponse</strong> : nous répondons généralement sous 48h ouvrées. Pour les demandes urgentes, merci de l'indiquer dans votre message.
+                <strong style={{ color: "#277956" }}>{t("contact_page.info.delay")}</strong>{t("contact_page.info.delay_text")}
               </div>
             </motion.div>
 
@@ -173,20 +176,20 @@ export const Contact = () => {
               {!submitted ? (
                 <div style={{ background: "#fff", borderRadius: "1.5rem", padding: "2.5rem", border: "1.5px solid #D0D0D0", boxShadow: "0 8px 40px rgba(39,121,86,0.08)" }}>
                   <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.4rem", color: "#1a2e22", marginBottom: "2rem" }}>
-                    Envoyer un message
+                    {t("contact_page.form.title")}
                   </h3>
 
                   <form onSubmit={handleSubmit} noValidate>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                    <div className="form-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                       <div>
                         <label className="bbu-label" htmlFor="c-nom">
-                          Nom complet <span style={{ color: "#c44" }}>*</span>
+                          {t("contact_page.form.nom_label")} <span style={{ color: "#c44" }}>*</span>
                         </label>
                         <input
                           id="c-nom"
                           type="text"
                           className="bbu-input"
-                          placeholder="Mathieu Blanchard"
+                          placeholder={t("contact_page.form.nom_ph")}
                           value={formData.nom}
                           onChange={handleChange("nom")}
                           style={errors.nom ? { borderColor: "#e53" } : {}}
@@ -195,13 +198,13 @@ export const Contact = () => {
                       </div>
                       <div>
                         <label className="bbu-label" htmlFor="c-email">
-                          Email <span style={{ color: "#c44" }}>*</span>
+                          {t("contact_page.form.email_label")} <span style={{ color: "#c44" }}>*</span>
                         </label>
                         <input
                           id="c-email"
                           type="email"
                           className="bbu-input"
-                          placeholder="mat@ilovekiprun.com"
+                          placeholder={t("contact_page.form.email_ph")}
                           value={formData.email}
                           onChange={handleChange("email")}
                           style={errors.email ? { borderColor: "#e53" } : {}}
@@ -211,7 +214,7 @@ export const Contact = () => {
                     </div>
 
                     <div style={{ marginBottom: "1rem" }}>
-                      <label className="bbu-label" htmlFor="c-sujet">Sujet</label>
+                      <label className="bbu-label" htmlFor="c-sujet">{t("contact_page.form.sujet_label")}</label>
                       <select
                         id="c-sujet"
                         className="bbu-input"
@@ -219,20 +222,20 @@ export const Contact = () => {
                         onChange={handleChange("sujet")}
                         style={{ cursor: "pointer", appearance: "none" }}
                       >
-                        <option value="">Choisir un sujet...</option>
+                        <option value="">{t("contact_page.form.sujet_ph")}</option>
                         {subjects.map((s) => <option key={s} value={s}>{s}</option>)}
                       </select>
                     </div>
 
                     <div style={{ marginBottom: "1.5rem" }}>
                       <label className="bbu-label" htmlFor="c-message">
-                        Message <span style={{ color: "#c44" }}>*</span>
+                        {t("contact_page.form.msg_label")} <span style={{ color: "#c44" }}>*</span>
                       </label>
                       <textarea
                         id="c-message"
                         className="bbu-input"
                         rows={5}
-                        placeholder="Votre message..."
+                        placeholder={t("contact_page.form.msg_ph")}
                         value={formData.message}
                         onChange={handleChange("message")}
                         style={{ resize: "vertical", ...(errors.message ? { borderColor: "#e53" } : {}) }}
@@ -247,7 +250,7 @@ export const Contact = () => {
                       style={{ width: "100%", justifyContent: "center", opacity: loading ? 0.75 : 1, gap: "0.5rem" }}
                     >
                       <Send size={16} />
-                      {loading ? "Envoi en cours..." : "Envoyer le message"}
+                      {loading ? t("contact_page.form.btn_loading") : t("contact_page.form.btn_submit")}
                     </button>
                   </form>
                 </div>
@@ -268,10 +271,10 @@ export const Contact = () => {
                     <CheckCircle size={36} style={{ color: "#277956" }} />
                   </div>
                   <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#277956", marginBottom: "0.75rem" }}>
-                    Message envoyé !
+                    {t("contact_page.form.success_title")}
                   </h3>
                   <p style={{ color: "#4a6b56", lineHeight: 1.75, fontSize: "1rem" }}>
-                    Merci pour votre message, {formData.nom} ! Nous vous répondrons sous 48h ouvrées.
+                    {t("contact_page.form.success_desc", { nom: formData.nom })}
                   </p>
                 </motion.div>
               )}

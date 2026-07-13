@@ -1,9 +1,10 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { Mail, CheckCircle, Timer, Bell, Lock } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
+  <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
     <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.08) 0%, transparent 60%)` }} />
     <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}>
@@ -19,6 +20,7 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
 );
 
 export const Inscriptions = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({ prenom: "", nom: "", email: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -26,8 +28,8 @@ export const Inscriptions = () => {
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.email.trim()) newErrors.email = "L'email est requis.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Email invalide.";
+    if (!formData.email.trim()) newErrors.email = t("inscriptions_page.errors.email_req");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = t("inscriptions_page.errors.email_inv");
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -50,14 +52,14 @@ export const Inscriptions = () => {
   return (
     <div style={{ background: "#EFEFEF" }}>
       <PageHeader
-        subtitle="Rejoignez-nous"
-        title="Inscriptions"
-        description="Les inscriptions pour la prochaine édition ne sont pas encore ouvertes. Laissez-nous votre email pour être prévenu(e) en priorité."
+        subtitle={t("inscriptions_page.header.subtitle")}
+        title={t("inscriptions_page.header.title")}
+        description={t("inscriptions_page.header.desc")}
       />
 
       <section className="section-light section-py">
         <div className="page-container" style={{ maxWidth: "960px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
+          <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
 
             {/* Info côté gauche */}
             <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
@@ -79,23 +81,21 @@ export const Inscriptions = () => {
                 }}
               >
                 <Lock size={14} />
-                Inscriptions fermées — Ouverture prochaine
+                {t("inscriptions_page.info.badge")}
               </div>
 
               <h2 className="section-title" style={{ marginBottom: "1.25rem" }}>
-                Soyez parmi les premiers à courir
+                {t("inscriptions_page.info.title")}
               </h2>
               <p style={{ color: "#4a6b56", lineHeight: 1.8, marginBottom: "2rem" }}>
-                Les places pour le Breizh Backyard Ultra sont limitées. En vous inscrivant à notre
-                newsletter, vous serez alerté(e) dès l'ouverture officielle des inscriptions,
-                bien avant l'annonce publique.
+                {t("inscriptions_page.info.desc")}
               </p>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {[
-                  { icon: Bell, text: "Notification immédiate à l'ouverture des inscriptions" },
-                  { icon: Timer, text: "Accès prioritaire avant les listes d'attente" },
-                  { icon: Mail, text: "Actualités exclusives sur la course et le parcours" },
+                  { icon: Bell, text: t("inscriptions_page.info.list1") },
+                  { icon: Timer, text: t("inscriptions_page.info.list2") },
+                  { icon: Mail, text: t("inscriptions_page.info.list3") },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} style={{ display: "flex", gap: "0.85rem", alignItems: "flex-start" }}>
                     <div style={{ width: "36px", height: "36px", borderRadius: "0.625rem", background: "rgba(39,121,86,0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "#277956" }}>
@@ -117,13 +117,13 @@ export const Inscriptions = () => {
                 }}
               >
                 <div style={{ fontSize: "0.7rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", color: "#8CBE4F", marginBottom: "0.5rem" }}>
-                  Prochain départ
+                  {t("inscriptions_page.info.depart_title")}
                 </div>
                 <div style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#F5C92C", marginBottom: "0.25rem" }}>
-                  Samedi 15 Mai 2027
+                  {t("inscriptions_page.info.depart_date")}
                 </div>
                 <div style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.9rem" }}>
-                  10h00 — Parc des Gayeulles, Rennes
+                  {t("inscriptions_page.info.depart_loc")}
                 </div>
               </div>
             </motion.div>
@@ -141,34 +141,33 @@ export const Inscriptions = () => {
                   }}
                 >
                   <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.4rem", color: "#1a2e22", marginBottom: "0.5rem" }}>
-                    Restez informé(e)
+                    {t("inscriptions_page.form.title")}
                   </h3>
                   <p style={{ color: "#4a6b56", fontSize: "0.88rem", lineHeight: 1.6, marginBottom: "2rem" }}>
-                    Laissez-nous votre email pour être prévenu(e) dès l'ouverture des inscriptions.
-                    Nous ne vous enverrons que des emails importants.
+                    {t("inscriptions_page.form.desc")}
                   </p>
 
                   <form onSubmit={handleSubmit} noValidate>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
+                    <div className="form-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                       <div>
-                        <label className="bbu-label" htmlFor="prenom">Prénom</label>
+                        <label className="bbu-label" htmlFor="prenom">{t("inscriptions_page.form.prenom_label")}</label>
                         <input
                           id="prenom"
                           type="text"
                           className="bbu-input"
-                          placeholder="Marie"
+                          placeholder={t("inscriptions_page.form.prenom_ph")}
                           value={formData.prenom}
                           onChange={handleChange("prenom")}
                           autoComplete="given-name"
                         />
                       </div>
                       <div>
-                        <label className="bbu-label" htmlFor="nom">Nom</label>
+                        <label className="bbu-label" htmlFor="nom">{t("inscriptions_page.form.nom_label")}</label>
                         <input
                           id="nom"
                           type="text"
                           className="bbu-input"
-                          placeholder="Dupont"
+                          placeholder={t("inscriptions_page.form.nom_ph")}
                           value={formData.nom}
                           onChange={handleChange("nom")}
                           autoComplete="family-name"
@@ -178,13 +177,13 @@ export const Inscriptions = () => {
 
                     <div style={{ marginBottom: "1.5rem" }}>
                       <label className="bbu-label" htmlFor="email">
-                        Email <span style={{ color: "#c44" }}>*</span>
+                        {t("inscriptions_page.form.email_label")} <span style={{ color: "#c44" }}>*</span>
                       </label>
                       <input
                         id="email"
                         type="email"
                         className="bbu-input"
-                        placeholder="marie.dupont@example.com"
+                        placeholder={t("inscriptions_page.form.email_ph")}
                         value={formData.email}
                         onChange={handleChange("email")}
                         autoComplete="email"
@@ -201,11 +200,11 @@ export const Inscriptions = () => {
                       disabled={loading}
                       style={{ width: "100%", justifyContent: "center", opacity: loading ? 0.75 : 1 }}
                     >
-                      {loading ? "Envoi en cours..." : "Je veux être prévenu(e) →"}
+                      {loading ? t("inscriptions_page.form.btn_loading") : t("inscriptions_page.form.btn_submit")}
                     </button>
 
                     <p style={{ fontSize: "0.72rem", color: "#aab8b2", textAlign: "center", marginTop: "0.75rem", lineHeight: 1.5 }}>
-                      En vous inscrivant, vous acceptez de recevoir nos emails. Désabonnement possible à tout moment.
+                      {t("inscriptions_page.form.consent")}
                     </p>
                   </form>
                 </div>
@@ -227,15 +226,14 @@ export const Inscriptions = () => {
                     <CheckCircle size={36} style={{ color: "#277956" }} />
                   </div>
                   <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#277956", marginBottom: "0.75rem" }}>
-                    Merci !
+                    {t("inscriptions_page.success.title")}
                   </h3>
                   <p style={{ color: "#4a6b56", lineHeight: 1.75, fontSize: "1rem" }}>
-                    Vous serez informé(e) dès l'ouverture des inscriptions.
-                    Préparez vos chaussures de trail — ça ne devrait plus tarder !
+                    {t("inscriptions_page.success.desc")}
                   </p>
                   {formData.email && (
                     <p style={{ color: "#277956", fontWeight: "700", marginTop: "1rem", fontSize: "0.9rem" }}>
-                      Confirmation envoyée à : {formData.email}
+                      {t("inscriptions_page.success.confirm")} {formData.email}
                     </p>
                   )}
                 </motion.div>
