@@ -47,18 +47,18 @@ export const Inscriptions = () => {
       if (el) el.dispatchEvent(event);
     };
 
-    // Script Google reCAPTCHA
-    const recaptchaId = 'google-recaptcha-script';
+    // Chargement du script Google reCAPTCHA Enterprise avec la clé du client
+    const recaptchaId = 'google-recaptcha-enterprise-script';
     if (!document.getElementById(recaptchaId)) {
       const script = document.createElement('script');
       script.id = recaptchaId;
-      script.src = 'https://www.google.com/recaptcha/api.js?hl=fr';
+      script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6Lfj9rMtAAAAAC83oYpJpHxnZY8nxpoqvjNDEffW';
       script.async = true;
       script.defer = true;
       document.head.appendChild(script);
     }
 
-    // Script Brevo
+    // Chargement du script Brevo
     const mainScriptId = 'brevo-main-script';
     const existingScript = document.getElementById(mainScriptId);
     if (existingScript) {
@@ -70,6 +70,32 @@ export const Inscriptions = () => {
     script.defer = true;
     document.body.appendChild(script);
   }, []);
+
+  // Déclencheur reCAPTCHA Enterprise lors de la soumission
+  const handleFormSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if ((window as any).grecaptcha && (window as any).grecaptcha.enterprise) {
+      (window as any).grecaptcha.enterprise.ready(async () => {
+        try {
+          const token = await (window as any).grecaptcha.enterprise.execute('6Lfj9rMtAAAAAC83oYpJpHxnZY8nxpoqvjNDEffW', { action: 'submit' });
+          let tokenInput = document.getElementById('g-recaptcha-response') as HTMLInputElement;
+          if (!tokenInput) {
+            tokenInput = document.createElement('input');
+            tokenInput.type = 'hidden';
+            tokenInput.id = 'g-recaptcha-response';
+            tokenInput.name = 'g-recaptcha-response';
+            document.getElementById('sib-form')?.appendChild(tokenInput);
+          }
+          tokenInput.value = token;
+          (window as any).handleCaptchaResponse();
+        } catch (err) {
+          console.error("reCAPTCHA Enterprise error:", err);
+          (window as any).handleCaptchaResponse();
+        }
+      });
+    } else {
+      (window as any).handleCaptchaResponse();
+    }
+  };
 
   return (
     <div style={{ background: "#EFEFEF", overflowX: "hidden" }}>
@@ -97,38 +123,10 @@ export const Inscriptions = () => {
           box-sizing: border-box;
         }
 
-        .recaptcha-responsive-box {
-          background: #f8faf9;
-          border-radius: 0.75rem;
-          padding: 0.6rem;
-          border: 1px solid #e2ece6;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          max-width: 100%;
-          overflow: hidden;
-        }
-
         @media (max-width: 640px) {
           .bbu-form-card {
             padding: 1.5rem 1.15rem !important;
             border-radius: 1.25rem !important;
-          }
-
-          .recaptcha-responsive-box {
-            padding: 0.4rem 0.2rem !important;
-          }
-
-          .recaptcha-responsive-box > div {
-            transform: scale(0.92);
-            transform-origin: center center;
-          }
-        }
-
-        @media (max-width: 380px) {
-          .recaptcha-responsive-box > div {
-            transform: scale(0.84);
-            transform-origin: center center;
           }
         }
       `}</style>
@@ -190,7 +188,7 @@ export const Inscriptions = () => {
               </div>
             </motion.div>
 
-            {/* Formulaire Brevo côté droit — Design Responsive Mobile */}
+            {/* Formulaire Brevo + reCAPTCHA Enterprise côté droit */}
             <motion.div initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.15 }} style={{ width: "100%", maxWidth: "100%" }}>
               <div className="sib-form" style={{ background: "transparent", width: "100%" }}>
                 <div id="sib-form-container" className="sib-form-container" style={{ width: "100%" }}>
@@ -249,7 +247,7 @@ export const Inscriptions = () => {
                     </div>
                   </div>
 
-                  {/* Form Card (Optimisée Mobile iPhone 14 Pro) */}
+                  {/* Form Card */}
                   <div id="sib-container" className="bbu-form-card">
                     {/* Visual accent top border */}
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "5px", background: "linear-gradient(90deg, #277956 0%, #8CBE4F 50%, #F5C92C 100%)", borderTopLeftRadius: "1.5rem", borderTopRightRadius: "1.5rem" }} />
@@ -340,7 +338,7 @@ export const Inscriptions = () => {
                         </div>
                       </div>
 
-                      {/* Opt-in Checkbox (Mobile accessible) */}
+                      {/* Opt-in Checkbox */}
                       <div className="sib-optin sib-form-block" data-required="true" style={{ marginBottom: "1.5rem" }}>
                         <div className="form__entry entry_mcq">
                           <div className="form__label-row">
@@ -376,25 +374,10 @@ export const Inscriptions = () => {
                         </div>
                       </div>
 
-                      {/* Google reCAPTCHA Container (Responsive mobile scaling) */}
-                      <div className="sib-captcha sib-form-block" style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "center", width: "100%" }}>
-                        <div className="form__entry entry_block" style={{ width: "100%" }}>
-                          <div className="form__label-row">
-                            <div className="recaptcha-responsive-box">
-                              <div
-                                className="g-recaptcha sib-visible-recaptcha"
-                                id="sib-captcha"
-                                data-sitekey="6Lfj9rMtAAAAAC83oYpJpHxnZY8nxpoqvjNDEffW"
-                                data-callback="handleCaptchaResponse"
-                                style={{ direction: "ltr" }}
-                              ></div>
-                            </div>
-                          </div>
-                          <label className="entry__error entry__error--primary"></label>
-                        </div>
-                      </div>
+                      {/* Element caché pour la validation Brevo */}
+                      <div id="sib-captcha" style={{ display: "none" }}></div>
 
-                      {/* Bouton Submit */}
+                      {/* Bouton Submit avec déclencheur reCAPTCHA Enterprise */}
                       <div>
                         <button
                           className="btn-primary sib-form-block__button sib-form-block__button-with-loader"
@@ -418,6 +401,7 @@ export const Inscriptions = () => {
                           }}
                           form="sib-form"
                           type="submit"
+                          onClick={handleFormSubmit}
                         >
                           <Send size={18} style={{ color: "#F5C92C", flexShrink: 0 }} />
                           {t("inscriptions_page.form.btn_submit")}
