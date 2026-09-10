@@ -65,23 +65,11 @@ export const Footer = () => {
           {/* Brand column */}
           <div style={{ gridColumn: "span 1" }}>
             <Link to="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none", marginBottom: "1.25rem" }}>
-              <div
-                style={{
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "50%",
-                  background: "linear-gradient(135deg, #F5C92C, #8CBE4F)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontFamily: "'Hobo', sans-serif",
-                  fontSize: "1.1rem",
-                  color: "#1a2e22",
-                  flexShrink: 0,
-                }}
-              >
-                B
-              </div>
+              <img
+                src="/logo-white.svg"
+                alt="Logo Breizh Backyard Ultra"
+                style={{ width: "44px", height: "44px", objectFit: "contain", flexShrink: 0 }}
+              />
               <div>
                 <div style={{ fontFamily: "'Hobo', sans-serif", color: "#fff", fontSize: "1.05rem", lineHeight: 1 }}>
                   Breizh

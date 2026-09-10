@@ -383,23 +383,39 @@
       "depart_loc": "10e00 — Parc des Gayeulles, Roazhon"
     },
     "form": {
-      "title": "Chomit kelaouet",
-      "desc": "Roit deomp ho postel evit bezañ kelaouet pa vo digor an enskrivadurioù. N'ho po nemet postelioù pouezus.",
+      "title": "Kelaouenn",
+      "desc": "En em enskrivit evit bezañ kelaouet da gentañ pa vo digor ar gartennerezh.",
       "prenom_label": "Anv-bihan",
-      "prenom_ph": "Marie",
-      "nom_label": "Anv",
-      "nom_ph": "Dupont",
+      "prenom_ph": "Ho hoc'h anv-bihan",
       "email_label": "Postel",
-      "email_ph": "marie.dupont@example.com",
-      "btn_loading": "O kas...",
-      "btn_submit": "Fellout a ra din bezañ kelaouet →",
-      "consent": "En ur en em enskrivañ, aotren a rit resev hor postelioù. Dilezel a c'haller pep amzer."
+      "email_ph": "ho.postel@skouer.com",
+      "optin_text": "En ur reiñ ho postel, ec'h aotrit resev keleier ofisiel Breizh Backyard. Dilezel a c'haller pep amzer.",
+      "btn_submit": "ENSKRIVAÑ D'AR C'HELAOUENN",
+      "btn_loading": "O c'has..."
     },
-    "success": {
-      "title": "Trugarez!",
-      "desc": "Kelaouet e vefec'h pa vo digor an enskrivadurioù. Prientit ho potoù red-koad — ne badafe ket pell ken!",
-      "confirm": "Kadarnadur kaset da:"
+    "messages": {
+      "success": "Degemer mat e-barzh ar sas nisañ! Enskrivet eo ho postel. Resev a reot ar c'heleier nevez a-raok pep hini.",
+      "error": "N'hon eus ket gallet kadarnaat ho enskrivadur. Gwiriaot ar furmskrid hag esaet en-dro."
     }
+  },
+  "bienvenue_page": {
+    "badge": "Kadarnaet eo an enskrivadur gant berzh",
+    "title": "Degemer mat e-barzh ar sas nisañ! 🏃‍♂️🌳",
+    "subtitle": "Kadarnaet eo ho postel bremañ. E-touez ar re gentañ e vefec meur a c'heleier a-raok an holl.",
+    "explore_title": "Petra a fell deoc'h dizoleiñ da gentañ?",
+    "explore_desc": "Tra ma 'maoc'h o prientiñ ho tivc'har, dizoloit pep tra diwar-benn ar redadeg.",
+    "card_concept_title": "Ar C'honslept",
+    "card_concept_desc": "Ur droiad 6,706 km da ober bep eurvezh. Betek na chomfe nemet ur reder en e sav.",
+    "card_concept_btn": "Gwelout ar c'honsept",
+    "card_parcours_title": "An Hentad",
+    "card_parcours_desc": "Dizoloit ar c'hlopenn ofisiel, ar roud GPX hag an dachenn.",
+    "card_parcours_btn": "Furchal an hentad",
+    "card_infos_title": "Keleier Pleustrek",
+    "card_infos_desc": "Gwelout al lec'h loc'hañ, aozañ ar c'hamp hag ar reolenn.",
+    "card_infos_btn": "An holl geleier",
+    "banner_title": "Trugarez da zont e-barzh avantur Breizh Backyard!",
+    "banner_desc": "Sonjit ouzhpennit hor postel d'ho kontaktoù. Ken emberr war hentoù Breizh!",
+    "btn_home": "Distro d'an degemer"
   },
   "sponsors_page": {
     "header": {

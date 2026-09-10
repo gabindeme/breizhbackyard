@@ -11,6 +11,7 @@ const Concept = lazy(() => import("@/pages/Concept").then((m) => ({ default: m.C
 const Parcours = lazy(() => import("@/pages/Parcours").then((m) => ({ default: m.Parcours })));
 const InfosPratiques = lazy(() => import("@/pages/InfosPratiques").then((m) => ({ default: m.InfosPratiques })));
 const Inscriptions = lazy(() => import("@/pages/Inscriptions").then((m) => ({ default: m.Inscriptions })));
+const Bienvenue = lazy(() => import("@/pages/Bienvenue").then((m) => ({ default: m.Bienvenue })));
 // const Resultats = lazy(() => import("@/pages/Resultats").then((m) => ({ default: m.Resultats })));
 const FAQ = lazy(() => import("@/pages/FAQ").then((m) => ({ default: m.FAQ })));
 const Sponsors = lazy(() => import("@/pages/Sponsors").then((m) => ({ default: m.Sponsors })));
@@ -58,6 +59,7 @@ export const Router = () => {
           <Route path="/parcours" element={<Parcours />} />
           <Route path="/infos-pratiques" element={<InfosPratiques />} />
           <Route path="/inscriptions" element={<Inscriptions />} />
+          <Route path="/bienvenue" element={<Bienvenue />} />
           {/* <Route path="/resultats" element={<Resultats />} /> */}
           <Route path="/faq" element={<FAQ />} />
           <Route path="/sponsors" element={<Sponsors />} />

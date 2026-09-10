@@ -383,23 +383,39 @@
       "depart_loc": "10:00 AM — Parc des Gayeulles, Rennes"
     },
     "form": {
-      "title": "Stay informed",
-      "desc": "Leave us your email to be notified as soon as registration opens. We'll only send you important emails.",
-      "prenom_label": "First name",
-      "prenom_ph": "Marie",
-      "nom_label": "Last name",
-      "nom_ph": "Dupont",
+      "title": "Newsletter",
+      "desc": "Sign up to be notified first as soon as official registration opens.",
+      "prenom_label": "First Name",
+      "prenom_ph": "Your first name",
       "email_label": "Email",
-      "email_ph": "marie.dupont@example.com",
-      "btn_loading": "Sending...",
-      "btn_submit": "Notify me →",
-      "consent": "By signing up, you agree to receive our emails. You can unsubscribe at any time."
+      "email_ph": "your.email@example.com",
+      "optin_text": "By providing your email, you agree to receive official Breizh Backyard updates (ticket opening and news). You can unsubscribe at any time.",
+      "btn_submit": "SUBSCRIBE TO NEWSLETTER",
+      "btn_loading": "Subscribing..."
     },
-    "success": {
-      "title": "Thank you!",
-      "desc": "You'll be notified as soon as registration opens. Get your trail shoes ready — it shouldn't be long now!",
-      "confirm": "Confirmation sent to:"
+    "messages": {
+      "success": "Welcome to the starting pen! Your email address has been recorded. You'll receive the latest news before anyone else.",
+      "error": "We could not confirm your subscription. Please check the form and try again."
     }
+  },
+  "bienvenue_page": {
+    "badge": "Registration successfully confirmed",
+    "title": "Welcome to the starting pen! 🏃‍♂️🌳",
+    "subtitle": "Your email address is now validated. You are officially among the privileged who will receive preview alerts as soon as registration and ticketing open.",
+    "explore_title": "What would you like to discover first?",
+    "explore_desc": "While waiting to hit the starting line, explore everything you need to know about the event.",
+    "card_concept_title": "The Concept",
+    "card_concept_desc": "A 6.706 km lap to complete every hour. Until only one runner remains standing.",
+    "card_concept_btn": "View the concept",
+    "card_parcours_title": "The Course",
+    "card_parcours_desc": "Discover the official loop, GPX track, elevation profile, and terrain awaiting you.",
+    "card_parcours_btn": "Explore the trail",
+    "card_infos_title": "Practical Info",
+    "card_infos_desc": "Check out the start location, base camp setup, aid stations, and rules.",
+    "card_infos_btn": "All information",
+    "banner_title": "Thank you for joining the Breizh Backyard adventure!",
+    "banner_desc": "Be sure to add our email address to your contacts so you don't miss any important updates. See you soon on the Breton trails!",
+    "btn_home": "Back to homepage"
   },
   "sponsors_page": {
     "header": {

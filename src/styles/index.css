@@ -547,6 +547,10 @@
   font-weight: 500;
   color: var(--bbu-yellow);
   line-height: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stat-number-dark {
@@ -555,6 +559,10 @@
   font-weight: 500;
   color: var(--bbu-green-dark);
   line-height: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Organic wave divider */

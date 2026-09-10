@@ -214,7 +214,7 @@ export const Navbar = () => {
             }}
           >
             <img
-              src="/leaf.svg"
+              src="/logo-white.svg"
               alt="Logo Breizh Backyard Ultra"
               style={{ width: "40px", height: "40px", objectFit: "contain", flexShrink: 0 }}
             />
@@ -350,7 +350,7 @@ export const Navbar = () => {
         >
           <Link to="/" onClick={close} style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}>
             <img
-              src="/logo-full.svg"
+              src="/logo-white.svg"
               alt="Logo Breizh Backyard Ultra"
               style={{ width: "32px", height: "32px", objectFit: "contain", flexShrink: 0 }}
             />

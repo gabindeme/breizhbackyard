@@ -383,23 +383,39 @@
       "depart_loc": "10h00 — Parc des Gayeulles, Rennes"
     },
     "form": {
-      "title": "Restez informé(e)",
-      "desc": "Laissez-nous votre email pour être prévenu(e) dès l'ouverture des inscriptions. Nous ne vous enverrons que des emails importants.",
+      "title": "Newsletter",
+      "desc": "Inscrivez-vous pour être prévenu(e) en priorité lors de l'ouverture officielle des inscriptions.",
       "prenom_label": "Prénom",
-      "prenom_ph": "Marie",
-      "nom_label": "Nom",
-      "nom_ph": "Dupont",
+      "prenom_ph": "Votre prénom",
       "email_label": "Email",
-      "email_ph": "marie.dupont@example.com",
-      "btn_loading": "Envoi en cours...",
-      "btn_submit": "Je veux être prévenu(e) →",
-      "consent": "En vous inscrivant, vous acceptez de recevoir nos emails. Désabonnement possible à tout moment."
+      "email_ph": "votre.email@exemple.com",
+      "optin_text": "En renseignant votre email, vous acceptez de recevoir les informations officielles de la Breizh Backyard (ouverture de la billetterie et actualités). Désinscription possible à tout moment.",
+      "btn_submit": "S'INSCRIRE À LA NEWSLETTER",
+      "btn_loading": "Inscription en cours..."
     },
-    "success": {
-      "title": "Merci !",
-      "desc": "Vous serez informé(e) dès l'ouverture des inscriptions. Préparez vos chaussures de trail — ça ne devrait plus tarder !",
-      "confirm": "Confirmation envoyée à :"
+    "messages": {
+      "success": "Bienvenue dans le sas de départ ! Votre adresse a bien été enregistrée. Vous recevrez les dernières informations avant tout le monde.",
+      "error": "Nous n'avons pas pu confirmer votre inscription. Veuillez vérifier le formulaire et réessayer."
     }
+  },
+  "bienvenue_page": {
+    "badge": "Inscription confirmée avec succès",
+    "title": "Bienvenue dans le sas de départ ! 🏃‍♂️🌳",
+    "subtitle": "Votre adresse email est désormais validée. Vous faites officiellement partie des privilégiés qui recevront les alertes en avant-première dès l'ouverture de la billetterie et des inscriptions.",
+    "explore_title": "Que souhaitez-vous découvrir en premier ?",
+    "explore_desc": "En attendant de fouler la ligne de départ, explorez tout ce qu'il faut savoir sur l'événement.",
+    "card_concept_title": "Le Concept",
+    "card_concept_desc": "Un tour de 6,706 km à réaliser toutes les heures. Jusqu'à ce qu'il ne reste plus qu'un seul coureur debout.",
+    "card_concept_btn": "Voir le concept",
+    "card_parcours_title": "Le Parcours",
+    "card_parcours_desc": "Découvrez la boucle officielle, la trace GPX, le profil altimétrique et le terrain qui vous attendent.",
+    "card_parcours_btn": "Explorer le tracé",
+    "card_infos_title": "Infos Pratiques",
+    "card_infos_desc": "Consultez le lieu de départ, l'organisation du camp de base, les ravitaillements et le règlement.",
+    "card_infos_btn": "Toutes les infos",
+    "banner_title": "Merci de rejoindre l'aventure Breizh Backyard !",
+    "banner_desc": "Pensez à ajouter notre adresse email à vos contacts autorisés pour ne rater aucun message important. À très vite sur les sentiers bretons !",
+    "btn_home": "Retour à l'accueil"
   },
   "sponsors_page": {
     "header": {

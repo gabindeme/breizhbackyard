@@ -83,18 +83,22 @@ const StatCard = ({ number, suffix, label, desc }: { number: number; suffix: str
       ref={ref}
       style={{
         textAlign: "center",
-        padding: "2rem 1rem",
+        padding: "2rem 1.25rem",
         borderRadius: "1.25rem",
         background: "rgba(255,255,255,0.06)",
         border: "1px solid rgba(255,255,255,0.1)",
         backdropFilter: "blur(8px)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      <div className="stat-number">
+      <div className="stat-number" style={{ textAlign: "center", width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
         {count}{suffix}
       </div>
-      <div style={{ fontWeight: "700", fontSize: "1rem", color: "#fff", marginTop: "0.4rem" }}>{label}</div>
-      <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.55)", marginTop: "0.25rem" }}>{desc}</div>
+      <div style={{ fontWeight: "700", fontSize: "1rem", color: "#fff", marginTop: "0.5rem", textAlign: "center" }}>{label}</div>
+      <div style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.65)", marginTop: "0.25rem", textAlign: "center", lineHeight: 1.5 }}>{desc}</div>
     </div>
   );
 };
