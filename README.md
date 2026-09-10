@@ -1,60 +1,64 @@
-# JSXpress 🚀
+# Breizh Backyard 🌲✨
 
-Quick & Easy React Boilerplate — ship your React projects fast & clean ⚡
+Breizh Backyard est une application web moderne développée avec React 19, TypeScript, Vite, Tailwind CSS et des animations WebGL.
 
-## Features
+## 🚀 Fonctionnalités
 
-- ⚙️ Vite — super fast dev environment
-- ⚛️ React Router DOM — easy routing out of the box
-- 🌙 Dark / Light Theme — effortless theme switching
-- 🎨 Tailwind CSS — modern styling ready to go
-- 🪞 shadcn/ui — accessible & beautiful UI components
-- 🌍 i18n — internationalization ready (via react-i18next)
-- ✨ Prettier — automatic code formatting
+- ⚛️ **React 19 & TypeScript** — Architecture frontend moderne et typée
+- ⚙️ **Vite** — Environnement de développement et build ultra-rapide
+- 🎨 **Tailwind CSS v4 & shadcn/ui** — Styling efficace et composants UI accessibles
+- 🌌 **Effets WebGL Aurora** — Arrière-plan animé dynamique propulsé par OGL & Motion
+- 🌍 **Internationalisation (i18n)** — Support multilingue (Français, Breton, Anglais)
+- 🌙 **Thème Sombre / Clair** — Gestion facile du thème via `next-themes`
+- ⚡ **Vercel Analytics & Speed Insights** — Suivi de performance pré-configuré
 
-## Getting Started
+## 📦 Prise en main
+
+### Prérequis
+
+Assurez-vous d'avoir Node.js et `pnpm` installés sur votre machine.
+
+### Installation
 
 ```bash
-# Clone the boilerplate
-git clone https://github.com/teovlt/jsxpress.git
+# Cloner le dépôt
+git clone https://github.com/gabindeme/breizhbackyard.git
 
-cd jsxpress
+# Accéder au dossier du projet
+cd breizhbackyard
 
-# Install dependencies
+# Installer les dépendances
 pnpm install
 
-# Start the dev server
+# Lancer le serveur de développement
 pnpm dev
 ```
 
-## Folder Structure
+## 📁 Structure du projet
 
 ```
 src/
- ├─ components/
- ├─ lib/
- ├─ locales/
- ├─ pages/
- ├─ providers/
- ├─ router/
- ├─ styles/
- └─ App.jsx
+ ├─ components/     # Composants UI et shaders (Aurora, shadcn)
+ ├─ lib/            # Fonctions utilitaires et helpers
+ ├─ locales/        # Fichiers de traduction i18n
+ ├─ pages/          # Vues et pages de l'application
+ ├─ providers/      # Context providers React (Thème, i18n)
+ ├─ router/         # Configuration du routage
+ ├─ styles/         # Styles globaux et règles CSS
+ └─ App.tsx
 ```
 
-## Scripts
+## 📜 Scripts disponibles
 
-- pnpm dev — start the development server
-- pnpm build — build for production
-- pnpm format — format code with Prettier
+- `pnpm dev` — Lance le serveur de développement
+- `pnpm build` — Compile le code TypeScript et génère le build de production
+- `pnpm format` — Formate l'ensemble du code avec Prettier
 
-## Author
+## 🙏 Crédits & Remerciements
 
-Made with 💻 by [teovlt](https://github.com/teovlt)
+- **Boilerplate** : Développé à partir du boilerplate [JSXpress](https://github.com/teovlt/jsxpress) créé par [teovlt](https://github.com/teovlt).
 
-## License
+## 📄 Licence
 
-MIT — Use it, hack it, ship it 🚀
+MIT — Libre d'utilisation et de modification.
 
----
-
-JSXpress — Your next React app, express mode.
