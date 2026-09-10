@@ -72,7 +72,7 @@ export const Inscriptions = () => {
   }, []);
 
   // Déclencheur reCAPTCHA Enterprise lors de la soumission
-  const handleFormSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleFormSubmit = () => {
     if ((window as any).grecaptcha && (window as any).grecaptcha.enterprise) {
       (window as any).grecaptcha.enterprise.ready(async () => {
         try {
