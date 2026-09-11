@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { Countdown } from "@/components/customs/countdown";
@@ -187,12 +187,6 @@ export const Footer = () => {
               {t("footer.info_title")}
             </h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
-              <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", color: "rgba(255,255,255,0.7)" }}>
-                <MapPin size={18} style={{ color: "#277956", flexShrink: 0, marginTop: "2px" }} />
-                <span>
-                  {t("footer.location")}
-                </span>
-              </div>
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
                 <Mail size={15} style={{ color: "#8CBE4F", flexShrink: 0 }} />
                 <a href="mailto:contact@breizhbackyard.com" style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.88rem", textDecoration: "none", transition: "color 0.2s ease" }}
