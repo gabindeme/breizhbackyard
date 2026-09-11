@@ -16,8 +16,8 @@
     "benevoles": "Bénévoles"
   },
   "footer": {
-    "rights": "© {{year}} Breizh Backyard Ultra — Tous droits réservés",
-    "tagline": "L'ultra-endurance au bout du bout de la Bretagne.",
+    "rights": "© {{year}} Breizh Backyard — Tous droits réservés",
+    "tagline": "L'ultra-endurance au coeur de Rennes.",
     "nav_title": "Navigation",
     "info_title": "Informations",
     "social_title": "Réseaux sociaux",
@@ -26,7 +26,7 @@
     "manage_cookies": "Gestion des cookies",
     "cookies": "Politique de cookies",
     "contact": "Contact",
-    "description": "L'ultra-endurance au bout du bout de la Bretagne. Un tour. Toutes les heures. Jusqu'au dernier.",
+    "description": "L'ultra-endurance au coeur de Rennes. Un tour. Toutes les heures. Jusqu'au dernier.",
     "course_title": "La course",
     "location": "Parc des Gayeulles, Rennes",
     "depart_dans": "Départ dans",
@@ -44,7 +44,7 @@
     "hero": {
       "date": "Samedi 15 Mai 2027 · 10h00",
       "title": "BREIZH BACKYARD",
-      "subtitle": "Ultra",
+      "subtitle": "2027",
       "desc_line1": "6,706 km. Toutes les heures. Jusqu'au dernier debout.",
       "desc_line2": "La course sans distance. Sans limite.",
       "btn_newsletter": "Je veux mon dossard →",
@@ -54,7 +54,7 @@
     "concept": {
       "subtitle": "Le format",
       "title": "Une course sans fin",
-      "desc": "Le Backyard Ultra est une épreuve d'ultra-endurance unique : pas de distance fixée, pas d'horaire d'arrivée — seulement un tour de 6,706 km à boucler toutes les heures, pile.",
+      "desc": "Une Backyard Ultra est une épreuve d'ultra-endurance unique : pas de distance fixée, pas d'horaire d'arrivée — seulement un tour de 6,706 km à boucler toutes les heures, pile.",
       "card1_title": "Toutes les heures",
       "card1_text": "Un top départ est donné chaque heure. Tous les coureurs encore en course repartent ensemble, sans exception.",
       "card2_title": "6,706 km par tour",
@@ -67,10 +67,10 @@
     },
     "stats": {
       "subtitle": "L'événement en chiffres",
-      "title": "Breizh Backyard Ultra",
+      "title": "Breizh Backyard",
       "stat1_suffix": ",706 km",
       "stat1_label": "Par tour",
-      "stat1_desc": "La distance exacte du Backyard Ultra",
+      "stat1_desc": "La distance exacte d'une Backyard Ultra",
       "stat2_suffix": "",
       "stat2_label": "Coureurs attendus",
       "stat2_desc": "Toutes catégories confondues",
@@ -103,7 +103,7 @@
       "card1_title": "Le camp de base",
       "card1_text": "Entre chaque tour, coureurs et accompagnants se retrouvent dans la zone de vie. Tentes, chaises longues, ravitaillement maison... L'ambiance est unique.",
       "card2_title": "L'entraide",
-      "card2_text": "Dans le Backyard, les coureurs se soutiennent mutuellement. On se connaît au fil des heures, on s'encourage, on partage. Un esprit de communauté rare en compétition.",
+      "card2_text": "Dans une Backyard, les coureurs se soutiennent mutuellement. On se connaît au fil des heures, on s'encourage, on partage. Un esprit de communauté rare en compétition.",
       "card3_title": "La Bretagne",
       "card3_text": "Un cadre naturel exceptionnel : forêts, sentiers, air iodé... La Bretagne offre le décor parfait pour cette aventure d'ultra-endurance."
     },
@@ -117,14 +117,14 @@
   "concept_page": {
     "header": {
       "subtitle": "Le format",
-      "title": "Le Concept Backyard Ultra",
+      "title": "Le Concept de la Backyard Ultra",
       "desc": "Une épreuve inventée par Gary Cantrell (alias Lazarus Lake) en 2011, dans le Tennessee. Un format unique qui a bouleversé le monde de l'ultra-endurance."
     },
     "principe": {
       "subtitle": "Le principe",
       "title_line1": "Simple à comprendre,",
       "title_line2": "impossible à maîtriser",
-      "desc1_start": "Le principe du Backyard Ultra est d'une simplicité désarmante : boucler un circuit de ",
+      "desc1_start": "Le principe de la Backyard est d'une simplicité désarmante : boucler un circuit de ",
       "desc1_bold": " 6,706 km ",
       "desc1_end": " (4,1667 miles — soit 100 miles au bout de 24h), et ce toutes les heures, sans exception.",
       "desc2": "À chaque nouvelle heure, un signal sonore retentit : c'est le top départ. Tous les coureurs encore en course repartent ensemble, qu'ils soient frais ou épuisés. Pas de départ individuel, pas d'exception.",
@@ -183,7 +183,7 @@
     "header": {
       "subtitle": "Le circuit",
       "title": "Le Parcours",
-      "desc": "Un tracé de 6,706 km conçu pour le format Backyard Ultra, au cœur de la nature bretonne. Chaque tour est une nouvelle aventure."
+      "desc": "Un tracé de 6,706 km conçu pour le format Backyard, au cœur de la nature bretonne. Chaque tour est une nouvelle aventure."
     },
     "terrainFeatures": {
       "f1_label": "Sentiers forestiers",
@@ -212,7 +212,7 @@
     "description": {
       "subtitle": "Le tracé",
       "title": "Présentation du circuit",
-      "p1_start": "Le tracé du Breizh Backyard Ultra a été pensé pour être à la fois beau et équitable pour tous les coureurs. Une boucle unique de ",
+      "p1_start": "Le tracé de la Breizh Backyard a été pensé pour être à la fois beau et équitable pour tous les coureurs. Une boucle unique de ",
       "p1_bold": "6,706 km",
       "p1_end": ", parcourue dans le même sens à chaque tour.",
       "p2_start": "Le départ et l'arrivée sont situés dans la ",
@@ -271,7 +271,7 @@
     "acces": {
       "title": "Accès & Lieu",
       "loc_title": "📍 Localisation",
-      "loc_p1_start": "Le Breizh Backyard Ultra se déroule en Bretagne, dans un cadre naturel préservé.",
+      "loc_p1_start": "La Breizh Backyard se déroule en Bretagne, dans un cadre naturel préservé.",
       "loc_p1_bold": " L'adresse exacte sera communiquée",
       "loc_p1_end": " aux inscrits par email avant la course.",
       "loc_info": "ℹ️ Les coordonnées GPS et l'accès détaillé seront partagés dans le pack participant, disponible 2 semaines avant la course.",
@@ -323,7 +323,7 @@
       "r2": "Tout coureur qui n'a pas franchi la ligne avant le signal est immédiatement éliminé.",
       "r3": "Le vainqueur est le dernier coureur capable de terminer un tour de plus que tous les autres.",
       "r4": "Le vainqueur doit effectuer un tour supplémentaire seul pour être officiellement déclaré.",
-      "r_breizh_title": "Règles spécifiques Breizh BU",
+      "r_breizh_title": "Règles spécifiques à la Breizh Backyard",
       "br1": "Le dossard doit être porté visible à l'avant pendant toute la course.",
       "br2": "Tout coureur abandonnant doit signaler son abandon à un membre de l'organisation.",
       "br3": "Les accompagnants restent dans la zone de vie — pas d'assistance sur le circuit.",
@@ -344,7 +344,7 @@
     "info": {
       "badge": "Inscriptions fermées — Ouverture prochaine",
       "title": "Soyez parmi les premiers à courir",
-      "desc": "Les places pour le Breizh Backyard Ultra sont limitées. En vous inscrivant à notre newsletter, vous serez alerté(e) dès l'ouverture officielle des inscriptions, bien avant l'annonce publique.",
+      "desc": "Les places pour la Breizh Backyard sont limitées. En vous inscrivant à notre newsletter, vous serez alerté(e) dès l'ouverture officielle des inscriptions, bien avant l'annonce publique.",
       "list1": "Notification immédiate à l'ouverture des inscriptions",
       "list2": "Accès prioritaire avant les listes d'attente",
       "list3": "Actualités exclusives sur la course et le parcours",
@@ -452,11 +452,11 @@
         "items": [
           {
             "q": "Qu'est-ce que le format Backyard Ultra ?",
-            "a": "Le Backyard Ultra est un format de course d'ultra-endurance inventé par Gary Cantrell (alias Lazarus Lake) en 2011. Le principe : boucler un circuit de 6,706 km toutes les heures, jusqu'à ce qu'il ne reste plus qu'un seul coureur capable de compléter un tour supplémentaire."
+            "a": "La Backyard est un format de course d'ultra-endurance inventé par Gary Cantrell (alias Lazarus Lake) en 2011. Le principe : boucler un circuit de 6,706 km toutes les heures, jusqu'à ce qu'il ne reste plus qu'un seul coureur capable de compléter un tour supplémentaire."
           },
           {
             "q": "D'où vient la distance de 6,706 km ?",
-            "a": "Cette distance correspond exactement à 4,16667 miles, soit un centième de mile dans une heure. Multiplié par le nombre de tours, cela donne toujours un nombre entier de miles parcourus."
+            "a": "La distance exacte de 6,706 km (soit 4,167 miles) vient d'un calcul mathématique simple : elle permet aux concurents de parcourir précisement 100 miles (environ 160,9 km) au bout de 24 heures."
           },
           {
             "q": "Combien de temps peut durer une course ?",
@@ -578,8 +578,6 @@
     "info": {
       "title": "Nous trouver",
       "email": "Email",
-      "loc": "Localisation",
-      "loc_val": "Parc des Gayeulles, Rennes",
       "socials": "Réseaux sociaux",
       "delay": "⏱ Délai de réponse",
       "delay_text": " : nous répondons généralement sous 48h ouvrées. Pour les demandes urgentes, merci de l'indiquer dans votre message."
@@ -621,7 +619,7 @@
     "header": {
       "subtitle": "Photos",
       "title": "Galerie",
-      "desc": "Revivez les moments forts du Breizh Backyard Ultra. Les vraies photos seront ajoutées après chaque édition."
+      "desc": "Revivez les moments forts de la Breizh Backyard. Les vraies photos seront ajoutées après chaque édition."
     },
     "categories": {
       "toutes": "Toutes",
@@ -663,7 +661,7 @@
     "header": {
       "subtitle": "Rejoignez l'équipe",
       "title": "Devenir Bénévole",
-      "desc": "Vivez le Breizh Backyard Ultra de l'intérieur. Sans nos bénévoles, l'aventure n'existerait pas."
+      "desc": "Vivez la Breizh Backyard de l'intérieur. Sans bénévoles, l'aventure n'existerait pas."
     },
     "intro": {
       "title": "Pourquoi devenir bénévole ?",

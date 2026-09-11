@@ -50,6 +50,35 @@ export const CookieProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const purgeNonEssentialCookies = () => {
+    try {
+      if (typeof document !== "undefined" && document.cookie) {
+        const cookies = document.cookie.split(";");
+        for (const cookie of cookies) {
+          const eqPos = cookie.indexOf("=");
+          const name = eqPos > -1 ? cookie.slice(0, eqPos).trim() : cookie.trim();
+          if (name && name !== STORAGE_KEY) {
+            const domain = window.location.hostname;
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;`;
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${domain};`;
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.${domain};`;
+          }
+        }
+      }
+      if (typeof window !== "undefined") {
+        (window as unknown as Record<string, unknown>).va = undefined;
+      }
+    } catch (e) {
+      console.error("Error purging non-essential cookies", e);
+    }
+  };
+
+  React.useEffect(() => {
+    if (consent.decided && !consent.analytics) {
+      purgeNonEssentialCookies();
+    }
+  }, [consent.decided, consent.analytics]);
+
   const saveConsent = (analytics: boolean) => {
     const newState: CookieConsentState = {
       essential: true,
@@ -58,6 +87,9 @@ export const CookieProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       timestamp: new Date().toISOString(),
     };
     setConsent(newState);
+    if (!analytics) {
+      purgeNonEssentialCookies();
+    }
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
     } catch (e) {

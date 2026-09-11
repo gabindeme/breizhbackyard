@@ -20,10 +20,10 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { icon: InstagramIcon, label: "Instagram", href: "#", color: "#E1306C" },
-  { icon: FacebookIcon, label: "Facebook", href: "#", color: "#1877F2" },
-  { icon: YoutubeIcon, label: "YouTube", href: "#", color: "#FF0000" },
-  { icon: TiktokIcon, label: "TikTok", href: "#", color: "#000000" },
+  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/breizhbackyard/", color: "#E1306C" },
+  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/people/BreizhBackyard/61588328941008/", color: "#1877F2" },
+  { icon: YoutubeIcon, label: "YouTube", href: "https://www.youtube.com/@breizhbackyard", color: "#FF0000" },
+  { icon: TiktokIcon, label: "TikTok", href: "https://www.tiktok.com/@breizhbackyard", color: "#000000" },
 ];
 
 export const Footer = () => {

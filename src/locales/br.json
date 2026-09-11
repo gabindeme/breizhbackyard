@@ -17,7 +17,7 @@
   },
   "footer": {
     "rights": "© {{year}} Breizh Backyard — An holl wirioù miret strizh",
-    "tagline": "Ar rederez ultra e penn-draw Breizh.",
+    "tagline": "Ar redadeg ultra e kreiz Roazhon.",
     "nav_title": "Merdeiñ",
     "info_title": "Titouroù",
     "social_title": "Rouedadoù sokial",
@@ -26,7 +26,7 @@
     "manage_cookies": "Merañ an toudennoù",
     "cookies": "Politikerezh toudennoù",
     "contact": "Darempred",
-    "description": "Ar rederez ultra e penn pellañ Breizh. Un dro. Bep eur. Betek an hini diwezhañ.",
+    "description": "Ar redadeg ultra e kreiz Roazhon. Un dro. Bep eur. Betek an hini diwezhañ.",
     "course_title": "Ar redadeg",
     "location": "Parc des Gayeulles, Roazhon",
     "depart_dans": "Loc'hañ a-benn",
@@ -54,7 +54,7 @@
     "concept": {
       "subtitle": "Ar furm",
       "title": "Ur red hep dibenn",
-      "desc": "Ar Backyard Ultra a zo ur brouadenn ultra-badezerezh dibar: n'eus ket a bellder fest na eur erruout — nemet un dro 6,706 km da glokaat bep eur, resis.",
+      "desc": "Ur Backyard Ultra a zo ur brouadenn ultra-badezerezh dibar: n'eus ket a bellder fest na eur erruout — nemet un dro 6,706 km da glokaat bep eur, resis.",
       "card1_title": "Bep eur",
       "card1_text": "Roet e vez un tan-gregiñ bep eur. An holl redourien c'hoazh er red a ya en-dro asambles, hep nemedenn.",
       "card2_title": "6,706 km an dro",
@@ -67,10 +67,10 @@
     },
     "stats": {
       "subtitle": "An darvoud e niveroù",
-      "title": "Breizh Backyard Ultra",
+      "title": "Breizh Backyard",
       "stat1_suffix": ",706 km",
       "stat1_label": "An dro",
-      "stat1_desc": "Pellder resis ar Backyard Ultra",
+      "stat1_desc": "Pellder resis ur Backyard Ultra",
       "stat2_suffix": "",
       "stat2_label": "Redourien gortozet",
       "stat2_desc": "An holl rummadoù kendrec'het",
@@ -103,7 +103,7 @@
       "card1_title": "Ar c'hamp diazez",
       "card1_text": "Etre pep tro, redourien ha skoazellerien a gav an eil egile er maez-bevañ. Teltennoù, kadorioù-hir, boued kroget er gêr... An amva a zo dibar.",
       "card2_title": "Ar skoazell etre an holl",
-      "card2_text": "Er Backyard, ar redourien en em skoazell an eil egile. En em anavezout a reer a-hed an eurioù, en em vroudañ, rannañ. Ur spered kumuniezh diêz da gavout e kevezerezh.",
+      "card2_text": "E-barzh ur Backyard, ar redourien en em skoazell an eil egile. En em anavezout a reer a-hed an eurioù, en em vroudañ, rannañ. Ur spered kumuniezh diêz da gavout e kevezerezh.",
       "card3_title": "Breizh",
       "card3_text": "Un endro natur dibar: koadeier, hentoù, aer ar mor... Breizh a ginnig an dekor pervezh evit an avanturenn ultra-badezerezh-mañ."
     },
@@ -124,7 +124,7 @@
       "subtitle": "Ar reolenn diazez",
       "title_line1": "Aes da gompren,",
       "title_line2": "diaes-tre da vestroniañ",
-      "desc1_start": "Reolenn diazez ar Backyard Ultra a zo eeun-kenañ: klokaat ur c'helc'hiad ",
+      "desc1_start": "Reolenn diazez ur Backyard a zo eeun-kenañ: klokaat ur c'helc'hiad ",
       "desc1_bold": " 6,706 km ",
       "desc1_end": " (4,1667 mil — da lâret eo 100 mil goude 24e), hag-se bep eur, hep nemedenn.",
       "desc2": "Bep eur nevez, ur sin son a zeu er-maez: setu an tan-gregiñ. An holl redourien c'hoazh er red a ya en-dro asambles, fresk pe skuizh e vezont. Ne vez ket a c'hregiñ hiniennel, ne vez ket a nemedenn.",
@@ -183,7 +183,7 @@
     "header": {
       "subtitle": "Ar c'helc'hiad",
       "title": "An Hent",
-      "desc": "Un hentad 6,706 km savet evit furm ar Backyard Ultra, e-kreiz natur Breizh. Pep tro a zo un avanturenn nevez."
+      "desc": "Un hentad 6,706 km savet evit furm ar Backyard, e-kreiz natur Breizh. Pep tro a zo un avanturenn nevez."
     },
     "terrainFeatures": {
       "f1_label": "Hentoù-koad",
@@ -212,7 +212,7 @@
     "description": {
       "subtitle": "An hentad",
       "title": "Kinnigadur ar c'helc'hiad",
-      "p1_start": "An hentad Breizh Backyard Ultra a zo bet soñjet evit bezañ ken kaer ha reizh evit an holl redourien. Un dro hepken a ",
+      "p1_start": "An hentad Breizh Backyard a zo bet soñjet evit bezañ ken kaer ha reizh evit an holl redourien. Un dro hepken a ",
       "p1_bold": "6,706 km",
       "p1_end": ", graet en hevelep tu bep tro.",
       "p2_start": "Al loc'hañ hag an erruout a zo lakaet er ",
@@ -271,7 +271,7 @@
     "acces": {
       "title": "Tremen & Lec'h",
       "loc_title": "📍 Lec'hiadur",
-      "loc_p1_start": "Ar Breizh Backyard Ultra a c'hoarvez e Breizh, en un endro natur miret.",
+      "loc_p1_start": "Ar Breizh Backyard a c'hoarvez e Breizh, en un endro natur miret.",
       "loc_p1_bold": " Roet e vo an chomlec'h resis",
       "loc_p1_end": " d'ar re enskrivet dre bostel a-raok ar red.",
       "loc_info": "ℹ️ Koordonadoù GPS hag an tremen munudek a vo rannet er pakad kemperzhour, hegerz 2 sizhun a-raok ar red.",
@@ -323,7 +323,7 @@
       "r2": "Redour ebet n'en deus tremenet al linenn a-raok ar sin a vez diverket diouzhtu.",
       "r3": "Ar gounezer eo ar redour diwezhañ barrek da glokaat un dro ouzhpenn eget an holl re all.",
       "r4": "Ar gounezer a rank ober un dro ouzhpenn e-unan evit bezañ disklêriet ofisielamant.",
-      "r_breizh_title": "Reolennoù dibar Breizh BU",
+      "r_breizh_title": "Reolennoù dibar ar Breizh Backyard",
       "br1": "An niverenn a rank bezañ gwisket hewel a-raok e-pad ar red a-bezh.",
       "br2": "Redour ebet a laosk ar red a rank menegiñ e ehan d'un ezel eus an aozadur.",
       "br3": "Ar skoazellerien a chom er maez-bevañ — n'eus ket a skoazell war ar c'helc'hiad.",
@@ -344,7 +344,7 @@
     "info": {
       "badge": "Enskrivadurioù serret — Digor a-benn nebeut",
       "title": "Bezit e-touez ar re gentañ da redek",
-      "desc": "Bevennet eo al leuzioù evit ar Breizh Backyard Ultra. En em enskrivet d'hor c'helaouenn, e vefec'h kelaouet pa vo digor ofisiel an enskrivadurioù, a-raok an disklêriadur foran.",
+      "desc": "Bevennet eo al leuzioù evit ar Breizh Backyard. En em enskrivet d'hor c'helaouenn, e vefec'h kelaouet pa vo digor ofisiel an enskrivadurioù, a-raok an disklêriadur foran.",
       "list1": "Kemenn diouzhtu pa vo digor an enskrivadurioù",
       "list2": "Tremen kentañ a-raok al listennoù gortoz",
       "list3": "Keleier dibar diwar-benn ar red hag an hentad",
@@ -452,15 +452,15 @@
         "items": [
           {
             "q": "Petra eo furm ar Backyard Ultra?",
-            "a": "Ar Backyard Ultra a zo ur furm red ultra-badezerezh krouet gant Gary Cantrell (galvet ivez Lazarus Lake) e 2011. Ar poent diazez: klokaat ur c'helc'hiad 6,706 km bep eur, betek na chom nemet ur redour barrek da glokaat un dro ouzhpenn."
+            "a": "Ur Backyard a zo ur furm red ultra-badezerezh krouet gant Gary Cantrell (galvet ivez Lazarus Lake) e 2011. Ar poent diazez: klokaat ur c'helc'hiad 6,706 km bep eur, betek na chom nemet ur redour barrek da glokaat un dro ouzhpenn."
           },
           {
             "q": "A-belec'h e teu ar pellder 6,706 km?",
-            "a": "Ar pellder-mañ a glot resis gant 4,16667 mil, da lâret eo ur c'hantved eus ur mil en un eur. Liesaet dre niver an troioù, sur e vo atav un niver klok a vilioù graet."
+            "a": "Ar pellder resis a 6,706 km (da lâret eo 4,167 mil) a zeu eus ur c'halc'h matematikel eeun: gantañ e c'hell ar gevezerien ober resis 100 mil (tro-dro 160,9 km) goude 24 eurvezh."
           },
           {
             "q": "Pegement amzer a c'hell padout ur red?",
-            "a": "Ne oar den a-raok pegeit e pado. Redoù bihannoc'h eget 10 eur a zo bet gwelet, met rekord ar bed a dremen 100 eur (ouzhpenn 4 devezh). E gwirionez, an darn vrasañ eus ar redoù rannvroel a echu etre 20 ha 40 eur."
+            "a": "Ne oar den a-raok pegeit e pado. Redoù bihannoc'h eget 10 eur a zo bet gwelet, met rekord ar bed a dremen 100 eur (ouzhpenn 4 devezh). E gwirionez, ar pep brasañ eus ar redoù rannvroel a echu etre 20 ha 40 eur."
           },
           {
             "q": "Ha gallout a rafe bezañ meur a c'hounezer?",
@@ -578,8 +578,6 @@
     "info": {
       "title": "Hor c'havout",
       "email": "Postel",
-      "loc": "Lec'hiadur",
-      "loc_val": "Parc des Gayeulles, Roazhon",
       "socials": "Rouedadoù sokial",
       "delay": "⏱ Amzer respont",
       "delay_text": ": e-doare hor bez respont e-barzh 48 eur labour. Evit goulennoù prim, trugarez o veneg en ho kemennadenn."
@@ -621,7 +619,7 @@
     "header": {
       "subtitle": "Fotoioù",
       "title": "Galerie",
-      "desc": "Adbevit poentoù kreñv ar Breizh Backyard Ultra. Fotoioù gwirion a vo ouzhpennet goude pep edisyon."
+      "desc": "Adbevit poentoù kreñv ar Breizh Backyard. Fotoioù gwirion a vo ouzhpennet goude pep edisyon."
     },
     "categories": {
       "toutes": "An holl",
@@ -663,7 +661,7 @@
     "header": {
       "subtitle": "Deuit en hor skipailh",
       "title": "Mont da Zen A-youl Vat",
-      "desc": "Bevit ar Breizh Backyard Ultra eus an diabarzh. Hep an dud a-youl vat, n'eus ket eus an avantur."
+      "desc": "Bevit ar Breizh Backyard eus an diabarzh. Hep tud a-youl vat, n'eus ket eus an avantur."
     },
     "intro": {
       "title": "Perak mont da zen a-youl vat?",

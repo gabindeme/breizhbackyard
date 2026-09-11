@@ -17,209 +17,233 @@ export const CookieBanner = () => {
     setAnalyticsToggle(consent.analytics);
   }, [consent.analytics, isModalOpen]);
 
+  // Lock body scroll when user has not decided yet OR when modal is open
+  useEffect(() => {
+    if (!consent.decided || isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [consent.decided, isModalOpen]);
+
   const showBanner = !consent.decided && !isModalOpen;
 
   return (
     <>
-      {/* Floating Cookie Banner */}
+      {/* Blocking Cookie Banner Overlay (When not decided) */}
       <AnimatePresence>
         {showBanner && (
           <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.98 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             style={{
               position: "fixed",
-              bottom: "1.5rem",
-              left: "1.5rem",
-              right: "1.5rem",
-              maxWidth: "860px",
-              margin: "0 auto",
+              inset: 0,
               zIndex: 9999,
-              background: "rgba(15, 45, 29, 0.94)",
-              backdropFilter: "blur(16px)",
-              WebkitBackdropFilter: "blur(16px)",
-              border: "1px solid rgba(245, 201, 44, 0.3)",
-              borderRadius: "1.25rem",
-              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(39, 121, 86, 0.2)",
+              background: "rgba(0, 0, 0, 0.75)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               padding: "1.5rem",
-              color: "#fff",
             }}
-            role="region"
-            aria-label="Gestion des cookies RGPD"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Consentement aux cookies RGPD"
           >
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "1rem" }}>
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    borderRadius: "50%",
-                    background: "rgba(245, 201, 44, 0.15)",
-                    border: "1px solid rgba(245, 201, 44, 0.3)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#F5C92C",
-                    flexShrink: 0,
-                  }}
-                >
-                  <Cookie size={22} />
-                </div>
-                <div style={{ flex: 1 }}>
-                  <h3
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              style={{
+                maxWidth: "760px",
+                width: "100%",
+                background: "#0f2d1d",
+                border: "1px solid rgba(245, 201, 44, 0.35)",
+                borderRadius: "1.5rem",
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(39, 121, 86, 0.25)",
+                padding: "2rem",
+                color: "#fff",
+                position: "relative",
+              }}
+            >
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "1.25rem" }}>
+                  <div
                     style={{
-                      fontFamily: "'Hobo', sans-serif",
-                      fontSize: "1.15rem",
-                      color: "#fff",
-                      margin: 0,
-                      marginBottom: "0.4rem",
+                      width: "52px",
+                      height: "52px",
+                      borderRadius: "50%",
+                      background: "rgba(245, 201, 44, 0.15)",
+                      border: "1px solid rgba(245, 201, 44, 0.35)",
                       display: "flex",
                       alignItems: "center",
-                      gap: "0.5rem",
+                      justifyContent: "center",
+                      color: "#F5C92C",
+                      flexShrink: 0,
                     }}
                   >
-                    {t("cookies.banner_title", "Respect de votre vie privée")}
-                    <span
+                    <Cookie size={26} />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.5rem" }}>
+                      <h3
+                        style={{
+                          fontFamily: "'Hobo', sans-serif",
+                          fontSize: "1.3rem",
+                          color: "#fff",
+                          margin: 0,
+                        }}
+                      >
+                        {t("cookies.banner_title", "Respect de votre vie privée")}
+                      </h3>
+                      <span
+                        style={{
+                          fontSize: "0.68rem",
+                          padding: "0.15rem 0.5rem",
+                          borderRadius: "999px",
+                          background: "rgba(140, 190, 79, 0.2)",
+                          color: "#8CBE4F",
+                          border: "1px solid rgba(140, 190, 79, 0.4)",
+                          fontWeight: 600,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                        }}
+                      >
+                        RGPD
+                      </span>
+                    </div>
+                    <p
                       style={{
-                        fontSize: "0.68rem",
-                        padding: "0.15rem 0.5rem",
-                        borderRadius: "999px",
-                        background: "rgba(140, 190, 79, 0.2)",
-                        color: "#8CBE4F",
-                        border: "1px solid rgba(140, 190, 79, 0.4)",
-                        fontWeight: 600,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.05em",
+                        color: "rgba(255, 255, 255, 0.85)",
+                        fontSize: "0.92rem",
+                        lineHeight: "1.6",
+                        margin: 0,
                       }}
                     >
-                      RGPD
-                    </span>
-                  </h3>
-                  <p
+                      {t(
+                        "cookies.banner_desc",
+                        "Nous utilisons des cookies essentiels au fonctionnement du site. Avec votre accord, nous pouvons également utiliser des cookies de mesure d'audience pour améliorer votre expérience d'ultra-endurance. Aucun traceur publicitaire tiers n'est activé sans votre consentement."
+                      )}{" "}
+                      <Link
+                        to="/politique-de-confidentialite"
+                        style={{
+                          color: "#F5C92C",
+                          textDecoration: "underline",
+                          textUnderlineOffset: "3px",
+                        }}
+                      >
+                        {t("cookies.learn_more", "En savoir plus")}
+                      </Link>
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    alignItems: "center",
+                    justifyContent: "flex-end",
+                    gap: "0.75rem",
+                    borderTop: "1px solid rgba(255, 255, 255, 0.12)",
+                    paddingTop: "1.25rem",
+                  }}
+                >
+                  <button
+                    onClick={openModal}
                     style={{
-                      color: "rgba(255, 255, 255, 0.8)",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.4rem",
+                      padding: "0.65rem 1.25rem",
+                      borderRadius: "999px",
+                      background: "rgba(255, 255, 255, 0.08)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
+                      color: "rgba(255, 255, 255, 0.9)",
                       fontSize: "0.88rem",
-                      lineHeight: "1.55",
-                      margin: 0,
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      transition: "all 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)";
+                      e.currentTarget.style.color = "#fff";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+                      e.currentTarget.style.color = "rgba(255, 255, 255, 0.9)";
                     }}
                   >
-                    {t(
-                      "cookies.banner_desc",
-                      "Nous utilisons des cookies essentiels au fonctionnement du site. Avec votre accord, nous pouvons également utiliser des cookies de mesure d'audience pour améliorer votre expérience d'ultra-endurance. Aucun traceur publicitaire tiers n'est activé sans votre consentement."
-                    )}{" "}
-                    <Link
-                      to="/politique-de-confidentialite"
-                      style={{
-                        color: "#F5C92C",
-                        textDecoration: "underline",
-                        textUnderlineOffset: "3px",
-                      }}
-                    >
-                      {t("cookies.learn_more", "En savoir plus")}
-                    </Link>
-                  </p>
+                    <Settings size={16} />
+                    {t("cookies.btn_customize", "Personnaliser")}
+                  </button>
+
+                  <button
+                    onClick={declineAll}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.4rem",
+                      padding: "0.65rem 1.35rem",
+                      borderRadius: "999px",
+                      background: "rgba(255, 255, 255, 0.08)",
+                      border: "1px solid rgba(255, 255, 255, 0.25)",
+                      color: "#fff",
+                      fontSize: "0.88rem",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      transition: "all 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.18)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+                    }}
+                  >
+                    {t("cookies.btn_decline", "Tout refuser")}
+                  </button>
+
+                  <button
+                    onClick={acceptAll}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.4rem",
+                      padding: "0.65rem 1.5rem",
+                      borderRadius: "999px",
+                      background: "#F5C92C",
+                      border: "none",
+                      color: "#1a2e22",
+                      fontSize: "0.88rem",
+                      fontWeight: 700,
+                      cursor: "pointer",
+                      transition: "all 0.2s ease",
+                      boxShadow: "0 4px 14px rgba(245, 201, 44, 0.35)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "#e0b520";
+                      e.currentTarget.style.transform = "translateY(-1px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "#F5C92C";
+                      e.currentTarget.style.transform = "translateY(0)";
+                    }}
+                  >
+                    <Check size={17} />
+                    {t("cookies.btn_accept", "Tout accepter")}
+                  </button>
                 </div>
               </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  justifyContent: "flex-end",
-                  gap: "0.75rem",
-                  borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-                  paddingTop: "1rem",
-                }}
-              >
-                <button
-                  onClick={openModal}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.4rem",
-                    padding: "0.6rem 1.1rem",
-                    borderRadius: "999px",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    border: "1px solid rgba(255, 255, 255, 0.2)",
-                    color: "rgba(255, 255, 255, 0.9)",
-                    fontSize: "0.85rem",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    transition: "all 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "rgba(255, 255, 255, 0.15)";
-                    e.currentTarget.style.color = "#fff";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
-                    e.currentTarget.style.color = "rgba(255, 255, 255, 0.9)";
-                  }}
-                >
-                  <Settings size={15} />
-                  {t("cookies.btn_customize", "Personnaliser")}
-                </button>
-
-                <button
-                  onClick={declineAll}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.4rem",
-                    padding: "0.6rem 1.25rem",
-                    borderRadius: "999px",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    border: "1px solid rgba(255, 255, 255, 0.25)",
-                    color: "#fff",
-                    fontSize: "0.85rem",
-                    fontWeight: 600,
-                    cursor: "pointer",
-                    transition: "all 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "rgba(255, 255, 255, 0.18)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
-                  }}
-                >
-                  {t("cookies.btn_decline", "Tout refuser")}
-                </button>
-
-                <button
-                  onClick={acceptAll}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.4rem",
-                    padding: "0.6rem 1.4rem",
-                    borderRadius: "999px",
-                    background: "#F5C92C",
-                    border: "none",
-                    color: "#1a2e22",
-                    fontSize: "0.85rem",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    transition: "all 0.2s ease",
-                    boxShadow: "0 4px 12px rgba(245, 201, 44, 0.3)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#e0b520";
-                    e.currentTarget.style.transform = "translateY(-1px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#F5C92C";
-                    e.currentTarget.style.transform = "translateY(0)";
-                  }}
-                >
-                  <Check size={16} />
-                  {t("cookies.btn_accept", "Tout accepter")}
-                </button>
-              </div>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

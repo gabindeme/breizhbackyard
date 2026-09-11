@@ -16,8 +16,8 @@
     "benevoles": "Volunteers"
   },
   "footer": {
-    "rights": "© {{year}} Breizh Backyard Ultra — All rights reserved",
-    "tagline": "Ultra-endurance at the end of Brittany.",
+    "rights": "© {{year}} Breizh Backyard — All rights reserved",
+    "tagline": "Ultra-endurance in the heart of Rennes.",
     "nav_title": "Navigation",
     "info_title": "Information",
     "social_title": "Social media",
@@ -26,7 +26,7 @@
     "manage_cookies": "Cookie Settings",
     "cookies": "Cookie policy",
     "contact": "Contact",
-    "description": "Ultra-endurance at the very edge of Brittany. One loop. Every hour. Until the last one standing.",
+    "description": "Ultra-endurance in the heart of Rennes. One loop. Every hour. Until the last one standing.",
     "course_title": "The race",
     "location": "Parc des Gayeulles, Rennes",
     "depart_dans": "Starting in",
@@ -44,7 +44,7 @@
     "hero": {
       "date": "Saturday, May 15, 2027 · 10:00 AM",
       "title": "BREIZH BACKYARD",
-      "subtitle": "Ultra",
+      "subtitle": "2027",
       "desc_line1": "6.706 km. Every hour. Until the last one standing.",
       "desc_line2": "The race without a distance. Without a limit.",
       "btn_newsletter": "I want my bib →",
@@ -54,7 +54,7 @@
     "concept": {
       "subtitle": "The format",
       "title": "A race without an end",
-      "desc": "The Backyard Ultra is a unique ultra-endurance event: no fixed distance, no finish time — just a 6.706 km loop to complete every hour, on the dot.",
+      "desc": "A Backyard Ultra is a unique ultra-endurance event: no fixed distance, no finish time — just a 6.706 km loop to complete every hour, on the dot.",
       "card1_title": "Every hour",
       "card1_text": "A starting signal is given every hour. All runners still in the race set off together, without exception.",
       "card2_title": "6.706 km per loop",
@@ -67,10 +67,10 @@
     },
     "stats": {
       "subtitle": "The event in numbers",
-      "title": "Breizh Backyard Ultra",
+      "title": "Breizh Backyard",
       "stat1_suffix": ".706 km",
       "stat1_label": "Per loop",
-      "stat1_desc": "The exact distance of the Backyard Ultra",
+      "stat1_desc": "The exact distance of a Backyard Ultra",
       "stat2_suffix": "",
       "stat2_label": "Runners expected",
       "stat2_desc": "All categories combined",
@@ -103,7 +103,7 @@
       "card1_title": "The base camp",
       "card1_text": "Between each loop, runners and crews gather in the living area. Tents, deck chairs, homemade food... The atmosphere is unique.",
       "card2_title": "Mutual support",
-      "card2_text": "In the Backyard, runners support one another. You get to know each other hour by hour, encourage one another, share. A sense of community rare in competitive sport.",
+      "card2_text": "In a Backyard, runners support one another. You get to know each other hour by hour, encourage one another, share. A sense of community rare in competitive sport.",
       "card3_title": "Brittany",
       "card3_text": "An exceptional natural setting: forests, trails, sea air... Brittany offers the perfect backdrop for this ultra-endurance adventure."
     },
@@ -117,14 +117,14 @@
   "concept_page": {
     "header": {
       "subtitle": "The format",
-      "title": "The Backyard Ultra Concept",
+      "title": "The Concept of the Backyard Ultra",
       "desc": "An event invented by Gary Cantrell (aka Lazarus Lake) in 2011, in Tennessee. A unique format that changed the world of ultra-endurance."
     },
     "principe": {
       "subtitle": "The principle",
       "title_line1": "Simple to understand,",
       "title_line2": "impossible to master",
-      "desc1_start": "The principle of the Backyard Ultra is disarmingly simple: complete a loop of ",
+      "desc1_start": "The principle of a Backyard is disarmingly simple: complete a loop of ",
       "desc1_bold": " 6.706 km ",
       "desc1_end": " (4.1667 miles — or 100 miles after 24h), every single hour, without exception.",
       "desc2": "Every new hour, a signal sounds: it's the start. All runners still in the race set off together, whether fresh or exhausted. No individual starts, no exceptions.",
@@ -183,7 +183,7 @@
     "header": {
       "subtitle": "The course",
       "title": "The Course",
-      "desc": "A 6.706 km route designed for the Backyard Ultra format, in the heart of the Breton countryside. Each loop is a new adventure."
+      "desc": "A 6.706 km route designed for the Backyard format, in the heart of the Breton countryside. Each loop is a new adventure."
     },
     "terrainFeatures": {
       "f1_label": "Forest trails",
@@ -212,7 +212,7 @@
     "description": {
       "subtitle": "The route",
       "title": "Course overview",
-      "p1_start": "The Breizh Backyard Ultra route was designed to be both beautiful and fair to all runners. A single loop of ",
+      "p1_start": "The Breizh Backyard route was designed to be both beautiful and fair to all runners. A single loop of ",
       "p1_bold": "6.706 km",
       "p1_end": ", covered in the same direction on every loop.",
       "p2_start": "The start and finish are located in the ",
@@ -271,7 +271,7 @@
     "acces": {
       "title": "Access & Location",
       "loc_title": "📍 Location",
-      "loc_p1_start": "The Breizh Backyard Ultra takes place in Brittany, in a protected natural setting.",
+      "loc_p1_start": "The Breizh Backyard takes place in Brittany, in a protected natural setting.",
       "loc_p1_bold": " The exact address will be provided",
       "loc_p1_end": " to registered runners by email before the race.",
       "loc_info": "ℹ️ GPS coordinates and detailed access information will be shared in the participant pack, available 2 weeks before the race.",
@@ -323,7 +323,7 @@
       "r2": "Any runner who hasn't crossed the line before the signal is immediately eliminated.",
       "r3": "The winner is the last runner able to complete one more loop than everyone else.",
       "r4": "The winner must complete one additional loop alone to be officially declared.",
-      "r_breizh_title": "Breizh BU specific rules",
+      "r_breizh_title": "Specific rules for Breizh Backyard",
       "br1": "The bib must be worn visibly at the front throughout the race.",
       "br2": "Any runner dropping out must report it to a member of the organization.",
       "br3": "Crews stay in the living area — no assistance on the course itself.",
@@ -344,7 +344,7 @@
     "info": {
       "badge": "Registration closed — Opening soon",
       "title": "Be among the first to run",
-      "desc": "Spots for the Breizh Backyard Ultra are limited. By signing up for our newsletter, you'll be alerted as soon as registration officially opens, well before the public announcement.",
+      "desc": "Spots for the Breizh Backyard are limited. By signing up for our newsletter, you'll be alerted as soon as registration officially opens, well before the public announcement.",
       "list1": "Immediate notification when registration opens",
       "list2": "Priority access ahead of waiting lists",
       "list3": "Exclusive news about the race and the course",
@@ -452,15 +452,15 @@
         "items": [
           {
             "q": "What is the Backyard Ultra format?",
-            "a": "The Backyard Ultra is an ultra-endurance race format invented by Gary Cantrell (aka Lazarus Lake) in 2011. The principle: complete a 6.706 km loop every hour, until only one runner remains able to complete one more loop."
+            "a": "A Backyard is an ultra-endurance race format invented by Gary Cantrell (aka Lazarus Lake) in 2011. The principle: complete a 6.706 km loop every hour, until only one runner remains able to complete one more loop."
           },
           {
             "q": "Where does the 6.706 km distance come from?",
-            "a": "This distance corresponds exactly to 4.16667 miles, or one hundredth of a mile per hour. Multiplied by the number of loops, it always gives a whole number of miles covered."
+            "a": "The exact distance of 6.706 km (or 4.167 miles) comes from a simple mathematical calculation: it allows competitors to cover exactly 100 miles (about 160.9 km) after 24 hours."
           },
           {
             "q": "How long can a race last?",
-            "a": "The duration is completely unpredictable. Races lasting less than 10 hours have happened, but the world record exceeds 100 hours (more than 4 days). In practice, most regional races finish between 20 and 40 hours."
+            "a": "The duration is completely unpredictable. Races lasting less than 10 hours have happened, but the world record exceeds 100 hours (more than 4 days). In practice, the majority of regional races finish between 20 and 40 hours."
           },
           {
             "q": "Can there be several winners?",
@@ -578,8 +578,6 @@
     "info": {
       "title": "Find us",
       "email": "Email",
-      "loc": "Location",
-      "loc_val": "Parc des Gayeulles, Rennes",
       "socials": "Social media",
       "delay": "⏱ Response time",
       "delay_text": ": we usually reply within 48 business hours. For urgent requests, please mention it in your message."
@@ -621,7 +619,7 @@
     "header": {
       "subtitle": "Photos",
       "title": "Gallery",
-      "desc": "Relive the highlights of the Breizh Backyard Ultra. Real photos will be added after each edition."
+      "desc": "Relive the highlights of the Breizh Backyard. Real photos will be added after each edition."
     },
     "categories": {
       "toutes": "All",
@@ -663,7 +661,7 @@
     "header": {
       "subtitle": "Join the team",
       "title": "Become a Volunteer",
-      "desc": "Experience the Breizh Backyard Ultra from the inside. Without our volunteers, the adventure wouldn't exist."
+      "desc": "Experience the Breizh Backyard from the inside. Without volunteers, the adventure wouldn't exist."
     },
     "intro": {
       "title": "Why volunteer?",

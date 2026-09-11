@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-import { Mail, Send, CheckCircle, MapPin } from "lucide-react";
+import { Mail, Send, CheckCircle } from "lucide-react";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { useTranslation } from "react-i18next";
 
@@ -94,18 +94,6 @@ export const Contact = () => {
                     </a>
                   </div>
                 </div>
-
-                <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
-                  <div style={{ width: "44px", height: "44px", borderRadius: "0.75rem", background: "rgba(39,121,86,0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "#277956" }}>
-                    <MapPin size={20} strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <div style={{ fontWeight: "700", fontSize: "0.85rem", color: "#1a2e22", marginBottom: "0.2rem" }}>{t("contact_page.info.loc")}</div>
-                    <p style={{ margin: 0, color: "#4a6b56", fontSize: "0.9rem", lineHeight: 1.6 }}>
-                      {t("contact_page.info.loc_val")}
-                    </p>
-                  </div>
-                </div>
               </div>
 
               {/* Réseaux */}
@@ -115,14 +103,16 @@ export const Contact = () => {
                 </h3>
                 <div style={{ display: "flex", gap: "0.75rem" }}>
                   {[
-                    { icon: InstagramIcon, label: "Instagram" },
-                    { icon: FacebookIcon, label: "Facebook" },
-                    { icon: YoutubeIcon, label: "YouTube" },
-                    { icon: TiktokIcon, label: "TikTok" },
-                  ].map(({ icon: Icon, label }) => (
+                    { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/breizhbackyard/" },
+                    { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/people/BreizhBackyard/61588328941008/" },
+                    { icon: YoutubeIcon, label: "YouTube", href: "https://www.youtube.com/@breizhbackyard" },
+                    { icon: TiktokIcon, label: "TikTok", href: "https://www.tiktok.com/@breizhbackyard" },
+                  ].map(({ icon: Icon, label, href }) => (
                     <a
                       key={label}
-                      href="#"
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label={label}
                       style={{
                         display: "flex",
