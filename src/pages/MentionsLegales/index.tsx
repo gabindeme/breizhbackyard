@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { Building2, User, Server, Copyright, AlertTriangle, ShieldCheck, Mail } from "lucide-react";
+import { Building2, User, Server, Copyright, AlertTriangle, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (

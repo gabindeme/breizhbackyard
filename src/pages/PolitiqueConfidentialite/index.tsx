@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
-import { Link } from "react-router-dom";
-import { Shield, Lock, Eye, Clock, UserCheck, Mail, ExternalLink, FileText, Server } from "lucide-react";
+import { Shield, Lock, Eye, Clock, UserCheck, ExternalLink, FileText, Server } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCookieConsent } from "@/providers/cookie-context";
 
