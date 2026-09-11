@@ -454,7 +454,7 @@ export const Home = () => {
                 }}
               >
                 <img
-                  src="/lac-automne.webp"
+                  src="/assets/images/lac-automne.webp"
                   alt="Aperçu du parcours"
                   style={{ width: "100%", minHeight: "350px", objectFit: "cover", display: "block", borderRadius: "1.5rem" }}
                 />

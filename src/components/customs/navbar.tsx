@@ -18,7 +18,7 @@ const navLinks = [
 ];
 
 const BRFlag = ({ style }: { style?: React.CSSProperties }) => (
-  <img src="/Gwenn_ha_du.svg" alt="Drapeau Breton" style={{ ...style, objectFit: "cover" }} />
+  <img src="/assets/icons/Gwenn_ha_du.svg" alt="Drapeau Breton" style={{ ...style, objectFit: "cover" }} />
 );
 
 const LanguageDropdown = ({ closeMenu, isMobile = false }: { closeMenu?: () => void, isMobile?: boolean }) => {
@@ -130,7 +130,7 @@ const LanguageDropdown = ({ closeMenu, isMobile = false }: { closeMenu?: () => v
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(() => (typeof window !== "undefined" ? window.scrollY > 20 : false));
   const { t } = useTranslation();
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
@@ -139,13 +139,28 @@ export const Navbar = () => {
 
   useEffect(() => {
     close();
-  }, [location.pathname]);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const checkScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    checkScroll();
+
+    const id1 = requestAnimationFrame(checkScroll);
+    const id2 = setTimeout(checkScroll, 50);
+    const id3 = setTimeout(checkScroll, 200);
+
+    window.addEventListener("scroll", checkScroll, { passive: true });
+    window.addEventListener("resize", checkScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", checkScroll);
+      window.removeEventListener("resize", checkScroll);
+      cancelAnimationFrame(id1);
+      clearTimeout(id2);
+      clearTimeout(id3);
+    };
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -214,7 +229,7 @@ export const Navbar = () => {
             }}
           >
             <img
-              src="/logo-white.svg"
+              src="/assets/logos/logo-white.svg"
               alt="Logo Breizh Backyard Ultra"
               style={{ width: "40px", height: "40px", objectFit: "contain", flexShrink: 0 }}
             />
@@ -242,7 +257,7 @@ export const Navbar = () => {
                   lineHeight: 1,
                 }}
               >
-                Ultra
+                2027
               </span>
             </div>
           </Link>
@@ -350,12 +365,12 @@ export const Navbar = () => {
         >
           <Link to="/" onClick={close} style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}>
             <img
-              src="/logo-white.svg"
+              src="/assets/logos/logo-white.svg"
               alt="Logo Breizh Backyard Ultra"
               style={{ width: "32px", height: "32px", objectFit: "contain", flexShrink: 0 }}
             />
             <span style={{ fontFamily: "'Hobo', sans-serif", color: "#fff", fontSize: "1rem" }}>
-              Breizh Backyard Ultra
+              Breizh Backyard 2027
             </span>
           </Link>
           <button

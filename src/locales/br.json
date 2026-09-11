@@ -1,36 +1,4 @@
 {
-  "pages": {
-    "home": {
-      "home": "Degemer"
-    },
-    "concept": {
-      "title": "An Abeg"
-    },
-    "parcours": {
-      "title": "Hent ar Ren"
-    },
-    "infos": {
-      "title": "Titouroù Fentus"
-    },
-    "inscriptions": {
-      "title": "Enskrivañ"
-    },
-    "resultats": {
-      "title": "Distoioù"
-    },
-    "faq": {
-      "title": "Ar Goulennoù"
-    },
-    "sponsors": {
-      "title": "Parteneriou"
-    },
-    "galerie": {
-      "title": "Galerie"
-    },
-    "contact": {
-      "title": "Darempred"
-    }
-  },
   "navbar": {
     "home": "Degemer",
     "concept": "Abeg",
@@ -48,12 +16,14 @@
     "benevoles": "Tud a-youl vat"
   },
   "footer": {
-    "rights": "© {{year}} Breizh Backyard Ultra — An holl wirioù miret strizh",
+    "rights": "© {{year}} Breizh Backyard — An holl wirioù miret strizh",
     "tagline": "Ar rederez ultra e penn-draw Breizh.",
     "nav_title": "Merdeiñ",
     "info_title": "Titouroù",
     "social_title": "Rouedadoù sokial",
     "mentions": "Menegoù lezennel",
+    "privacy": "Politikerezh fiziegezh",
+    "manage_cookies": "Merañ an toudennoù",
     "cookies": "Politikerezh toudennoù",
     "contact": "Darempred",
     "description": "Ar rederez ultra e penn pellañ Breizh. Un dro. Bep eur. Betek an hini diwezhañ.",
@@ -74,7 +44,7 @@
     "hero": {
       "date": "Sadorn 15 Mae 2027 · 10e00",
       "title": "BREIZH BACKYARD",
-      "subtitle": "Ultra",
+      "subtitle": "2027",
       "desc_line1": "6,706 km. Bep eur. Betek an hini diwezhañ war e sav.",
       "desc_line2": "Ar red hep pellder. Hep bevenn.",
       "btn_newsletter": "C'hoant am eus en em enskrivañ →",
@@ -729,8 +699,21 @@
       "success_desc": "Trugarez {{nom}}! Evit muioc'h a ditouroù ez eimp e darempred ganeoc'h buan-tre."
     }
   },
+  "mentions_page": {
+    "subtitle": "Titouroù reolennek & Embanner",
+    "title": "Menegoù Lezennel",
+    "desc": "Hervez Dispointoù al lezenn n° 2004-575 eus an 21 a viz Mezheven 2004 evit ar fiziañs en armerzh niverel (LCEN), kavit amañ dindan an titouroù lezennel a sell ouzh embanner ha ostiz al lec'hienn Breizh Backyard Ultra."
+  },
+  "privacy_page": {
+    "subtitle": "Gwareziñ ar vuhez prevez & RGPD",
+    "title": "Politikerezh Fiziegezh",
+    "desc": "An Association Delta Events a zeu da wareziñ surentez ha fiziegezh ar roadoù personel eus he redourien, tud a-youl vat ha gweladennerien hervez Reolad Hollek war Gwareziñ ar Roadoù (RGPD).",
+    "status_title": "Ho Tioberioù Aotre",
+    "status_desc": "Gallout a rit kemmañ pe tennañ ho tibaboù toudennoù n'eus forzh pevare.",
+    "btn_manage_cookies": "Merañ ma toudennoù"
+  },
   "notfound": {
-    "title": "404 - E-maez ar roudenn",
+    "title": "404 - E-maez ar redadeg",
     "desc": "War a seblant oc'h aet kuit eus ar c'helc'h. Sikourit ar reder da lammat dreist ar gwez sapr e-keit ha ma klaskit ho hent!",
     "score": "Skor",
     "btn_play": "C'hoari",
@@ -738,6 +721,6 @@
     "game_over": "C'hoari echu!",
     "final_score": "Skor diwezhañ",
     "controls_help": "Poueziñ war an Esaouenn, ar Saezh d'an Nec'h, pe touchañ ar skramm evit lammat.",
-    "btn_home": "Distro d'ar c'hamp"
+    "btn_home": "Distro d'an degemer"
   }
 }

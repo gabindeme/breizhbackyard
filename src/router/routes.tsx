@@ -18,6 +18,12 @@ const Sponsors = lazy(() => import("@/pages/Sponsors").then((m) => ({ default: m
 // const Galerie = lazy(() => import("@/pages/Galerie").then((m) => ({ default: m.Galerie })));
 const Contact = lazy(() => import("@/pages/Contact").then((m) => ({ default: m.Contact })));
 const Benevoles = lazy(() => import("@/pages/Benevoles").then((m) => ({ default: m.Benevoles })));
+const MentionsLegales = lazy(() =>
+  import("@/pages/MentionsLegales").then((m) => ({ default: m.MentionsLegales }))
+);
+const PolitiqueConfidentialite = lazy(() =>
+  import("@/pages/PolitiqueConfidentialite").then((m) => ({ default: m.PolitiqueConfidentialite }))
+);
 
 const NotFound = lazy(() => import("@/pages/NotFound").then((m) => ({ default: m.NotFound })));
 
@@ -66,7 +72,8 @@ export const Router = () => {
           {/* <Route path="/galerie" element={<Galerie />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/benevoles" element={<Benevoles />} />
-          <Route path="/mentions-legales" element={<Contact />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
           
           {/* 404 Page Not Found (with navbar/footer) */}
           <Route path="*" element={<NotFound />} />

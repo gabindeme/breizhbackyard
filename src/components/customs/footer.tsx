@@ -3,6 +3,7 @@ import { Mail, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { Countdown } from "@/components/customs/countdown";
+import { useCookieConsent } from "@/providers/cookie-context";
 
 const footerLinks = [
   { to: "/", labelKey: "home" },
@@ -27,6 +28,7 @@ const socialLinks = [
 
 export const Footer = () => {
   const { t } = useTranslation();
+  const { openModal } = useCookieConsent();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -66,16 +68,16 @@ export const Footer = () => {
           <div style={{ gridColumn: "span 1" }}>
             <Link to="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none", marginBottom: "1.25rem" }}>
               <img
-                src="/logo-white.svg"
+                src="/assets/logos/logo-white.svg"
                 alt="Logo Breizh Backyard Ultra"
                 style={{ width: "44px", height: "44px", objectFit: "contain", flexShrink: 0 }}
               />
               <div>
                 <div style={{ fontFamily: "'Hobo', sans-serif", color: "#fff", fontSize: "1.05rem", lineHeight: 1 }}>
-                  Breizh
+                  Breizh Backyard
                 </div>
                 <div style={{ fontFamily: "'Inter', sans-serif", color: "#F5C92C", fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                  Backyard Ultra
+                  2027
                 </div>
               </div>
             </Link>
@@ -234,16 +236,38 @@ export const Footer = () => {
             gap: "0.75rem",
           }}
         >
-          <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}>
-            <Link to="/mentions-legales" style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.78rem", textDecoration: "none", transition: "color 0.2s ease" }}
+          <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+            <Link to="/mentions-legales" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", textDecoration: "none", transition: "color 0.2s ease" }}
               onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#8CBE4F"}
-              onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.4)"}
+              onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)"}
             >
               {t("footer.mentions")}
             </Link>
-            <Link to="/contact" style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.78rem", textDecoration: "none", transition: "color 0.2s ease" }}
+            <Link to="/politique-de-confidentialite" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", textDecoration: "none", transition: "color 0.2s ease" }}
               onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#8CBE4F"}
-              onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.4)"}
+              onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)"}
+            >
+              {t("footer.privacy", "Politique de confidentialité")}
+            </Link>
+            <button
+              onClick={openModal}
+              style={{
+                background: "none",
+                border: "none",
+                color: "rgba(255,255,255,0.5)",
+                fontSize: "0.8rem",
+                cursor: "pointer",
+                padding: 0,
+                transition: "color 0.2s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#F5C92C"}
+              onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)"}
+            >
+              {t("footer.manage_cookies", "Gestion des cookies")}
+            </button>
+            <Link to="/contact" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", textDecoration: "none", transition: "color 0.2s ease" }}
+              onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#8CBE4F"}
+              onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)"}
             >
               {t("footer.contact")}
             </Link>

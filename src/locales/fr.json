@@ -1,36 +1,4 @@
 {
-  "pages": {
-    "home": {
-      "home": "Accueil"
-    },
-    "concept": {
-      "title": "Le Concept"
-    },
-    "parcours": {
-      "title": "Le Parcours"
-    },
-    "infos": {
-      "title": "Infos Pratiques"
-    },
-    "inscriptions": {
-      "title": "Inscriptions"
-    },
-    "resultats": {
-      "title": "Résultats"
-    },
-    "faq": {
-      "title": "FAQ"
-    },
-    "sponsors": {
-      "title": "Sponsors"
-    },
-    "galerie": {
-      "title": "Galerie"
-    },
-    "contact": {
-      "title": "Contact"
-    }
-  },
   "navbar": {
     "home": "Accueil",
     "concept": "Concept",
@@ -54,6 +22,8 @@
     "info_title": "Informations",
     "social_title": "Réseaux sociaux",
     "mentions": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "manage_cookies": "Gestion des cookies",
     "cookies": "Politique de cookies",
     "contact": "Contact",
     "description": "L'ultra-endurance au bout du bout de la Bretagne. Un tour. Toutes les heures. Jusqu'au dernier.",
@@ -490,7 +460,7 @@
           },
           {
             "q": "Combien de temps peut durer une course ?",
-            "a": "La durée est totalement indéterminée. Des courses de moins de 10 heures existent, mais le record mondial dépasse les 100 heures (plus de 4 jours). En pratique, la plupart des courses régionales se terminent entre 20 et 40 heures."
+            "a": "La durée est totalement indéterminée. Des courses de moins de 10 heures existent, mais le record mondial dépasse les 100 heures (plus de 4 jours). En pratique, la majorité des courses régionales se terminent entre 20 et 40 heures."
           },
           {
             "q": "Peut-il y avoir plusieurs vainqueurs ?",
@@ -729,8 +699,21 @@
       "success_desc": "Merci {{nom}} ! Nous vous recontacterons très vite pour vous donner plus de détails."
     }
   },
+  "mentions_page": {
+    "subtitle": "Informations réglementaires & Éditeur",
+    "title": "Mentions Légales",
+    "desc": "Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), retrouvez ci-dessous les informations légales relatives à l'éditeur et à l'hébergeur du site Breizh Backyard Ultra."
+  },
+  "privacy_page": {
+    "subtitle": "Protection de la vie privée & RGPD",
+    "title": "Politique de Confidentialité",
+    "desc": "L'Association Delta Events s'engage à protéger la sécurité et la confidentialité des données personnelles de ses coureurs, bénévoles et visiteurs conformément au Règlement Général sur la Protection des Données (RGPD).",
+    "status_title": "Vos Préférences de Consentement",
+    "status_desc": "Vous pouvez modifier ou retirer vos choix de cookies à tout moment.",
+    "btn_manage_cookies": "Gérer mes cookies"
+  },
   "notfound": {
-    "title": "404 - Hors piste",
+    "title": "404 - Hors course",
     "desc": "Il semble que vous ayez quitté la boucle. Aidez le coureur à sauter par-dessus les sapins en attendant de retrouver votre chemin !",
     "score": "Score",
     "btn_play": "Jouer",
@@ -738,6 +721,6 @@
     "game_over": "Game Over!",
     "final_score": "Score final",
     "controls_help": "Appuyez sur Espace, Flèche Haut ou touchez l'écran pour sauter.",
-    "btn_home": "Retour au camp de base"
+    "btn_home": "Retour à l'accueil"
   }
 }

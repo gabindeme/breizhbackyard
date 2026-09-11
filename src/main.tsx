@@ -4,15 +4,16 @@ import "./styles/index.css";
 import { App } from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "./lib/i18n";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import { CookieProvider } from "./providers/cookie-context";
+import { CookieBanner } from "./components/customs/cookie-banner";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <CookieProvider>
+        <App />
+        <CookieBanner />
+      </CookieProvider>
     </BrowserRouter>
-    <Analytics />
-    <SpeedInsights />
   </StrictMode>,
 );

@@ -1,36 +1,4 @@
 {
-  "pages": {
-    "home": {
-      "home": "Home"
-    },
-    "concept": {
-      "title": "The Concept"
-    },
-    "parcours": {
-      "title": "The Course"
-    },
-    "infos": {
-      "title": "Practical Info"
-    },
-    "inscriptions": {
-      "title": "Registration"
-    },
-    "resultats": {
-      "title": "Results"
-    },
-    "faq": {
-      "title": "FAQ"
-    },
-    "sponsors": {
-      "title": "Sponsors"
-    },
-    "galerie": {
-      "title": "Gallery"
-    },
-    "contact": {
-      "title": "Contact"
-    }
-  },
   "navbar": {
     "home": "Home",
     "concept": "Concept",
@@ -53,7 +21,9 @@
     "nav_title": "Navigation",
     "info_title": "Information",
     "social_title": "Social media",
-    "mentions": "Legal notice",
+    "mentions": "Legal notices",
+    "privacy": "Privacy Policy",
+    "manage_cookies": "Cookie Settings",
     "cookies": "Cookie policy",
     "contact": "Contact",
     "description": "Ultra-endurance at the very edge of Brittany. One loop. Every hour. Until the last one standing.",
@@ -729,8 +699,21 @@
       "success_desc": "Thank you {{nom}}! We'll get back to you very soon with more details."
     }
   },
+  "mentions_page": {
+    "subtitle": "Regulatory Information & Publisher",
+    "title": "Legal Notices",
+    "desc": "In accordance with the provisions of Law No. 2004-575 of June 21, 2004 on confidence in the digital economy (LCEN), find below the legal information relating to the publisher and host of the Breizh Backyard Ultra website."
+  },
+  "privacy_page": {
+    "subtitle": "Privacy Protection & GDPR",
+    "title": "Privacy Policy",
+    "desc": "The Delta Events Association is committed to protecting the security and confidentiality of personal data of its runners, volunteers, and visitors in compliance with the General Data Protection Regulation (GDPR).",
+    "status_title": "Your Consent Preferences",
+    "status_desc": "You can modify or withdraw your cookie choices at any time.",
+    "btn_manage_cookies": "Manage my cookies"
+  },
   "notfound": {
-    "title": "404 - Off trail",
+    "title": "404 - Off course",
     "desc": "It seems you've left the loop. Help the runner jump over the pine trees while you find your way back!",
     "score": "Score",
     "btn_play": "Play",
@@ -738,6 +721,6 @@
     "game_over": "Game Over!",
     "final_score": "Final score",
     "controls_help": "Press Space, Up Arrow, or tap the screen to jump.",
-    "btn_home": "Back to base camp"
+    "btn_home": "Back to homepage"
   }
 }

@@ -1,0 +1,17 @@
+{
+  "name": "Breizh Backyard",
+  "short_name": "Breizh Backyard",
+  "description": "La Breizh Backyard est une course d'ultra-endurance au format Backyard Ultra organisée en Bretagne à Rennes en mai 2027.",
+  "icons": [
+    {
+      "src": "/assets/logos/logo-white.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1a0f",
+  "theme_color": "#277956"
+}
