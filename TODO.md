@@ -7,8 +7,8 @@
 - [ ] Add correct photos
 - [ ] Change all text to delete IA text and put real infos
 - [x] Make the 404 page game better 
-- countdown footer on PC
-- black bars on mobile ?
+- [ ] countdown footer on PC
+- [ ] black bars on mobile ?
 - [x] Complete the "Parcours" page
 - [x] Add 404 page with cool runner and tree animation
 - [x] Make the website responsive for mobile
@@ -18,10 +18,11 @@
 - [x] Change the footer wave
 - [x] Create all i18n translations
 - [x] Create bénévole page
-- [] Optimize performance with loading screen if necessary (like MDS) 
+- [ ] Optimize performance with loading screen if necessary (like MDS) 
 - [ ] "zone de vie" , "base de vie" à modifier et standardiser
 - [ ] change social links 
 - [ ] Refaire la FAQ avec de vrais infos
+- [ ] Mise en place du protocole Open Graph Tags 
 
 ## Low priority
 - [ ] Add video trailer as background for the landing page
@@ -38,3 +39,4 @@
 - [ ] check all the links (sponsors, partners...)
 - [ ] check meta tags for SEO
 - [ ] check favicon
+- [ ] check open graph links
