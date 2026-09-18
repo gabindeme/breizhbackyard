@@ -7,7 +7,7 @@ import { listOfLocales, getFullNamesOfLocales } from "@/lib/i18n";
 
 const navLinks = [
   { to: "/concept", key: "concept" },
-  { to: "/parcours", key: "parcours" },
+  // { to: "/parcours", key: "parcours" },
   { to: "/infos-pratiques", key: "infos" },
   // { to: "/resultats", key: "resultats" },
   { to: "/faq", key: "faq" },

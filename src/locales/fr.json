@@ -397,28 +397,6 @@
       "desc": "Découvrez en détail notre événement, nos valeurs, nos chiffres clés et l'ensemble de nos offres de visibilité en téléchargeant notre dossier complet.",
       "btn": "Télécharger le dossier (PDF)"
     },
-    "niveaux": {
-      "subtitle": "Devenez partenaire",
-      "title": "Niveaux de partenariat",
-      "or_name": "Or",
-      "or_desc": "Visibilité maximale — logo XXL sur dossard et toute communication",
-      "or_price": "Sur devis",
-      "argent_name": "Argent",
-      "argent_desc": "Forte visibilité — logo prominent sur site, réseaux et signalétique",
-      "argent_price": "Sur devis",
-      "bronze_name": "Bronze",
-      "bronze_desc": "Bonne visibilité — logo sur site et communication de course",
-      "bronze_price": "Sur devis",
-      "tarif": "Tarif",
-      "logo": "Logo"
-    },
-    "avantages": {
-      "title": "Avantages communs à tous les niveaux",
-      "b1": "Logo sur le site internet",
-      "b2": "Mention sur les réseaux sociaux",
-      "b3": "Présence dans le kit participant",
-      "b4": "Stand possible sur la zone de vie"
-    },
     "contact": {
       "subtitle": "Intéressé(e) ?",
       "title": "Contactez-nous",
@@ -429,7 +407,7 @@
       "email_label": "Email",
       "email_ph": "contact@votre-entreprise.fr",
       "message_label": "Message",
-      "message_ph": "Décrivez votre intérêt, le niveau de partenariat envisagé...",
+      "message_ph": "Décrivez votre intérêt ou votre projet de partenariat...",
       "btn_loading": "Envoi...",
       "btn_submit": "Envoyer ma demande →",
       "success_title": "Message envoyé !",

@@ -434,9 +434,9 @@ export const Home = () => {
                 ))}
               </div>
 
-              <Link to="/parcours" className="btn-outline">
+              {/* <Link to="/parcours" className="btn-outline">
                 {t("home.parcours.btn")} <ChevronRight size={16} />
-              </Link>
+              </Link> */}
             </motion.div>
 
             <motion.div

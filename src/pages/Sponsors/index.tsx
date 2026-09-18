@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Mail, Star, Download } from "lucide-react";
+import { Mail, Download } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -21,43 +21,6 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
 
 export const Sponsors = () => {
   const { t } = useTranslation();
-
-  const sponsorLevels = [
-    {
-      level: t("sponsors_page.niveaux.or_name"),
-      color: "#F5C92C",
-      bg: "rgba(245,201,44,0.1)",
-      border: "rgba(245,201,44,0.4)",
-      count: 2,
-      desc: t("sponsors_page.niveaux.or_desc"),
-      price: t("sponsors_page.niveaux.or_price"),
-    },
-    {
-      level: t("sponsors_page.niveaux.argent_name"),
-      color: "#9AA8B8",
-      bg: "rgba(154,168,184,0.1)",
-      border: "rgba(154,168,184,0.35)",
-      count: 4,
-      desc: t("sponsors_page.niveaux.argent_desc"),
-      price: t("sponsors_page.niveaux.argent_price"),
-    },
-    {
-      level: t("sponsors_page.niveaux.bronze_name"),
-      color: "#CD7F32",
-      bg: "rgba(205,127,50,0.1)",
-      border: "rgba(205,127,50,0.35)",
-      count: 6,
-      desc: t("sponsors_page.niveaux.bronze_desc"),
-      price: t("sponsors_page.niveaux.bronze_price"),
-    },
-  ];
-
-  const benefits = [
-    t("sponsors_page.avantages.b1"),
-    t("sponsors_page.avantages.b2"),
-    t("sponsors_page.avantages.b3"),
-    t("sponsors_page.avantages.b4"),
-  ];
 
   const [formData, setFormData] = useState({ nom: "", societe: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -81,10 +44,11 @@ export const Sponsors = () => {
       />
 
       {/* ============================================================
-          DOSSIER SPONSORING
+          DOSSIER & FORMULAIRE CONTACT SPONSORS
           ============================================================ */}
-      <section className="section-light" style={{ padding: "1rem 0 3rem 0" }}>
-        <div className="page-container">
+      <section className="section-light" style={{ paddingTop: "2rem", paddingBottom: "5rem" }}>
+        {/* Card Dossier - Largeur standard du site */}
+        <div className="page-container" style={{ marginBottom: "3rem" }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -107,7 +71,7 @@ export const Sponsors = () => {
             <div style={{ position: "absolute", top: -40, right: -40, opacity: 0.04, color: "#277956", pointerEvents: "none" }}>
               <Download size={200} />
             </div>
-            <div style={{ position: "relative", zIndex: 1 }}>
+            <div style={{ position: "relative", zIndex: 1, flex: 1, minWidth: "250px" }}>
               <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#1a2e22", marginBottom: "0.5rem" }}>
                 {t("sponsors_page.dossier.title")}
               </h3>
@@ -138,96 +102,10 @@ export const Sponsors = () => {
             </a>
           </motion.div>
         </div>
-      </section>
 
-      {/* ============================================================
-          NIVEAUX DE SPONSORING
-          ============================================================ */}
-      <section className="section-white section-py">
-        <div className="page-container">
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <p className="section-subtitle">{t("sponsors_page.niveaux.subtitle")}</p>
-            <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
-              {t("sponsors_page.niveaux.title")}
-            </h2>
-          </div>
-
-          <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginBottom: "3rem" }}>
-            {sponsorLevels.map((level, i) => (
-              <motion.div
-                key={level.level}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                style={{
-                  background: level.bg,
-                  border: `2px solid ${level.border}`,
-                  borderRadius: "1.5rem",
-                  padding: "2rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "1rem",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                  <Star size={20} fill={level.color} style={{ color: level.color }} />
-                  <span style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.3rem", color: level.color }}>
-                    {level.level}
-                  </span>
-                </div>
-                <p style={{ margin: 0, fontSize: "0.88rem", color: "#4a6b56", lineHeight: 1.6 }}>{level.desc}</p>
-                <div style={{ marginTop: "auto" }}>
-                  <div style={{ fontSize: "0.72rem", color: "#4a6b56", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                    {t("sponsors_page.niveaux.tarif")}
-                  </div>
-                  <div style={{ fontWeight: "700", color: "#1a2e22", fontSize: "1rem" }}>{level.price}</div>
-                </div>
-
-                {/* Logos placeholder */}
-                <div style={{ display: "grid", gridTemplateColumns: `repeat(${Math.min(level.count, 2)}, 1fr)`, gap: "0.5rem", marginTop: "0.5rem" }}>
-                  {Array.from({ length: level.count }).map((_, j) => (
-                    <div key={j} className="sponsor-logo-placeholder" style={{ minHeight: "60px" }}>
-                      {t("sponsors_page.niveaux.logo")} {j + 1}
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Avantages */}
-          <div
-            style={{
-              background: "#EFEFEF",
-              borderRadius: "1.25rem",
-              padding: "2rem 2.5rem",
-              marginBottom: "3rem",
-            }}
-          >
-            <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.2rem", color: "#277956", marginBottom: "1.5rem" }}>
-              {t("sponsors_page.avantages.title")}
-            </h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "0.75rem" }}>
-              {benefits.map((benefit) => (
-                <div key={benefit} style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-                  <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "#277956", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <span style={{ color: "#fff", fontSize: "0.65rem", fontWeight: "800" }}>✓</span>
-                  </div>
-                  <span style={{ fontSize: "0.88rem", color: "#4a6b56" }}>{benefit}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          FORMULAIRE CONTACT SPONSORS
-          ============================================================ */}
-      <section className="section-light section-py">
+        {/* Formulaire - Largeur réduite centrée */}
         <div className="page-container" style={{ maxWidth: "700px" }}>
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <div style={{ textAlign: "center", marginBottom: "2rem" }}>
             <p className="section-subtitle">{t("sponsors_page.contact.subtitle")}</p>
             <h2 className="section-title" style={{ marginTop: "0.5rem" }}>
               {t("sponsors_page.contact.title")}

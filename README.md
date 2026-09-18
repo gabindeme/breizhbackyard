@@ -6,7 +6,6 @@ Welcome to the **Breizh Backyard** project repository!
 
 - ⚙️ **Vite** — super fast dev environment
 - ⚛️ **React Router DOM** — easy routing out of the box
-- 🌙 **Dark / Light Theme** — effortless theme switching
 - 🎨 **Tailwind CSS** — modern styling ready to go
 - 🪞 **shadcn/ui** — accessible & beautiful UI components
 - 🌍 **i18n** — internationalization ready (via react-i18next)
