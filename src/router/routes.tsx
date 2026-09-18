@@ -8,7 +8,7 @@ const LayoutWrapper = lazy(() =>
 );
 
 const Concept = lazy(() => import("@/pages/Concept").then((m) => ({ default: m.Concept })));
-const Parcours = lazy(() => import("@/pages/Parcours").then((m) => ({ default: m.Parcours })));
+// const Parcours = lazy(() => import("@/pages/Parcours").then((m) => ({ default: m.Parcours })));
 const InfosPratiques = lazy(() => import("@/pages/InfosPratiques").then((m) => ({ default: m.InfosPratiques })));
 const Inscriptions = lazy(() => import("@/pages/Inscriptions").then((m) => ({ default: m.Inscriptions })));
 const Bienvenue = lazy(() => import("@/pages/Bienvenue").then((m) => ({ default: m.Bienvenue })));
@@ -62,7 +62,7 @@ export const Router = () => {
         {/* Toutes les autres pages — avec navbar + footer */}
         <Route element={<LayoutWrapper />}>
           <Route path="/concept" element={<Concept />} />
-          <Route path="/parcours" element={<Parcours />} />
+          {/* <Route path="/parcours" element={<Parcours />} /> */}
           <Route path="/infos-pratiques" element={<InfosPratiques />} />
           <Route path="/inscriptions" element={<Inscriptions />} />
           <Route path="/bienvenue" element={<Bienvenue />} />

@@ -222,9 +222,9 @@ export const Bienvenue = () => {
                   {t("bienvenue_page.card_parcours_desc")}
                 </p>
               </div>
-              <Link to="/parcours" className="btn-outline" style={{ justifyContent: "center", width: "100%" }}>
+              {/* <Link to="/parcours" className="btn-outline" style={{ justifyContent: "center", width: "100%" }}>
                 {t("bienvenue_page.card_parcours_btn")} <ArrowRight size={16} style={{ marginLeft: "0.4rem" }} />
-              </Link>
+              </Link> */}
             </motion.div>
 
             {/* Carte Infos */}

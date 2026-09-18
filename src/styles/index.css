@@ -167,15 +167,32 @@
 
   html {
     scroll-behavior: smooth;
+    background-color: #113322 !important;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: #113322 !important;
     font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: 'cv11', 'ss01';
-    overscroll-behavior: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* WebKit Browser Bar Tinting (Evan Kirkiles technique for Safari iOS 15+) */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #113322;
+    z-index: -9999;
+    pointer-events: none;
   }
 
   #root {

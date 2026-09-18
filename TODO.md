@@ -1,8 +1,7 @@
 # 📋 Breizh Backyard To-Do List
 
 ## High priority
-- [x] Finalize Contact page form with actual email registring and automatic confirmation when a request is send that it has been correctly received by us 
-- [ ] Add a confirmation message that an email has been sent to confirm the inscription
+- [ ] Add a confirmation message that pops-up to say that an email has been sent to confirm the inscription
 - [ ] Change the template of the confirmation email  
 - [ ] Add correct photos
 - [ ] Change all text to delete IA text and put real infos
@@ -20,13 +19,11 @@
 - [x] Create bénévole page
 - [ ] Optimize performance with loading screen if necessary (like MDS) 
 - [ ] "zone de vie" , "base de vie" à modifier et standardiser
-- [ ] change social links 
 - [ ] Refaire la FAQ avec de vrais infos
 - [ ] Mise en place du protocole Open Graph Tags 
 
 ## Low priority
 - [ ] Add video trailer as background for the landing page
-- [ ] Create an admin app to manage live race data and have nice analytics and dashboard for viewers and screen (other dedicatdd project ?) and them embeded inside the app ?
 
 
 ## Checklist before shipping
@@ -38,5 +35,7 @@
 - [ ] check robots.txt
 - [ ] check all the links (sponsors, partners...)
 - [ ] check meta tags for SEO
+- [ ] make SEO perfect and optimize
+- [ ] make AI seo perfect 
 - [ ] check favicon
 - [ ] check open graph links

@@ -8,7 +8,7 @@ import { useCookieConsent } from "@/providers/cookie-context";
 const footerLinks = [
   { to: "/", labelKey: "home" },
   { to: "/concept", labelKey: "concept" },
-  { to: "/parcours", labelKey: "parcours" },
+  // { to: "/parcours", labelKey: "parcours" },
   { to: "/infos-pratiques", labelKey: "infos" },
   { to: "/inscriptions", labelKey: "inscriptions" },
   // { to: "/resultats", labelKey: "resultats" },
@@ -205,11 +205,13 @@ export const Footer = () => {
                   borderRadius: "0.75rem",
                 }}
               >
-                <div style={{ fontSize: "0.7rem", color: "#F5C92C", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "0.25rem" }}>
+                <div style={{ fontSize: "0.7rem", color: "#F5C92C", fontWeight: "700", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "0.4rem" }}>
                   {t("footer.depart_dans")}
                 </div>
-                <Countdown targetDateStr="2027-05-15T10:00:00+02:00" hidePrefix />
-                <div style={{ fontSize: "0.95rem", color: "#fff", fontFamily: "'Hobo', sans-serif", marginBottom: "0.5rem" }}>
+                <div style={{ marginBottom: "0.5rem" }}>
+                  <Countdown targetDateStr="2027-05-15T10:00:00+02:00" hidePrefix />
+                </div>
+                <div style={{ fontSize: "0.9rem", color: "#fff", fontFamily: "'Hobo', sans-serif" }}>
                   {t("footer.date")}
                 </div>
               </div>

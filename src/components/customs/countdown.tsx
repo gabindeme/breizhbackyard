@@ -35,22 +35,39 @@ export const Countdown = ({ targetDateStr = "2027-05-15T10:00:00+02:00", hidePre
 
   const { t } = useTranslation();
 
+  const pad = (num: number) => String(num).padStart(2, "0");
+
+  const items = [
+    { value: timeLeft.days, label: t("countdown.days_short") },
+    { value: pad(timeLeft.hours), label: t("countdown.hours_short") },
+    { value: pad(timeLeft.minutes), label: t("countdown.minutes_short") },
+    { value: pad(timeLeft.seconds), label: t("countdown.seconds_short") },
+  ];
+
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontFamily: "'Inter', sans-serif" }}>
-      {!hidePrefix && <span style={{ fontWeight: "600" }}>{t("countdown.depart_dans")}</span>}
-      <div style={{ display: "flex", gap: "0.3rem" }}>
-        <span style={{ background: "rgba(255,255,255,0.1)", padding: "0.2rem 0.4rem", borderRadius: "0.25rem", fontWeight: "700" }}>
-          {timeLeft.days} {t("countdown.days_short")}
-        </span>
-        <span style={{ background: "rgba(255,255,255,0.1)", padding: "0.2rem 0.4rem", borderRadius: "0.25rem", fontWeight: "700" }}>
-          {timeLeft.hours} {t("countdown.hours_short")}
-        </span>
-        <span style={{ background: "rgba(255,255,255,0.1)", padding: "0.2rem 0.4rem", borderRadius: "0.25rem", fontWeight: "700" }}>
-          {timeLeft.minutes} {t("countdown.minutes_short")}
-        </span>
-        <span style={{ background: "rgba(255,255,255,0.1)", padding: "0.2rem 0.4rem", borderRadius: "0.25rem", fontWeight: "700" }}>
-          {timeLeft.seconds} {t("countdown.seconds_short")}
-        </span>
+    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap", fontFamily: "'Inter', sans-serif" }}>
+      {!hidePrefix && <span style={{ fontWeight: "600", whiteSpace: "nowrap" }}>{t("countdown.depart_dans")}</span>}
+      <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap", alignItems: "center" }}>
+        {items.map((item, index) => (
+          <span
+            key={index}
+            style={{
+              background: "rgba(255,255,255,0.1)",
+              padding: "0.25rem 0.45rem",
+              borderRadius: "0.25rem",
+              fontWeight: "700",
+              whiteSpace: "nowrap",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.2rem",
+              fontSize: "0.85rem",
+              lineHeight: 1,
+            }}
+          >
+            <span>{item.value}</span>
+            <span style={{ fontSize: "0.75rem", opacity: 0.85 }}>{item.label}</span>
+          </span>
+        ))}
       </div>
     </div>
   );
