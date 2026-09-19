@@ -16,7 +16,7 @@
     "benevoles": "Bénévoles"
   },
   "footer": {
-    "rights": "© {{year}} Breizh Backyard — Tous droits réservés",
+    "rights": "© {{year}} Breizh Backyard Ultra — Tous droits réservés",
     "tagline": "L'ultra-endurance au coeur de Rennes.",
     "nav_title": "Navigation",
     "info_title": "Informations",
@@ -43,7 +43,7 @@
     "hero": {
       "date": "Samedi 15 Mai 2027 · 10h00",
       "title": "BREIZH BACKYARD",
-      "subtitle": "2027",
+      "subtitle": "ULTRA",
       "desc_line1": "6,706 km. Toutes les heures. Jusqu'au dernier debout.",
       "desc_line2": "La course sans distance. Sans limite.",
       "btn_newsletter": "Je veux mon dossard →",
@@ -148,9 +148,11 @@
       "subtitle": "Comprendre le format",
       "title": "Une course qui n'a pas de fin prévue",
       "step_depart": "Départ",
+      "step_loop": "Boucle",
       "step_vainqueur": "Vainqueur !",
-      "legend_depart": "Top départ toutes les heures",
-      "legend_vainqueur": "Vainqueur = dernier à terminer"
+      "desc_start": "Tous les coureurs s'élancent ensemble au signal.",
+      "desc_24h": "24 heures de course, soit l'équivalent de 100 miles — et ça continue !",
+      "desc_winner": "Le dernier debout boucle un tour supplémentaire, seul, pour remporter la victoire."
     },
     "rules": {
       "r1_title": "Top départ toutes les heures",
@@ -365,6 +367,13 @@
     "messages": {
       "success": "Bienvenue dans le sas de départ ! Votre adresse a bien été enregistrée. Vous recevrez les dernières informations avant tout le monde.",
       "error": "Nous n'avons pas pu confirmer votre inscription. Veuillez vérifier le formulaire et réessayer."
+    },
+    "popup": {
+      "badge": "Inscription confirmée !",
+      "title": "Email envoyé avec succès 🎉",
+      "message": "Un email de confirmation vous a été envoyé. Vérifiez votre boîte de réception (et vos spams !) pour finaliser votre inscription à la newsletter.",
+      "email_hint": "Pensez à ajouter notre adresse email à vos contacts pour ne rater aucune notification d'ouverture d'inscriptions.",
+      "btn_close": "Parfait, merci !"
     }
   },
   "bienvenue_page": {

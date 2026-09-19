@@ -77,7 +77,7 @@ export const Footer = () => {
                   Breizh Backyard
                 </div>
                 <div style={{ fontFamily: "'Inter', sans-serif", color: "#F5C92C", fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                  2027
+                  ULTRA
                 </div>
               </div>
             </Link>

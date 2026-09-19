@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import { HeartHandshake, Map, Shield, Hammer, Send } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "@/components/SEOHead";
+import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
@@ -56,8 +58,19 @@ export const Benevoles = () => {
     }, 1500);
   };
 
+  const breadcrumbs = createBreadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Bénévoles", path: "/benevoles" },
+  ]);
+
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
+      <SEOHead
+        title="Devenir Bénévoles | Breizh Backyard Ultra"
+        description="Rejoignez l'équipe de bénévoles du Breizh Backyard Ultra ! Participez à une aventure humaine et sportive unique au cœur de la Bretagne."
+        canonicalPath="/benevoles"
+        jsonLd={breadcrumbs}
+      />
       <PageHeader 
         subtitle={t("benevoles_page.header.subtitle")}
         title={t("benevoles_page.header.title")}

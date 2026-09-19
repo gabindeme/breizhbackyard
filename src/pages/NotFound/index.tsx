@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, Play, RotateCcw } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
+import { SEOHead } from "@/components/SEOHead";
 
 // ─── Canvas Game Constants ──────────────────────────────────────────
 const GRAVITY = 0.65;
@@ -750,6 +751,11 @@ export const NotFound = () => {
         flexDirection: "column",
       }}
     >
+      <SEOHead
+        title="Page non trouvée | Breizh Backyard Ultra"
+        description="La page demandée n'existe pas ou a été déplacée."
+        noIndex={true}
+      />
       {/* Header */}
       <div
         className="page-header-inner"

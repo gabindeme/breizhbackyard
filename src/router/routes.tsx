@@ -27,28 +27,64 @@ const PolitiqueConfidentialite = lazy(() =>
 
 const NotFound = lazy(() => import("@/pages/NotFound").then((m) => ({ default: m.NotFound })));
 
-// Minimal loading fallback
+// Branded BBU loading fallback
 const PageLoader = () => (
   <div
     style={{
       minHeight: "100vh",
       display: "flex",
+      flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
+      gap: "28px",
       background: "#EFEFEF",
     }}
   >
-    <div
+    {/* Logo */}
+    <img
+      src="/assets/logos/logo-white.svg"
+      alt="Breizh Backyard Ultra"
       style={{
-        width: "40px",
-        height: "40px",
-        border: "3px solid #D0D0D0",
-        borderTopColor: "#277956",
-        borderRadius: "50%",
-        animation: "spin 0.8s linear infinite",
+        height: "64px",
+        width: "auto",
+        animation: "bbuPulse 1.8s ease-in-out infinite",
       }}
     />
-    <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+
+    {/* Spinner ring */}
+    <div style={{ position: "relative", width: "44px", height: "44px" }}>
+      {/* Static track */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          borderRadius: "50%",
+          border: "3px solid #D0D0D0",
+        }}
+      />
+      {/* Animated arc */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          borderRadius: "50%",
+          border: "3px solid transparent",
+          borderTopColor: "#277956",
+          borderRightColor: "#2D9185",
+          animation: "bbuSpin 0.9s cubic-bezier(0.4, 0, 0.2, 1) infinite",
+        }}
+      />
+    </div>
+
+    <style>{`
+      @keyframes bbuSpin {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes bbuPulse {
+        0%, 100% { opacity: 1;   transform: scale(1); }
+        50%       { opacity: 0.6; transform: scale(0.96); }
+      }
+    `}</style>
   </div>
 );
 
@@ -74,7 +110,7 @@ export const Router = () => {
           <Route path="/benevoles" element={<Benevoles />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
-          
+
           {/* 404 Page Not Found (with navbar/footer) */}
           <Route path="*" element={<NotFound />} />
         </Route>

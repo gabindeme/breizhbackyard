@@ -2,12 +2,25 @@ import { motion } from "motion/react";
 import { CheckCircle, Compass, MapPin, Info, ArrowRight, Sparkles, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "@/components/SEOHead";
+import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 export const Bienvenue = () => {
   const { t } = useTranslation();
 
+  const breadcrumbs = createBreadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Bienvenue", path: "/bienvenue" },
+  ]);
+
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
+      <SEOHead
+        title="Bienvenue dans la Communauté | Breizh Backyard Ultra"
+        description="Merci d'avoir rejoint la communauté du Breizh Backyard Ultra ! Découvrez les étapes clés à suivre avant le grand jour."
+        canonicalPath="/bienvenue"
+        jsonLd={breadcrumbs}
+      />
       {/* Header Héro */}
       <div
         className="page-header-inner"

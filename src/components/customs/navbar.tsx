@@ -257,7 +257,7 @@ export const Navbar = () => {
                   lineHeight: 1,
                 }}
               >
-                2027
+                ULTRA
               </span>
             </div>
           </Link>
@@ -370,7 +370,7 @@ export const Navbar = () => {
               style={{ width: "32px", height: "32px", objectFit: "contain", flexShrink: 0 }}
             />
             <span style={{ fontFamily: "'Hobo', sans-serif", color: "#fff", fontSize: "1rem" }}>
-              Breizh Backyard 2027
+              Breizh Backyard Ultra
             </span>
           </Link>
           <button

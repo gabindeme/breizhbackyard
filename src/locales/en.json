@@ -16,7 +16,7 @@
     "benevoles": "Volunteers"
   },
   "footer": {
-    "rights": "© {{year}} Breizh Backyard — All rights reserved",
+    "rights": "© {{year}} Breizh Backyard Ultra — All rights reserved",
     "tagline": "Ultra-endurance in the heart of Rennes.",
     "nav_title": "Navigation",
     "info_title": "Information",
@@ -148,9 +148,11 @@
       "subtitle": "Understanding the format",
       "title": "A race with no scheduled end",
       "step_depart": "Start",
+      "step_loop": "Loop",
       "step_vainqueur": "Winner!",
-      "legend_depart": "Starting signal every hour",
-      "legend_vainqueur": "Winner = last to finish"
+      "desc_start": "All runners set off together at the signal.",
+      "desc_24h": "24 hours of racing, the equivalent of 100 miles — and it keeps going!",
+      "desc_winner": "The last one standing completes one extra loop, alone, to claim victory."
     },
     "rules": {
       "r1_title": "Starting signal every hour",
@@ -365,6 +367,13 @@
     "messages": {
       "success": "Welcome to the starting pen! Your email address has been recorded. You'll receive the latest news before anyone else.",
       "error": "We could not confirm your subscription. Please check the form and try again."
+    },
+    "popup": {
+      "badge": "Subscription confirmed!",
+      "title": "Email sent successfully 🎉",
+      "message": "A confirmation email has been sent to you. Check your inbox (and spam folder!) to finalize your newsletter subscription.",
+      "email_hint": "Remember to add our email address to your contacts so you don't miss any registration opening notifications.",
+      "btn_close": "Great, thanks!"
     }
   },
   "bienvenue_page": {

@@ -6,6 +6,8 @@ import { Navbar } from "@/components/customs/navbar";
 import { Footer } from "@/components/customs/footer";
 import { Countdown } from "@/components/customs/countdown";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "@/components/SEOHead";
+import { sportsEventSchema, organizationSchema } from "@/lib/seoSchemas";
 import {
   Timer,
   Footprints,
@@ -111,6 +113,12 @@ export const Home = () => {
 
   return (
     <div style={{ background: "#EFEFEF" }}>
+      <SEOHead
+        title="Breizh Backyard Ultra — Ultra-Endurance en Bretagne"
+        description="Le Breizh Backyard Ultra est une course d'ultra-endurance au format Backyard Ultra organisée en Bretagne. 6,706 km toutes les heures, jusqu'au dernier debout."
+        canonicalPath="/"
+        jsonLd={[sportsEventSchema, organizationSchema]}
+      />
       {/* ============================================================
           HERO — Aurora pleine page
           ============================================================ */}

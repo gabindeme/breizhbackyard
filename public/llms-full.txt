@@ -1,0 +1,75 @@
+# Breizh Backyard Ultra — Documentation Complète pour IA & Moteurs de Recherche
+
+## Présentation Générale
+
+Breizh Backyard Ultra est une compétition internationale d'ultra-endurance au format "Backyard Ultra", se déroulant à Rennes, en Bretagne (France).
+
+L'événement s'inspire du format légendaire créé par Lazarus Lake. Le principe est d'une simplicité redoutable : parcourir une boucle de 6,706 km (4,167 miles) en moins d'une heure, et recommencer chaque heure, jusqu'à ce qu'il ne reste plus qu'un seul coureur debout.
+
+## Fiche Technique de l'Événement
+
+- **Nom Officiel**: Breizh Backyard Ultra
+- **Nom Alternatif**: Breizh Backyard Ultra 2027
+- **Date de Départ**: Samedi 15 Mai 2027 à 10:00 CEST
+- **Lieu**: Base de Vie — Rennes, Bretagne, France (Coordonnées GPS : 48.134762, -1.647241)
+- **Carte / Localisation GPS**: https://maps.google.com/?q=48.13476195656116,-1.6472409293385937
+- **Distance par boucle**: 6,706 km / 4,167 miles
+- **Temps alloué par boucle**: 60 minutes
+- **Allure minimale requise**: 6:42 min/km (8:58 min/mile)
+- **Objectifs phares**:
+  - 12 Heures = 80.47 km
+  - 24 Heures = 100 Miles (160.94 km)
+  - 48 Heures = 200 Miles (321.88 km)
+- **Type d'épreuve**: Ultra-Trail / Ultra-Marathon / Endurance Extrême
+- **Organisateur**: Breizh Backyard Ultra
+- **Site web**: https://breizhbackyard.com
+- **Email de contact**: contact@breizhbackyard.com
+
+## Règlement Officiel & Format de Course
+
+### 1. Le Sas et le Départ
+- Un signal sonore est émis à 3 minutes, 2 minutes et 1 minute avant chaque heure.
+- Tous les coureurs encore en lice doivent obligatoirement se trouver à l'intérieur du sas de départ au moment exact où la cloche retentit.
+- Si un coureur ne se trouve pas dans le sas lors du coup de départ de l'heure, il est immédiatement éliminé (DNF).
+
+### 2. Le Parcours et l'Assistance
+- Les coureurs effectuent la boucle officielle de 6,706 km.
+- Aucune assistance personnelle ou médicale n'est autorisée sur le parcours pendant la boucle.
+- L'assistance (ravitaillement, soins, repos, changement de tenue) est uniquement autorisée dans la "Zone de Vie / Base de Vie" entre deux boucles.
+- Les bâtons de marche et chiens de compagnie sont interdits pendant la course.
+
+### 3. Victoire et Élimination
+- Un coureur est éliminé s'il ne parvient pas à terminer la boucle dans les 60 minutes.
+- Un coureur est éliminé s'il décide d'abandonner et de ne pas repartir.
+- La course se poursuit sans limite de temps théorique tant que plusieurs coureurs sont capables d'enchaîner les tours.
+- Le gagnant est le coureur qui réussit à effectuer seul une ultime boucle complète dans le temps imparti.
+- Tous les autres coureurs, quel que soit le nombre de kilomètres parcourus (même 300+ km), reçoivent la mention DNF (Did Not Finish).
+
+## Équipement & Matériel Requis
+
+### Matériel Obligatoire
+- Lampe frontale fonctionnelle avec batteries de rechange (pour la nuit)
+- Téléphone portable chargé avec numéros d'urgence enregistrés
+- Réceptacle d'eau (flasque ou gobelet réutilisable)
+- Sifflet de sécurité
+
+### Matériel Recommandé
+- Tente personnelle ou matériel de repos pour la zone de vie
+- Vêtements de rechange adaptés aux variations de météo bretonne (pluie, vent, froid nocturne)
+- Nutrition et hydratation personnalisées
+- Chaussures de trail adaptées au terrain mixte
+
+## Ravitaillement & Zone de Vie
+
+- La zone de vie dispose d'un point d'eau potable, de ravitaillements chauds et froids fournis par l'organisation à chaque heure.
+- Un espace est mis à disposition pour les tentes et emplacements d'assistance des coureurs et de leurs accompagnateurs.
+
+## Inscriptions & Informations Pratiques
+
+- **Pré-inscriptions**: Les personnes intéressées peuvent s'inscrire à la newsletter sur le site https://breizhbackyard.com/inscriptions pour recevoir l'accès prioritaire à l'ouverture du dossard.
+- **Accès**: Directement accessible depuis Rennes (gare TGV à 1h30 de Paris, réseau de bus/navettes).
+- **Réseaux Sociaux**:
+  - Instagram: https://www.instagram.com/breizhbackyard/
+  - Facebook: https://www.facebook.com/people/BreizhBackyard/61588328941008/
+  - YouTube: https://www.youtube.com/@breizhbackyard
+  - TikTok: https://www.tiktok.com/@breizhbackyard

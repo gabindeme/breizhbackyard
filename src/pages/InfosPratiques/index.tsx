@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import { MapPin, Utensils, Backpack, BookOpen } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "@/components/SEOHead";
+import { sportsEventSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
@@ -80,8 +82,19 @@ export const InfosPratiques = () => {
     return () => observer.disconnect();
   }, []);
 
+  const breadcrumbs = createBreadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Infos Pratiques", path: "/infos-pratiques" },
+  ]);
+
   return (
     <div style={{ background: "#EFEFEF" }}>
+      <SEOHead
+        title="Infos Pratiques & Règlement | Breizh Backyard Ultra"
+        description="Toutes les informations pratiques pour participer au Breizh Backyard Ultra : accès, parking, ravitaillement, matériel obligatoire et règlement."
+        canonicalPath="/infos-pratiques"
+        jsonLd={[sportsEventSchema, breadcrumbs]}
+      />
       <PageHeader
         subtitle={t("infos_page.header.subtitle")}
         title={t("infos_page.header.title")}

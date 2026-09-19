@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Timer, Repeat, AlertTriangle, Trophy, ChevronRight, Clock, Footprints } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "@/components/SEOHead";
+import { sportsEventSchema, createFaqSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div
@@ -62,74 +64,101 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
   </div>
 );
 
-// Schéma visuel du format
+// Schéma visuel du format — vertical stepper
+const KM_PER_LOOP = 6.706;
+
+type StepData = {
+  hour: number | "N";
+  type: "start" | "loop" | "dots" | "milestone" | "winner";
+};
+
+const STEPS: StepData[] = [
+  { hour: 0, type: "start" },
+  { hour: 1, type: "loop" },
+  { hour: 2, type: "loop" },
+  { hour: 3, type: "loop" },
+  { hour: 0, type: "dots" },
+  { hour: 24, type: "milestone" },
+  { hour: 0, type: "dots" },
+  { hour: "N", type: "winner" },
+];
+
 const FormatTimeline = () => {
   const { t } = useTranslation();
-  const hours = [0, 1, 2, 3, 4, 5, "...", "N"];
+
+  const getKm = (h: number) => Math.round(h * KM_PER_LOOP * 10) / 10;
+
   return (
-    <div style={{ overflowX: "auto", paddingBottom: "1rem", maxWidth: "100%" }}>
-      <div style={{ minWidth: "600px" }}>
-        {/* Timeline track */}
-        <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "3rem" }}>
-          {/* Horizontal line */}
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "0",
-              right: "0",
-              height: "3px",
-              background: "linear-gradient(90deg, #277956, #F5C92C)",
-              transform: "translateY(-50%)",
-              borderRadius: "2px",
-            }}
-          />
+    <div className="format-stepper">
+      {STEPS.map((step, i) => {
+        const isLast = i === STEPS.length - 1;
+        const km = typeof step.hour === "number" && step.hour > 0 ? getKm(step.hour) : null;
 
-          {hours.map((h, i) => {
-            const isLast = h === "N";
-            const isDots = h === "...";
-            return (
-              <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem", position: "relative", zIndex: 1 }}>
-                <div
-                  style={{
-                    width: isDots ? "auto" : isLast ? "52px" : "44px",
-                    height: isDots ? "auto" : isLast ? "52px" : "44px",
-                    borderRadius: isDots ? "0" : "50%",
-                    background: isDots ? "transparent" : isLast ? "#F5C92C" : "#277956",
-                    border: isDots ? "none" : `3px solid ${isLast ? "#e0b520" : "#1a4d36"}`,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: isDots ? "none" : `0 4px 16px rgba(${isLast ? "245,201,44" : "39,121,86"},0.35)`,
-                    color: isDots ? "#4a6b56" : "#fff",
-                    fontWeight: "700",
-                    fontSize: isDots ? "1.5rem" : "0.85rem",
-                    fontFamily: isDots ? "inherit" : "'Hobo', sans-serif",
-                  }}
-                >
-                  {isDots ? "···" : isLast ? <Trophy size={20} /> : h === 0 ? <Timer size={18} /> : h}
-                </div>
-                <div style={{ textAlign: "center", fontSize: "0.72rem", color: isDots ? "transparent" : "#4a6b56", fontWeight: "600", whiteSpace: "nowrap" }}>
-                  {isDots ? "." : isLast ? t("concept_page.schema.step_vainqueur") : h === 0 ? t("concept_page.schema.step_depart") : `+${h}h`}
-                </div>
+        if (step.type === "dots") {
+          return (
+            <div key={i} className="stepper-dots-row">
+              <div className="stepper-line-segment" />
+              <div className="stepper-dots-indicator">
+                <span />
+                <span />
+                <span />
               </div>
-            );
-          })}
-        </div>
-
-        {/* Legend */}
-        <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}>
-          {[
-            { color: "#277956", label: t("concept_page.schema.legend_depart") },
-            { color: "#F5C92C", label: t("concept_page.schema.legend_vainqueur") },
-          ].map(({ color, label }) => (
-            <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.8rem", color: "#4a6b56" }}>
-              <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: color, flexShrink: 0 }} />
-              {label}
+              {!isLast && <div className="stepper-line-segment" />}
             </div>
-          ))}
-        </div>
-      </div>
+          );
+        }
+
+        return (
+          <motion.div
+            key={i}
+            className={`stepper-row stepper-row--${step.type}`}
+            initial={{ opacity: 0, x: -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.4, delay: i * 0.06 }}
+          >
+            {/* Left: connector line + bubble */}
+            <div className="stepper-left">
+              {i > 0 && <div className="stepper-line stepper-line--top" />}
+              <div className={`stepper-bubble stepper-bubble--${step.type}`}>
+                {step.type === "start" && <Timer size={18} />}
+                {step.type === "winner" && <Trophy size={20} />}
+                {(step.type === "loop" || step.type === "milestone") && (
+                  <span>{step.hour}</span>
+                )}
+              </div>
+              {!isLast && <div className="stepper-line stepper-line--bottom" />}
+            </div>
+
+            {/* Right: info */}
+            <div className="stepper-content">
+              <div className="stepper-label">
+                {step.type === "start" && t("concept_page.schema.step_depart")}
+                {step.type === "winner" && t("concept_page.schema.step_vainqueur")}
+                {(step.type === "loop" || step.type === "milestone") && (
+                  <>
+                    {t("concept_page.schema.step_loop")} {step.hour}
+                  </>
+                )}
+              </div>
+              {km !== null && (
+                <div className="stepper-km">
+                  {km.toLocaleString("fr-FR")} km {step.type === "milestone" && <span className="stepper-km-badge">100 miles</span>}
+                </div>
+              )}
+              {step.type === "start" && (
+                <div className="stepper-desc">{t("concept_page.schema.desc_start")}</div>
+              )}
+              {step.type === "winner" && (
+                <div className="stepper-desc">{t("concept_page.schema.desc_winner")}</div>
+              )}
+              {step.type === "milestone" && (
+                <div className="stepper-desc">{t("concept_page.schema.desc_24h")}</div>
+              )}
+            </div>
+          </motion.div>
+        );
+      })}
     </div>
   );
 };
@@ -199,8 +228,20 @@ export const Concept = () => {
     },
   ];
 
+  const breadcrumbs = createBreadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Concept", path: "/concept" },
+  ]);
+  const faqSchema = createFaqSchema(faqItems.map((item) => ({ question: item.q, answer: item.a })));
+
   return (
     <div style={{ background: "#EFEFEF" }}>
+      <SEOHead
+        title="Concept & Règles | Breizh Backyard Ultra"
+        description="Découvrez le principe de la Backyard Ultra : 6,706 km à parcourir chaque heure, jusqu'au dernier coureur debout. Règle du jeu, élimination et vainqueur."
+        canonicalPath="/concept"
+        jsonLd={[sportsEventSchema, faqSchema, breadcrumbs]}
+      />
       <PageHeader
         subtitle={t("concept_page.header.subtitle")}
         title={t("concept_page.header.title")}
@@ -311,16 +352,7 @@ export const Concept = () => {
             </h2>
           </div>
 
-          <div
-            style={{
-              background: "#fff",
-              borderRadius: "1.5rem",
-              padding: "2.5rem",
-              border: "1.5px solid #D0D0D0",
-              boxShadow: "0 4px 24px rgba(39,121,86,0.08)",
-              marginBottom: "3rem",
-            }}
-          >
+          <div style={{ maxWidth: "560px", margin: "0 auto 3rem" }}>
             <FormatTimeline />
           </div>
 

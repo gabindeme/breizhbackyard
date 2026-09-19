@@ -7,7 +7,7 @@ import { useCookieConsent } from "@/providers/cookie-context";
 
 export const CookieBanner = () => {
   const { t } = useTranslation();
-  const { consent, acceptAll, declineAll, savePreferences, isModalOpen, openModal, closeModal } =
+  const { consent, acceptAll, savePreferences, isModalOpen, openModal, closeModal } =
     useCookieConsent();
 
   // Local state for modal toggles
@@ -184,32 +184,6 @@ export const CookieBanner = () => {
                   >
                     <Settings size={16} />
                     {t("cookies.btn_customize", "Personnaliser")}
-                  </button>
-
-                  <button
-                    onClick={declineAll}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "0.4rem",
-                      padding: "0.65rem 1.35rem",
-                      borderRadius: "999px",
-                      background: "rgba(255, 255, 255, 0.08)",
-                      border: "1px solid rgba(255, 255, 255, 0.25)",
-                      color: "#fff",
-                      fontSize: "0.88rem",
-                      fontWeight: 600,
-                      cursor: "pointer",
-                      transition: "all 0.2s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.18)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
-                    }}
-                  >
-                    {t("cookies.btn_decline", "Tout refuser")}
                   </button>
 
                   <button
