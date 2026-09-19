@@ -76,7 +76,7 @@ export const Footer = () => {
                 <div style={{ fontFamily: "'Hobo', sans-serif", color: "#fff", fontSize: "1.05rem", lineHeight: 1 }}>
                   Breizh Backyard
                 </div>
-                <div style={{ fontFamily: "'Inter', sans-serif", color: "#F5C92C", fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                <div style={{ fontFamily: "'Hobo', sans-serif", color: "#F5C92C", fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
                   ULTRA
                 </div>
               </div>

@@ -632,6 +632,9 @@
   border-bottom: 1px solid var(--bbu-gray-light);
   overflow: hidden;
 }
+.faq-item:last-child {
+  border-bottom: none;
+}
 
 .faq-trigger {
   display: flex;
@@ -666,6 +669,9 @@
   justify-content: center;
   transition: background 0.2s ease, transform 0.3s ease;
   color: var(--bbu-green-dark);
+  font-size: 1.1rem;
+  line-height: 1;
+  font-weight: 700;
 }
 
 .faq-item.open .faq-trigger .faq-icon {
@@ -1235,4 +1241,40 @@
     background-color: #0a0a0a;
     overscroll-behavior: none;
   }
+}
+
+/* Custom checkbox for newsletter opt-in */
+input.input_replaced[type="checkbox"] {
+  position: relative;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+input.input_replaced[type="checkbox"]:hover {
+  border-color: #1f6346 !important;
+  box-shadow: 0 0 0 3px rgba(39, 121, 86, 0.15);
+}
+input.input_replaced[type="checkbox"]:checked {
+  background-color: #277956 !important;
+  border-color: #277956 !important;
+  animation: checkbox-pop 0.3s ease;
+}
+input.input_replaced[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 6px;
+  height: 10px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  animation: checkmark-draw 0.2s ease-out 0.05s both;
+}
+@keyframes checkbox-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+@keyframes checkmark-draw {
+  0%   { opacity: 0; transform: rotate(45deg) scale(0); }
+  100% { opacity: 1; transform: rotate(45deg) scale(1); }
 }

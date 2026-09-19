@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
-import { Mail, Timer, Bell, Send, AlertCircle, CheckCircle2, X, PartyPopper } from "lucide-react";
+import { Mail, Bell, Send, AlertCircle, CheckCircle2, X, PartyPopper } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "@/components/SEOHead";
 import { sportsEventSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
@@ -392,7 +392,6 @@ export const Inscriptions = () => {
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {[
                   { icon: Bell, text: t("inscriptions_page.info.list1") },
-                  { icon: Timer, text: t("inscriptions_page.info.list2") },
                   { icon: Mail, text: t("inscriptions_page.info.list3") },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} style={{ display: "flex", gap: "0.85rem", alignItems: "flex-start" }}>
@@ -596,10 +595,14 @@ export const Inscriptions = () => {
                                     height: "22px",
                                     minWidth: "22px",
                                     minHeight: "22px",
-                                    accentColor: "#277956",
                                     cursor: "pointer",
                                     borderRadius: "0.35rem",
                                     flexShrink: 0,
+                                    WebkitAppearance: "none",
+                                    appearance: "none",
+                                    backgroundColor: "#ffffff",
+                                    border: "2px solid #277956",
+                                    position: "relative" as const,
                                   }}
                                 />
                                 <span style={{ fontSize: "0.82rem", color: "#3c5245", lineHeight: 1.5 }}>

@@ -347,7 +347,6 @@
       "title": "Bezit e-touez ar re gentañ da redek",
       "desc": "Bevennet eo al leuzioù evit ar Breizh Backyard. En em enskrivet d'hor c'helaouenn, e vefec'h kelaouet pa vo digor ofisiel an enskrivadurioù, a-raok an disklêriadur foran.",
       "list1": "Kemenn diouzhtu pa vo digor an enskrivadurioù",
-      "list2": "Tremen kentañ a-raok al listennoù gortoz",
       "list3": "Keleier dibar diwar-benn ar red hag an hentad",
       "depart_title": "Loc'hañ da zont",
       "depart_date": "Sadorn 15 Mae 2027",
@@ -553,6 +552,23 @@
           {
             "q": "Petra a c'hoarvez ma vez gloazet ur redour?",
             "a": "Ur skipailh mezeg a zo war al lec'h 24e/24. Redour ebet en diaester a c'hell bezañ soursedet diouzhtu. Gwell eo ganeomp ul leuskel a-youl eget lakaat en arvar."
+          }
+        ]
+      },
+      {
+        "category": "🤝 An aozadur",
+        "items": [
+          {
+            "q": "Piv a aoz ar Breizh Backyard?",
+            "a": "Aozet eo ar Breizh Backyard gant ar gevredigezh Delta Events. 4 den yaouank omp, broudet gant ar redek hag an hentadoù-roud, ha karget gant an c'hoant da grouiñ un darvoud ultra-staliañ dibar e Breizh. Ur raktres 100% kevredadel eo, dedennet gant berzh hag energiezh hor skipailh."
+          },
+          {
+            "q": "Da betra e talvez priz an dosar-red?",
+            "a": "Priz an dosar-red a zo adlakaet en e bezh evit aozañ an darvoud: lojistik, surentez, merkadurezh, boued, skipailh mezeg, asurasoù ha meterioù. Evel kevredigezh, ne reomp forzh ar c'hounid ebet — pep euro a dalvez da brofañ deoc'h an arnod gwellañ posupl."
+          },
+          {
+            "q": "Penaos mont e darempred gant an aozadur?",
+            "a": "N'hoariit ket da skrivañ deomp dre hor pajenn Darempred pe dre bostel. Evit ur goulenn, un alberz pe ur goulenn kevredadiezh, e respontaim da pep kemennadenn gant plijadur!"
           }
         ]
       }
