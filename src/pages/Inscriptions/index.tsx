@@ -1,7 +1,9 @@
-import { motion } from "motion/react";
-import { useEffect } from "react";
-import { Mail, Timer, Bell, Send, AlertCircle, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
+import { Mail, Timer, Bell, Send, AlertCircle, CheckCircle2, X, PartyPopper } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "@/components/SEOHead";
+import { sportsEventSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
@@ -21,6 +23,7 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
 
 export const Inscriptions = () => {
   const { t } = useTranslation();
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   useEffect(() => {
     // Globals pour Brevo
@@ -69,6 +72,24 @@ export const Inscriptions = () => {
     script.src = 'https://sibforms.com/forms/end-form/build/main.js';
     script.defer = true;
     document.body.appendChild(script);
+
+    // MutationObserver : détecte quand Brevo affiche le message de succès
+    const successEl = document.getElementById('success-message');
+    let observer: MutationObserver | null = null;
+    if (successEl) {
+      observer = new MutationObserver(() => {
+        const style = successEl.getAttribute('style') || '';
+        const computed = window.getComputedStyle(successEl);
+        if (!style.includes('display: none') && !style.includes('display:none') && computed.display !== 'none') {
+          setShowSuccessPopup(true);
+        }
+      });
+      observer.observe(successEl, { attributes: true, attributeFilter: ['style'] });
+    }
+
+    return () => {
+      if (observer) observer.disconnect();
+    };
   }, []);
 
   // Déclencheur reCAPTCHA Enterprise lors de la soumission
@@ -97,8 +118,226 @@ export const Inscriptions = () => {
     }
   };
 
+  const breadcrumbs = createBreadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Inscriptions", path: "/inscriptions" },
+  ]);
+
   return (
     <div style={{ background: "#EFEFEF", overflowX: "hidden" }}>
+      <SEOHead
+        title="Inscriptions & Newsletter | Breizh Backyard Ultra"
+        description="Inscrivez-vous à la newsletter du Breizh Backyard Ultra pour être averti en priorité de l'ouverture officielle des inscriptions et de la billetterie."
+        canonicalPath="/inscriptions"
+        jsonLd={[sportsEventSchema, breadcrumbs]}
+      />
+
+      {/* Popup modal de confirmation d'envoi */}
+      <AnimatePresence>
+        {showSuccessPopup && (
+          <motion.div
+            key="success-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setShowSuccessPopup(false)}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 9999,
+              background: "rgba(10, 30, 18, 0.72)",
+              backdropFilter: "blur(6px)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "1.5rem",
+            }}
+          >
+            <motion.div
+              key="success-modal"
+              initial={{ opacity: 0, scale: 0.85, y: 32 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", stiffness: 320, damping: 28, delay: 0.05 }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                background: "#ffffff",
+                borderRadius: "1.75rem",
+                padding: "2.75rem 2.25rem 2.25rem",
+                maxWidth: "460px",
+                width: "100%",
+                boxShadow: "0 30px 80px -10px rgba(0,0,0,0.25), 0 0 0 1.5px rgba(39,121,86,0.15)",
+                position: "relative",
+                textAlign: "center",
+                overflow: "hidden",
+              }}
+            >
+              {/* Gradient top accent */}
+              <div style={{
+                position: "absolute",
+                top: 0, left: 0, right: 0,
+                height: "5px",
+                background: "linear-gradient(90deg, #277956 0%, #8CBE4F 50%, #F5C92C 100%)",
+                borderTopLeftRadius: "1.75rem",
+                borderTopRightRadius: "1.75rem",
+              }} />
+
+              {/* Bouton fermer */}
+              <button
+                onClick={() => setShowSuccessPopup(false)}
+                aria-label="Fermer"
+                style={{
+                  position: "absolute",
+                  top: "1.1rem",
+                  right: "1.1rem",
+                  background: "rgba(39,121,86,0.08)",
+                  border: "none",
+                  borderRadius: "0.65rem",
+                  width: "36px",
+                  height: "36px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  color: "#277956",
+                  transition: "background 0.2s",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = "rgba(39,121,86,0.15)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "rgba(39,121,86,0.08)")}
+              >
+                <X size={18} strokeWidth={2} />
+              </button>
+
+              {/* Icône succès animée */}
+              <motion.div
+                initial={{ scale: 0, rotate: -15 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20, delay: 0.15 }}
+                style={{
+                  width: "80px",
+                  height: "80px",
+                  borderRadius: "50%",
+                  background: "linear-gradient(135deg, rgba(39,121,86,0.12) 0%, rgba(140,190,79,0.15) 100%)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 1.5rem",
+                  border: "2px solid rgba(39,121,86,0.2)",
+                }}
+              >
+                <CheckCircle2 size={40} style={{ color: "#277956" }} strokeWidth={1.75} />
+              </motion.div>
+
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.4rem",
+                  background: "rgba(245,201,44,0.15)",
+                  border: "1px solid rgba(245,201,44,0.4)",
+                  borderRadius: "9999px",
+                  padding: "0.3rem 0.85rem",
+                  fontSize: "0.75rem",
+                  fontWeight: "700",
+                  letterSpacing: "0.07em",
+                  textTransform: "uppercase",
+                  color: "#a07a00",
+                  marginBottom: "1rem",
+                }}
+              >
+                <PartyPopper size={13} />
+                {t("inscriptions_page.popup.badge")}
+              </motion.div>
+
+              {/* Titre */}
+              <motion.h2
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                style={{
+                  fontFamily: "'Hobo', sans-serif",
+                  fontSize: "1.65rem",
+                  color: "#1a2e22",
+                  marginBottom: "0.75rem",
+                  lineHeight: 1.25,
+                }}
+              >
+                {t("inscriptions_page.popup.title")}
+              </motion.h2>
+
+              {/* Message principal */}
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                style={{
+                  color: "#4a6b56",
+                  fontSize: "0.92rem",
+                  lineHeight: 1.7,
+                  marginBottom: "1.5rem",
+                }}
+              >
+                {t("inscriptions_page.popup.message")}
+              </motion.p>
+
+              {/* Info email */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                style={{
+                  background: "linear-gradient(135deg, rgba(39,121,86,0.07) 0%, rgba(140,190,79,0.07) 100%)",
+                  border: "1px solid rgba(39,121,86,0.15)",
+                  borderRadius: "1rem",
+                  padding: "0.9rem 1.1rem",
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "0.65rem",
+                  textAlign: "left",
+                  marginBottom: "1.75rem",
+                }}
+              >
+                <Mail size={17} style={{ color: "#277956", flexShrink: 0, marginTop: "0.15rem" }} />
+                <p style={{ margin: 0, fontSize: "0.82rem", color: "#3c5245", lineHeight: 1.55 }}>
+                  {t("inscriptions_page.popup.email_hint")}
+                </p>
+              </motion.div>
+
+              {/* Bouton fermer */}
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                onClick={() => setShowSuccessPopup(false)}
+                style={{
+                  width: "100%",
+                  padding: "0.9rem 1.5rem",
+                  borderRadius: "0.75rem",
+                  background: "linear-gradient(135deg, #277956 0%, #1e5c41 100%)",
+                  color: "#ffffff",
+                  border: "none",
+                  fontSize: "0.95rem",
+                  fontWeight: "700",
+                  cursor: "pointer",
+                  letterSpacing: "0.02em",
+                  boxShadow: "0 6px 20px rgba(39,121,86,0.3)",
+                  transition: "transform 0.15s, box-shadow 0.15s",
+                }}
+                whileHover={{ scale: 1.02, boxShadow: "0 8px 25px rgba(39,121,86,0.4)" }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {t("inscriptions_page.popup.btn_close")}
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Dynamic CSS override & Mobile Accessibility Rules */}
       <style>{`
         .input--hidden { display: none !important; }

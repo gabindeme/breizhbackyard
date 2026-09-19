@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Mail, Send, CheckCircle } from "lucide-react";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "@/components/SEOHead";
+import { organizationSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
@@ -66,8 +68,19 @@ export const Contact = () => {
     if (errors[field]) setErrors((prev) => { const n = { ...prev }; delete n[field]; return n; });
   };
 
+  const breadcrumbs = createBreadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ]);
+
   return (
     <div style={{ background: "#EFEFEF" }}>
+      <SEOHead
+        title="Contact & Informations | Breizh Backyard Ultra"
+        description="Une question sur la course, les inscriptions ou le bénévolat ? Contactez l'équipe d'organisation du Breizh Backyard Ultra."
+        canonicalPath="/contact"
+        jsonLd={[organizationSchema, breadcrumbs]}
+      />
       <PageHeader
         subtitle={t("contact_page.header.subtitle")}
         title={t("contact_page.header.title")}

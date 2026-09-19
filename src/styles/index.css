@@ -933,6 +933,226 @@
   .no-print { display: none !important; }
 }
 
+/* ============================================================
+   FORMAT STEPPER — Concept page timeline
+   ============================================================ */
+.format-stepper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Step row ---------- */
+.stepper-row {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+}
+
+/* ---------- Left column (bubble + vertical lines) ---------- */
+.stepper-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.stepper-line {
+  width: 3px;
+  flex: 1;
+  border-radius: 2px;
+}
+
+.stepper-line--top {
+  background: linear-gradient(180deg, rgba(39,121,86,0.2), rgba(39,121,86,0.45));
+}
+
+.stepper-line--bottom {
+  background: linear-gradient(180deg, rgba(39,121,86,0.45), rgba(39,121,86,0.2));
+}
+
+.stepper-row--winner .stepper-line--top {
+  background: linear-gradient(180deg, rgba(39,121,86,0.2), rgba(245,201,44,0.5));
+}
+
+/* ---------- Bubble ---------- */
+.stepper-bubble {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: 'Hobo', sans-serif;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stepper-bubble--start {
+  background: #277956;
+  border: 3px solid #1a4d36;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(39,121,86,0.35);
+}
+
+.stepper-bubble--loop {
+  background: #277956;
+  border: 3px solid #1a4d36;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(39,121,86,0.25);
+}
+
+.stepper-bubble--milestone {
+  background: linear-gradient(135deg, #277956 30%, #3a9b6e);
+  border: 3px solid #1a4d36;
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  font-size: 0.82rem;
+  box-shadow: 0 4px 20px rgba(39,121,86,0.35);
+}
+
+.stepper-bubble--winner {
+  background: #F5C92C;
+  border: 3px solid #e0b520;
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  box-shadow: 0 4px 20px rgba(245,201,44,0.4);
+}
+
+.stepper-row:hover .stepper-bubble {
+  transform: scale(1.08);
+}
+
+/* ---------- Content (right side) ---------- */
+.stepper-content {
+  flex: 1;
+  padding: 0.85rem 0;
+  min-height: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stepper-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a2e22;
+  line-height: 1.3;
+}
+
+.stepper-row--winner .stepper-label {
+  color: #c49000;
+  font-family: 'Hobo', sans-serif;
+  font-size: 1.05rem;
+}
+
+.stepper-km {
+  font-size: 0.82rem;
+  color: #277956;
+  font-weight: 600;
+  margin-top: 0.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stepper-km-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: rgba(39,121,86,0.1);
+  color: #277956;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.stepper-desc {
+  font-size: 0.82rem;
+  color: #4a6b56;
+  line-height: 1.6;
+  margin-top: 0.25rem;
+}
+
+/* ---------- Dots separator ---------- */
+.stepper-dots-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48px;
+  margin-left: 0;
+  padding: 0;
+}
+
+.stepper-line-segment {
+  width: 3px;
+  height: 12px;
+  background: rgba(39,121,86,0.15);
+  border-radius: 2px;
+}
+
+.stepper-dots-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0;
+}
+
+.stepper-dots-indicator span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(39,121,86,0.3);
+}
+
+/* ---------- Mobile tweaks ---------- */
+@media (max-width: 480px) {
+  .stepper-row {
+    gap: 0.85rem;
+  }
+
+  .stepper-bubble,
+  .stepper-bubble--start,
+  .stepper-bubble--loop {
+    width: 38px;
+    height: 38px;
+    font-size: 0.8rem;
+  }
+
+  .stepper-bubble--milestone,
+  .stepper-bubble--winner {
+    width: 44px;
+    height: 44px;
+    font-size: 0.75rem;
+  }
+
+  .stepper-left {
+    width: 40px;
+  }
+
+  .stepper-dots-row {
+    width: 40px;
+  }
+
+  .stepper-label {
+    font-size: 0.88rem;
+  }
+
+  .stepper-km {
+    font-size: 0.78rem;
+  }
+
+  .stepper-desc {
+    font-size: 0.78rem;
+  }
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

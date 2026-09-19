@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import { Mail, Download } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "@/components/SEOHead";
+import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
@@ -35,8 +37,19 @@ export const Sponsors = () => {
     setSubmitted(true);
   };
 
+  const breadcrumbs = createBreadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Sponsors & Partenaires", path: "/sponsors" },
+  ]);
+
   return (
     <div style={{ background: "#EFEFEF" }}>
+      <SEOHead
+        title="Partenaires & Sponsors | Breizh Backyard Ultra"
+        description="Associez votre marque au Breizh Backyard Ultra : découvrez notre dossier partenaire et soutenez un événement d'ultra-endurance d'exception."
+        canonicalPath="/sponsors"
+        jsonLd={breadcrumbs}
+      />
       <PageHeader
         subtitle={t("sponsors_page.header.subtitle")}
         title={t("sponsors_page.header.title")}

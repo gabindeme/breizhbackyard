@@ -16,7 +16,7 @@
     "benevoles": "Tud a-youl vat"
   },
   "footer": {
-    "rights": "© {{year}} Breizh Backyard — An holl wirioù miret strizh",
+    "rights": "© {{year}} Breizh Backyard Ultra — An holl wirioù miret strizh",
     "tagline": "Ar redadeg ultra e kreiz Roazhon.",
     "nav_title": "Merdeiñ",
     "info_title": "Titouroù",
@@ -148,9 +148,11 @@
       "subtitle": "Kompren ar furm",
       "title": "Ur red hep dibenn rakwelet",
       "step_depart": "Loc'hañ",
+      "step_loop": "Tro",
       "step_vainqueur": "Gounezer!",
-      "legend_depart": "Tan-gregiñ bep eur",
-      "legend_vainqueur": "Gounezer = an hini diwezhañ da glokaat"
+      "desc_start": "An holl redourien a ya en-dro asambles war ar sin.",
+      "desc_24h": "24 eur a red, da lâret eo 100 mil — ha ne baouez ket!",
+      "desc_winner": "An hini diwezhañ war e sav a glok un dro ouzhpenn, e-unan, evit gounit."
     },
     "rules": {
       "r1_title": "Tan-gregiñ bep eur",
@@ -365,6 +367,13 @@
     "messages": {
       "success": "Degemer mat e-barzh ar sas nisañ! Enskrivet eo ho postel. Resev a reot ar c'heleier nevez a-raok pep hini.",
       "error": "N'hon eus ket gallet kadarnaat ho enskrivadur. Gwiriaot ar furmskrid hag esaet en-dro."
+    },
+    "popup": {
+      "badge": "Enskrivadur kadarnaet !",
+      "title": "Postel kaset gant berzh 🎉",
+      "message": "Kaset eo bet ur bostel kadarnaat deoc'h. Sellout a reoc'h ho boest postel (hag spamm !) evit klokaat ho enskrivadur d'ar c'helaouenn.",
+      "email_hint": "Sonjit ouzhpenn hon postel d'ho c'hontaktoù evit chom pell eus ar skignadurioù digoradur enskrivadurioù.",
+      "btn_close": "Kaer, trugarez !"
     }
   },
   "bienvenue_page": {

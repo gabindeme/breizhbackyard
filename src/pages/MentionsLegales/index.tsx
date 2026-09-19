@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Building2, User, Server, Copyright, AlertTriangle, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { SEOHead } from "@/components/SEOHead";
+import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div
@@ -65,8 +67,19 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
 export const MentionsLegales = () => {
   const { t } = useTranslation();
 
+  const breadcrumbs = createBreadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Mentions Légales", path: "/mentions-legales" },
+  ]);
+
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
+      <SEOHead
+        title="Mentions Légales | Breizh Backyard Ultra"
+        description="Consultez les informations réglementaires, juridiques et d'hébergement du site officiel du Breizh Backyard Ultra."
+        canonicalPath="/mentions-legales"
+        jsonLd={breadcrumbs}
+      />
       <PageHeader
         subtitle={t("mentions_page.subtitle", "Informations réglementaires & Éditeur")}
         title={t("mentions_page.title", "Mentions Légales")}

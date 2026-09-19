@@ -14,7 +14,7 @@ i18n.use(initReactI18next).init({
   fallbackLng: "fr",
 });
 
-export const listOfLocales = ["fr", "en", "br"];
+export const listOfLocales = ["fr", "br", "en"];
 
 const localeNames: { [key: string]: string } = {
   en: "English",

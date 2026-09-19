@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import { Shield, Lock, Eye, Clock, UserCheck, ExternalLink, FileText, Server } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCookieConsent } from "@/providers/cookie-context";
+import { SEOHead } from "@/components/SEOHead";
+import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div
@@ -66,8 +68,19 @@ export const PolitiqueConfidentialite = () => {
   const { t } = useTranslation();
   const { openModal } = useCookieConsent();
 
+  const breadcrumbs = createBreadcrumbSchema([
+    { name: "Accueil", path: "/" },
+    { name: "Politique de Confidentialité", path: "/politique-de-confidentialite" },
+  ]);
+
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
+      <SEOHead
+        title="Politique de Confidentialité | Breizh Backyard Ultra"
+        description="Découvrez comment l'Association Delta Events protège la confidentialité de vos données personnelles conformément au RGPD."
+        canonicalPath="/politique-de-confidentialite"
+        jsonLd={breadcrumbs}
+      />
       <PageHeader
         subtitle={t("privacy_page.subtitle", "Protection de la vie privée & RGPD")}
         title={t("privacy_page.title", "Politique de Confidentialité")}
