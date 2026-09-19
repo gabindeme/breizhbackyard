@@ -248,7 +248,7 @@ export const Navbar = () => {
               </span>
               <span
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "'Hobo', sans-serif",
                   fontWeight: "600",
                   fontSize: "0.65rem",
                   color: "#F5C92C",

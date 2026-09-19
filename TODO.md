@@ -1,7 +1,7 @@
 # 📋 Breizh Backyard To-Do List
 
 ## High priority 
-- [ ] Add correct photos
+- [ ] Add correct photos + alt text for accesibilitty
 - [ ] Change all text to delete IA text and put real infos
 - [ ] "zone de vie" , "base de vie" à modifier et standardiser
 - [ ] Refaire la FAQ avec de vrais infos
@@ -18,3 +18,5 @@
 - [ ] check all the links (sponsors, partners...)
 - [ ] check open graph with OpenGraph.xyz: https://opengraph.xyz 
 - [ ] check favicon: https://favicon.io/favicon-checker/
+- check page load speed
+

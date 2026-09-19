@@ -16,8 +16,9 @@ import {
   ChevronRight,
   Trophy,
   Mountain,
-  Wind,
+  Tent,
   Leaf,
+  Trees
 } from "lucide-react";
 
 // Hook pour l'animation au scroll
@@ -489,7 +490,7 @@ export const Home = () => {
               {
                 title: t("home.ambiance.card1_title"),
                 text: t("home.ambiance.card1_text"),
-                icon: Wind,
+                icon: Tent,
                 color: "#2D9185",
               },
               {
@@ -501,7 +502,7 @@ export const Home = () => {
               {
                 title: t("home.ambiance.card3_title"),
                 text: t("home.ambiance.card3_text"),
-                icon: Leaf,
+                icon: Trees,
                 color: "#8CBE4F",
               },
             ].map((item, i) => (

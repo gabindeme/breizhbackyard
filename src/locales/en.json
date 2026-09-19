@@ -347,7 +347,6 @@
       "title": "Be among the first to run",
       "desc": "Spots for the Breizh Backyard are limited. By signing up for our newsletter, you'll be alerted as soon as registration officially opens, well before the public announcement.",
       "list1": "Immediate notification when registration opens",
-      "list2": "Priority access ahead of waiting lists",
       "list3": "Exclusive news about the race and the course",
       "depart_title": "Next start",
       "depart_date": "Saturday, May 15, 2027",
@@ -553,6 +552,23 @@
           {
             "q": "What happens if a runner is injured?",
             "a": "A medical team is present around the clock. Any runner in difficulty can be cared for immediately. We prefer a voluntary withdrawal to putting oneself in danger."
+          }
+        ]
+      },
+      {
+        "category": "🤝 The organisation",
+        "items": [
+          {
+            "q": "Who organises the Breizh Backyard?",
+            "a": "The Breizh Backyard is organised by the Delta Events association. We are 4 young people passionate about running and trail, driven by the desire to create a unique ultra-endurance event in Brittany. It's a 100% non-profit project, fuelled by the passion and energy of our team."
+          },
+          {
+            "q": "What does the entry fee cover?",
+            "a": "The entire entry fee is reinvested into organising the event: logistics, safety, course marking, aid stations, medical team, insurance, and equipment. As a non-profit association, we make no profit — every euro goes towards giving you the best possible experience."
+          },
+          {
+            "q": "How can I contact the organisation?",
+            "a": "Feel free to reach out via our Contact page or directly by email. Whether it's a question, a suggestion, or a partnership enquiry, we're happy to respond to every message!"
           }
         ]
       }
