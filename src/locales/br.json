@@ -405,28 +405,6 @@
       "desc": "Dizoleit e-mesk munudoù hon darvoud, hon talvoudoù, hon niveroù pouezus hag hon holl ginnigoù hewelegezh en ur bellgargañ hon teuliad klok.",
       "btn": "Pellgargañ an teuliad (PDF)"
     },
-    "niveaux": {
-      "subtitle": "Dont da vezañ kevredad",
-      "title": "Live kevredigezh",
-      "or_name": "Aour",
-      "or_desc": "Hewelegezh uc'hek — logo XXL war an niverenn hag an holl gehentiñ",
-      "or_price": "War c'houlenn",
-      "argent_name": "Arc'hant",
-      "argent_desc": "Hewelegezh kreñv — logo splann war al lec'hienn, ar rouedadoù hag ar sinaerezh",
-      "argent_price": "War c'houlenn",
-      "bronze_name": "Bronz",
-      "bronze_desc": "Hewelegezh mat — logo war al lec'hienn ha kehentiñ ar red",
-      "bronze_price": "War c'houlenn",
-      "tarif": "Priz",
-      "logo": "Logo"
-    },
-    "avantages": {
-      "title": "Talvoudegezhioù boutin d'an holl live",
-      "b1": "Logo war al lec'hienn internet",
-      "b2": "Menegiñ war ar rouedadoù sokial",
-      "b3": "Bezañs er pakad kemperzhour",
-      "b4": "Stand posupl war ar maez-bevañ"
-    },
     "contact": {
       "subtitle": "Dedennet?",
       "title": "Kit e darempred ganeomp",
@@ -718,7 +696,8 @@
       "btn_loading": "O kas...",
       "btn_submit": "Kas ma goulenn",
       "success_title": "Goulenn kaset!",
-      "success_desc": "Trugarez {{nom}}! Evit muioc'h a ditouroù ez eimp e darempred ganeoc'h buan-tre."
+      "success_desc": "Trugarez {{nom}}! Evit muioc'h a ditouroù ez eimp e darempred ganeoc'h buan-tre.",
+      "another": "Kas ur goulenn all"
     }
   },
   "mentions_page": {
@@ -744,5 +723,40 @@
     "final_score": "Skor diwezhañ",
     "controls_help": "Poueziñ war an Esaouenn, ar Saezh d'an Nec'h, pe touchañ ar skramm evit lammat.",
     "btn_home": "Distro d'an degemer"
+  },
+  "forms": {
+    "error_title": "C'hwitet eo bet ar c'has",
+    "error_desc": "N'eus ket bet gallet kas ho kemennadenn. Klaskit en-dro a-benn un nebeud amzer pe skrivit deomp war-eeun da <mail>{{email}}</mail>."
+  },
+  "emails": {
+    "subject_contact": "Resevet hon eus ho kemennadenn",
+    "subject_benevole": "Trugarez evit ho kinnig a-youl vat",
+    "subject_sponsor": "Trugarez evit ho tedenn evit ur gevelerezh",
+    "greeting": "Demat {{nom}},",
+    "greeting_anonymous": "Demat,",
+    "body_contact": "Resevet hon eus ho kemennadenn ha respont a raimp deoc'h e-barzh 48 eur labour.",
+    "body_benevole": "Resevet hon eus ho koulenn evit mont e skipailh tud a-youl vat ar Breizh Backyard Ultra. Mont a raimp e darempred ganeoc'h buan-tre gant muioc'h a ditouroù.",
+    "body_sponsor": "Resevet hon eus ho koulenn kevelerezh. Mont a raimp e darempred ganeoc'h ar buanañ ar gwellañ evit kaozeal diwar-benn se.",
+    "reply_hint": "Evit klokaat ho koulenn, respontit d'ar postel-mañ.",
+    "signoff": "A galon,",
+    "team": "Skipailh ar Breizh Backyard Ultra",
+    "footer": "Resevout a rit ar postel-mañ abalamour m'hoc'h eus leuniet ur furmskrid war breizhbackyard.com."
+  },
+  "cookies": {
+    "banner_title": "Doujañ d'ho puhez prevez",
+    "banner_desc": "Toupinoù ret evit mont en-dro al lec'hienn a implijomp. Gant hoc'h asant e c'hallomp implijout ivez toupinoù muzuliañ an niver a weladennerien evit gwellaat al lec'hienn. Heulier bruderezh ebet n'eo implijet.",
+    "learn_more": "Gouzout hiroc'h",
+    "btn_refuse": "Nac'h pep tra",
+    "btn_customize": "Personelaat",
+    "btn_accept": "Asantiñ pep tra",
+    "modal_title": "Dibaboù an toupinoù",
+    "modal_intro": "Gallout a rit personelaat ho tibab evit pep rummad toupinoù amañ dindan. Miret e vez ho tibaboù e-pad 13 miz ha gallout a rit o cheñch forzh pegoulz.",
+    "cat_essential_title": "Toupinoù ret (rediet)",
+    "always_active": "Atav war enaou",
+    "cat_essential_desc": "Ret-mat eo an toupinoù-mañ evit mont en-dro al lec'hienn, evit ar surentez hag evit derc'hel soñj eus ho tibaboù asant.",
+    "cat_analytics_title": "Muzuliañ ar weladennerezh hag an digonusted",
+    "cat_analytics_desc": "Talvezout a ra da vuzuliañ hep anv an niver a weladennoù ha tizh al lec'hienn (Vercel Analytics ha Speed Insights) evit he gwellaat evit ar redourien hag ar skoazellerien.",
+    "read_full_policy": "Lenn ar politikerezh prevezded",
+    "save_selection": "Enrollañ ma dibaboù"
   }
 }

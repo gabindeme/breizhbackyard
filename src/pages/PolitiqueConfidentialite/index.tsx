@@ -205,17 +205,20 @@ export const PolitiqueConfidentialite = () => {
                 </h2>
               </div>
               <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: 1.75, marginBottom: "1rem" }}>
-                Nous veillons à ne collecter que les données strictly nécessaires aux finalités poursuivies :
+                Nous veillons à ne collecter que les données strictement nécessaires aux finalités poursuivies :
               </p>
               <ul style={{ paddingLeft: "1.25rem", color: "#444", fontSize: "0.93rem", lineHeight: 1.8 }}>
                 <li>
                   <strong>Inscriptions à la course (Dossards) :</strong> Nom, prénom, date de naissance, sexe, adresse e-mail, numéro de téléphone, personne à contacter en cas d'urgence et justificatifs de licence sportive.
                 </li>
                 <li>
-                  <strong>Formulaires de Contact & Bénévolat :</strong> Nom, prénom, adresse e-mail, numéro de téléphone, disponibilités et message.
+                  <strong>Formulaires de contact, de bénévolat et de partenariat :</strong> nom, adresse e-mail, message et, selon le formulaire, sujet de la demande, disponibilités ou nom de la société. La langue du site au moment de l'envoi est aussi transmise, pour vous répondre dans cette langue.
                 </li>
                 <li>
-                  <strong>Newsletter :</strong> Adresse e-mail (sur consentement explicite).
+                  <strong>Newsletter :</strong> prénom et adresse e-mail (sur consentement explicite).
+                </li>
+                <li>
+                  <strong>Protection anti-spam du formulaire newsletter :</strong> lorsque vous utilisez ce formulaire, Google reCAPTCHA collecte des données techniques (adresse IP, informations sur le navigateur et l'appareil, interactions avec la page) pour vérifier que vous n'êtes pas un robot. Ce service n'est chargé qu'au moment où vous commencez à remplir le formulaire.
                 </li>
                 <li>
                   <strong>Données techniques & d'audience :</strong> Adresse IP anonymisée, type de navigateur, pages consultées et métriques de performance (Vercel Analytics & Speed Insights, uniquement après consentement).
@@ -261,7 +264,7 @@ export const PolitiqueConfidentialite = () => {
                     Intérêt légitime
                   </h4>
                   <p style={{ fontSize: "0.88rem", color: "#555", margin: 0, lineHeight: 1.6 }}>
-                    Sécurité et prévention des fraudes sur le site web, optimisation technique de la plateforme.
+                    Réponse aux demandes envoyées via les formulaires de contact, de bénévolat et de partenariat, protection des formulaires contre le spam, sécurité et optimisation technique du site.
                   </p>
                 </div>
               </div>
@@ -292,6 +295,9 @@ export const PolitiqueConfidentialite = () => {
                 </li>
                 <li>
                   <strong>Formulaires de contact :</strong> Supprimés au plus tard 12 mois après le traitement de votre demande.
+                </li>
+                <li>
+                  <strong>Newsletter :</strong> Jusqu'à votre désinscription, possible à tout moment via le lien présent dans chaque email.
                 </li>
                 <li>
                   <strong>Consentement aux cookies :</strong> Mémorisé pour une durée maximale de 13 mois.
@@ -327,10 +333,21 @@ export const PolitiqueConfidentialite = () => {
                   Notre plateforme partenaire de gestion des inscriptions et des dossards : <strong>Nextrun</strong>.
                 </li>
                 <li>
-                  Notre prestataire technique d'hébergement : <strong>Vercel Inc.</strong> (infrastructures sécurisées applicables au RGPD).
+                  Notre prestataire technique d'hébergement : <strong>Vercel Inc.</strong> (États-Unis), qui héberge le site et traite l'envoi des formulaires.
+                </li>
+                <li>
+                  Notre prestataire d'emailing : <strong>Brevo</strong> (Sendinblue SAS, Paris, France), pour l'envoi de la newsletter et l'acheminement des messages des formulaires de contact, de bénévolat et de partenariat, ainsi que des emails de confirmation.
+                </li>
+                <li>
+                  <strong>Google</strong> (Google Ireland Limited et Google LLC, États-Unis), pour le service anti-spam reCAPTCHA du formulaire newsletter.
                 </li>
                 <li>Les prestataires de chronométrage officiel liés par contrat de confidentialité.</li>
               </ul>
+              <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: 1.75, marginTop: "1rem" }}>
+                <strong>Transferts hors de l'Union européenne :</strong> Vercel et Google sont des sociétés américaines, et certaines données
+                peuvent donc être traitées aux États-Unis. Ces transferts sont encadrés par le Data Privacy Framework UE–États-Unis et/ou par
+                les clauses contractuelles types adoptées par la Commission européenne.
+              </p>
             </article>
 
             {/* Section 6 */}

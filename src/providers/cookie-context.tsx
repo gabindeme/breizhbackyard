@@ -20,6 +20,8 @@ interface CookieContextType {
 }
 
 const STORAGE_KEY = "bbu_cookie_consent";
+// The privacy policy promises consent is kept for at most 13 months.
+const CONSENT_MAX_AGE_MS = 13 * 30.44 * 24 * 60 * 60 * 1000;
 
 const defaultState: CookieConsentState = {
   essential: true,
@@ -35,6 +37,12 @@ export const CookieProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
+        // Consent without a valid date, or older than 13 months, counts as undecided: ask again.
+        const savedAt = Date.parse(parsed.timestamp);
+        if (!Number.isFinite(savedAt) || Date.now() - savedAt > CONSENT_MAX_AGE_MS) {
+          localStorage.removeItem(STORAGE_KEY);
+          return defaultState;
+        }
         return {
           essential: true,
           analytics: Boolean(parsed.analytics),

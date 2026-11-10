@@ -405,28 +405,6 @@
       "desc": "Discover our event in detail, our values, key figures, and all our visibility offers by downloading our full package.",
       "btn": "Download the package (PDF)"
     },
-    "niveaux": {
-      "subtitle": "Become a partner",
-      "title": "Partnership levels",
-      "or_name": "Gold",
-      "or_desc": "Maximum visibility — XXL logo on bib and all communications",
-      "or_price": "Quote on request",
-      "argent_name": "Silver",
-      "argent_desc": "High visibility — prominent logo on website, social media and signage",
-      "argent_price": "Quote on request",
-      "bronze_name": "Bronze",
-      "bronze_desc": "Good visibility — logo on website and race communications",
-      "bronze_price": "Quote on request",
-      "tarif": "Price",
-      "logo": "Logo"
-    },
-    "avantages": {
-      "title": "Benefits common to all levels",
-      "b1": "Logo on the website",
-      "b2": "Mention on social media",
-      "b3": "Presence in the participant kit",
-      "b4": "Possible booth at the living area"
-    },
     "contact": {
       "subtitle": "Interested?",
       "title": "Contact us",
@@ -718,7 +696,8 @@
       "btn_loading": "Sending...",
       "btn_submit": "Send my application",
       "success_title": "Application sent!",
-      "success_desc": "Thank you {{nom}}! We'll get back to you very soon with more details."
+      "success_desc": "Thank you {{nom}}! We'll get back to you very soon with more details.",
+      "another": "Send another application"
     }
   },
   "mentions_page": {
@@ -744,5 +723,40 @@
     "final_score": "Final score",
     "controls_help": "Press Space, Up Arrow, or tap the screen to jump.",
     "btn_home": "Back to homepage"
+  },
+  "forms": {
+    "error_title": "Sending failed",
+    "error_desc": "Your message could not be sent. Please try again in a moment or email us directly at <mail>{{email}}</mail>."
+  },
+  "emails": {
+    "subject_contact": "We've received your message",
+    "subject_benevole": "Thank you for volunteering",
+    "subject_sponsor": "Thank you for your interest in a partnership",
+    "greeting": "Hello {{nom}},",
+    "greeting_anonymous": "Hello,",
+    "body_contact": "We've received your message and will reply within 48 business hours.",
+    "body_benevole": "We've received your application to join the Breizh Backyard Ultra volunteer team. We'll get back to you very soon with more details.",
+    "body_sponsor": "We've received your partnership request. We'll get back to you as soon as possible to discuss it.",
+    "reply_hint": "To add anything to your request, simply reply to this email.",
+    "signoff": "Best regards,",
+    "team": "The Breizh Backyard Ultra team",
+    "footer": "You're receiving this email because you filled in a form on breizhbackyard.com."
+  },
+  "cookies": {
+    "banner_title": "Your privacy matters",
+    "banner_desc": "We use cookies that are essential for the site to work. With your consent, we can also use audience measurement cookies to improve the site. No advertising trackers are used.",
+    "learn_more": "Learn more",
+    "btn_refuse": "Refuse all",
+    "btn_customize": "Customise",
+    "btn_accept": "Accept all",
+    "modal_title": "Cookie preferences",
+    "modal_intro": "You can customise your choice for each cookie category below. Your choices are kept for 13 months and can be changed at any time.",
+    "cat_essential_title": "Necessary cookies (required)",
+    "always_active": "Always active",
+    "cat_essential_desc": "These cookies are essential for the site to work, for security and to remember your consent choices.",
+    "cat_analytics_title": "Audience measurement and performance",
+    "cat_analytics_desc": "Lets us anonymously measure traffic and page speed (Vercel Analytics and Speed Insights) to improve the site for runners and supporters.",
+    "read_full_policy": "Read the privacy policy",
+    "save_selection": "Save my choices"
   }
 }

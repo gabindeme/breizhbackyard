@@ -5,6 +5,8 @@ import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/componen
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
+import { submitForm } from "@/lib/submit-form";
+import { Honeypot, FormError } from "@/components/customs/form-extras";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
@@ -40,6 +42,8 @@ export const Contact = () => {
     sujet: "",
     message: "",
   });
+  const [website, setWebsite] = useState("");
+  const [sendError, setSendError] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -58,9 +62,11 @@ export const Contact = () => {
     e.preventDefault();
     if (!validate()) return;
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
+    setSendError(false);
+    const ok = await submitForm("contact", { ...formData, website });
     setLoading(false);
-    setSubmitted(true);
+    if (ok) setSubmitted(true);
+    else setSendError(true);
   };
 
   const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -182,7 +188,8 @@ export const Contact = () => {
                     {t("contact_page.form.title")}
                   </h3>
 
-                  <form onSubmit={handleSubmit} noValidate>
+                  <form onSubmit={handleSubmit} noValidate style={{ position: "relative" }}>
+                    <Honeypot value={website} onChange={setWebsite} />
                     <div className="form-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                       <div>
                         <label className="bbu-label" htmlFor="c-nom">
@@ -245,6 +252,8 @@ export const Contact = () => {
                       />
                       {errors.message && <p style={{ color: "#e53", fontSize: "0.78rem", marginTop: "0.3rem" }}>{errors.message}</p>}
                     </div>
+
+                    {sendError && <FormError />}
 
                     <button
                       type="submit"

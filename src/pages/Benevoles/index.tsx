@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "@/components/SEOHead";
 import { createBreadcrumbSchema } from "@/lib/seoSchemas";
+import { submitForm } from "@/lib/submit-form";
+import { Honeypot, FormError } from "@/components/customs/form-extras";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
@@ -32,15 +34,17 @@ export const Benevoles = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [website, setWebsite] = useState("");
+  const [sendError, setSendError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
     const newErrors: Record<string, string> = {};
-    if (!formState.nom) newErrors.nom = t("contact_page.errors.nom_req");
-    if (!formState.email) newErrors.email = t("contact_page.errors.email_req");
-    else if (!/\S+@\S+\.\S+/.test(formState.email)) newErrors.email = t("contact_page.errors.email_inv");
+    if (!formState.nom.trim()) newErrors.nom = t("contact_page.errors.nom_req");
+    if (!formState.email.trim()) newErrors.email = t("contact_page.errors.email_req");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email.trim())) newErrors.email = t("contact_page.errors.email_inv");
     
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -49,13 +53,17 @@ export const Benevoles = () => {
 
     setIsSubmitting(true);
     setErrors({});
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormState({ nom: "", email: "", dispo: "", msg: "" });
-    }, 1500);
+    setSendError(false);
+    const ok = await submitForm("benevole", {
+      nom: formState.nom,
+      email: formState.email,
+      dispo: formState.dispo,
+      message: formState.msg,
+      website,
+    });
+    setIsSubmitting(false);
+    if (ok) setIsSuccess(true);
+    else setSendError(true);
   };
 
   const breadcrumbs = createBreadcrumbSchema([
@@ -187,14 +195,18 @@ export const Benevoles = () => {
                   <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "2rem", color: "#164030", marginBottom: "1rem" }}>{t("benevoles_page.form.success_title")}</h3>
                   <p style={{ color: "#666", fontSize: "1.1rem" }}>{t("benevoles_page.form.success_desc", { nom: formState.nom })}</p>
                   <button 
-                    onClick={() => setIsSuccess(false)}
+                    onClick={() => {
+                      setFormState({ nom: "", email: "", dispo: "", msg: "" });
+                      setIsSuccess(false);
+                    }}
                     style={{ marginTop: "2rem", background: "none", border: "none", color: "#277956", fontWeight: "600", cursor: "pointer", fontSize: "1rem" }}
                   >
-                    Envoyer une autre candidature
+                    {t("benevoles_page.form.another")}
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ display: "grid", gap: "1.5rem" }}>
+                <form onSubmit={handleSubmit} noValidate style={{ display: "grid", gap: "1.5rem", position: "relative" }}>
+                  <Honeypot value={website} onChange={setWebsite} />
                   
                   <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }}>
                     <div>
@@ -243,6 +255,8 @@ export const Benevoles = () => {
                       style={{ width: "100%", padding: "1rem", borderRadius: "12px", border: `2px solid #e5e7eb`, fontSize: "1rem", outline: "none", transition: "border-color 0.2s", resize: "vertical" }}
                     />
                   </div>
+
+                  {sendError && <FormError />}
 
                   <button 
                     type="submit" 

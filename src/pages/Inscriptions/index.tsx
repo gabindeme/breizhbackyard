@@ -21,6 +21,29 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
   </div>
 );
 
+const RECAPTCHA_SITE_KEY = "6Lfj9rMtAAAAAC83oYpJpHxnZY8nxpoqvjNDEffW";
+let recaptchaLoading: Promise<void> | null = null;
+
+// Google reCAPTCHA is only loaded once the visitor starts using the newsletter form,
+// so visitors who just browse send nothing to Google.
+function loadRecaptcha(): Promise<void> {
+  if (!recaptchaLoading) {
+    recaptchaLoading = new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.id = "google-recaptcha-enterprise-script";
+      script.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
+      script.async = true;
+      script.onload = () => resolve();
+      script.onerror = () => {
+        recaptchaLoading = null;
+        resolve();
+      };
+      document.head.appendChild(script);
+    });
+  }
+  return recaptchaLoading;
+}
+
 export const Inscriptions = () => {
   const { t } = useTranslation();
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
@@ -50,16 +73,15 @@ export const Inscriptions = () => {
       if (el) el.dispatchEvent(event);
     };
 
-    // Chargement du script Google reCAPTCHA Enterprise avec la clé du client
-    const recaptchaId = 'google-recaptcha-enterprise-script';
-    if (!document.getElementById(recaptchaId)) {
-      const script = document.createElement('script');
-      script.id = recaptchaId;
-      script.src = 'https://www.google.com/recaptcha/enterprise.js?render=6Lfj9rMtAAAAAC83oYpJpHxnZY8nxpoqvjNDEffW';
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-    }
+    // reCAPTCHA: loaded on the first focus or input inside the form, not when the page opens.
+    const form = document.getElementById('sib-form');
+    const startRecaptcha = () => {
+      loadRecaptcha();
+      form?.removeEventListener('focusin', startRecaptcha);
+      form?.removeEventListener('input', startRecaptcha);
+    };
+    form?.addEventListener('focusin', startRecaptcha);
+    form?.addEventListener('input', startRecaptcha);
 
     // Chargement du script Brevo
     const mainScriptId = 'brevo-main-script';
@@ -89,15 +111,18 @@ export const Inscriptions = () => {
 
     return () => {
       if (observer) observer.disconnect();
+      form?.removeEventListener('focusin', startRecaptcha);
+      form?.removeEventListener('input', startRecaptcha);
     };
   }, []);
 
   // Déclencheur reCAPTCHA Enterprise lors de la soumission
-  const handleFormSubmit = () => {
+  const handleFormSubmit = async () => {
+    await loadRecaptcha();
     if ((window as any).grecaptcha && (window as any).grecaptcha.enterprise) {
       (window as any).grecaptcha.enterprise.ready(async () => {
         try {
-          const token = await (window as any).grecaptcha.enterprise.execute('6Lfj9rMtAAAAAC83oYpJpHxnZY8nxpoqvjNDEffW', { action: 'submit' });
+          const token = await (window as any).grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
           let tokenInput = document.getElementById('g-recaptcha-response') as HTMLInputElement;
           if (!tokenInput) {
             tokenInput = document.createElement('input');

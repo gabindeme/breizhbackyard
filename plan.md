@@ -39,8 +39,8 @@ Written on 2026-10-21 after a full review of the code at commit `0e6ec90` (plus 
 
 ## Phase 0: Prep
 
-- [ ] **0.1 Start from a clean tree** (S). Commit or stash the in-progress `fr.json` edits.
-- [ ] **0.2 Add a translation-key parity check** (S). Write `scripts/check-locales.mjs`: flatten the nested keys of `fr`, `en` and `br`, print every key that exists in one file but not another, and exit with code 1 on any mismatch. Add a `"check:i18n"` script to `package.json`.
+- [x] **0.1 Start from a clean tree** (S). Commit or stash the in-progress `fr.json` edits.
+- [x] **0.2 Add a translation-key parity check** (S). Write `scripts/check-locales.mjs`: flatten the nested keys of `fr`, `en` and `br`, print every key that exists in one file but not another, and exit with code 1 on any mismatch. Add a `"check:i18n"` script to `package.json`.
   **Done when:** running it on today's files reports exactly the 18 `sponsors_page.niveaux.*` / `sponsors_page.avantages.*` keys that are in en/br but not fr.
 
 ## Phase 1: Broken or legally risky (do first)
@@ -50,18 +50,18 @@ Written on 2026-10-21 after a full review of the code at commit `0e6ec90` (plus 
 All three submit handlers fake a delay with `setTimeout`, show a success screen, and send nothing:
 `src/pages/Contact/index.tsx:57-64`, `src/pages/Sponsors/index.tsx:31-38`, `src/pages/Benevoles/index.tsx:36-60` (it even says `// Simulate API call`). Every message, sponsor request and volunteer application is silently lost.
 
-- [ ] **Same day, if the real fix can't ship right away:** remove the fake success. Show `contact@breizhbackyard.com` and a `mailto:` button with the subject and body pre-filled, or hide the forms.
-- [ ] Add a Vercel Function `api/contact.ts` at the repo root. It should:
+- [x] ~~**Same day, if the real fix can't ship right away:**~~ (skipped: the real fix shipped instead) remove the fake success. Show `contact@breizhbackyard.com` and a `mailto:` button with the subject and body pre-filled, or hide the forms.
+- [x] Add a Vercel Function `api/contact.ts` at the repo root. It should:
   - accept `{ type: "contact" | "sponsor" | "benevole", ...fields }`;
   - validate on the server (required fields, email format, maximum lengths);
   - silently drop the request when a hidden honeypot field is filled in;
   - send a notification email to contact@breizhbackyard.com through Brevo (`POST https://api.brevo.com/v3/smtp/email`, `api-key` header), with `replyTo` set to the visitor. The sender must be a verified Brevo sender.
 
   Keep the key in a Vercel environment variable `BREVO_API_KEY`, never in client code.
-- [ ] Optional, for volunteers: also add the person to a Brevo "Bénévoles" list (`POST /v3/contacts`) so they can be emailed later.
-- [ ] Stop the SPA rewrite in `vercel.json` from catching the API: `{ "source": "/((?!api/).*)", "destination": "/index.html" }`.
-- [ ] In the three pages, `fetch("/api/contact", …)`. Show success only on a 2xx response. Otherwise show a translated error message that also gives the email address. Add the new strings to all three locales.
-- [ ] Test with `vercel dev` (needs the Vercel CLI and the environment variable).
+- [ ] Optional, for volunteers (not done yet; the API key has the contacts permission): also add the person to a Brevo "Bénévoles" list (`POST /v3/contacts`) so they can be emailed later.
+- [x] Stop the SPA rewrite in `vercel.json` from catching the API: `{ "source": "/((?!api/).*)", "destination": "/index.html" }`.
+- [x] In the three pages, `fetch("/api/contact", …)`. Show success only on a 2xx response. Otherwise show a translated error message that also gives the email address. Add the new strings to all three locales.
+- [ ] Test with `vercel dev` (done with a mocked Brevo, locally and on Vercel's compiled output; one real send still to do) (needs the Vercel CLI and the environment variable).
 
 **Done when:** on a preview deployment, each of the three forms delivers an email to the inbox, and submitting while offline shows an error, not a success.
 
@@ -70,8 +70,8 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 - The banner's first layer (`src/components/customs/cookie-banner.tsx`) offers only "Personnaliser" (line 161) and "Tout accepter" (line 190). `declineAll` exists in the context but nothing calls it. The CNIL's cookie guidelines require refusing to be as visible and as easy as accepting.
 - The privacy policy says consent is kept for at most 13 months (`src/pages/PolitiqueConfidentialite/index.tsx:297`). `src/providers/cookie-context.tsx` saves a timestamp (line 87) but never checks it, so consent never expires.
 
-- [ ] Add a "Tout refuser" button that calls `declineAll`, with the same size and visual weight as "Tout accepter". Add `cookies.btn_refuse` to the three locales.
-- [ ] In `cookie-context.tsx`, treat a stored consent with no timestamp, or one older than 13 months, as undecided, so the banner shows again.
+- [x] Add a "Tout refuser" button that calls `declineAll`, with the same size and visual weight as "Tout accepter". Add `cookies.btn_refuse` to the three locales.
+- [x] In `cookie-context.tsx`, treat a stored consent with no timestamp, or one older than 13 months, as undecided, so the banner shows again.
 
 **Done when:** the first layer shows Refuse, Customise and Accept, and setting the stored timestamp to 14 months ago brings the banner back.
 
@@ -80,9 +80,9 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 - `src/pages/Inscriptions/index.tsx:53-62` loads Google reCAPTCHA Enterprise as soon as the page opens, whatever the visitor chose in the cookie banner.
 - `index.html` loads the Inter font from `fonts.googleapis.com` on every page, which sends every visitor's IP address to Google. A German court ruled this a GDPR violation (LG München I, 20 Jan 2022).
 
-- [ ] Host Inter yourself. Add `@fontsource/inter`, import weights 300 to 800 in `src/main.tsx` (the font name stays "Inter", so no style changes), and remove the three Google Fonts `<link>` tags from `index.html`.
-- [ ] Load the reCAPTCHA script on the first `focus` or `input` inside `#sib-form`, not when the page mounts. Keep the site key in one constant (it's written twice, at lines 58 and 100).
-- [ ] Leave Vercel Analytics and Speed Insights behind the consent check as they are. They're already gated correctly.
+- [x] Host Inter yourself. Add `@fontsource/inter`, import weights 300 to 800 in `src/main.tsx` (the font name stays "Inter", so no style changes), and remove the three Google Fonts `<link>` tags from `index.html`.
+- [x] Load the reCAPTCHA script on the first `focus` or `input` inside `#sib-form`, not when the page mounts. Keep the site key in one constant (it's written twice, at lines 58 and 100).
+- [x] Leave Vercel Analytics and Speed Insights behind the consent check as they are. They're already gated correctly.
 - [ ] Note for later: when the hidden Parcours page comes back, its Strava embed (`src/pages/Parcours/index.tsx:31`) also needs consent (click to load).
 
 **Done when:** in a fresh browser profile, DevTools › Network shows no request to google.com, gstatic.com or googleapis.com on any page until you interact with the newsletter form.
@@ -96,10 +96,10 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 - says the contact and volunteer forms collect a phone number (line 215), but neither form asks for one;
 - doesn't mention transfers outside the EU (Vercel and Google are US companies).
 
-- [ ] Name Brevo (Sendinblue SAS, France) as a processor for the newsletter and form emails.
-- [ ] Name Google reCAPTCHA (purpose: anti-spam; transfer to the US).
-- [ ] Make the "data collected" list match the real forms.
-- [ ] Keep the "13 months" wording only once 1.2 implements it.
+- [x] Name Brevo (Sendinblue SAS, France) as a processor for the newsletter and form emails.
+- [x] Name Google reCAPTCHA (purpose: anti-spam; transfer to the US).
+- [x] Make the "data collected" list match the real forms.
+- [x] Keep the "13 months" wording only once 1.2 implements it.
 - [ ] Have the organisers check the final text, since it's legal content.
 
 **Done when:** every third party that shows up in the Network tab is named in the policy.
@@ -107,7 +107,7 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 ## Phase 2: Content and translation correctness
 
 ### 2.1 Bring the locale files back in sync (S, D3)
-- [ ] Delete `sponsors_page.niveaux` and `sponsors_page.avantages` from `en.json` and `br.json`. They've been unused since `16d9853`: the Sponsors page now only uses `header`, `dossier` and `contact`.
+- [x] Delete `sponsors_page.niveaux` and `sponsors_page.avantages` from `en.json` and `br.json`. They've been unused since `16d9853`: the Sponsors page now only uses `header`, `dossier` and `contact`.
 
 **Done when:** `pnpm check:i18n` passes.
 

@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "@/components/SEOHead";
 import { createBreadcrumbSchema } from "@/lib/seoSchemas";
+import { submitForm } from "@/lib/submit-form";
+import { Honeypot, FormError } from "@/components/customs/form-extras";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
@@ -27,14 +29,18 @@ export const Sponsors = () => {
   const [formData, setFormData] = useState({ nom: "", societe: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [website, setWebsite] = useState("");
+  const [sendError, setSendError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.email) return;
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
+    setSendError(false);
+    const ok = await submitForm("sponsor", { ...formData, website });
     setLoading(false);
-    setSubmitted(true);
+    if (ok) setSubmitted(true);
+    else setSendError(true);
   };
 
   const breadcrumbs = createBreadcrumbSchema([
@@ -127,7 +133,8 @@ export const Sponsors = () => {
 
           {!submitted ? (
             <div style={{ background: "#fff", borderRadius: "1.5rem", padding: "2.5rem", border: "1px solid #D0D0D0", boxShadow: "0 4px 24px rgba(39,121,86,0.08)" }}>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} style={{ position: "relative" }}>
+                <Honeypot value={website} onChange={setWebsite} />
                 <div className="form-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                   <div>
                     <label className="bbu-label">{t("sponsors_page.contact.nom_label")}</label>
@@ -148,11 +155,12 @@ export const Sponsors = () => {
                     className="bbu-input"
                     rows={4}
                     value={formData.message}
-                    onChange={(e: any) => setFormData(p => ({ ...p, message: e.target.value }))}
+                    onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
                     placeholder={t("sponsors_page.contact.message_ph")}
                     style={{ resize: "vertical" }}
                   />
                 </div>
+                {sendError && <FormError />}
                 <button type="submit" className="btn-primary" disabled={loading} style={{ width: "100%", justifyContent: "center" }}>
                   {loading ? t("sponsors_page.contact.btn_loading") : t("sponsors_page.contact.btn_submit")}
                 </button>

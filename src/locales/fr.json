@@ -696,7 +696,8 @@
       "btn_loading": "Envoi en cours...",
       "btn_submit": "Envoyer ma candidature",
       "success_title": "Candidature envoyée !",
-      "success_desc": "Merci {{nom}} ! Nous vous recontacterons très vite pour vous donner plus de détails."
+      "success_desc": "Merci {{nom}} ! Nous vous recontacterons très vite pour vous donner plus de détails.",
+      "another": "Envoyer une autre candidature"
     }
   },
   "mentions_page": {
@@ -722,5 +723,40 @@
     "final_score": "Score final",
     "controls_help": "Appuyez sur Espace, Flèche Haut ou touchez l'écran pour sauter.",
     "btn_home": "Retour à l'accueil"
+  },
+  "forms": {
+    "error_title": "L'envoi a échoué",
+    "error_desc": "Votre message n'a pas pu être envoyé. Réessayez dans quelques instants ou écrivez-nous directement à <mail>{{email}}</mail>."
+  },
+  "emails": {
+    "subject_contact": "Nous avons bien reçu votre message",
+    "subject_benevole": "Merci pour votre candidature de bénévole",
+    "subject_sponsor": "Merci pour votre intérêt pour un partenariat",
+    "greeting": "Bonjour {{nom}},",
+    "greeting_anonymous": "Bonjour,",
+    "body_contact": "Nous avons bien reçu votre message et nous vous répondrons sous 48 h ouvrées.",
+    "body_benevole": "Nous avons bien reçu votre candidature pour rejoindre l'équipe de bénévoles de la Breizh Backyard Ultra. Nous reviendrons très vite vers vous avec plus de détails.",
+    "body_sponsor": "Nous avons bien reçu votre demande de partenariat. Nous reviendrons vers vous dans les meilleurs délais pour en discuter.",
+    "reply_hint": "Pour compléter votre demande, répondez simplement à cet email.",
+    "signoff": "Sportivement,",
+    "team": "L'équipe de la Breizh Backyard Ultra",
+    "footer": "Vous recevez cet email parce que vous avez rempli un formulaire sur breizhbackyard.com."
+  },
+  "cookies": {
+    "banner_title": "Respect de votre vie privée",
+    "banner_desc": "Nous utilisons des cookies essentiels au fonctionnement du site. Avec votre accord, nous pouvons également utiliser des cookies de mesure d'audience pour améliorer le site. Aucun traceur publicitaire n'est utilisé.",
+    "learn_more": "En savoir plus",
+    "btn_refuse": "Tout refuser",
+    "btn_customize": "Personnaliser",
+    "btn_accept": "Tout accepter",
+    "modal_title": "Centre de préférences des cookies",
+    "modal_intro": "Vous pouvez personnaliser vos choix pour chaque catégorie de cookies ci-dessous. Vos choix seront conservés pendant 13 mois et peuvent être modifiés à tout moment.",
+    "cat_essential_title": "Cookies nécessaires (obligatoires)",
+    "always_active": "Toujours actif",
+    "cat_essential_desc": "Ces cookies sont indispensables au fonctionnement technique du site, à la sécurité et à la mémorisation de vos préférences de consentement.",
+    "cat_analytics_title": "Mesure d'audience et performance",
+    "cat_analytics_desc": "Permet d'analyser anonymement la fréquentation et la vitesse d'affichage de notre site (Vercel Analytics et Speed Insights) afin d'améliorer la navigation des coureurs et supporters.",
+    "read_full_policy": "Consulter la politique de confidentialité",
+    "save_selection": "Enregistrer mes choix"
   }
 }

@@ -7,7 +7,7 @@ import { useCookieConsent } from "@/providers/cookie-context";
 
 export const CookieBanner = () => {
   const { t } = useTranslation();
-  const { consent, acceptAll, savePreferences, isModalOpen, openModal, closeModal } =
+  const { consent, acceptAll, declineAll, savePreferences, isModalOpen, openModal, closeModal } =
     useCookieConsent();
 
   // Local state for modal toggles
@@ -102,7 +102,7 @@ export const CookieBanner = () => {
                           margin: 0,
                         }}
                       >
-                        {t("cookies.banner_title", "Respect de votre vie privée")}
+                        {t("cookies.banner_title")}
                       </h3>
                       <span
                         style={{
@@ -128,10 +128,7 @@ export const CookieBanner = () => {
                         margin: 0,
                       }}
                     >
-                      {t(
-                        "cookies.banner_desc",
-                        "Nous utilisons des cookies essentiels au fonctionnement du site. Avec votre accord, nous pouvons également utiliser des cookies de mesure d'audience pour améliorer votre expérience d'ultra-endurance. Aucun traceur publicitaire tiers n'est activé sans votre consentement."
-                      )}{" "}
+                      {t("cookies.banner_desc")}{" "}
                       <Link
                         to="/politique-de-confidentialite"
                         style={{
@@ -140,7 +137,7 @@ export const CookieBanner = () => {
                           textUnderlineOffset: "3px",
                         }}
                       >
-                        {t("cookies.learn_more", "En savoir plus")}
+                        {t("cookies.learn_more")}
                       </Link>
                     </p>
                   </div>
@@ -183,7 +180,38 @@ export const CookieBanner = () => {
                     }}
                   >
                     <Settings size={16} />
-                    {t("cookies.btn_customize", "Personnaliser")}
+                    {t("cookies.btn_customize")}
+                  </button>
+
+                  {/* Refusing must be as visible and as easy as accepting (CNIL guidelines). */}
+                  <button
+                    onClick={declineAll}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.4rem",
+                      padding: "0.65rem 1.5rem",
+                      borderRadius: "999px",
+                      background: "#fff",
+                      border: "none",
+                      color: "#1a2e22",
+                      fontSize: "0.88rem",
+                      fontWeight: 700,
+                      cursor: "pointer",
+                      transition: "all 0.2s ease",
+                      boxShadow: "0 4px 14px rgba(0, 0, 0, 0.15)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "#e6e6e6";
+                      e.currentTarget.style.transform = "translateY(-1px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "#fff";
+                      e.currentTarget.style.transform = "translateY(0)";
+                    }}
+                  >
+                    <X size={17} />
+                    {t("cookies.btn_refuse")}
                   </button>
 
                   <button
@@ -213,7 +241,7 @@ export const CookieBanner = () => {
                     }}
                   >
                     <Check size={17} />
-                    {t("cookies.btn_accept", "Tout accepter")}
+                    {t("cookies.btn_accept")}
                   </button>
                 </div>
               </div>
@@ -282,7 +310,7 @@ export const CookieBanner = () => {
                         margin: 0,
                       }}
                     >
-                      {t("cookies.modal_title", "Centre de préférences des cookies")}
+                      {t("cookies.modal_title")}
                     </h2>
                     <p style={{ margin: 0, fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.6)" }}>
                       Breizh Backyard Ultra — Conforme RGPD
@@ -326,10 +354,7 @@ export const CookieBanner = () => {
                   marginBottom: "1.5rem",
                 }}
               >
-                {t(
-                  "cookies.modal_intro",
-                  "Vous pouvez personnaliser vos choix pour chaque catégorie de cookies ci-dessous. Vos choix seront conservés pendant 13 mois et peuvent être modifiés à tout moment."
-                )}
+                {t("cookies.modal_intro")}
               </p>
 
               {/* Categories list */}
@@ -347,7 +372,7 @@ export const CookieBanner = () => {
                     <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
                       <Lock size={18} style={{ color: "#8CBE4F" }} />
                       <h4 style={{ fontSize: "0.98rem", fontWeight: 700, margin: 0, color: "#fff" }}>
-                        {t("cookies.cat_essential_title", "Cookies nécessaires (Obligatoires)")}
+                        {t("cookies.cat_essential_title")}
                       </h4>
                     </div>
                     <span
@@ -361,14 +386,11 @@ export const CookieBanner = () => {
                         border: "1px solid rgba(140, 190, 79, 0.4)",
                       }}
                     >
-                      {t("cookies.always_active", "Toujours actif")}
+                      {t("cookies.always_active")}
                     </span>
                   </div>
                   <p style={{ fontSize: "0.82rem", color: "rgba(255, 255, 255, 0.65)", margin: 0, lineHeight: 1.5 }}>
-                    {t(
-                      "cookies.cat_essential_desc",
-                      "Ces cookies sont indispensables au fonctionnement technique du site, à la sécurité et à la mémorisation de vos préférences de consentement."
-                    )}
+                    {t("cookies.cat_essential_desc")}
                   </p>
                 </div>
 
@@ -385,7 +407,7 @@ export const CookieBanner = () => {
                     <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
                       <BarChart3 size={18} style={{ color: "#F5C92C" }} />
                       <h4 style={{ fontSize: "0.98rem", fontWeight: 700, margin: 0, color: "#fff" }}>
-                        {t("cookies.cat_analytics_title", "Mesure d'audience & Performance")}
+                        {t("cookies.cat_analytics_title")}
                       </h4>
                     </div>
 
@@ -435,10 +457,7 @@ export const CookieBanner = () => {
                     </label>
                   </div>
                   <p style={{ fontSize: "0.82rem", color: "rgba(255, 255, 255, 0.65)", margin: 0, lineHeight: 1.5 }}>
-                    {t(
-                      "cookies.cat_analytics_desc",
-                      "Permet d'analyser anonymement la fréquentation et la vitesse d'affichage de notre site (Vercel Analytics & Speed Insights) afin d'améliorer la navigation des coureurs et supporters."
-                    )}
+                    {t("cookies.cat_analytics_desc")}
                   </p>
                 </div>
               </div>
@@ -464,7 +483,7 @@ export const CookieBanner = () => {
                     textDecoration: "underline",
                   }}
                 >
-                  {t("cookies.read_full_policy", "Consulter la politique de confidentialité")}
+                  {t("cookies.read_full_policy")}
                 </Link>
 
                 <div style={{ display: "flex", gap: "0.75rem" }}>
@@ -488,7 +507,7 @@ export const CookieBanner = () => {
                       e.currentTarget.style.background = "#F5C92C";
                     }}
                   >
-                    {t("cookies.save_selection", "Enregistrer mes choix")}
+                    {t("cookies.save_selection")}
                   </button>
                 </div>
               </div>
