@@ -6,64 +6,8 @@ import { useTranslation } from "react-i18next";
 import { SEOHead } from "@/components/SEOHead";
 import { sportsEventSchema, createFaqSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { LOOP_KM } from "@/lib/event";
-
-const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div
-    className="page-header-inner"
-    style={{
-      background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)",
-      paddingTop: "8rem",
-      paddingBottom: "5rem",
-      position: "relative",
-      overflow: "hidden",
-    }}
-  >
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.08) 0%, transparent 60%)`,
-      }}
-    />
-    {/* Organic bottom wave */}
-    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}>
-        <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,25 1440,20 L1440,60 L0,60 Z" />
-      </svg>
-    </div>
-
-    <div className="page-container" style={{ position: "relative", zIndex: 1 }}>
-      {subtitle && (
-        <motion.p
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="section-subtitle"
-          style={{ color: "#8CBE4F", marginBottom: "0.75rem" }}
-        >
-          {subtitle}
-        </motion.p>
-      )}
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        style={{ fontFamily: "'Hobo', sans-serif", fontSize: "clamp(2rem, 5vw, 4rem)", color: "#fff", marginBottom: description ? "1rem" : 0 }}
-      >
-        {title}
-      </motion.h1>
-      {description && (
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          style={{ color: "rgba(255,255,255,0.75)", maxWidth: "600px", fontSize: "1.05rem", lineHeight: 1.75 }}
-        >
-          {description}
-        </motion.p>
-      )}
-    </div>
-  </div>
-);
+import type { LucideIcon } from "lucide-react";
+import { PageHeader } from "@/components/customs/page-header";
 
 // Schéma visuel du format — vertical stepper
 const KM_PER_LOOP = LOOP_KM;
@@ -164,7 +108,7 @@ const FormatTimeline = () => {
   );
 };
 
-const RuleCard = ({ icon: Icon, title, text, variant = "default" }: { icon: any; title: string; text: string; variant?: "default" | "warning" | "success" }) => {
+const RuleCard = ({ icon: Icon, title, text, variant = "default" }: { icon: LucideIcon; title: string; text: string; variant?: "default" | "warning" | "success" }) => {
   const colors: Record<string, { bg: string; border: string; icon: string }> = {
     default: { bg: "rgba(39,121,86,0.06)", border: "rgba(39,121,86,0.15)", icon: "#277956" },
     warning: { bg: "rgba(245,201,44,0.08)", border: "rgba(245,201,44,0.25)", icon: "#c49000" },

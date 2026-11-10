@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FR, GB } from "country-flag-icons/react/3x2";
 import { listOfLocales, getFullNamesOfLocales } from "@/lib/i18n";
+import { storageSet } from "@/lib/safe-storage";
 
 const navLinks = [
   { to: "/concept", key: "concept" },
@@ -38,7 +39,7 @@ const LanguageDropdown = ({ closeMenu, isMobile = false }: { closeMenu?: () => v
   }, [open]);
 
   const changeLang = (l: string) => {
-    localStorage.setItem("i18nextLng", l);
+    storageSet("i18nextLng", l);
     i18n.changeLanguage(l);
     setOpen(false);
     if (closeMenu) closeMenu();

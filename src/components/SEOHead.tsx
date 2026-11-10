@@ -10,7 +10,7 @@ export interface SEOHeadProps {
   ogImage?: string;
   ogImageAlt?: string;
   noIndex?: boolean;
-  jsonLd?: Record<string, any> | Array<Record<string, any>>;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 }
 
 const DEFAULT_BASE_URL = "https://breizhbackyard.com";

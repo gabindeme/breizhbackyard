@@ -1,13 +1,14 @@
 import Aurora from "@/components/Aurora";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Navbar } from "@/components/customs/navbar";
 import { Footer } from "@/components/customs/footer";
 import { Countdown } from "@/components/customs/countdown";
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "@/components/SEOHead";
 import { sportsEventSchema, organizationSchema } from "@/lib/seoSchemas";
+import type { LucideIcon } from "lucide-react";
 import {
   Timer,
   Footprints,
@@ -42,7 +43,7 @@ const useReveal = () => {
 const useCounter = (target: number, duration = 2000) => {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
-  const start = () => { if (!started) setStarted(true); };
+  const start = useCallback(() => setStarted(true), []);
   useEffect(() => {
     if (!started) return;
     const steps = 60;
@@ -58,7 +59,7 @@ const useCounter = (target: number, duration = 2000) => {
   return { count, start };
 };
 
-const ConceptCard = ({ icon: Icon, title, text, color }: { icon: any; title: string; text: string; color: string }) => (
+const ConceptCard = ({ icon: Icon, title, text, color }: { icon: LucideIcon; title: string; text: string; color: string }) => (
   <div className="bbu-card" style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
     <div
       style={{
@@ -80,7 +81,7 @@ const ConceptCard = ({ icon: Icon, title, text, color }: { icon: any; title: str
 const StatCard = ({ number, suffix, label, desc }: { number: number; suffix: string; label: string; desc: string }) => {
   const { ref, visible } = useReveal();
   const { count, start } = useCounter(number);
-  useEffect(() => { if (visible) start(); }, [visible]);
+  useEffect(() => { if (visible) start(); }, [visible, start]);
   return (
     <div
       ref={ref}

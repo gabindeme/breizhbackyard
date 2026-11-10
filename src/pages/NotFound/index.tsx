@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ArrowLeft, Play, RotateCcw } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { SEOHead } from "@/components/SEOHead";
+import { storageGet, storageSet } from "@/lib/safe-storage";
 
 // ─── Canvas Game Constants ──────────────────────────────────────────
 const GRAVITY = 0.65;
@@ -211,13 +212,10 @@ export const NotFound = () => {
   const [isGameOver, setIsGameOver] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
-  const [highScore, setHighScore] = useState(() => {
-    try {
-      return parseInt(localStorage.getItem("bbyard_404_hi") || "0", 10);
-    } catch {
-      return 0;
-    }
-  });
+  const [highScore, setHighScore] = useState(() => parseInt(storageGet("bbyard_404_hi") || "0", 10) || 0);
+  // Read by the canvas drawing code on every frame, so kept in a ref instead of reading storage.
+  const highScoreRef = useRef(highScore);
+  highScoreRef.current = highScore;
 
   // Game state ref — mutable state for the game loop (never triggers re-render)
   const gs = useRef({
@@ -392,11 +390,7 @@ export const NotFound = () => {
         setIsPlaying(false);
         if (score > highScore) {
           setHighScore(score);
-          try {
-            localStorage.setItem("bbyard_404_hi", String(score));
-          } catch {
-            /* noop */
-          }
+          storageSet("bbyard_404_hi", String(score));
         }
         // Draw one more frame with shake, then stop
         drawFrame(ctx, W, H, groundY, s, true);
@@ -577,7 +571,7 @@ export const NotFound = () => {
     // High score
     const hi = Math.max(
       Math.floor(s.score),
-      parseInt(localStorage.getItem("bbyard_404_hi") || "0", 10)
+      highScoreRef.current
     );
     if (hi > 0) {
       ctx.globalAlpha = 0.5;
@@ -595,21 +589,6 @@ export const NotFound = () => {
   }
 
   // ─── Controls ─────────────────────────────────────────────────────
-  const jump = useCallback(() => {
-    const s = gs.current;
-    if (s.playing && !s.gameOver && s.runnerY === 0) {
-      s.vy = JUMP_FORCE;
-      const canvas = canvasRef.current;
-      if (canvas) {
-        const logicH = parseFloat(canvas.dataset.logicH || "200");
-        const groundY = logicH - GROUND_Y_OFFSET;
-        spawnDust(RUNNER_X + RUNNER_W / 2, groundY, 4);
-      }
-    } else if (!s.playing || s.gameOver) {
-      startGame();
-    }
-  }, []);
-
   const startGame = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -640,6 +619,21 @@ export const NotFound = () => {
     if (requestRef.current) cancelAnimationFrame(requestRef.current);
     requestRef.current = requestAnimationFrame(gameLoop);
   }, [gameLoop]);
+
+  const jump = useCallback(() => {
+    const s = gs.current;
+    if (s.playing && !s.gameOver && s.runnerY === 0) {
+      s.vy = JUMP_FORCE;
+      const canvas = canvasRef.current;
+      if (canvas) {
+        const logicH = parseFloat(canvas.dataset.logicH || "200");
+        const groundY = logicH - GROUND_Y_OFFSET;
+        spawnDust(RUNNER_X + RUNNER_W / 2, groundY, 4);
+      }
+    } else if (!s.playing || s.gameOver) {
+      startGame();
+    }
+  }, [startGame]);
 
   // Keyboard controls
   useEffect(() => {

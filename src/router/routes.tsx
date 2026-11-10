@@ -92,10 +92,10 @@ export const Router = () => {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        {/* Home — sans navbar/footer car hero pleine page */}
+        {/* Home sits outside LayoutWrapper: it renders its own Navbar (inside the full-screen hero) and Footer. */}
         <Route path="/" element={<Home />} />
 
-        {/* Toutes les autres pages — avec navbar + footer */}
+        {/* Every other page: Navbar and Footer come from LayoutWrapper. */}
         <Route element={<LayoutWrapper />}>
           <Route path="/concept" element={<Concept />} />
           {/* <Route path="/parcours" element={<Parcours />} /> */}

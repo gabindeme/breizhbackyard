@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 import en from "../locales/en.json";
 import fr from "../locales/fr.json";
 import br from "../locales/br.json";
+import { storageGet } from "./safe-storage";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -10,7 +11,7 @@ i18n.use(initReactI18next).init({
     fr: { translation: fr },
     br: { translation: br },
   },
-  lng: localStorage.getItem("i18nextLng") || "fr",
+  lng: storageGet("i18nextLng") || "fr",
   fallbackLng: "fr",
 });
 

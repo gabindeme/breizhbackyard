@@ -195,18 +195,18 @@ Links to the home page already preview correctly. This matters most before big a
 
 ## Phase 4: Robustness and cleanup
 
-- [ ] **4.1 Guard every browser-storage access** (S). Add a small `safeStorage` helper in `src/lib/` (get/set wrapped in try/catch) and use it everywhere:
+- [x] **4.1 Guard every browser-storage access** (S). Add a small `safeStorage` helper in `src/lib/` (get/set wrapped in try/catch) and use it everywhere:
   - `src/lib/i18n.ts:13` runs when the module loads. If the browser blocks site data, it throws and the whole site fails to start.
   - `navbar.tsx:40`.
   - `NotFound/index.tsx:580` reads storage in the game's draw code, on every frame. Read it once instead.
 
   This is already covered if 3.1 is done first.
-- [ ] **4.2 Scroll to the top when navigating to Home** (S).
+- [x] **4.2 Scroll to the top when navigating to Home** (S).
   - Home sits outside `LayoutWrapper`, so the wrapper's scroll reset doesn't run on the way to `/`.
   - Coming from the footer of a long page will very likely open Home part-way down. This isn't confirmed in a browser yet, so check first.
   - Fix it with a single `<ScrollToTop/>` in `App`, or get it for free from `<ScrollRestoration/>` in 3.2.
   - Also correct the misleading comment at `src/router/routes.tsx:95`: Home does render the navbar and footer, it just renders them itself.
-- [ ] **4.3 Remove dead code and unused packages** (S, D10). An import scan starting from `src/main.tsx` shows these are never imported:
+- [x] **4.3 Remove dead code and unused packages** (S, D10). An import scan starting from `src/main.tsx` shows these are never imported:
   - **Files:**
     - `src/components/ui/*` (button, dropdown-menu, separator, sheet, sonner);
     - `src/lib/utils.ts`;
@@ -220,15 +220,15 @@ Links to the home page already preview correctly. This matters most before big a
   Keep Parcours, Résultats and Galerie, which are parked on purpose. These files aren't in the production bundle (unused code is dropped at build time), so this is about upkeep, not speed.
 
   **Done when:** `pnpm build` passes and the scan finds no unused files apart from the hidden pages.
-- [ ] **4.4 Tooling** (S).
+- [x] **4.4 Tooling** (S).
   - Rename the package from `vite-project` to `breizhbackyard`, and move `prettier` to `devDependencies`.
   - `typescript-eslint` and `globals` are installed without ESLint itself. Either add `eslint`, `@eslint/js`, `eslint-plugin-react-hooks`, an `eslint.config.js` and a `lint` script, or remove the two packages.
   - Add `"check": "tsc -b && pnpm lint && node scripts/check-locales.mjs"`.
-- [ ] **4.5 Clean up the signup page code** (S), in `src/pages/Inscriptions/index.tsx`. 17 lines use `any` for the Brevo and reCAPTCHA globals. Declare those globals once in `src/vite-env.d.ts` (`interface Window { … }`).
-- [ ] **4.6 One shared page header and the colour variables** (M, gradually).
+- [x] **4.5 Clean up the signup page code** (S), in `src/pages/Inscriptions/index.tsx`. 17 lines use `any` for the Brevo and reCAPTCHA globals. Declare those globals once in `src/vite-env.d.ts` (`interface Window { … }`).
+- [ ] **4.6 One shared page header and the colour variables** (M, gradually). *Header done (`page-header.tsx`, with a `legal` variant); the colour variables are still to adopt gradually.*
   - `PageHeader` (green gradient plus wave SVG) is copy-pasted, with small variations, into 12 pages. Create `src/components/customs/page-header.tsx` and use it everywhere.
   - Brand colours are typed as hex values in inline styles (`#277956` ×104, `#1a2e22` ×49, `#F5C92C` ×42…), even though `index.css` defines `--bbu-*` variables. Switch to `var(--bbu-…)` whenever you touch a file; no big rewrite.
-- [ ] **4.7 Only if Phase 3 is postponed: stop needless head rewrites** (S). Pages build their `jsonLd` arrays during render, so `SEOHead`'s effect (deps at `SEOHead.tsx:125`) rewrites the `<head>` on every re-render, for example on each FAQ accordion click. Build the schemas outside the components or memoise them.
+- [ ] **4.7 Only if Phase 3 is postponed** (skipped: Phase 3 replaces `SEOHead`): stop needless head rewrites** (S). Pages build their `jsonLd` arrays during render, so `SEOHead`'s effect (deps at `SEOHead.tsx:125`) rewrites the `<head>` on every re-render, for example on each FAQ accordion click. Build the schemas outside the components or memoise them.
 
 ## Phase 5: Performance (measure before and after each change)
 

@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { Building2, User, Server, Copyright, AlertTriangle, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -6,65 +5,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { FrenchOnlyNote } from "@/components/customs/french-only-note";
 import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { CONTACT_EMAIL } from "@/lib/event";
-
-const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div
-    className="page-header-inner"
-    style={{
-      background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #0f2d1d 100%)",
-      paddingTop: "8rem",
-      paddingBottom: "5rem",
-      position: "relative",
-      overflow: "hidden",
-    }}
-  >
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.1) 0%, transparent 60%)`,
-      }}
-    />
-    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
-      <svg
-        viewBox="0 0 1440 60"
-        preserveAspectRatio="none"
-        style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}
-      >
-        <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,25 1440,20 L1440,60 L0,60 Z" />
-      </svg>
-    </div>
-    <div className="page-container" style={{ position: "relative", zIndex: 1 }}>
-      {subtitle && (
-        <p className="section-subtitle" style={{ color: "#8CBE4F", marginBottom: "0.75rem" }}>
-          {subtitle}
-        </p>
-      )}
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        style={{
-          fontFamily: "'Hobo', sans-serif",
-          fontSize: "clamp(2rem, 5vw, 3.5rem)",
-          color: "#fff",
-          marginBottom: description ? "1rem" : 0,
-        }}
-      >
-        {title}
-      </motion.h1>
-      {description && (
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          style={{ color: "rgba(255,255,255,0.85)", maxWidth: "700px", fontSize: "1.05rem", lineHeight: 1.75 }}
-        >
-          {description}
-        </motion.p>
-      )}
-    </div>
-  </div>
-);
+import { PageHeader } from "@/components/customs/page-header";
 
 export const MentionsLegales = () => {
   const { t } = useTranslation();
@@ -83,6 +24,7 @@ export const MentionsLegales = () => {
         jsonLd={breadcrumbs}
       />
       <PageHeader
+        variant="legal"
         subtitle={t("mentions_page.subtitle", "Informations réglementaires & Éditeur")}
         title={t("mentions_page.title", "Mentions Légales")}
         description={t(

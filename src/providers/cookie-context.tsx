@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { storageGet, storageRemove, storageSet } from "@/lib/safe-storage";
 
 export interface CookieConsentState {
   essential: boolean; // Always true
@@ -34,13 +35,13 @@ const CookieContext = createContext<CookieContextType | undefined>(undefined);
 export const CookieProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [consent, setConsent] = useState<CookieConsentState>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = storageGet(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
         // Consent without a valid date, or older than 13 months, counts as undecided: ask again.
         const savedAt = Date.parse(parsed.timestamp);
         if (!Number.isFinite(savedAt) || Date.now() - savedAt > CONSENT_MAX_AGE_MS) {
-          localStorage.removeItem(STORAGE_KEY);
+          storageRemove(STORAGE_KEY);
           return defaultState;
         }
         return {
@@ -98,11 +99,7 @@ export const CookieProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     if (!analytics) {
       purgeNonEssentialCookies();
     }
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(newState));
-    } catch (e) {
-      console.error("Failed to save cookie consent to localStorage", e);
-    }
+    storageSet(STORAGE_KEY, JSON.stringify(newState));
     setIsModalOpen(false);
   };
 

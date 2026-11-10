@@ -4,22 +4,7 @@ import { Mail, Bell, Send, AlertCircle, CheckCircle2, X, PartyPopper } from "luc
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "@/components/SEOHead";
 import { sportsEventSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
-
-const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
-  <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
-    <div style={{ position: "absolute", inset: 0, backgroundImage: `radial-gradient(circle at 80% 50%, rgba(245,201,44,0.08) 0%, transparent 60%)` }} />
-    <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "60px", fill: "#EFEFEF" }}>
-        <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,25 1440,20 L1440,60 L0,60 Z" />
-      </svg>
-    </div>
-    <div className="page-container" style={{ position: "relative", zIndex: 1 }}>
-      {subtitle && <p className="section-subtitle" style={{ color: "#8CBE4F", marginBottom: "0.75rem" }}>{subtitle}</p>}
-      <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} style={{ fontFamily: "'Hobo', sans-serif", fontSize: "clamp(2rem, 5vw, 4rem)", color: "#fff", marginBottom: description ? "1rem" : 0 }}>{title}</motion.h1>
-      {description && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} style={{ color: "rgba(255,255,255,0.75)", maxWidth: "600px", fontSize: "1.05rem", lineHeight: 1.75 }}>{description}</motion.p>}
-    </div>
-  </div>
-);
+import { PageHeader } from "@/components/customs/page-header";
 
 export const Inscriptions = () => {
   const { t, i18n } = useTranslation();
@@ -28,7 +13,7 @@ export const Inscriptions = () => {
   // Validation messages read by Brevo's script, in the current language.
   // Brevo reads them when it validates, so updating them on a language change is enough.
   useEffect(() => {
-    const w = window as any;
+    const w = window;
     w.REQUIRED_CODE_ERROR_MESSAGE = t("inscriptions_page.brevo.required_code");
     w.LOCALE = i18n.resolvedLanguage === "en" ? "en" : "fr";
     w.EMAIL_INVALID_MESSAGE = w.SMS_INVALID_MESSAGE = t("inscriptions_page.brevo.invalid");
@@ -48,7 +33,7 @@ export const Inscriptions = () => {
   }, [t, i18n.resolvedLanguage]);
 
   useEffect(() => {
-    (window as any).AUTOHIDE = Boolean(0);
+    window.AUTOHIDE = false;
     // Chargement du script Brevo
     const mainScriptId = 'brevo-main-script';
     const existingScript = document.getElementById(mainScriptId);
