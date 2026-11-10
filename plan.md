@@ -185,6 +185,8 @@ Links to the home page already preview correctly. This matters most before big a
 
 **Checked locally** on the built output (served like Vercel): every page's HTML holds its own title, description, canonical, OG tags and JSON-LD; no hydration errors; navigation, language switch, cookie banner, forms and newsletter work. Lighthouse (mobile, gzip) vs Phase 5: `/` 56 → 61, `/concept` 85 → 84, `/inscriptions` 74 → 68 (noise; dominated by Brevo's script). Global `scroll-behavior: smooth` was removed: it made every navigation animate up from the old position, and no page uses in-page anchors.
 
+**Checked on preview `o9f4m86ax` (2026-11-10):** `/concept`, `/inscriptions` and `/benevoles` serve their own `<title>` in the raw HTML, `/nimportequoi` returns 404, `/api/contact` answers. Still to do after deploy: the opengraph.xyz check (previews are behind Vercel login).
+
 **Done when**, on a preview deployment:
 - `curl -s https://<preview>/concept | grep -o '<title>[^<]*'` prints the Concept title;
 - opengraph.xyz shows page-specific previews for `/inscriptions` and `/benevoles`;
