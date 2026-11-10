@@ -13,7 +13,9 @@
     "language": "Language",
     "languageChanged": "Language changed to English.",
     "newsletter": "Sign up",
-    "benevoles": "Volunteers"
+    "benevoles": "Volunteers",
+    "start": "Start: {{date}}",
+    "flag_br": "Breton flag"
   },
   "footer": {
     "rights": "© {{year}} Breizh Backyard Ultra — All rights reserved",
@@ -57,7 +59,7 @@
       "card1_title": "Every hour",
       "card1_text": "A starting signal is given every hour. All runners still in the race set off together, without exception.",
       "card2_title": "6.706 km per loop",
-      "card2_text": "Each loop is exactly 6.706 km — 4.1667 miles. It must be completed within the hour, or you're eliminated.",
+      "card2_text": "Each loop is exactly 6.706 km — 4.167 miles. It must be completed within the hour, or you're eliminated.",
       "card3_title": "A single winner",
       "card3_text": "The race continues until only one runner remains able to complete one more loop.",
       "card4_title": "A unique spirit",
@@ -111,7 +113,8 @@
       "title": "Don't miss the opening of registration",
       "desc": "Spots are limited. Sign up for our newsletter to be notified first as soon as registration opens.",
       "btn": "Notify me →"
-    }
+    },
+    "course_preview_alt": "Course preview"
   },
   "concept_page": {
     "header": {
@@ -125,7 +128,7 @@
       "title_line2": "impossible to master",
       "desc1_start": "The principle of a Backyard is disarmingly simple: complete a loop of ",
       "desc1_bold": " 6.706 km ",
-      "desc1_end": " (4.1667 miles — or 100 miles after 24h), every single hour, without exception.",
+      "desc1_end": " (4.167 miles — or 100 miles after 24h), every single hour, without exception.",
       "desc2": "Every new hour, a signal sounds: it's the start. All runners still in the race set off together, whether fresh or exhausted. No individual starts, no exceptions.",
       "desc3_start": "If you haven't finished your loop before the next start signal, ",
       "desc3_bold": "it's over",
@@ -213,7 +216,7 @@
     "description": {
       "subtitle": "The route",
       "title": "Course overview",
-      "p1_start": "The Breizh Backyard route was designed to be both beautiful and fair to all runners. A single loop of ",
+      "p1_start": "The Breizh Backyard Ultra route was designed to be both beautiful and fair to all runners. A single loop of ",
       "p1_bold": "6.706 km",
       "p1_end": ", covered in the same direction on every loop.",
       "p2_start": "The start and finish are located in the ",
@@ -272,7 +275,7 @@
     "acces": {
       "title": "Access & Location",
       "loc_title": "📍 Location",
-      "loc_p1_start": "The Breizh Backyard takes place in Brittany, in a protected natural setting.",
+      "loc_p1_start": "The Breizh Backyard Ultra takes place in Brittany, in a protected natural setting.",
       "loc_p1_bold": " The exact address will be provided",
       "loc_p1_end": " to registered runners by email before the race.",
       "loc_info": "ℹ️ GPS coordinates and detailed access information will be shared in the participant pack, available 2 weeks before the race.",
@@ -324,7 +327,7 @@
       "r2": "Any runner who hasn't crossed the line before the signal is immediately eliminated.",
       "r3": "The winner is the last runner able to complete one more loop than everyone else.",
       "r4": "The winner must complete one additional loop alone to be officially declared.",
-      "r_breizh_title": "Specific rules for Breizh Backyard",
+      "r_breizh_title": "Specific rules for Breizh Backyard Ultra",
       "br1": "The bib must be worn visibly at the front throughout the race.",
       "br2": "Any runner dropping out must report it to a member of the organization.",
       "br3": "Crews stay in the living area — no assistance on the course itself.",
@@ -345,7 +348,7 @@
     "info": {
       "badge": "Registration closed — Opening soon",
       "title": "Be among the first to run",
-      "desc": "Spots for the Breizh Backyard are limited. By signing up for our newsletter, you'll be alerted as soon as registration officially opens, well before the public announcement.",
+      "desc": "Spots for the Breizh Backyard Ultra are limited. By signing up for our newsletter, you'll be alerted as soon as registration officially opens, well before the public announcement.",
       "list1": "Immediate notification when registration opens",
       "list3": "Exclusive news about the race and the course",
       "depart_title": "Next start",
@@ -359,7 +362,7 @@
       "prenom_ph": "Your first name",
       "email_label": "Email",
       "email_ph": "your.email@example.com",
-      "optin_text": "By providing your email, you agree to receive official Breizh Backyard updates (ticket opening and news). You can unsubscribe at any time.",
+      "optin_text": "By providing your email, you agree to receive official Breizh Backyard Ultra updates (ticket opening and news). You can unsubscribe at any time.",
       "btn_submit": "SUBSCRIBE TO NEWSLETTER",
       "btn_loading": "Subscribing..."
     },
@@ -373,6 +376,19 @@
       "message": "A confirmation email has been sent to you. Check your inbox (and spam folder!) to finalize your newsletter subscription.",
       "email_hint": "Remember to add our email address to your contacts so you don't miss any registration opening notifications.",
       "btn_close": "Great, thanks!"
+    },
+    "close": "Close",
+    "brevo": {
+      "required_code": "Please choose a country code.",
+      "invalid": "The information provided is not valid.",
+      "required": "This field is required.",
+      "invalid_number": "Invalid number.",
+      "invalid_date": "Please enter a valid date.",
+      "required_multiselect": "Please choose at least one option.",
+      "selected_list": "{quantity} list selected",
+      "selected_lists": "{quantity} lists selected",
+      "selected_option": "{quantity} selected",
+      "selected_options": "{quantity} selected"
     }
   },
   "bienvenue_page": {
@@ -390,7 +406,7 @@
     "card_infos_title": "Practical Info",
     "card_infos_desc": "Check out the start location, base camp setup, aid stations, and rules.",
     "card_infos_btn": "All information",
-    "banner_title": "Thank you for joining the Breizh Backyard adventure!",
+    "banner_title": "Thank you for joining the Breizh Backyard Ultra adventure!",
     "banner_desc": "Be sure to add our email address to your contacts so you don't miss any important updates. See you soon on the Breton trails!",
     "btn_home": "Back to homepage"
   },
@@ -537,8 +553,8 @@
         "category": "🤝 The organisation",
         "items": [
           {
-            "q": "Who organises the Breizh Backyard?",
-            "a": "The Breizh Backyard is organised by the Delta Events association. We are 4 young people passionate about running and trail, driven by the desire to create a unique ultra-endurance event in Brittany. It's a 100% non-profit project, fuelled by the passion and energy of our team."
+            "q": "Who organises the Breizh Backyard Ultra?",
+            "a": "The Breizh Backyard Ultra is organised by the Delta Events association. We are 4 young people passionate about running and trail, driven by the desire to create a unique ultra-endurance event in Brittany. It's a 100% non-profit project, fuelled by the passion and energy of our team."
           },
           {
             "q": "What does the entry fee cover?",
@@ -621,7 +637,7 @@
     "header": {
       "subtitle": "Photos",
       "title": "Gallery",
-      "desc": "Relive the highlights of the Breizh Backyard. Real photos will be added after each edition."
+      "desc": "Relive the highlights of the Breizh Backyard Ultra. Real photos will be added after each edition."
     },
     "categories": {
       "toutes": "All",
@@ -663,7 +679,7 @@
     "header": {
       "subtitle": "Join the team",
       "title": "Become a Volunteer",
-      "desc": "Experience the Breizh Backyard from the inside. Without volunteers, the adventure wouldn't exist."
+      "desc": "Experience the Breizh Backyard Ultra from the inside. Without volunteers, the adventure wouldn't exist."
     },
     "intro": {
       "title": "Why volunteer?",
@@ -758,5 +774,70 @@
     "cat_analytics_desc": "Lets us anonymously measure traffic and page speed (Vercel Analytics and Speed Insights) to improve the site for runners and supporters.",
     "read_full_policy": "Read the privacy policy",
     "save_selection": "Save my choices"
+  },
+  "seo": {
+    "og_image_alt": "Breizh Backyard Ultra, Saturday 15 May 2027, Rennes",
+    "home": {
+      "title": "Breizh Backyard Ultra | Ultra-endurance in Brittany",
+      "description": "Breizh Backyard Ultra is an ultra-endurance race in the Backyard Ultra format, in Rennes, Brittany. 6.706 km every hour, until the last one standing.",
+      "breadcrumb": "Home"
+    },
+    "concept": {
+      "title": "Concept and rules",
+      "description": "How a Backyard Ultra works: 6.706 km every hour, until only one runner is left standing. Rules, elimination and the winner.",
+      "breadcrumb": "Concept"
+    },
+    "infos": {
+      "title": "Practical info and rules",
+      "description": "Everything you need to take part in the Breizh Backyard Ultra: access, parking, aid station, mandatory gear and rules.",
+      "breadcrumb": "Practical info"
+    },
+    "inscriptions": {
+      "title": "Registration and newsletter",
+      "description": "Subscribe to the Breizh Backyard Ultra newsletter to be the first to know when registration and ticketing open.",
+      "breadcrumb": "Registration"
+    },
+    "faq": {
+      "title": "Frequently asked questions (FAQ)",
+      "description": "Answers to the most common questions about the Breizh Backyard Ultra: rules, accommodation, gear, logistics and aid station.",
+      "breadcrumb": "FAQ"
+    },
+    "sponsors": {
+      "title": "Partners and sponsors",
+      "description": "Associate your brand with the Breizh Backyard Ultra: get our partnership pack and support an exceptional endurance event.",
+      "breadcrumb": "Partners and sponsors"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "A question about the race, registration or volunteering? Get in touch with the Breizh Backyard Ultra organising team.",
+      "breadcrumb": "Contact"
+    },
+    "benevoles": {
+      "title": "Become a volunteer",
+      "description": "Join the Breizh Backyard Ultra volunteer team and be part of a unique human and sporting adventure in the heart of Brittany.",
+      "breadcrumb": "Volunteers"
+    },
+    "bienvenue": {
+      "title": "Welcome to the community",
+      "description": "Thanks for joining the Breizh Backyard Ultra community! Here are the key steps before race day.",
+      "breadcrumb": "Welcome"
+    },
+    "mentions": {
+      "title": "Legal notice",
+      "description": "Regulatory, legal and hosting information for the official Breizh Backyard Ultra website.",
+      "breadcrumb": "Legal notice"
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "How Association Delta Events protects your personal data under the GDPR.",
+      "breadcrumb": "Privacy policy"
+    },
+    "notfound": {
+      "title": "Page not found",
+      "description": "The page you're looking for doesn't exist or has moved."
+    }
+  },
+  "legal": {
+    "french_only": "This page is only available in French. The French text is the binding version."
   }
 }

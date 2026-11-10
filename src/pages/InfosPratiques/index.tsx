@@ -83,15 +83,15 @@ export const InfosPratiques = () => {
   }, []);
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: "Accueil", path: "/" },
-    { name: "Infos Pratiques", path: "/infos-pratiques" },
+    { name: t("seo.home.breadcrumb"), path: "/" },
+    { name: t("seo.infos.breadcrumb"), path: "/infos-pratiques" },
   ]);
 
   return (
     <div style={{ background: "#EFEFEF" }}>
       <SEOHead
-        title="Infos Pratiques & Règlement | Breizh Backyard Ultra"
-        description="Toutes les informations pratiques pour participer au Breizh Backyard Ultra : accès, parking, ravitaillement, matériel obligatoire et règlement."
+        title={t("seo.infos.title")}
+        description={t("seo.infos.description")}
         canonicalPath="/infos-pratiques"
         jsonLd={[sportsEventSchema, breadcrumbs]}
       />
@@ -303,7 +303,7 @@ export const InfosPratiques = () => {
                     🏥 Assistance médicale
                   </h3>
                   <CheckItem text="Équipe médicale présente 24h/24 pendant toute la durée de la course" />
-                  <CheckItem text="Point de secours visible et signalisé sur la zone de vie" />
+                  <CheckItem text="Point de secours visible et signalisé au camp de base" />
                   <CheckItem text="Protocole d'arrêt médical défini et communiqué avant la course" />
                   <CheckItem text="Balisage lumineux du circuit la nuit" />
                 </div>

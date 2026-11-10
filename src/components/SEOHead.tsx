@@ -23,11 +23,11 @@ export const SEOHead = ({
   canonicalPath,
   ogType = "website",
   ogImage = DEFAULT_IMAGE,
-  ogImageAlt = "Breizh Backyard Ultra — Samedi 15 Mai 2027, Rennes",
+  ogImageAlt,
   noIndex = false,
   jsonLd,
 }: SEOHeadProps) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     // 1. Update HTML lang attribute
@@ -38,7 +38,7 @@ export const SEOHead = ({
       ? title.includes("Breizh Backyard Ultra")
         ? title
         : `${title} | Breizh Backyard Ultra`
-      : "Breizh Backyard Ultra — Ultra-Endurance en Bretagne";
+      : t("seo.home.title");
     document.title = pageTitle;
 
     // Helper to update or create meta tag
@@ -64,9 +64,8 @@ export const SEOHead = ({
     };
 
     // 3. Basic Meta
-    const defaultDesc =
-      "Le Breizh Backyard Ultra est une course d'ultra-endurance au format Backyard Ultra organisée en Bretagne. 6,706 km toutes les heures, jusqu'au dernier debout.";
-    const metaDesc = description || defaultDesc;
+    const metaDesc = description || t("seo.home.description");
+    const imageAlt = ogImageAlt || t("seo.og_image_alt");
     setMeta('meta[name="description"]', "name", "description", metaDesc);
     setMeta('meta[name="keywords"]', "name", "keywords", keywords);
 
@@ -89,7 +88,7 @@ export const SEOHead = ({
     setMeta('meta[property="og:url"]', "property", "og:url", fullCanonical);
     setMeta('meta[property="og:image"]', "property", "og:image", ogImage);
     setMeta('meta[property="og:image:secure_url"]', "property", "og:image:secure_url", ogImage);
-    setMeta('meta[property="og:image:alt"]', "property", "og:image:alt", ogImageAlt);
+    setMeta('meta[property="og:image:alt"]', "property", "og:image:alt", imageAlt);
     setMeta('meta[property="og:site_name"]', "property", "og:site_name", "Breizh Backyard Ultra");
 
     // Locales mapping for Open Graph
@@ -106,7 +105,7 @@ export const SEOHead = ({
     setMeta('meta[name="twitter:title"]', "name", "twitter:title", pageTitle);
     setMeta('meta[name="twitter:description"]', "name", "twitter:description", metaDesc);
     setMeta('meta[name="twitter:image"]', "name", "twitter:image", ogImage);
-    setMeta('meta[name="twitter:image:alt"]', "name", "twitter:image:alt", ogImageAlt);
+    setMeta('meta[name="twitter:image:alt"]', "name", "twitter:image:alt", imageAlt);
 
     // 8. JSON-LD Structured Data
     const scriptId = "bbu-jsonld-schema";
@@ -122,7 +121,7 @@ export const SEOHead = ({
     } else if (scriptElement) {
       scriptElement.remove();
     }
-  }, [title, description, keywords, canonicalPath, ogType, ogImage, ogImageAlt, noIndex, jsonLd, i18n.language]);
+  }, [title, description, keywords, canonicalPath, ogType, ogImage, ogImageAlt, noIndex, jsonLd, i18n.language, t]);
 
   return null;
 };

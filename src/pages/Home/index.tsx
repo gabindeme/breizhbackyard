@@ -115,8 +115,8 @@ export const Home = () => {
   return (
     <div style={{ background: "#EFEFEF" }}>
       <SEOHead
-        title="Breizh Backyard Ultra — Ultra-Endurance en Bretagne"
-        description="Le Breizh Backyard Ultra est une course d'ultra-endurance au format Backyard Ultra organisée en Bretagne. 6,706 km toutes les heures, jusqu'au dernier debout."
+        title={t("seo.home.title")}
+        description={t("seo.home.description")}
         canonicalPath="/"
         jsonLd={[sportsEventSchema, organizationSchema]}
       />
@@ -186,7 +186,7 @@ export const Home = () => {
               {t("home.hero.date")}
             </span>
             <div style={{ color: "rgba(255,255,255,0.9)", fontSize: "0.9rem" }}>
-              <Countdown targetDateStr="2027-05-15T10:00:00+02:00" />
+              <Countdown />
             </div>
           </motion.div>
 
@@ -464,7 +464,7 @@ export const Home = () => {
               >
                 <img
                   src="/assets/images/lac-automne.webp"
-                  alt="Aperçu du parcours"
+                  alt={t("home.course_preview_alt")}
                   style={{ width: "100%", minHeight: "350px", objectFit: "cover", display: "block", borderRadius: "1.5rem" }}
                 />
               </div>

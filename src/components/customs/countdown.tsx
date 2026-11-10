@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { EVENT_START } from "@/lib/event";
 interface CountdownProps {
   targetDateStr?: string; // ISO format
   hidePrefix?: boolean;
@@ -22,7 +23,7 @@ const calculateTimeLeft = (targetDateStr: string) => {
   };
 };
 
-export const Countdown = ({ targetDateStr = "2027-05-15T10:00:00+02:00", hidePrefix = false }: CountdownProps) => {
+export const Countdown = ({ targetDateStr = EVENT_START, hidePrefix = false }: CountdownProps) => {
   const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(targetDateStr));
 
   useEffect(() => {

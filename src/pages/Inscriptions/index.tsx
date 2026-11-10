@@ -22,27 +22,32 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
 );
 
 export const Inscriptions = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
+  // Validation messages read by Brevo's script, in the current language.
+  // Brevo reads them when it validates, so updating them on a language change is enough.
   useEffect(() => {
-    // Globals pour Brevo
-    (window as any).REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
-    (window as any).LOCALE = 'fr';
-    (window as any).EMAIL_INVALID_MESSAGE = (window as any).SMS_INVALID_MESSAGE = "Les informations fournies ne sont pas valides.";
-    (window as any).REQUIRED_ERROR_MESSAGE = "Ce champ est requis.";
-    (window as any).GENERIC_INVALID_MESSAGE = "Les informations fournies ne sont pas valides.";
-    (window as any).INVALID_NUMBER = "Numéro invalide.";
-    (window as any).INVALID_DATE = "Veuillez saisir une date valide.";
-    (window as any).REQUIRED_MULTISELECT_MESSAGE = 'Veuillez choisir au moins une option.';
-    (window as any).translation = {
+    const w = window as any;
+    w.REQUIRED_CODE_ERROR_MESSAGE = t("inscriptions_page.brevo.required_code");
+    w.LOCALE = i18n.resolvedLanguage === "en" ? "en" : "fr";
+    w.EMAIL_INVALID_MESSAGE = w.SMS_INVALID_MESSAGE = t("inscriptions_page.brevo.invalid");
+    w.REQUIRED_ERROR_MESSAGE = t("inscriptions_page.brevo.required");
+    w.GENERIC_INVALID_MESSAGE = t("inscriptions_page.brevo.invalid");
+    w.INVALID_NUMBER = t("inscriptions_page.brevo.invalid_number");
+    w.INVALID_DATE = t("inscriptions_page.brevo.invalid_date");
+    w.REQUIRED_MULTISELECT_MESSAGE = t("inscriptions_page.brevo.required_multiselect");
+    w.translation = {
       common: {
-        selectedList: '{quantity} liste sélectionnée',
-        selectedLists: '{quantity} listes sélectionnées',
-        selectedOption: '{quantity} sélectionné',
-        selectedOptions: '{quantity} sélectionnés',
-      }
+        selectedList: t("inscriptions_page.brevo.selected_list"),
+        selectedLists: t("inscriptions_page.brevo.selected_lists"),
+        selectedOption: t("inscriptions_page.brevo.selected_option"),
+        selectedOptions: t("inscriptions_page.brevo.selected_options"),
+      },
     };
+  }, [t, i18n.resolvedLanguage]);
+
+  useEffect(() => {
     (window as any).AUTOHIDE = Boolean(0);
     // Chargement du script Brevo
     const mainScriptId = 'brevo-main-script';
@@ -76,15 +81,15 @@ export const Inscriptions = () => {
   }, []);
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: "Accueil", path: "/" },
-    { name: "Inscriptions", path: "/inscriptions" },
+    { name: t("seo.home.breadcrumb"), path: "/" },
+    { name: t("seo.inscriptions.breadcrumb"), path: "/inscriptions" },
   ]);
 
   return (
     <div style={{ background: "#EFEFEF", overflowX: "hidden" }}>
       <SEOHead
-        title="Inscriptions & Newsletter | Breizh Backyard Ultra"
-        description="Inscrivez-vous à la newsletter du Breizh Backyard Ultra pour être averti en priorité de l'ouverture officielle des inscriptions et de la billetterie."
+        title={t("seo.inscriptions.title")}
+        description={t("seo.inscriptions.description")}
         canonicalPath="/inscriptions"
         jsonLd={[sportsEventSchema, breadcrumbs]}
       />
@@ -143,7 +148,7 @@ export const Inscriptions = () => {
               {/* Bouton fermer */}
               <button
                 onClick={() => setShowSuccessPopup(false)}
-                aria-label="Fermer"
+                aria-label={t("inscriptions_page.close")}
                 style={{
                   position: "absolute",
                   top: "1.1rem",
@@ -605,6 +610,7 @@ export const Inscriptions = () => {
 
                       {/* Inputs masqués Brevo */}
                       <input type="text" name="email_address_check" defaultValue="" className="input--hidden" style={{ display: "none" }} />
+                      {/* Language Brevo uses for its own messages; the Brevo form is set up in French. */}
                       <input type="hidden" name="locale" value="fr" />
                     </form>
                   </div>

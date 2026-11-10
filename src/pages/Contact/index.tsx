@@ -7,6 +7,7 @@ import { SEOHead } from "@/components/SEOHead";
 import { organizationSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { submitForm } from "@/lib/submit-form";
 import { Honeypot, FormError } from "@/components/customs/form-extras";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/event";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div className="page-header-inner" style={{ background: "linear-gradient(135deg, #277956 0%, #1a4d36 60%, #164030 100%)", paddingTop: "8rem", paddingBottom: "5rem", position: "relative", overflow: "hidden" }}>
@@ -75,15 +76,15 @@ export const Contact = () => {
   };
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: "Accueil", path: "/" },
-    { name: "Contact", path: "/contact" },
+    { name: t("seo.home.breadcrumb"), path: "/" },
+    { name: t("seo.contact.breadcrumb"), path: "/contact" },
   ]);
 
   return (
     <div style={{ background: "#EFEFEF" }}>
       <SEOHead
-        title="Contact & Informations | Breizh Backyard Ultra"
-        description="Une question sur la course, les inscriptions ou le bénévolat ? Contactez l'équipe d'organisation du Breizh Backyard Ultra."
+        title={t("seo.contact.title")}
+        description={t("seo.contact.description")}
         canonicalPath="/contact"
         jsonLd={[organizationSchema, breadcrumbs]}
       />
@@ -108,8 +109,8 @@ export const Contact = () => {
                   </div>
                   <div>
                     <div style={{ fontWeight: "700", fontSize: "0.85rem", color: "#1a2e22", marginBottom: "0.2rem" }}>{t("contact_page.info.email")}</div>
-                    <a href="mailto:contact@breizhbackyard.com" style={{ color: "#277956", textDecoration: "none", fontSize: "0.95rem" }}>
-                      contact@breizhbackyard.com
+                    <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "#277956", textDecoration: "none", fontSize: "0.95rem" }}>
+                  {CONTACT_EMAIL}
                     </a>
                   </div>
                 </div>
@@ -122,10 +123,10 @@ export const Contact = () => {
                 </h3>
                 <div style={{ display: "flex", gap: "0.75rem" }}>
                   {[
-                    { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/breizhbackyard/" },
-                    { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/people/BreizhBackyard/61588328941008/" },
-                    { icon: YoutubeIcon, label: "YouTube", href: "https://www.youtube.com/@breizhbackyard" },
-                    { icon: TiktokIcon, label: "TikTok", href: "https://www.tiktok.com/@breizhbackyard" },
+                    { icon: InstagramIcon, label: "Instagram", href: SOCIAL_LINKS.instagram },
+                    { icon: FacebookIcon, label: "Facebook", href: SOCIAL_LINKS.facebook },
+                    { icon: YoutubeIcon, label: "YouTube", href: SOCIAL_LINKS.youtube },
+                    { icon: TiktokIcon, label: "TikTok", href: SOCIAL_LINKS.tiktok },
                   ].map(({ icon: Icon, label, href }) => (
                     <a
                       key={label}

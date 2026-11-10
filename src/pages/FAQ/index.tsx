@@ -37,8 +37,8 @@ export const FAQ = () => {
   const filteredData = activeCategory ? faqData.filter((c) => c.category === activeCategory) : faqData;
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: "Accueil", path: "/" },
-    { name: "FAQ", path: "/faq" },
+    { name: t("seo.home.breadcrumb"), path: "/" },
+    { name: t("seo.faq.breadcrumb"), path: "/faq" },
   ]);
 
   const allFaqItems = Array.isArray(faqData)
@@ -49,8 +49,8 @@ export const FAQ = () => {
   return (
     <div style={{ background: "#EFEFEF" }}>
       <SEOHead
-        title="Foire Aux Questions (FAQ) | Breizh Backyard Ultra"
-        description="Retrouvez toutes les réponses aux questions les plus fréquentes sur le Breizh Backyard Ultra : règles, hébergement, matériel, logistique et ravitaillement."
+        title={t("seo.faq.title")}
+        description={t("seo.faq.description")}
         canonicalPath="/faq"
         jsonLd={[faqSchema, breadcrumbs]}
       />

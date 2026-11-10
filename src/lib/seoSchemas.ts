@@ -1,4 +1,6 @@
-export const BASE_URL = "https://breizhbackyard.com";
+import { CITY, COUNTRY, EVENT_START, GEO, ORGANISER, REGION, SITE_URL, SOCIAL_LINKS, VENUE } from "@/lib/event";
+
+export const BASE_URL = SITE_URL;
 export const LOGO_URL = `${BASE_URL}/assets/logos/logo-white.svg`;
 export const BANNER_URL = `${BASE_URL}/assets/banners/OG-banner-1.png`;
 
@@ -9,18 +11,13 @@ export const organizationSchema = {
   "url": BASE_URL,
   "logo": LOGO_URL,
   "image": BANNER_URL,
-  "description": "Organisation officielle du Breizh Backyard Ultra, épreuve d'ultra-endurance au format Backyard Ultra en Bretagne.",
-  "sameAs": [
-    "https://www.instagram.com/breizhbackyard/",
-    "https://www.facebook.com/people/BreizhBackyard/61588328941008/",
-    "https://www.youtube.com/@breizhbackyard",
-    "https://www.tiktok.com/@breizhbackyard"
-  ],
+  "description": "Organisation officielle de la Breizh Backyard Ultra, épreuve d'ultra-endurance au format Backyard Ultra en Bretagne.",
+  "sameAs": Object.values(SOCIAL_LINKS),
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Rennes",
-    "addressRegion": "Bretagne",
-    "addressCountry": "FR"
+    "addressLocality": CITY,
+    "addressRegion": REGION,
+    "addressCountry": COUNTRY
   }
 };
 
@@ -29,30 +26,30 @@ export const sportsEventSchema = {
   "@type": "SportsEvent",
   "name": "Breizh Backyard Ultra",
   "alternateName": "Breizh Backyard Ultra 2027",
-  "description": "Le Breizh Backyard Ultra est une épreuve d'ultra-endurance au format Backyard Ultra organisée en Bretagne. Les coureurs parcourent une boucle de 6,706 km (4,167 miles) toutes les heures, jusqu'au dernier coureur debout.",
-  "startDate": "2027-05-15T10:00:00+02:00",
+  "description": "La Breizh Backyard Ultra est une épreuve d'ultra-endurance au format Backyard Ultra organisée en Bretagne. Les coureurs parcourent une boucle de 6,706 km (4,167 miles) toutes les heures, jusqu'au dernier coureur debout.",
+  "startDate": EVENT_START,
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
-    "name": "Base de Vie - Rennes",
+    "name": `Camp de base, ${VENUE}, ${CITY}`,
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Rennes",
-      "addressRegion": "Bretagne",
-      "addressCountry": "FR"
+      "addressLocality": CITY,
+      "addressRegion": REGION,
+      "addressCountry": COUNTRY
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 48.13476195656116,
-      "longitude": -1.6472409293385937
+      "latitude": GEO.latitude,
+      "longitude": GEO.longitude
     },
-    "hasMap": "https://maps.google.com/?q=48.13476195656116,-1.6472409293385937"
+    "hasMap": `https://maps.google.com/?q=${GEO.latitude},${GEO.longitude}`
   },
   "image": [BANNER_URL, LOGO_URL],
   "organizer": {
     "@type": "Organization",
-    "name": "Breizh Backyard Ultra",
+    "name": ORGANISER,
     "url": BASE_URL,
     "logo": LOGO_URL
   },

@@ -44,15 +44,15 @@ export const Sponsors = () => {
   };
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: "Accueil", path: "/" },
-    { name: "Sponsors & Partenaires", path: "/sponsors" },
+    { name: t("seo.home.breadcrumb"), path: "/" },
+    { name: t("seo.sponsors.breadcrumb"), path: "/sponsors" },
   ]);
 
   return (
     <div style={{ background: "#EFEFEF" }}>
       <SEOHead
-        title="Partenaires & Sponsors | Breizh Backyard Ultra"
-        description="Associez votre marque au Breizh Backyard Ultra : découvrez notre dossier partenaire et soutenez un événement d'ultra-endurance d'exception."
+        title={t("seo.sponsors.title")}
+        description={t("seo.sponsors.description")}
         canonicalPath="/sponsors"
         jsonLd={breadcrumbs}
       />

@@ -67,15 +67,15 @@ export const Benevoles = () => {
   };
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: "Accueil", path: "/" },
-    { name: "Bénévoles", path: "/benevoles" },
+    { name: t("seo.home.breadcrumb"), path: "/" },
+    { name: t("seo.benevoles.breadcrumb"), path: "/benevoles" },
   ]);
 
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
       <SEOHead
-        title="Devenir Bénévoles | Breizh Backyard Ultra"
-        description="Rejoignez l'équipe de bénévoles du Breizh Backyard Ultra ! Participez à une aventure humaine et sportive unique au cœur de la Bretagne."
+        title={t("seo.benevoles.title")}
+        description={t("seo.benevoles.description")}
         canonicalPath="/benevoles"
         jsonLd={breadcrumbs}
       />

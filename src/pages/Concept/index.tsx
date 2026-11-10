@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "@/components/SEOHead";
 import { sportsEventSchema, createFaqSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
+import { LOOP_KM } from "@/lib/event";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div
@@ -65,7 +66,7 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
 );
 
 // Schéma visuel du format — vertical stepper
-const KM_PER_LOOP = 6.706;
+const KM_PER_LOOP = LOOP_KM;
 
 type StepData = {
   hour: number | "N";
@@ -229,16 +230,16 @@ export const Concept = () => {
   ];
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: "Accueil", path: "/" },
-    { name: "Concept", path: "/concept" },
+    { name: t("seo.home.breadcrumb"), path: "/" },
+    { name: t("seo.concept.breadcrumb"), path: "/concept" },
   ]);
   const faqSchema = createFaqSchema(faqItems.map((item) => ({ question: item.q, answer: item.a })));
 
   return (
     <div style={{ background: "#EFEFEF" }}>
       <SEOHead
-        title="Concept & Règles | Breizh Backyard Ultra"
-        description="Découvrez le principe de la Backyard Ultra : 6,706 km à parcourir chaque heure, jusqu'au dernier coureur debout. Règle du jeu, élimination et vainqueur."
+        title={t("seo.concept.title")}
+        description={t("seo.concept.description")}
         canonicalPath="/concept"
         jsonLd={[sportsEventSchema, faqSchema, breadcrumbs]}
       />

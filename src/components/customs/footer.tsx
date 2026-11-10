@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { Countdown } from "@/components/customs/countdown";
 import { useCookieConsent } from "@/providers/cookie-context";
+import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/event";
 
 const footerLinks = [
   { to: "/", labelKey: "home" },
@@ -20,10 +21,10 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/breizhbackyard/", color: "#E1306C" },
-  { icon: FacebookIcon, label: "Facebook", href: "https://www.facebook.com/people/BreizhBackyard/61588328941008/", color: "#1877F2" },
-  { icon: YoutubeIcon, label: "YouTube", href: "https://www.youtube.com/@breizhbackyard", color: "#FF0000" },
-  { icon: TiktokIcon, label: "TikTok", href: "https://www.tiktok.com/@breizhbackyard", color: "#000000" },
+  { icon: InstagramIcon, label: "Instagram", href: SOCIAL_LINKS.instagram, color: "#E1306C" },
+  { icon: FacebookIcon, label: "Facebook", href: SOCIAL_LINKS.facebook, color: "#1877F2" },
+  { icon: YoutubeIcon, label: "YouTube", href: SOCIAL_LINKS.youtube, color: "#FF0000" },
+  { icon: TiktokIcon, label: "TikTok", href: SOCIAL_LINKS.tiktok, color: "#000000" },
 ];
 
 export const Footer = () => {
@@ -189,11 +190,11 @@ export const Footer = () => {
             <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
                 <Mail size={15} style={{ color: "#8CBE4F", flexShrink: 0 }} />
-                <a href="mailto:contact@breizhbackyard.com" style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.88rem", textDecoration: "none", transition: "color 0.2s ease" }}
+                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.88rem", textDecoration: "none", transition: "color 0.2s ease" }}
                   onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#8CBE4F"}
                   onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.65)"}
                 >
-                  contact@breizhbackyard.com
+                  {CONTACT_EMAIL}
                 </a>
               </div>
               <div
@@ -209,7 +210,7 @@ export const Footer = () => {
                   {t("footer.depart_dans")}
                 </div>
                 <div style={{ marginBottom: "0.5rem" }}>
-                  <Countdown targetDateStr="2027-05-15T10:00:00+02:00" hidePrefix />
+                  <Countdown hidePrefix />
                 </div>
                 <div style={{ fontSize: "0.9rem", color: "#fff", fontFamily: "'Hobo', sans-serif" }}>
                   {t("footer.date")}

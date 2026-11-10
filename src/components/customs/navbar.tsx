@@ -17,9 +17,10 @@ const navLinks = [
   { to: "/benevoles", key: "benevoles" },
 ];
 
-const BRFlag = ({ style }: { style?: React.CSSProperties }) => (
-  <img src="/assets/icons/Gwenn_ha_du.svg" alt="Drapeau Breton" style={{ ...style, objectFit: "cover" }} />
-);
+const BRFlag = ({ style }: { style?: React.CSSProperties }) => {
+  const { t } = useTranslation();
+  return <img src="/assets/icons/Gwenn_ha_du.svg" alt={t("navbar.flag_br")} style={{ ...style, objectFit: "cover" }} />;
+};
 
 const LanguageDropdown = ({ closeMenu, isMobile = false }: { closeMenu?: () => void, isMobile?: boolean }) => {
   const { i18n } = useTranslation();
@@ -447,7 +448,7 @@ export const Navbar = () => {
             {t("navbar.newsletter")} →
           </Link>
           <p style={{ textAlign: "center", marginTop: "0.25rem", fontSize: "0.75rem", color: "rgba(255,255,255,0.4)" }}>
-            Départ : Samedi 15 mai 2027 — 10h00
+            {t("navbar.start", { date: t("footer.date") })}
           </p>
         </div>
       </div>

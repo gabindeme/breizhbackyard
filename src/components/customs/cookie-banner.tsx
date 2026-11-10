@@ -55,7 +55,7 @@ export const CookieBanner = () => {
             }}
             role="dialog"
             aria-modal="true"
-            aria-label="Consentement aux cookies RGPD"
+            aria-label={t("cookies.banner_title")}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}

@@ -113,18 +113,18 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 **Done when:** `pnpm check:i18n` passes.
 
 ### 2.2 Move the French text that's typed into components into the locale files (M, D4)
-- [ ] SEO: move the `title` and `description` props of `<SEOHead>` in all 12 pages into new keys `seo.<page>.title` and `seo.<page>.description`. These keys can be reused in Phase 3.
-- [ ] Move the breadcrumb names (`createBreadcrumbSchema([...])` in 10 pages, including "Accueil" ×10) into the locales.
-- [ ] Legal pages: `MentionsLegales` has 2 `t()` calls and `PolitiqueConfidentialite` has 5; the rest is typed French. Per D4, add a short "available in French only" note for en/br, or translate them.
-- [ ] `src/components/customs/navbar.tsx:450` has "Départ : Samedi 15 mai 2027 — 10h00" typed in (note the lowercase "mai"; elsewhere it's "Mai").
-- [ ] `src/pages/InfosPratiques/index.tsx:306-317` has the `CheckItem` texts, "Direction de course", "Médecin de course" and "À venir" typed in.
-- [ ] `src/pages/Inscriptions/index.tsx:29-46` has Brevo's validation messages and `LOCALE = 'fr'` fixed in French. Use `t()` and `i18n.language`.
-- [ ] Image descriptions: `Home/index.tsx:467` ("Aperçu du parcours") and the navbar's "Drapeau Breton".
+- [x] SEO: move the `title` and `description` props of `<SEOHead>` in all 12 pages into new keys `seo.<page>.title` and `seo.<page>.description`. These keys can be reused in Phase 3.
+- [x] Move the breadcrumb names (`createBreadcrumbSchema([...])` in 10 pages, including "Accueil" ×10) into the locales.
+- [x] Legal pages: `MentionsLegales` has 2 `t()` calls and `PolitiqueConfidentialite` has 5; the rest is typed French. Per D4, add a short "available in French only" note for en/br, or translate them.
+- [x] `src/components/customs/navbar.tsx:450` has "Départ : Samedi 15 mai 2027 — 10h00" typed in (note the lowercase "mai"; elsewhere it's "Mai").
+- [x] `src/pages/InfosPratiques/index.tsx:306-317` has (that whole section is commented out and never rendered; only its camp name was updated)  the `CheckItem` texts, "Direction de course", "Médecin de course" and "À venir" typed in.
+- [x] `src/pages/Inscriptions/index.tsx:29-46` has Brevo's validation messages and `LOCALE = 'fr'` fixed in French. Use `t()` and `i18n.language`.
+- [x] Image descriptions: `Home/index.tsx:467` ("Aperçu du parcours") and the navbar's "Drapeau Breton".
 
 **Done when:** in English, no page shows French text (apart from the legal pages, if D4 is kept) and every browser-tab title is in English.
 
 ### 2.3 Use the same wording everywhere (S, D5 to D8)
-- [ ] **Article (D5).** Masculine forms are still in:
+- [x] **Article (D5).** Masculine forms are still in:
   - `SEOHead.tsx:67-68` (default description, "Le …");
   - `seoSchemas.ts` ("Le …", "du …");
   - `index.html` (`twitter:description`, "Le …"), while `description` and `og:description` already say "La";
@@ -132,28 +132,28 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
   - one "du Breizh Backyard Ultra" in `fr.json`.
 
   Find them with `grep -rnE "\b(Le|le|du) Breizh Backyard" src public index.html`.
-- [ ] **Camp name (D6).** `fr.json` mixes "zone de vie" (11), "camp de base" (10) and "base de vie" (1). Other copies: `InfosPratiques/index.tsx:306`, `seoSchemas.ts:38` ("Base de Vie - Rennes") and `public/llms-full.txt`.
-- [ ] **Brand name (D7).** `public/site.webmanifest` uses "Breizh Backyard" for its `name` and description, and `en.json` uses the short form 11 times.
-- [ ] **Title separator.** `index.html` has used " - " since `bb9df81`, but `SEOHead` and the pages use " — ". Pick one.
-- [ ] **`twitter:site` (D8).** `index.html:52` points to `@BreizhBackyard`, but no X account appears in the footer or in `organizationSchema.sameAs`.
-- [ ] **Miles.** The locales say 4,1667 / 4.1667, while `llms*.txt` and `seoSchemas.ts` say 4,167. Use one precision.
-- [ ] **Organiser (optional).** The legal publisher is "Association Delta Events" (`MentionsLegales`), but the structured data names "Breizh Backyard Ultra" as `organizer` (`seoSchemas.ts:53`). Consider naming the association as organiser and keeping the brand as the event name.
+- [x] **Camp name (D6).** `fr.json` mixes "zone de vie" (11), "camp de base" (10) and "base de vie" (1). Other copies: `InfosPratiques/index.tsx:306`, `seoSchemas.ts:38` ("Base de Vie - Rennes") and `public/llms-full.txt`.
+- [x] **Brand name (D7).** `public/site.webmanifest` uses "Breizh Backyard" for its `name` and description, and `en.json` uses the short form 11 times.
+- [x] **Title separator.** (chose " | " everywhere)  `index.html` has used " - " since `bb9df81`, but `SEOHead` and the pages use " — ". Pick one.
+- [x] **`twitter:site` (D8).** (removed: no X account; the other twitter:* card tags stay)  `index.html:52` points to `@BreizhBackyard`, but no X account appears in the footer or in `organizationSchema.sameAs`.
+- [x] **Miles.** (4,167 / 4.167 everywhere)  The locales say 4,1667 / 4.1667, while `llms*.txt` and `seoSchemas.ts` say 4,167. Use one precision.
+- [x] **Organiser (optional).** (done: `organizer` is now Association Delta Events)  The legal publisher is "Association Delta Events" (`MentionsLegales`), but the structured data names "Breizh Backyard Ultra" as `organizer` (`seoSchemas.ts:53`). Consider naming the association as organiser and keeping the brand as the event name.
 
 **Done when:** each of these greps returns only the chosen form.
 
 ### 2.4 Keep the event facts in one place (S)
-- [ ] Create `src/lib/event.ts` with the start time (`"2027-05-15T10:00:00+02:00"`), the loop distance (`6.706` km, plus miles), the city, the venue (Parc des Gayeulles), the GPS coordinates, the contact email and the social links.
-- [ ] Use it in:
+- [x] Create `src/lib/event.ts` with the start time (`"2027-05-15T10:00:00+02:00"`), the loop distance (`6.706` km, plus miles), the city, the venue (Parc des Gayeulles), the GPS coordinates, the contact email and the social links.
+- [x] Use it in:
   - `countdown.tsx:25` (the default) and the `Countdown` props in `footer.tsx:212` and `Home/index.tsx:189`;
   - `seoSchemas.ts`, `SEOHead.tsx` and `Concept/index.tsx:68` (`KM_PER_LOOP`);
   - the footer's social links and `organizationSchema.sameAs`;
   - the `mailto:` links (`footer.tsx:192`, `Contact/index.tsx:105`).
-- [ ] Leave the written-out dates in the locales, since they differ by language. The static files (`index.html`, `public/llms*.txt`, `site.webmanifest`) can't import TypeScript: keep their list in `CLAUDE.md` and grep them when a fact changes. After Phase 3, the `<head>` content moves into TypeScript and can use the constants.
+- [x] Leave the written-out dates in the locales, since they differ by language. The static files (`index.html`, `public/llms*.txt`, `site.webmanifest`) can't import TypeScript: keep their list in `CLAUDE.md` and grep them when a fact changes. After Phase 3, the `<head>` content moves into TypeScript and can use the constants.
 
 **Done when:** `grep -rn "2027-05-15" src` matches only `src/lib/event.ts`.
 
 ### 2.5 Keep the thank-you page out of search results (S)
-- [ ] `/bienvenue` is the after-signup page and nothing on the site links to it. Yet it's listed in `public/sitemap.xml:30` and doesn't set `noIndex`. Add `noIndex` to its `<SEOHead>` (`Bienvenue/index.tsx:18`) and remove it from the sitemap.
+- [x] `/bienvenue` is the after-signup page and nothing on the site links to it. Yet it's listed in `public/sitemap.xml:30` and doesn't set `noIndex`. Add `noIndex` to its `<SEOHead>` (`Bienvenue/index.tsx:18`) and remove it from the sitemap.
 
 **Done when:** the page's robots tag says `noindex, nofollow` and the sitemap no longer lists it.
 

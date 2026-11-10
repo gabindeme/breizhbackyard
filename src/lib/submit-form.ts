@@ -1,6 +1,6 @@
 import i18n from "i18next";
 
-export const CONTACT_EMAIL = "contact@breizhbackyard.com";
+export { CONTACT_EMAIL } from "@/lib/event";
 
 export type FormType = "contact" | "benevole" | "sponsor";
 

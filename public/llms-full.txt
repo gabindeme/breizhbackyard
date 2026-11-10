@@ -11,7 +11,7 @@ L'événement s'inspire du format légendaire créé par Lazarus Lake. Le princi
 - **Nom Officiel**: Breizh Backyard Ultra
 - **Nom Alternatif**: Breizh Backyard Ultra 2027
 - **Date de Départ**: Samedi 15 Mai 2027 à 10:00 CEST
-- **Lieu**: Base de Vie — Rennes, Bretagne, France (Coordonnées GPS : 48.134762, -1.647241)
+- **Lieu**: Camp de base, Parc des Gayeulles — Rennes, Bretagne, France (Coordonnées GPS : 48.134762, -1.647241)
 - **Carte / Localisation GPS**: https://maps.google.com/?q=48.13476195656116,-1.6472409293385937
 - **Distance par boucle**: 6,706 km / 4,167 miles
 - **Temps alloué par boucle**: 60 minutes
@@ -35,7 +35,7 @@ L'événement s'inspire du format légendaire créé par Lazarus Lake. Le princi
 ### 2. Le Parcours et l'Assistance
 - Les coureurs effectuent la boucle officielle de 6,706 km.
 - Aucune assistance personnelle ou médicale n'est autorisée sur le parcours pendant la boucle.
-- L'assistance (ravitaillement, soins, repos, changement de tenue) est uniquement autorisée dans la "Zone de Vie / Base de Vie" entre deux boucles.
+- L'assistance (ravitaillement, soins, repos, changement de tenue) est uniquement autorisée au "camp de base" entre deux boucles.
 - Les bâtons de marche et chiens de compagnie sont interdits pendant la course.
 
 ### 3. Victoire et Élimination
@@ -54,14 +54,14 @@ L'événement s'inspire du format légendaire créé par Lazarus Lake. Le princi
 - Sifflet de sécurité
 
 ### Matériel Recommandé
-- Tente personnelle ou matériel de repos pour la zone de vie
+- Tente personnelle ou matériel de repos pour le camp de base
 - Vêtements de rechange adaptés aux variations de météo bretonne (pluie, vent, froid nocturne)
 - Nutrition et hydratation personnalisées
 - Chaussures de trail adaptées au terrain mixte
 
-## Ravitaillement & Zone de Vie
+## Ravitaillement & camp de base
 
-- La zone de vie dispose d'un point d'eau potable, de ravitaillements chauds et froids fournis par l'organisation à chaque heure.
+- Le camp de base dispose d'un point d'eau potable, de ravitaillements chauds et froids fournis par l'organisation à chaque heure.
 - Un espace est mis à disposition pour les tentes et emplacements d'assistance des coureurs et de leurs accompagnateurs.
 
 ## Inscriptions & Informations Pratiques

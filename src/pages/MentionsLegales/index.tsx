@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { Building2, User, Server, Copyright, AlertTriangle, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SEOHead } from "@/components/SEOHead";
+import { FrenchOnlyNote } from "@/components/customs/french-only-note";
 import { createBreadcrumbSchema } from "@/lib/seoSchemas";
+import { CONTACT_EMAIL } from "@/lib/event";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div
@@ -68,15 +70,15 @@ export const MentionsLegales = () => {
   const { t } = useTranslation();
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: "Accueil", path: "/" },
-    { name: "Mentions Légales", path: "/mentions-legales" },
+    { name: t("seo.home.breadcrumb"), path: "/" },
+    { name: t("seo.mentions.breadcrumb"), path: "/mentions-legales" },
   ]);
 
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
       <SEOHead
-        title="Mentions Légales | Breizh Backyard Ultra"
-        description="Consultez les informations réglementaires, juridiques et d'hébergement du site officiel du Breizh Backyard Ultra."
+        title={t("seo.mentions.title")}
+        description={t("seo.mentions.description")}
         canonicalPath="/mentions-legales"
         jsonLd={breadcrumbs}
       />
@@ -91,6 +93,7 @@ export const MentionsLegales = () => {
 
       <section style={{ padding: "4rem 0 6rem" }}>
         <div className="page-container" style={{ maxWidth: "920px" }}>
+          <FrenchOnlyNote />
           <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             {/* 1. Éditeur du site */}
             <article
@@ -129,8 +132,8 @@ export const MentionsLegales = () => {
                 <strong>Siège social :</strong> 2, rue Victor et Ilona Basch, 35700 Rennes, France
                 <br />
                 <strong>Courriel :</strong>{" "}
-                <a href="mailto:contact@breizhbackyard.com" style={{ color: "#277956", fontWeight: 700 }}>
-                  contact@breizhbackyard.com
+                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "#277956", fontWeight: 700 }}>
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </article>
@@ -166,8 +169,8 @@ export const MentionsLegales = () => {
                 <strong>Qualité :</strong> Président de l'Association Delta Events
                 <br />
                 <strong>Contact :</strong>{" "}
-                <a href="mailto:contact@breizhbackyard.com" style={{ color: "#277956", fontWeight: 600 }}>
-                  contact@breizhbackyard.com
+                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "#277956", fontWeight: 600 }}>
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </article>

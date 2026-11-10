@@ -13,7 +13,9 @@
     "language": "Langue",
     "languageChanged": "Langue changée en français.",
     "newsletter": "S'inscrire",
-    "benevoles": "Bénévoles"
+    "benevoles": "Bénévoles",
+    "start": "Départ : {{date}}",
+    "flag_br": "Drapeau breton"
   },
   "footer": {
     "rights": "© {{year}} Breizh Backyard Ultra — Tous droits réservés",
@@ -29,7 +31,7 @@
     "description": "L'ultra-endurance au coeur de Rennes. Un tour. Toutes les heures. Jusqu'au dernier.",
     "course_title": "La course",
     "depart_dans": "Départ dans",
-    "date": "Samedi 15 Mai 2027 · 10h00",
+    "date": "Samedi 15 mai 2027 · 10h00",
     "benevoles": "Devenir bénévole"
   },
   "countdown": {
@@ -41,7 +43,7 @@
   },
   "home": {
     "hero": {
-      "date": "Samedi 15 Mai 2027 · 10h00",
+      "date": "Samedi 15 mai 2027 · 10h00",
       "title": "BREIZH BACKYARD",
       "subtitle": "ULTRA",
       "desc_line1": "6,706 km. Toutes les heures. Jusqu'au dernier debout.",
@@ -57,7 +59,7 @@
       "card1_title": "Toutes les heures",
       "card1_text": "Un top départ est donné chaque heure. Tous les coureurs encore en course repartent ensemble, sans exception.",
       "card2_title": "6,706 km par tour",
-      "card2_text": "Chaque boucle fait exactement 6,706 km — 4,1667 miles. À compléter dans l'heure, sinon c'est l'élimination.",
+      "card2_text": "Chaque boucle fait exactement 6,706 km — 4,167 miles. À compléter dans l'heure, sinon c'est l'élimination.",
       "card3_title": "Un seul vainqueur",
       "card3_text": "La course continue jusqu'à ce qu'il ne reste plus qu'un seul coureur capable de boucler un tour supplémentaire en solitaire.",
       "card4_title": "Un esprit unique",
@@ -111,7 +113,8 @@
       "title": "Ne ratez pas l'ouverture des inscriptions",
       "desc": "Les places sont limitées. Inscrivez-vous à notre newsletter pour être au courant des dernières infos en premier.",
       "btn": "Je veux être prévenu(e) →"
-    }
+    },
+    "course_preview_alt": "Aperçu du parcours"
   },
   "concept_page": {
     "header": {
@@ -125,7 +128,7 @@
       "title_line2": "impossible à maîtriser",
       "desc1_start": "Le principe de la Backyard est d'une simplicité désarmante : boucler un circuit de ",
       "desc1_bold": " 6,706 km ",
-      "desc1_end": " (4,1667 miles, soit 100 miles au bout de 24h), et ce toutes les heures, sans exception.",
+      "desc1_end": " (4,167 miles, soit 100 miles au bout de 24h), et ce toutes les heures, sans exception.",
       "desc2": "À chaque nouvelle heure, un signal sonore retentit : c'est le top départ. Tous les coureurs encore en course repartent ensemble sans exception.",
       "desc3_start": "Si vous n'avez pas terminé votre boucle avant le top départ suivant, ",
       "desc3_bold": "c'est fini",
@@ -213,12 +216,12 @@
     "description": {
       "subtitle": "Le tracé",
       "title": "Présentation du circuit",
-      "p1_start": "Le tracé de la Breizh Backyard a été pensé pour être à la fois beau et équitable pour tous les coureurs. Une boucle unique de ",
+      "p1_start": "Le tracé de la Breizh Backyard Ultra a été pensé pour être à la fois beau et équitable pour tous les coureurs. Une boucle unique de ",
       "p1_bold": "6,706 km",
       "p1_end": ", parcourue dans le même sens à chaque tour.",
-      "p2_start": "Le départ et l'arrivée sont situés dans la ",
-      "p2_bold": "zone de vie",
-      "p2_end": " — le camp de base où coureurs et accompagnants se retrouvent entre les boucles. Vous disposez du temps non couru (si vous terminez en 45 minutes, vous avez 15 minutes pour récupérer) avant le prochain top départ.",
+      "p2_start": "Le départ et l'arrivée sont situés au ",
+      "p2_bold": "camp de base",
+      "p2_end": ", où coureurs et accompagnants se retrouvent entre les boucles. Vous disposez du temps non couru (si vous terminez en 45 minutes, vous avez 15 minutes pour récupérer) avant le prochain top départ.",
       "p3": "Retrouvez ci-dessous la carte interactive du tracé officiel ainsi que les options de téléchargement.",
       "btn_gpx": " Télécharger le GPX"
     },
@@ -234,10 +237,10 @@
     },
     "zone_vie": {
       "subtitle": "Entre les tours",
-      "title": "La zone de vie & camp de base",
+      "title": "Le camp de base",
       "p1": "Au centre de la boucle se trouve le camp de base : votre QG pendant toute la durée de la course. C'est ici que vous revenez après chaque tour pour récupérer, manger, dormir si nécessaire.",
       "p2": "Vous pouvez installer votre propre installation (tente, chaise longue, table...). Vos accompagnants, famille et amis peuvent rester dans cette zone pour vous soutenir tout au long de la course.",
-      "placeholder": "📸 Photo de la zone de vie à venir"
+      "placeholder": "📸 Photo du camp de base à venir"
     },
     "galerie": {
       "subtitle": "Aperçu",
@@ -249,7 +252,7 @@
       "p2_desc": "Votre photo ici",
       "p3_label": "Le départ / arrivée",
       "p3_desc": "Votre photo ici",
-      "p4_label": "Zone de vie",
+      "p4_label": "Camp de base",
       "p4_desc": "Votre photo ici",
       "p5_label": "Vue panoramique",
       "p5_desc": "Votre photo ici",
@@ -272,7 +275,7 @@
     "acces": {
       "title": "Accès & Lieu",
       "loc_title": "📍 Localisation",
-      "loc_p1_start": "La Breizh Backyard se déroule en Bretagne, dans un cadre naturel préservé.",
+      "loc_p1_start": "La Breizh Backyard Ultra se déroule en Bretagne, dans un cadre naturel préservé.",
       "loc_p1_bold": " L'adresse exacte sera communiquée",
       "loc_p1_end": " aux inscrits par email avant la course.",
       "loc_info": "ℹ️ Les coordonnées GPS et l'accès détaillé seront partagés dans le pack participant, disponible 2 semaines avant la course.",
@@ -306,7 +309,7 @@
     "ravitaillement": {
       "title": "Ravitaillement",
       "fourni_title": "✅ Ce qui est fourni",
-      "f1": "Point d'eau potable permanent sur la zone de vie",
+      "f1": "Point d'eau potable permanent au camp de base",
       "f2": "Fruits frais (bananes, oranges...) entre chaque tour",
       "f3": "Bouillons chauds pendant la nuit",
       "f4": "Café / thé en continu",
@@ -324,10 +327,10 @@
       "r2": "Tout coureur qui n'a pas franchi la ligne avant le signal est immédiatement éliminé.",
       "r3": "Le vainqueur est le dernier coureur capable de terminer un tour de plus que tous les autres.",
       "r4": "Le vainqueur doit effectuer un tour supplémentaire seul pour être officiellement déclaré.",
-      "r_breizh_title": "Règles spécifiques à la Breizh Backyard",
+      "r_breizh_title": "Règles spécifiques à la Breizh Backyard Ultra",
       "br1": "Le dossard doit être porté visible à l'avant pendant toute la course.",
       "br2": "Tout coureur abandonnant doit signaler son abandon à un membre de l'organisation.",
-      "br3": "Les accompagnants restent dans la zone de vie — pas d'assistance sur le circuit.",
+      "br3": "Les accompagnants restent au camp de base — pas d'assistance sur le circuit.",
       "br4": "Toute aide extérieure sur le circuit entraîne la disqualification immédiate.",
       "br5": "Le règlement complet est disponible dans le pack participant."
     }
@@ -345,11 +348,11 @@
     "info": {
       "badge": "Inscriptions fermées — Ouverture prochaine",
       "title": "Soyez parmi les premiers à courir",
-      "desc": "Les places pour la Breizh Backyard sont limitées. En vous inscrivant à notre newsletter, vous serez le premier informé des prochaines infos et serez alerté(e) dès l'ouverture officielle des inscriptions.",
+      "desc": "Les places pour la Breizh Backyard Ultra sont limitées. En vous inscrivant à notre newsletter, vous serez le premier informé des prochaines infos et serez alerté(e) dès l'ouverture officielle des inscriptions.",
       "list1": "Notification immédiate à l'ouverture des inscriptions",
       "list3": "Actualités exclusives sur la course et le parcours",
       "depart_title": "Prochain départ",
-      "depart_date": "Samedi 15 Mai 2027",
+      "depart_date": "Samedi 15 mai 2027",
       "depart_loc": "10h00 — Parc des Gayeulles, Rennes"
     },
     "form": {
@@ -359,7 +362,7 @@
       "prenom_ph": "Votre prénom",
       "email_label": "Email",
       "email_ph": "votre.email@exemple.com",
-      "optin_text": "En renseignant votre email, vous acceptez de recevoir les informations officielles de la Breizh Backyard (ouverture de la billetterie et actualités). Désinscription possible à tout moment.",
+      "optin_text": "En renseignant votre email, vous acceptez de recevoir les informations officielles de la Breizh Backyard Ultra (ouverture de la billetterie et actualités). Désinscription possible à tout moment.",
       "btn_submit": "S'INSCRIRE À LA NEWSLETTER",
       "btn_loading": "Inscription en cours..."
     },
@@ -373,6 +376,19 @@
       "message": "Un email de confirmation vous a été envoyé. Vérifiez votre boîte de réception (et vos spams !) pour finaliser votre inscription à la newsletter.",
       "email_hint": "Pensez à ajouter notre adresse email à vos contacts pour ne rater aucune notification d'ouverture d'inscriptions.",
       "btn_close": "Parfait, merci !"
+    },
+    "close": "Fermer",
+    "brevo": {
+      "required_code": "Veuillez choisir un code pays.",
+      "invalid": "Les informations fournies ne sont pas valides.",
+      "required": "Ce champ est requis.",
+      "invalid_number": "Numéro invalide.",
+      "invalid_date": "Veuillez saisir une date valide.",
+      "required_multiselect": "Veuillez choisir au moins une option.",
+      "selected_list": "{quantity} liste sélectionnée",
+      "selected_lists": "{quantity} listes sélectionnées",
+      "selected_option": "{quantity} sélectionné",
+      "selected_options": "{quantity} sélectionnés"
     }
   },
   "bienvenue_page": {
@@ -390,7 +406,7 @@
     "card_infos_title": "Infos Pratiques",
     "card_infos_desc": "Consultez le lieu de départ, l'organisation du camp de base, les ravitaillements et le règlement.",
     "card_infos_btn": "Toutes les infos",
-    "banner_title": "Merci de rejoindre l'aventure Breizh Backyard !",
+    "banner_title": "Merci de rejoindre l'aventure Breizh Backyard Ultra !",
     "banner_desc": "Pensez à ajouter notre adresse email à vos contacts autorisés pour ne rater aucun message important. À très vite sur les sentiers bretons !",
     "btn_home": "Retour à l'accueil"
   },
@@ -487,7 +503,7 @@
           },
           {
             "q": "Puis-je avoir une équipe de soutien ?",
-            "a": "Oui ! Vos accompagnants peuvent être présents dans la zone de vie tout au long de la course. Ils ne peuvent cependant pas vous assister sur le circuit lui-même."
+            "a": "Oui ! Vos accompagnants peuvent être présents au camp de base tout au long de la course. Ils ne peuvent cependant pas vous assister sur le circuit lui-même."
           },
           {
             "q": "Les bâtons de trail sont-ils autorisés ?",
@@ -495,7 +511,7 @@
           },
           {
             "q": "Y a-t-il des douches ou sanitaires sur place ?",
-            "a": "Des sanitaires seront disponibles sur la zone de vie. Les détails complets seront communiqués dans le pack participant."
+            "a": "Des sanitaires seront disponibles au camp de base. Les détails complets seront communiqués dans le pack participant."
           }
         ]
       },
@@ -512,7 +528,7 @@
           },
           {
             "q": "Y a-t-il un point de ravitaillement sur le circuit ?",
-            "a": "Non. Le seul ravitaillement se trouve à la zone de vie, au départ/arrivée. Vous disposerez du temps restant après chaque tour pour vous ravitailler avant le prochain départ."
+            "a": "Non. Le seul ravitaillement se trouve au camp de base, au départ/arrivée. Vous disposerez du temps restant après chaque tour pour vous ravitailler avant le prochain départ."
           }
         ]
       },
@@ -537,8 +553,8 @@
         "category": "🤝 L'organisation",
         "items": [
           {
-            "q": "Qui organise la Breizh Backyard ?",
-            "a": "La Breizh Backyard est organisée par l'association Delta Events. Nous sommes 4 jeunes passionnés de course à pied et de trail, unis par l'envie de proposer un événement d'ultra-endurance unique à Rennes. C'est un projet 100% associatif, porté par la passion et l'énergie de notre équipe."
+            "q": "Qui organise la Breizh Backyard Ultra ?",
+            "a": "La Breizh Backyard Ultra est organisée par l'association Delta Events. Nous sommes 4 jeunes passionnés de course à pied et de trail, unis par l'envie de proposer un événement d'ultra-endurance unique à Rennes. C'est un projet 100% associatif, porté par la passion et l'énergie de notre équipe."
           },
           {
             "q": "À quoi sert le prix du dossard ?",
@@ -604,7 +620,7 @@
     "header": {
       "subtitle": "Édition #1",
       "title": "Résultats & Suivi Live",
-      "desc": "Il n'y a pas encore d'historique de résultats car c'est la toute première édition du Breizh Backyard Ultra."
+      "desc": "Il n'y a pas encore d'historique de résultats car c'est la toute première édition de la Breizh Backyard Ultra."
     },
     "live": {
       "title": "Le Suivi Live sera ici !",
@@ -621,7 +637,7 @@
     "header": {
       "subtitle": "Photos",
       "title": "Galerie",
-      "desc": "Revivez les moments forts de la Breizh Backyard. Les vraies photos seront ajoutées après chaque édition."
+      "desc": "Revivez les moments forts de la Breizh Backyard Ultra. Les vraies photos seront ajoutées après chaque édition."
     },
     "categories": {
       "toutes": "Toutes",
@@ -634,7 +650,7 @@
       "p1_desc": "Remplacer par vos vraies photos",
       "p2_label": "Sentier forestier",
       "p2_desc": "Photo du tracé",
-      "p3_label": "Zone de vie",
+      "p3_label": "Camp de base",
       "p3_desc": "Camp de base",
       "p4_label": "Dans le vif",
       "p4_desc": "Action de course",
@@ -663,7 +679,7 @@
     "header": {
       "subtitle": "Rejoignez l'équipe",
       "title": "Devenir Bénévole",
-      "desc": "Vivez la Breizh Backyard de l'intérieur. Sans bénévoles, l'aventure n'existerait pas."
+      "desc": "Vivez la Breizh Backyard Ultra de l'intérieur. Sans bénévoles, l'aventure n'existerait pas."
     },
     "intro": {
       "title": "Pourquoi devenir bénévole ?",
@@ -676,8 +692,8 @@
     },
     "roles": {
       "title": "Les missions",
-      "r1_title": "Ravitaillement & Zone de vie",
-      "r1_text": "Préparation des ravitaillements, accueil des coureurs, gestion de la base de vie.",
+      "r1_title": "Ravitaillement & camp de base",
+      "r1_text": "Préparation des ravitaillements, accueil des coureurs, gestion du camp de base.",
       "r2_title": "Signaleur & Sécurité",
       "r2_text": "Orientation sur le parcours, sécurité aux intersections, encouragements.",
       "r3_title": "Logistique & Montage",
@@ -758,5 +774,70 @@
     "cat_analytics_desc": "Permet d'analyser anonymement la fréquentation et la vitesse d'affichage de notre site (Vercel Analytics et Speed Insights) afin d'améliorer la navigation des coureurs et supporters.",
     "read_full_policy": "Consulter la politique de confidentialité",
     "save_selection": "Enregistrer mes choix"
+  },
+  "seo": {
+    "og_image_alt": "Breizh Backyard Ultra, samedi 15 mai 2027, Rennes",
+    "home": {
+      "title": "Breizh Backyard Ultra | Ultra-endurance en Bretagne",
+      "description": "La Breizh Backyard Ultra est une course d'ultra-endurance au format Backyard Ultra, à Rennes en Bretagne. 6,706 km toutes les heures, jusqu'au dernier debout.",
+      "breadcrumb": "Accueil"
+    },
+    "concept": {
+      "title": "Concept et règles",
+      "description": "Découvrez le principe de la Backyard Ultra : 6,706 km à parcourir chaque heure, jusqu'au dernier coureur debout. Règles, élimination et vainqueur.",
+      "breadcrumb": "Concept"
+    },
+    "infos": {
+      "title": "Infos pratiques et règlement",
+      "description": "Toutes les informations pratiques pour participer à la Breizh Backyard Ultra : accès, parking, ravitaillement, matériel obligatoire et règlement.",
+      "breadcrumb": "Infos pratiques"
+    },
+    "inscriptions": {
+      "title": "Inscriptions et newsletter",
+      "description": "Inscrivez-vous à la newsletter de la Breizh Backyard Ultra pour être averti en priorité de l'ouverture des inscriptions et de la billetterie.",
+      "breadcrumb": "Inscriptions"
+    },
+    "faq": {
+      "title": "Foire aux questions (FAQ)",
+      "description": "Les réponses aux questions les plus fréquentes sur la Breizh Backyard Ultra : règles, hébergement, matériel, logistique et ravitaillement.",
+      "breadcrumb": "FAQ"
+    },
+    "sponsors": {
+      "title": "Partenaires et sponsors",
+      "description": "Associez votre marque à la Breizh Backyard Ultra : découvrez notre dossier partenaire et soutenez un événement d'ultra-endurance d'exception.",
+      "breadcrumb": "Partenaires et sponsors"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Une question sur la course, les inscriptions ou le bénévolat ? Contactez l'équipe d'organisation de la Breizh Backyard Ultra.",
+      "breadcrumb": "Contact"
+    },
+    "benevoles": {
+      "title": "Devenir bénévole",
+      "description": "Rejoignez l'équipe de bénévoles de la Breizh Backyard Ultra et vivez une aventure humaine et sportive unique au cœur de la Bretagne.",
+      "breadcrumb": "Bénévoles"
+    },
+    "bienvenue": {
+      "title": "Bienvenue dans la communauté",
+      "description": "Merci d'avoir rejoint la communauté de la Breizh Backyard Ultra ! Découvrez les étapes clés avant le grand jour.",
+      "breadcrumb": "Bienvenue"
+    },
+    "mentions": {
+      "title": "Mentions légales",
+      "description": "Informations réglementaires, juridiques et d'hébergement du site officiel de la Breizh Backyard Ultra.",
+      "breadcrumb": "Mentions légales"
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "description": "Comment l'Association Delta Events protège vos données personnelles conformément au RGPD.",
+      "breadcrumb": "Politique de confidentialité"
+    },
+    "notfound": {
+      "title": "Page non trouvée",
+      "description": "La page demandée n'existe pas ou a été déplacée."
+    }
+  },
+  "legal": {
+    "french_only": "Cette page n'est disponible qu'en français."
   }
 }

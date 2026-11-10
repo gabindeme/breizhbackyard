@@ -3,7 +3,9 @@ import { Shield, Lock, Eye, Clock, UserCheck, ExternalLink, FileText, Server } f
 import { useTranslation } from "react-i18next";
 import { useCookieConsent } from "@/providers/cookie-context";
 import { SEOHead } from "@/components/SEOHead";
+import { FrenchOnlyNote } from "@/components/customs/french-only-note";
 import { createBreadcrumbSchema } from "@/lib/seoSchemas";
+import { CONTACT_EMAIL } from "@/lib/event";
 
 const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?: string; description?: string }) => (
   <div
@@ -69,15 +71,15 @@ export const PolitiqueConfidentialite = () => {
   const { openModal } = useCookieConsent();
 
   const breadcrumbs = createBreadcrumbSchema([
-    { name: "Accueil", path: "/" },
-    { name: "Politique de Confidentialité", path: "/politique-de-confidentialite" },
+    { name: t("seo.home.breadcrumb"), path: "/" },
+    { name: t("seo.privacy.breadcrumb"), path: "/politique-de-confidentialite" },
   ]);
 
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
       <SEOHead
-        title="Politique de Confidentialité | Breizh Backyard Ultra"
-        description="Découvrez comment l'Association Delta Events protège la confidentialité de vos données personnelles conformément au RGPD."
+        title={t("seo.privacy.title")}
+        description={t("seo.privacy.description")}
         canonicalPath="/politique-de-confidentialite"
         jsonLd={breadcrumbs}
       />
@@ -92,6 +94,7 @@ export const PolitiqueConfidentialite = () => {
 
       <section style={{ padding: "4rem 0 6rem" }}>
         <div className="page-container" style={{ maxWidth: "920px" }}>
+          <FrenchOnlyNote />
           {/* Quick status bar */}
           <div
             style={{
@@ -182,8 +185,8 @@ export const PolitiqueConfidentialite = () => {
                 Représentant légal : Gabin Demé, Président
                 <br />
                 Contact RGPD / DPO :{" "}
-                <a href="mailto:contact@breizhbackyard.com" style={{ color: "#277956", fontWeight: 600 }}>
-                  contact@breizhbackyard.com
+                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "#277956", fontWeight: 600 }}>
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </article>
@@ -379,8 +382,8 @@ export const PolitiqueConfidentialite = () => {
               </div>
               <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: 1.75, marginTop: "1rem" }}>
                 Pour exercer l'un de ces droits, adressez-nous simplement un courriel à :{" "}
-                <a href="mailto:contact@breizhbackyard.com" style={{ color: "#277956", fontWeight: 700 }}>
-                  contact@breizhbackyard.com
+                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "#277956", fontWeight: 700 }}>
+                  {CONTACT_EMAIL}
                 </a>
               </p>
               <div

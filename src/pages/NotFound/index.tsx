@@ -752,8 +752,8 @@ export const NotFound = () => {
       }}
     >
       <SEOHead
-        title="Page non trouvée | Breizh Backyard Ultra"
-        description="La page demandée n'existe pas ou a été déplacée."
+        title={t("seo.notfound.title")}
+        description={t("seo.notfound.description")}
         noIndex={true}
       />
       {/* Header */}

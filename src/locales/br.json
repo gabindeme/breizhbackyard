@@ -13,7 +13,9 @@
     "language": "Yezh",
     "languageChanged": "Yezh kemmet e brezhoneg.",
     "newsletter": "Enskrivañ",
-    "benevoles": "Tud a-youl vat"
+    "benevoles": "Tud a-youl vat",
+    "start": "Loc'hañ: {{date}}",
+    "flag_br": "Gwenn-ha-du"
   },
   "footer": {
     "rights": "© {{year}} Breizh Backyard Ultra — An holl wirioù miret strizh",
@@ -57,7 +59,7 @@
       "card1_title": "Bep eur",
       "card1_text": "Roet e vez un tan-gregiñ bep eur. An holl redourien c'hoazh er red a ya en-dro asambles, hep nemedenn.",
       "card2_title": "6,706 km an dro",
-      "card2_text": "Pep tro a ra resis 6,706 km — 4,1667 mil. Da glokaat e-barzh an eur, pe se a vo diverkadur.",
+      "card2_text": "Pep tro a ra resis 6,706 km — 4,167 mil. Da glokaat e-barzh an eur, pe se a vo diverkadur.",
       "card3_title": "Ur c'hounezer hepken",
       "card3_text": "Ar red a bad betek na chom nemet ur redour barrek da glokaat un dro ouzhpenn.",
       "card4_title": "Ur spered dibar",
@@ -111,7 +113,8 @@
       "title": "Na gollit ket digoradur an enskrivadurioù",
       "desc": "Bevennet eo al leuzioù. En em enskrivit d'hor c'helaouenn evit bezañ kelaouet da gentañ pa vo digor.",
       "btn": "Fellout a ra din bezañ kelaouet →"
-    }
+    },
+    "course_preview_alt": "Alberz eus an hent"
   },
   "concept_page": {
     "header": {
@@ -125,7 +128,7 @@
       "title_line2": "diaes-tre da vestroniañ",
       "desc1_start": "Reolenn diazez ur Backyard a zo eeun-kenañ: klokaat ur c'helc'hiad ",
       "desc1_bold": " 6,706 km ",
-      "desc1_end": " (4,1667 mil — da lâret eo 100 mil goude 24e), hag-se bep eur, hep nemedenn.",
+      "desc1_end": " (4,167 mil — da lâret eo 100 mil goude 24e), hag-se bep eur, hep nemedenn.",
       "desc2": "Bep eur nevez, ur sin son a zeu er-maez: setu an tan-gregiñ. An holl redourien c'hoazh er red a ya en-dro asambles, fresk pe skuizh e vezont. Ne vez ket a c'hregiñ hiniennel, ne vez ket a nemedenn.",
       "desc3_start": "Ma n'hoc'h eus ket klokaet ho tro a-raok an tan-gregiñ da zont, ",
       "desc3_bold": "echu eo",
@@ -213,7 +216,7 @@
     "description": {
       "subtitle": "An hentad",
       "title": "Kinnigadur ar c'helc'hiad",
-      "p1_start": "An hentad Breizh Backyard a zo bet soñjet evit bezañ ken kaer ha reizh evit an holl redourien. Un dro hepken a ",
+      "p1_start": "An hentad Breizh Backyard Ultra a zo bet soñjet evit bezañ ken kaer ha reizh evit an holl redourien. Un dro hepken a ",
       "p1_bold": "6,706 km",
       "p1_end": ", graet en hevelep tu bep tro.",
       "p2_start": "Al loc'hañ hag an erruout a zo lakaet er ",
@@ -272,7 +275,7 @@
     "acces": {
       "title": "Tremen & Lec'h",
       "loc_title": "📍 Lec'hiadur",
-      "loc_p1_start": "Ar Breizh Backyard a c'hoarvez e Breizh, en un endro natur miret.",
+      "loc_p1_start": "Ar Breizh Backyard Ultra a c'hoarvez e Breizh, en un endro natur miret.",
       "loc_p1_bold": " Roet e vo an chomlec'h resis",
       "loc_p1_end": " d'ar re enskrivet dre bostel a-raok ar red.",
       "loc_info": "ℹ️ Koordonadoù GPS hag an tremen munudek a vo rannet er pakad kemperzhour, hegerz 2 sizhun a-raok ar red.",
@@ -324,7 +327,7 @@
       "r2": "Redour ebet n'en deus tremenet al linenn a-raok ar sin a vez diverket diouzhtu.",
       "r3": "Ar gounezer eo ar redour diwezhañ barrek da glokaat un dro ouzhpenn eget an holl re all.",
       "r4": "Ar gounezer a rank ober un dro ouzhpenn e-unan evit bezañ disklêriet ofisielamant.",
-      "r_breizh_title": "Reolennoù dibar ar Breizh Backyard",
+      "r_breizh_title": "Reolennoù dibar ar Breizh Backyard Ultra",
       "br1": "An niverenn a rank bezañ gwisket hewel a-raok e-pad ar red a-bezh.",
       "br2": "Redour ebet a laosk ar red a rank menegiñ e ehan d'un ezel eus an aozadur.",
       "br3": "Ar skoazellerien a chom er maez-bevañ — n'eus ket a skoazell war ar c'helc'hiad.",
@@ -345,7 +348,7 @@
     "info": {
       "badge": "Enskrivadurioù serret — Digor a-benn nebeut",
       "title": "Bezit e-touez ar re gentañ da redek",
-      "desc": "Bevennet eo al leuzioù evit ar Breizh Backyard. En em enskrivet d'hor c'helaouenn, e vefec'h kelaouet pa vo digor ofisiel an enskrivadurioù, a-raok an disklêriadur foran.",
+      "desc": "Bevennet eo al leuzioù evit ar Breizh Backyard Ultra. En em enskrivet d'hor c'helaouenn, e vefec'h kelaouet pa vo digor ofisiel an enskrivadurioù, a-raok an disklêriadur foran.",
       "list1": "Kemenn diouzhtu pa vo digor an enskrivadurioù",
       "list3": "Keleier dibar diwar-benn ar red hag an hentad",
       "depart_title": "Loc'hañ da zont",
@@ -359,7 +362,7 @@
       "prenom_ph": "Ho hoc'h anv-bihan",
       "email_label": "Postel",
       "email_ph": "ho.postel@skouer.com",
-      "optin_text": "En ur reiñ ho postel, ec'h aotrit resev keleier ofisiel Breizh Backyard. Dilezel a c'haller pep amzer.",
+      "optin_text": "En ur reiñ ho postel, ec'h aotrit resev keleier ofisiel Breizh Backyard Ultra. Dilezel a c'haller pep amzer.",
       "btn_submit": "ENSKRIVAÑ D'AR C'HELAOUENN",
       "btn_loading": "O c'has..."
     },
@@ -373,6 +376,19 @@
       "message": "Kaset eo bet ur bostel kadarnaat deoc'h. Sellout a reoc'h ho boest postel (hag spamm !) evit klokaat ho enskrivadur d'ar c'helaouenn.",
       "email_hint": "Sonjit ouzhpenn hon postel d'ho c'hontaktoù evit chom pell eus ar skignadurioù digoradur enskrivadurioù.",
       "btn_close": "Kaer, trugarez !"
+    },
+    "close": "Serriñ",
+    "brevo": {
+      "required_code": "Dibabit ur c'hod bro, mar plij.",
+      "invalid": "N'eo ket reizh an titouroù roet.",
+      "required": "Ret eo leuniañ ar vaezienn-mañ.",
+      "invalid_number": "Niverenn direizh.",
+      "invalid_date": "Roit un deiziad reizh, mar plij.",
+      "required_multiselect": "Dibabit un dibab da nebeutañ, mar plij.",
+      "selected_list": "{quantity} roll dibabet",
+      "selected_lists": "{quantity} roll dibabet",
+      "selected_option": "{quantity} dibabet",
+      "selected_options": "{quantity} dibabet"
     }
   },
   "bienvenue_page": {
@@ -390,7 +406,7 @@
     "card_infos_title": "Keleier Pleustrek",
     "card_infos_desc": "Gwelout al lec'h loc'hañ, aozañ ar c'hamp hag ar reolenn.",
     "card_infos_btn": "An holl geleier",
-    "banner_title": "Trugarez da zont e-barzh avantur Breizh Backyard!",
+    "banner_title": "Trugarez da zont e-barzh avantur Breizh Backyard Ultra!",
     "banner_desc": "Sonjit ouzhpennit hor postel d'ho kontaktoù. Ken emberr war hentoù Breizh!",
     "btn_home": "Distro d'an degemer"
   },
@@ -537,8 +553,8 @@
         "category": "🤝 An aozadur",
         "items": [
           {
-            "q": "Piv a aoz ar Breizh Backyard?",
-            "a": "Aozet eo ar Breizh Backyard gant ar gevredigezh Delta Events. 4 den yaouank omp, broudet gant ar redek hag an hentadoù-roud, ha karget gant an c'hoant da grouiñ un darvoud ultra-staliañ dibar e Breizh. Ur raktres 100% kevredadel eo, dedennet gant berzh hag energiezh hor skipailh."
+            "q": "Piv a aoz ar Breizh Backyard Ultra?",
+            "a": "Aozet eo ar Breizh Backyard Ultra gant ar gevredigezh Delta Events. 4 den yaouank omp, broudet gant ar redek hag an hentadoù-roud, ha karget gant an c'hoant da grouiñ un darvoud ultra-staliañ dibar e Breizh. Ur raktres 100% kevredadel eo, dedennet gant berzh hag energiezh hor skipailh."
           },
           {
             "q": "Da betra e talvez priz an dosar-red?",
@@ -621,7 +637,7 @@
     "header": {
       "subtitle": "Fotoioù",
       "title": "Galerie",
-      "desc": "Adbevit poentoù kreñv ar Breizh Backyard. Fotoioù gwirion a vo ouzhpennet goude pep edisyon."
+      "desc": "Adbevit poentoù kreñv ar Breizh Backyard Ultra. Fotoioù gwirion a vo ouzhpennet goude pep edisyon."
     },
     "categories": {
       "toutes": "An holl",
@@ -663,7 +679,7 @@
     "header": {
       "subtitle": "Deuit en hor skipailh",
       "title": "Mont da Zen A-youl Vat",
-      "desc": "Bevit ar Breizh Backyard eus an diabarzh. Hep tud a-youl vat, n'eus ket eus an avantur."
+      "desc": "Bevit ar Breizh Backyard Ultra eus an diabarzh. Hep tud a-youl vat, n'eus ket eus an avantur."
     },
     "intro": {
       "title": "Perak mont da zen a-youl vat?",
@@ -744,19 +760,84 @@
   },
   "cookies": {
     "banner_title": "Doujañ d'ho puhez prevez",
-    "banner_desc": "Toupinoù ret evit mont en-dro al lec'hienn a implijomp. Gant hoc'h asant e c'hallomp implijout ivez toupinoù muzuliañ an niver a weladennerien evit gwellaat al lec'hienn. Heulier bruderezh ebet n'eo implijet.",
+    "banner_desc": "Toudennoù ret evit mont en-dro al lec'hienn a implijomp. Gant hoc'h asant e c'hallomp implijout ivez toudennoù muzuliañ an niver a weladennerien evit gwellaat al lec'hienn. Heulier bruderezh ebet n'eo implijet.",
     "learn_more": "Gouzout hiroc'h",
     "btn_refuse": "Nac'h pep tra",
     "btn_customize": "Personelaat",
     "btn_accept": "Asantiñ pep tra",
-    "modal_title": "Dibaboù an toupinoù",
-    "modal_intro": "Gallout a rit personelaat ho tibab evit pep rummad toupinoù amañ dindan. Miret e vez ho tibaboù e-pad 13 miz ha gallout a rit o cheñch forzh pegoulz.",
-    "cat_essential_title": "Toupinoù ret (rediet)",
+    "modal_title": "Dibaboù an toudennoù",
+    "modal_intro": "Gallout a rit personelaat ho tibab evit pep rummad toudennoù amañ dindan. Miret e vez ho tibaboù e-pad 13 miz ha gallout a rit o cheñch forzh pegoulz.",
+    "cat_essential_title": "Toudennoù ret (rediet)",
     "always_active": "Atav war enaou",
-    "cat_essential_desc": "Ret-mat eo an toupinoù-mañ evit mont en-dro al lec'hienn, evit ar surentez hag evit derc'hel soñj eus ho tibaboù asant.",
+    "cat_essential_desc": "Ret-mat eo an toudennoù-mañ evit mont en-dro al lec'hienn, evit ar surentez hag evit derc'hel soñj eus ho tibaboù asant.",
     "cat_analytics_title": "Muzuliañ ar weladennerezh hag an digonusted",
     "cat_analytics_desc": "Talvezout a ra da vuzuliañ hep anv an niver a weladennoù ha tizh al lec'hienn (Vercel Analytics ha Speed Insights) evit he gwellaat evit ar redourien hag ar skoazellerien.",
-    "read_full_policy": "Lenn ar politikerezh prevezded",
+    "read_full_policy": "Lenn ar politikerezh fiziegezh",
     "save_selection": "Enrollañ ma dibaboù"
+  },
+  "seo": {
+    "og_image_alt": "Breizh Backyard Ultra, Sadorn 15 Mae 2027, Roazhon",
+    "home": {
+      "title": "Breizh Backyard Ultra | Ultra-badelezh e Breizh",
+      "description": "Ar Breizh Backyard Ultra a zo ur redadeg ultra-badelezh er furm Backyard Ultra, e Roazhon e Breizh. 6,706 km bep eur, betek an hini diwezhañ en e sav.",
+      "breadcrumb": "Degemer"
+    },
+    "concept": {
+      "title": "Abeg ha reolennoù",
+      "description": "Dizoloit penaos ez a en-dro ar Backyard Ultra: 6,706 km bep eur, betek ma chom ur redour hepken en e sav. Reolennoù, dilezel ha trec'h.",
+      "breadcrumb": "Abeg"
+    },
+    "infos": {
+      "title": "Titouroù pleustrek ha reolennoù",
+      "description": "An holl ditouroù pleustrek evit kemer perzh er Breizh Backyard Ultra: mont di, parklec'h, boued, dafar ret ha reolennoù.",
+      "breadcrumb": "Titouroù"
+    },
+    "inscriptions": {
+      "title": "Enskrivañ ha lizher-keleier",
+      "description": "Enskrivit d'al lizher-keleier ar Breizh Backyard Ultra evit bezañ kelaouet da gentañ pa vo digoret an enskrivadurioù hag ar bilhedoù.",
+      "breadcrumb": "Enskrivañ"
+    },
+    "faq": {
+      "title": "Goulennoù alies (FAQ)",
+      "description": "Respontoù d'ar goulennoù alies diwar-benn ar Breizh Backyard Ultra: reolennoù, lojeiz, dafar, aozadur ha boued.",
+      "breadcrumb": "FAQ"
+    },
+    "sponsors": {
+      "title": "Parteneriou ha kevredidi",
+      "description": "Stagit ho merk ouzh ar Breizh Backyard Ultra: dizoloit hon teuliad parteneriezh ha skoazellit un darvoud ultra-badelezh dibar.",
+      "breadcrumb": "Parteneriou"
+    },
+    "contact": {
+      "title": "Darempred",
+      "description": "Ur goulenn diwar-benn ar redadeg, an enskrivadurioù pe al labour a-youl vat? Skrivit da skipailh aozañ ar Breizh Backyard Ultra.",
+      "breadcrumb": "Darempred"
+    },
+    "benevoles": {
+      "title": "Mont da zen a-youl vat",
+      "description": "Deuit e skipailh tud a-youl vat ar Breizh Backyard Ultra ha bevit un avantur denel ha sportel dibar e kreiz Breizh.",
+      "breadcrumb": "Tud a-youl vat"
+    },
+    "bienvenue": {
+      "title": "Degemer mat er gumuniezh",
+      "description": "Trugarez evit bezañ deuet er gumuniezh Breizh Backyard Ultra! Setu ar pazennoù pennañ a-raok an devezh bras.",
+      "breadcrumb": "Degemer mat"
+    },
+    "mentions": {
+      "title": "Menegoù lezennel",
+      "description": "Titouroù reolennel, lezennel hag herberc'hiañ lec'hienn ofisiel ar Breizh Backyard Ultra.",
+      "breadcrumb": "Menegoù lezennel"
+    },
+    "privacy": {
+      "title": "Politikerezh fiziegezh",
+      "description": "Penaos e warez ar gevredigezh Delta Events ho roadennoù personel hervez ar RGPD.",
+      "breadcrumb": "Politikerezh fiziegezh"
+    },
+    "notfound": {
+      "title": "Pajenn digavet",
+      "description": "N'eus ket eus ar bajenn goulennet pe dilec'hiet eo bet."
+    }
+  },
+  "legal": {
+    "french_only": "E galleg hepken emañ ar bajenn-mañ. Ar stumm gallek eo an hini a dalv."
   }
 }
