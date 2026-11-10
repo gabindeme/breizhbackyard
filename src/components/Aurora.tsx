@@ -149,6 +149,8 @@ export default function Aurora(props: AuroraProps) {
       renderer.setSize(width, height);
       if (program) {
         program.uniforms.uResolution.value = [width, height];
+        // Resizing clears the canvas: redraw the still frame when the loop isn't running.
+        if (!running) draw(performance.now());
       }
     }
     window.addEventListener('resize', resize);
@@ -178,9 +180,7 @@ export default function Aurora(props: AuroraProps) {
     const mesh = new Mesh(gl, { geometry, program });
     ctn.appendChild(gl.canvas);
 
-    let animateId = 0;
-    const update = (t: number) => {
-      animateId = requestAnimationFrame(update);
+    const draw = (t: number) => {
       const { time = t * 0.01, speed = 1.0 } = propsRef.current;
       program.uniforms.uTime.value = time * speed * 0.1;
       program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
@@ -192,12 +192,34 @@ export default function Aurora(props: AuroraProps) {
       });
       renderer.render({ scene: mesh });
     };
-    animateId = requestAnimationFrame(update);
+
+    // The animation only runs while the hero is on screen, and not at all when the visitor
+    // asks for reduced motion (a single still frame is drawn instead).
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let animateId = 0;
+    let running = false;
+    const update = (t: number) => {
+      animateId = requestAnimationFrame(update);
+      draw(t);
+    };
+    const start = () => {
+      if (running || reducedMotion) return;
+      running = true;
+      animateId = requestAnimationFrame(update);
+    };
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(animateId);
+    };
+    const observer = new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop()));
+    observer.observe(ctn);
+    if (reducedMotion) requestAnimationFrame(() => draw(performance.now()));
 
     resize();
 
     return () => {
-      cancelAnimationFrame(animateId);
+      stop();
+      observer.disconnect();
       window.removeEventListener('resize', resize);
       if (ctn && gl.canvas.parentNode === ctn) {
         ctn.removeChild(gl.canvas);

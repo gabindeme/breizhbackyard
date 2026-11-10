@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 // Inter is self-hosted so no visitor data goes to Google Fonts.
 import "@fontsource/inter/300.css";
@@ -16,11 +16,14 @@ import { CookieBanner } from "./components/customs/cookie-banner";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <CookieProvider>
-        <App />
-        <CookieBanner />
-      </CookieProvider>
-    </BrowserRouter>
+    {/* Waits for the visitor's language file (en/br are loaded on demand) instead of flashing French. */}
+    <Suspense fallback={null}>
+      <BrowserRouter>
+        <CookieProvider>
+          <App />
+          <CookieBanner />
+        </CookieProvider>
+      </BrowserRouter>
+    </Suspense>
   </StrictMode>,
 );
