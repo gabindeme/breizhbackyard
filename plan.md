@@ -82,6 +82,7 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 
 - [x] Host Inter yourself. Add `@fontsource/inter`, import weights 300 to 800 in `src/main.tsx` (the font name stays "Inter", so no style changes), and remove the three Google Fonts `<link>` tags from `index.html`.
 - [x] Load the reCAPTCHA script on the first `focus` or `input` inside `#sib-form`, not when the page mounts. Keep the site key in one constant (it's written twice, at lines 58 and 100).
+  **Update (2026-11-10):** reCAPTCHA was then removed entirely. The key was a score-based Enterprise key, but the Brevo form expects a v2 checkbox, so no signup could go through. The captcha is now off in the Brevo form settings, and double opt-in covers fake signups.
 - [x] Leave Vercel Analytics and Speed Insights behind the consent check as they are. They're already gated correctly.
 - [ ] Note for later: when the hidden Parcours page comes back, its Strava embed (`src/pages/Parcours/index.tsx:31`) also needs consent (click to load).
 
@@ -97,7 +98,7 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 - doesn't mention transfers outside the EU (Vercel and Google are US companies).
 
 - [x] Name Brevo (Sendinblue SAS, France) as a processor for the newsletter and form emails.
-- [x] Name Google reCAPTCHA (purpose: anti-spam; transfer to the US).
+- [x] ~~Name Google reCAPTCHA~~ (not needed any more: reCAPTCHA was removed, see 1.3).
 - [x] Make the "data collected" list match the real forms.
 - [x] Keep the "13 months" wording only once 1.2 implements it.
 - [ ] Have the organisers check the final text, since it's legal content.

@@ -21,29 +21,6 @@ const PageHeader = ({ title, subtitle, description }: { title: string; subtitle?
   </div>
 );
 
-const RECAPTCHA_SITE_KEY = "6Lfj9rMtAAAAAC83oYpJpHxnZY8nxpoqvjNDEffW";
-let recaptchaLoading: Promise<void> | null = null;
-
-// Google reCAPTCHA is only loaded once the visitor starts using the newsletter form,
-// so visitors who just browse send nothing to Google.
-function loadRecaptcha(): Promise<void> {
-  if (!recaptchaLoading) {
-    recaptchaLoading = new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.id = "google-recaptcha-enterprise-script";
-      script.src = `https://www.google.com/recaptcha/enterprise.js?render=${RECAPTCHA_SITE_KEY}`;
-      script.async = true;
-      script.onload = () => resolve();
-      script.onerror = () => {
-        recaptchaLoading = null;
-        resolve();
-      };
-      document.head.appendChild(script);
-    });
-  }
-  return recaptchaLoading;
-}
-
 export const Inscriptions = () => {
   const { t } = useTranslation();
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
@@ -67,22 +44,6 @@ export const Inscriptions = () => {
       }
     };
     (window as any).AUTOHIDE = Boolean(0);
-    (window as any).handleCaptchaResponse = function () {
-      const event = new Event('captchaChange');
-      const el = document.getElementById('sib-captcha');
-      if (el) el.dispatchEvent(event);
-    };
-
-    // reCAPTCHA: loaded on the first focus or input inside the form, not when the page opens.
-    const form = document.getElementById('sib-form');
-    const startRecaptcha = () => {
-      loadRecaptcha();
-      form?.removeEventListener('focusin', startRecaptcha);
-      form?.removeEventListener('input', startRecaptcha);
-    };
-    form?.addEventListener('focusin', startRecaptcha);
-    form?.addEventListener('input', startRecaptcha);
-
     // Chargement du script Brevo
     const mainScriptId = 'brevo-main-script';
     const existingScript = document.getElementById(mainScriptId);
@@ -111,37 +72,8 @@ export const Inscriptions = () => {
 
     return () => {
       if (observer) observer.disconnect();
-      form?.removeEventListener('focusin', startRecaptcha);
-      form?.removeEventListener('input', startRecaptcha);
     };
   }, []);
-
-  // Déclencheur reCAPTCHA Enterprise lors de la soumission
-  const handleFormSubmit = async () => {
-    await loadRecaptcha();
-    if ((window as any).grecaptcha && (window as any).grecaptcha.enterprise) {
-      (window as any).grecaptcha.enterprise.ready(async () => {
-        try {
-          const token = await (window as any).grecaptcha.enterprise.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
-          let tokenInput = document.getElementById('g-recaptcha-response') as HTMLInputElement;
-          if (!tokenInput) {
-            tokenInput = document.createElement('input');
-            tokenInput.type = 'hidden';
-            tokenInput.id = 'g-recaptcha-response';
-            tokenInput.name = 'g-recaptcha-response';
-            document.getElementById('sib-form')?.appendChild(tokenInput);
-          }
-          tokenInput.value = token;
-          (window as any).handleCaptchaResponse();
-        } catch (err) {
-          console.error("reCAPTCHA Enterprise error:", err);
-          (window as any).handleCaptchaResponse();
-        }
-      });
-    } else {
-      (window as any).handleCaptchaResponse();
-    }
-  };
 
   const breadcrumbs = createBreadcrumbSchema([
     { name: "Accueil", path: "/" },
@@ -641,10 +573,7 @@ export const Inscriptions = () => {
                         </div>
                       </div>
 
-                      {/* Element caché pour la validation Brevo */}
-                      <div id="sib-captcha" style={{ display: "none" }}></div>
-
-                      {/* Bouton Submit avec déclencheur reCAPTCHA Enterprise */}
+                      {/* Bouton Submit */}
                       <div>
                         <button
                           className="btn-primary sib-form-block__button sib-form-block__button-with-loader"
@@ -668,7 +597,6 @@ export const Inscriptions = () => {
                           }}
                           form="sib-form"
                           type="submit"
-                          onClick={handleFormSubmit}
                         >
                           <Send size={18} style={{ color: "#F5C92C", flexShrink: 0 }} />
                           {t("inscriptions_page.form.btn_submit")}

@@ -218,9 +218,6 @@ export const PolitiqueConfidentialite = () => {
                   <strong>Newsletter :</strong> prénom et adresse e-mail (sur consentement explicite).
                 </li>
                 <li>
-                  <strong>Protection anti-spam du formulaire newsletter :</strong> lorsque vous utilisez ce formulaire, Google reCAPTCHA collecte des données techniques (adresse IP, informations sur le navigateur et l'appareil, interactions avec la page) pour vérifier que vous n'êtes pas un robot. Ce service n'est chargé qu'au moment où vous commencez à remplir le formulaire.
-                </li>
-                <li>
                   <strong>Données techniques & d'audience :</strong> Adresse IP anonymisée, type de navigateur, pages consultées et métriques de performance (Vercel Analytics & Speed Insights, uniquement après consentement).
                 </li>
               </ul>
@@ -338,15 +335,12 @@ export const PolitiqueConfidentialite = () => {
                 <li>
                   Notre prestataire d'emailing : <strong>Brevo</strong> (Sendinblue SAS, Paris, France), pour l'envoi de la newsletter et l'acheminement des messages des formulaires de contact, de bénévolat et de partenariat, ainsi que des emails de confirmation.
                 </li>
-                <li>
-                  <strong>Google</strong> (Google Ireland Limited et Google LLC, États-Unis), pour le service anti-spam reCAPTCHA du formulaire newsletter.
-                </li>
                 <li>Les prestataires de chronométrage officiel liés par contrat de confidentialité.</li>
               </ul>
               <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: 1.75, marginTop: "1rem" }}>
-                <strong>Transferts hors de l'Union européenne :</strong> Vercel et Google sont des sociétés américaines, et certaines données
-                peuvent donc être traitées aux États-Unis. Ces transferts sont encadrés par le Data Privacy Framework UE–États-Unis et/ou par
-                les clauses contractuelles types adoptées par la Commission européenne.
+                <strong>Transferts hors de l'Union européenne :</strong> Vercel est une société américaine, et certaines données peuvent donc
+                être traitées aux États-Unis. Ces transferts sont encadrés par le Data Privacy Framework UE–États-Unis et/ou par les clauses
+                contractuelles types adoptées par la Commission européenne.
               </p>
             </article>
 
