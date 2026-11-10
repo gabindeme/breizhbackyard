@@ -61,7 +61,7 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 - [ ] Optional, for volunteers (not done yet; the API key has the contacts permission): also add the person to a Brevo "Bénévoles" list (`POST /v3/contacts`) so they can be emailed later.
 - [x] Stop the SPA rewrite in `vercel.json` from catching the API: `{ "source": "/((?!api/).*)", "destination": "/index.html" }`.
 - [x] In the three pages, `fetch("/api/contact", …)`. Show success only on a 2xx response. Otherwise show a translated error message that also gives the email address. Add the new strings to all three locales.
-- [ ] Test with `vercel dev` (done with a mocked Brevo, locally and on Vercel's compiled output; one real send still to do) (needs the Vercel CLI and the environment variable).
+- [x] Test with `vercel dev` (done with a mocked Brevo, locally and on Vercel's compiled output, then for real on a preview: all three forms delivered both emails) (needs the Vercel CLI and the environment variable).
 
 **Done when:** on a preview deployment, each of the three forms delivers an email to the inbox, and submitting while offline shows an error, not a success.
 
