@@ -1,10 +1,8 @@
 import { motion } from "motion/react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
-import { createFaqSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { PageHeader } from "@/components/customs/page-header";
 
 export const FAQ = () => {
@@ -19,24 +17,10 @@ export const FAQ = () => {
 
   const filteredData = activeCategory ? faqData.filter((c) => c.category === activeCategory) : faqData;
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.faq.breadcrumb"), path: "/faq" },
-  ]);
 
-  const allFaqItems = Array.isArray(faqData)
-    ? faqData.flatMap((cat) => (cat.items || []).map((item) => ({ question: item.q, answer: item.a })))
-    : [];
-  const faqSchema = createFaqSchema(allFaqItems);
 
   return (
     <div style={{ background: "#EFEFEF" }}>
-      <SEOHead
-        title={t("seo.faq.title")}
-        description={t("seo.faq.description")}
-        canonicalPath="/faq"
-        jsonLd={[faqSchema, breadcrumbs]}
-      />
       <PageHeader
         subtitle={t("faq_page.header.subtitle")}
         title={t("faq_page.header.title")}

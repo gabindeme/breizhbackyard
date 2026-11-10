@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Activity, Timer, Users, Trophy } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import { PageHeader } from "@/components/customs/page-header";
 

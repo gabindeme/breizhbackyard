@@ -1,9 +1,8 @@
 import { motion } from "motion/react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, Play, RotateCcw } from "lucide-react";
 import { useEffect, useRef, useState, useCallback } from "react";
-import { SEOHead } from "@/components/SEOHead";
 import { storageGet, storageSet } from "@/lib/safe-storage";
 
 // ─── Canvas Game Constants ──────────────────────────────────────────
@@ -212,7 +211,11 @@ export const NotFound = () => {
   const [isGameOver, setIsGameOver] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
-  const [highScore, setHighScore] = useState(() => parseInt(storageGet("bbyard_404_hi") || "0", 10) || 0);
+  const [highScore, setHighScore] = useState(0);
+  // Read after mount so the first render matches the pre-rendered page.
+  useEffect(() => {
+    setHighScore(parseInt(storageGet("bbyard_404_hi") || "0", 10) || 0);
+  }, []);
   // Read by the canvas drawing code on every frame, so kept in a ref instead of reading storage.
   const highScoreRef = useRef(highScore);
   highScoreRef.current = highScore;
@@ -745,11 +748,6 @@ export const NotFound = () => {
         flexDirection: "column",
       }}
     >
-      <SEOHead
-        title={t("seo.notfound.title")}
-        description={t("seo.notfound.description")}
-        noIndex={true}
-      />
       {/* Header */}
       <div
         className="page-header-inner"

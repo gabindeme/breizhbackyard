@@ -1,6 +1,6 @@
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import { FR, GB } from "country-flag-icons/react/3x2";
 import { listOfLocales, getFullNamesOfLocales } from "@/lib/i18n";

@@ -24,9 +24,11 @@ const calculateTimeLeft = (targetDateStr: string) => {
 };
 
 export const Countdown = ({ targetDateStr = EVENT_START, hidePrefix = false }: CountdownProps) => {
-  const [timeLeft, setTimeLeft] = useState(() => calculateTimeLeft(targetDateStr));
+  // Null until mounted: the pre-rendered HTML can't know the visitor's current time.
+  const [timeLeft, setTimeLeft] = useState<ReturnType<typeof calculateTimeLeft> | null>(null);
 
   useEffect(() => {
+    setTimeLeft(calculateTimeLeft(targetDateStr));
     const interval = setInterval(() => {
       setTimeLeft(calculateTimeLeft(targetDateStr));
     }, 1000);
@@ -39,10 +41,10 @@ export const Countdown = ({ targetDateStr = EVENT_START, hidePrefix = false }: C
   const pad = (num: number) => String(num).padStart(2, "0");
 
   const items = [
-    { value: timeLeft.days, label: t("countdown.days_short") },
-    { value: pad(timeLeft.hours), label: t("countdown.hours_short") },
-    { value: pad(timeLeft.minutes), label: t("countdown.minutes_short") },
-    { value: pad(timeLeft.seconds), label: t("countdown.seconds_short") },
+    { value: timeLeft ? timeLeft.days : "--", label: t("countdown.days_short") },
+    { value: timeLeft ? pad(timeLeft.hours) : "--", label: t("countdown.hours_short") },
+    { value: timeLeft ? pad(timeLeft.minutes) : "--", label: t("countdown.minutes_short") },
+    { value: timeLeft ? pad(timeLeft.seconds) : "--", label: t("countdown.seconds_short") },
   ];
 
   return (

@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 .vercel
 .env*
+
+# React Router build output and generated types
+/build
+.react-router/

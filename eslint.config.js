@@ -5,7 +5,7 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   // Parked pages (routes commented out on purpose) are not linted.
-  { ignores: ["dist", ".vercel", "src/pages/Parcours", "src/pages/Galerie", "src/pages/Resultats"] },
+  { ignores: ["dist", "build", ".react-router", ".vercel", "src/pages/Parcours", "src/pages/Galerie", "src/pages/Resultats"] },
   {
     files: ["**/*.{ts,tsx}"],
     extends: [js.configs.recommended, ...tseslint.configs.recommended],

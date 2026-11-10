@@ -1,28 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Building2, User, Server, Copyright, AlertTriangle, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
 import { FrenchOnlyNote } from "@/components/customs/french-only-note";
-import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { CONTACT_EMAIL } from "@/lib/event";
 import { PageHeader } from "@/components/customs/page-header";
 
 export const MentionsLegales = () => {
   const { t } = useTranslation();
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.mentions.breadcrumb"), path: "/mentions-legales" },
-  ]);
 
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
-      <SEOHead
-        title={t("seo.mentions.title")}
-        description={t("seo.mentions.description")}
-        canonicalPath="/mentions-legales"
-        jsonLd={breadcrumbs}
-      />
       <PageHeader
         variant="legal"
         subtitle={t("mentions_page.subtitle", "Informations réglementaires & Éditeur")}

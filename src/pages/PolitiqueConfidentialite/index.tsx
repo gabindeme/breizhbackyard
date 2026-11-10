@@ -1,9 +1,7 @@
 import { Shield, Lock, Eye, Clock, UserCheck, ExternalLink, FileText, Server } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCookieConsent } from "@/providers/cookie-context";
-import { SEOHead } from "@/components/SEOHead";
 import { FrenchOnlyNote } from "@/components/customs/french-only-note";
-import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { CONTACT_EMAIL } from "@/lib/event";
 import { PageHeader } from "@/components/customs/page-header";
 
@@ -11,19 +9,9 @@ export const PolitiqueConfidentialite = () => {
   const { t } = useTranslation();
   const { openModal } = useCookieConsent();
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.privacy.breadcrumb"), path: "/politique-de-confidentialite" },
-  ]);
 
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
-      <SEOHead
-        title={t("seo.privacy.title")}
-        description={t("seo.privacy.description")}
-        canonicalPath="/politique-de-confidentialite"
-        jsonLd={breadcrumbs}
-      />
       <PageHeader
         variant="legal"
         subtitle={t("privacy_page.subtitle", "Protection de la vie privée & RGPD")}

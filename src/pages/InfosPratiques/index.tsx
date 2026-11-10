@@ -2,8 +2,6 @@ import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import { MapPin, Utensils, Backpack, BookOpen } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
-import { sportsEventSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 import type { LucideIcon } from "lucide-react";
 import { PageHeader } from "@/components/customs/page-header";
 
@@ -68,19 +66,9 @@ export const InfosPratiques = () => {
     return () => observer.disconnect();
   }, []);
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.infos.breadcrumb"), path: "/infos-pratiques" },
-  ]);
 
   return (
     <div style={{ background: "#EFEFEF" }}>
-      <SEOHead
-        title={t("seo.infos.title")}
-        description={t("seo.infos.description")}
-        canonicalPath="/infos-pratiques"
-        jsonLd={[sportsEventSchema, breadcrumbs]}
-      />
       <PageHeader
         subtitle={t("infos_page.header.subtitle")}
         title={t("infos_page.header.title")}

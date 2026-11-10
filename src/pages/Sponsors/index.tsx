@@ -2,8 +2,6 @@ import { motion } from "motion/react";
 import { Mail, Download } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
-import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { submitForm } from "@/lib/submit-form";
 import { Honeypot, FormError } from "@/components/customs/form-extras";
 import { PageHeader } from "@/components/customs/page-header";
@@ -28,19 +26,9 @@ export const Sponsors = () => {
     else setSendError(true);
   };
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.sponsors.breadcrumb"), path: "/sponsors" },
-  ]);
 
   return (
     <div style={{ background: "#EFEFEF" }}>
-      <SEOHead
-        title={t("seo.sponsors.title")}
-        description={t("seo.sponsors.description")}
-        canonicalPath="/sponsors"
-        jsonLd={breadcrumbs}
-      />
       <PageHeader
         subtitle={t("sponsors_page.header.subtitle")}
         title={t("sponsors_page.header.title")}

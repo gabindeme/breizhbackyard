@@ -2,8 +2,6 @@ import { motion } from "motion/react";
 import { HeartHandshake, Map, Shield, Hammer, Send } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
-import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { submitForm } from "@/lib/submit-form";
 import { Honeypot, FormError } from "@/components/customs/form-extras";
 import { PageHeader } from "@/components/customs/page-header";
@@ -51,19 +49,9 @@ export const Benevoles = () => {
     else setSendError(true);
   };
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.benevoles.breadcrumb"), path: "/benevoles" },
-  ]);
 
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
-      <SEOHead
-        title={t("seo.benevoles.title")}
-        description={t("seo.benevoles.description")}
-        canonicalPath="/benevoles"
-        jsonLd={breadcrumbs}
-      />
       <PageHeader 
         subtitle={t("benevoles_page.header.subtitle")}
         title={t("benevoles_page.header.title")}

@@ -1,10 +1,8 @@
 import { motion } from "motion/react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Timer, Repeat, AlertTriangle, Trophy, ChevronRight, Clock, Footprints } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
-import { sportsEventSchema, createFaqSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { LOOP_KM } from "@/lib/event";
 import type { LucideIcon } from "lucide-react";
 import { PageHeader } from "@/components/customs/page-header";
@@ -173,20 +171,9 @@ export const Concept = () => {
     },
   ];
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.concept.breadcrumb"), path: "/concept" },
-  ]);
-  const faqSchema = createFaqSchema(faqItems.map((item) => ({ question: item.q, answer: item.a })));
 
   return (
     <div style={{ background: "#EFEFEF" }}>
-      <SEOHead
-        title={t("seo.concept.title")}
-        description={t("seo.concept.description")}
-        canonicalPath="/concept"
-        jsonLd={[sportsEventSchema, faqSchema, breadcrumbs]}
-      />
       <PageHeader
         subtitle={t("concept_page.header.subtitle")}
         title={t("concept_page.header.title")}

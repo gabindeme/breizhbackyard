@@ -169,19 +169,21 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 Links to the home page already preview correctly. This matters most before big announcements, such as sharing `/inscriptions` or `/benevoles` when registration opens.
 
 ### 3.1 Make the app safe to render at build time (S; useful even without Phase 3)
-- [ ] `src/lib/i18n.ts:13`: don't read `localStorage` when the module loads. Start with `lng: "fr"` and switch to the saved language after the first render. This also avoids a mismatch between the pre-rendered HTML and the first render in the browser.
-- [ ] `cookie-context.tsx`: read the stored consent after the first render, and show no banner until it has been read.
-- [ ] `countdown.tsx:26`: the starting value comes from the current time, which differs between build time and the visitor's visit. Show placeholders until the component has rendered in the browser.
-- [ ] Run the 404 high score and `Aurora` (WebGL) only in the browser. Check that `ogl` doesn't touch `window` when it's imported.
+- [x] `src/lib/i18n.ts:13`: don't read `localStorage` when the module loads. Start with `lng: "fr"` and switch to the saved language after the first render. This also avoids a mismatch between the pre-rendered HTML and the first render in the browser.
+- [x] `cookie-context.tsx`: read the stored consent after the first render, and show no banner until it has been read.
+- [x] `countdown.tsx:26`: the starting value comes from the current time, which differs between build time and the visitor's visit. Show placeholders until the component has rendered in the browser.
+- [x] Run the 404 high score and `Aurora` (WebGL) only in the browser. Check that `ogl` doesn't touch `window` when it's imported.
 
 ### 3.2 Move to React Router framework mode with pre-rendering (L, D9)
-- [ ] Add `@react-router/dev` and create `react-router.config.ts` with `appDirectory: "src"`, `ssr: false` and `prerender` set to every public route.
-- [ ] Create `src/root.tsx`, the document shell. Move the static `<head>` from `index.html` into it and add `<Meta/>`, `<Links/>`, `<Scripts/>` and `<ScrollRestoration/>`.
-- [ ] Create `src/routes.ts` with the same route tree as `src/router/routes.tsx`: Home on its own, the other pages under a layout route that replaces `LayoutWrapper`, and the hidden pages still left out.
-- [ ] Give each page an `export default` and a `meta` export with the title, description, canonical link, OG/Twitter tags, and structured data through `"script:ld+json"`, using the `seo.*` keys from 2.2. Then delete `SEOHead.tsx`.
-- [ ] Vercel: set the output directory to `build/client`. See 3.3 for the rewrite.
-- [ ] Check each step against the React Router docs for the installed version (pre-rendering and SPA mode), since these APIs changed between 7.x releases.
-- [ ] Fallback if this migration is too heavy: `vite-react-ssg`. It needs the same 3.1 groundwork, and in both cases the meta tags must be rendered as elements, not set in effects (effects don't run at build time).
+- [x] Add `@react-router/dev` and create `react-router.config.ts` with `appDirectory: "src"`, `ssr: false` and `prerender` set to every public route.
+- [x] Create `src/root.tsx`, the document shell. Move the static `<head>` from `index.html` into it and add `<Meta/>`, `<Links/>`, `<Scripts/>` and `<ScrollRestoration/>`.
+- [x] Create `src/routes.ts` with the same route tree as `src/router/routes.tsx`: Home on its own, the other pages under a layout route that replaces `LayoutWrapper`, and the hidden pages still left out.
+- [x] *(Done with thin route modules in `src/routes/` that re-export each page as default, so pages keep their named exports.)* Give each page an `export default` and a `meta` export with the title, description, canonical link, OG/Twitter tags, and structured data through `"script:ld+json"`, using the `seo.*` keys from 2.2. Then delete `SEOHead.tsx`.
+- [x] Vercel: set the output directory to `build/client`. See 3.3 for the rewrite.
+- [x] Check each step against the React Router docs for the installed version (pre-rendering and SPA mode), since these APIs changed between 7.x releases.
+- [x] ~~Fallback if this migration is too heavy: `vite-react-ssg`.~~ Not needed. It needs the same 3.1 groundwork, and in both cases the meta tags must be rendered as elements, not set in effects (effects don't run at build time).
+
+**Checked locally** on the built output (served like Vercel): every page's HTML holds its own title, description, canonical, OG tags and JSON-LD; no hydration errors; navigation, language switch, cookie banner, forms and newsletter work. Lighthouse (mobile, gzip) vs Phase 5: `/` 56 → 61, `/concept` 85 → 84, `/inscriptions` 74 → 68 (noise; dominated by Brevo's script). Global `scroll-behavior: smooth` was removed: it made every navigation animate up from the old position, and no page uses in-page anchors.
 
 **Done when**, on a preview deployment:
 - `curl -s https://<preview>/concept | grep -o '<title>[^<]*'` prints the Concept title;
@@ -189,7 +191,7 @@ Links to the home page already preview correctly. This matters most before big a
 - navigation and the language switch still work, with no hydration errors in the console.
 
 ### 3.3 Return a real 404 status (S)
-- [ ] Today `vercel.json` sends every path to `index.html`, so unknown URLs return HTTP 200 (a "soft 404"). The NotFound page's `noindex` only appears once JavaScript runs. Once every route is pre-rendered, drop the catch-all rewrite and pre-render NotFound as `404.html` so Vercel serves it with a 404 status.
+- [x] Today `vercel.json` sends every path to `index.html`, so unknown URLs return HTTP 200 (a "soft 404"). The NotFound page's `noindex` only appears once JavaScript runs. Once every route is pre-rendered, drop the catch-all rewrite and pre-render NotFound as `404.html` so Vercel serves it with a 404 status.
 
 **Done when:** `curl -sI https://<preview>/nimportequoi` returns 404, and the browser shows the 404 page.
 

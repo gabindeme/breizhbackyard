@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { storageGet, storageRemove, storageSet } from "@/lib/safe-storage";
@@ -12,6 +12,8 @@ export interface CookieConsentState {
 
 interface CookieContextType {
   consent: CookieConsentState;
+  /** False until the stored consent has been read (after the first render). */
+  loaded: boolean;
   acceptAll: () => void;
   declineAll: () => void;
   savePreferences: (analytics: boolean) => void;
@@ -30,32 +32,42 @@ const defaultState: CookieConsentState = {
   decided: false,
 };
 
+function readStoredConsent(): CookieConsentState {
+  try {
+    const saved = storageGet(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Consent without a valid date, or older than 13 months, counts as undecided: ask again.
+      const savedAt = Date.parse(parsed.timestamp);
+      if (!Number.isFinite(savedAt) || Date.now() - savedAt > CONSENT_MAX_AGE_MS) {
+        storageRemove(STORAGE_KEY);
+        return defaultState;
+      }
+      return {
+        essential: true,
+        analytics: Boolean(parsed.analytics),
+        decided: true,
+        timestamp: parsed.timestamp,
+      };
+    }
+  } catch (e) {
+    console.error("Failed to parse stored cookie consent", e);
+  }
+  return defaultState;
+}
+
 const CookieContext = createContext<CookieContextType | undefined>(undefined);
 
 export const CookieProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [consent, setConsent] = useState<CookieConsentState>(() => {
-    try {
-      const saved = storageGet(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        // Consent without a valid date, or older than 13 months, counts as undecided: ask again.
-        const savedAt = Date.parse(parsed.timestamp);
-        if (!Number.isFinite(savedAt) || Date.now() - savedAt > CONSENT_MAX_AGE_MS) {
-          storageRemove(STORAGE_KEY);
-          return defaultState;
-        }
-        return {
-          essential: true,
-          analytics: Boolean(parsed.analytics),
-          decided: true,
-          timestamp: parsed.timestamp,
-        };
-      }
-    } catch (e) {
-      console.error("Failed to parse cookie consent from localStorage", e);
-    }
-    return defaultState;
-  });
+  const [consent, setConsent] = useState<CookieConsentState>(defaultState);
+  // Stored consent is read after the first render: pages are pre-rendered without it, and the first
+  // browser render must match that HTML. Until then, no banner is shown.
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setConsent(readStoredConsent());
+    setLoaded(true);
+  }, []);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -82,7 +94,7 @@ export const CookieProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (consent.decided && !consent.analytics) {
       purgeNonEssentialCookies();
     }
@@ -127,6 +139,7 @@ export const CookieProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     <CookieContext.Provider
       value={{
         consent,
+        loaded,
         acceptAll,
         declineAll,
         savePreferences,

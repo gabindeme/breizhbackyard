@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Cookie, ShieldCheck, X, Settings, Check, Lock, BarChart3 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCookieConsent } from "@/providers/cookie-context";
 
 export const CookieBanner = () => {
   const { t } = useTranslation();
-  const { consent, acceptAll, declineAll, savePreferences, isModalOpen, openModal, closeModal } =
+  const { consent, loaded, acceptAll, declineAll, savePreferences, isModalOpen, openModal, closeModal } =
     useCookieConsent();
 
   // Local state for modal toggles
@@ -19,7 +19,7 @@ export const CookieBanner = () => {
 
   // Lock body scroll when user has not decided yet OR when modal is open
   useEffect(() => {
-    if (!consent.decided || isModalOpen) {
+    if ((loaded && !consent.decided) || isModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -27,9 +27,9 @@ export const CookieBanner = () => {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [consent.decided, isModalOpen]);
+  }, [loaded, consent.decided, isModalOpen]);
 
-  const showBanner = !consent.decided && !isModalOpen;
+  const showBanner = loaded && !consent.decided && !isModalOpen;
 
   return (
     <>

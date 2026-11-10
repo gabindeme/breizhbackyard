@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Mail, Send, CheckCircle } from "lucide-react";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
-import { organizationSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { submitForm } from "@/lib/submit-form";
 import { Honeypot, FormError } from "@/components/customs/form-extras";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/event";
@@ -60,19 +58,9 @@ export const Contact = () => {
     if (errors[field]) setErrors((prev) => { const n = { ...prev }; delete n[field]; return n; });
   };
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.contact.breadcrumb"), path: "/contact" },
-  ]);
 
   return (
     <div style={{ background: "#EFEFEF" }}>
-      <SEOHead
-        title={t("seo.contact.title")}
-        description={t("seo.contact.description")}
-        canonicalPath="/contact"
-        jsonLd={[organizationSchema, breadcrumbs]}
-      />
       <PageHeader
         subtitle={t("contact_page.header.subtitle")}
         title={t("contact_page.header.title")}

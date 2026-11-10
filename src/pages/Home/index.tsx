@@ -1,13 +1,11 @@
 import Aurora from "@/components/Aurora";
 import { motion } from "motion/react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Navbar } from "@/components/customs/navbar";
 import { Footer } from "@/components/customs/footer";
 import { Countdown } from "@/components/customs/countdown";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
-import { sportsEventSchema, organizationSchema } from "@/lib/seoSchemas";
 import type { LucideIcon } from "lucide-react";
 import {
   Timer,
@@ -115,12 +113,6 @@ export const Home = () => {
 
   return (
     <div style={{ background: "#EFEFEF" }}>
-      <SEOHead
-        title={t("seo.home.title")}
-        description={t("seo.home.description")}
-        canonicalPath="/"
-        jsonLd={[sportsEventSchema, organizationSchema]}
-      />
       {/* ============================================================
           HERO — Aurora pleine page
           ============================================================ */}

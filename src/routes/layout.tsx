@@ -1,8 +1,8 @@
+import { Outlet } from "react-router";
 import { Footer } from "@/components/customs/footer";
 import { Navbar } from "@/components/customs/navbar";
-import { Outlet } from "react-router-dom";
 
-export const LayoutWrapper = () => {
+export default function PageLayout() {
   return (
     <>
       <Navbar />
@@ -12,4 +12,4 @@ export const LayoutWrapper = () => {
       <Footer />
     </>
   );
-};
+}

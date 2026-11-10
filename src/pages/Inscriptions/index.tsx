@@ -2,8 +2,6 @@ import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { Mail, Bell, Send, AlertCircle, CheckCircle2, X, PartyPopper } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
-import { sportsEventSchema, createBreadcrumbSchema } from "@/lib/seoSchemas";
 import { PageHeader } from "@/components/customs/page-header";
 
 export const Inscriptions = () => {
@@ -65,19 +63,9 @@ export const Inscriptions = () => {
     };
   }, []);
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.inscriptions.breadcrumb"), path: "/inscriptions" },
-  ]);
 
   return (
     <div style={{ background: "#EFEFEF", overflowX: "hidden" }}>
-      <SEOHead
-        title={t("seo.inscriptions.title")}
-        description={t("seo.inscriptions.description")}
-        canonicalPath="/inscriptions"
-        jsonLd={[sportsEventSchema, breadcrumbs]}
-      />
 
       {/* Popup modal de confirmation d'envoi */}
       <AnimatePresence>

@@ -1,27 +1,14 @@
 import { motion } from "motion/react";
 import { CheckCircle, Compass, MapPin, Info, ArrowRight, Sparkles, Heart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
-import { SEOHead } from "@/components/SEOHead";
-import { createBreadcrumbSchema } from "@/lib/seoSchemas";
 
 export const Bienvenue = () => {
   const { t } = useTranslation();
 
-  const breadcrumbs = createBreadcrumbSchema([
-    { name: t("seo.home.breadcrumb"), path: "/" },
-    { name: t("seo.bienvenue.breadcrumb"), path: "/bienvenue" },
-  ]);
 
   return (
     <div style={{ background: "#EFEFEF", minHeight: "100vh" }}>
-      <SEOHead
-        title={t("seo.bienvenue.title")}
-        description={t("seo.bienvenue.description")}
-        canonicalPath="/bienvenue"
-        noIndex
-        jsonLd={breadcrumbs}
-      />
       {/* Header Héro */}
       <div
         className="page-header-inner"
