@@ -2,6 +2,21 @@ import { AlertCircle } from "lucide-react";
 import { Trans } from "react-i18next";
 import { CONTACT_EMAIL } from "@/lib/submit-form";
 
+/** Red asterisk after the label of a required field. */
+export const RequiredMark = () => (
+  <span className="bbu-required" aria-hidden="true">
+    *
+  </span>
+);
+
+/** Red message under a field that failed validation. Pair it with aria-invalid on the field. */
+export const FieldError = ({ id, message }: { id: string; message?: string }) =>
+  message ? (
+    <p id={id} className="bbu-field-error" role="alert">
+      {message}
+    </p>
+  ) : null;
+
 /** Hidden field that only bots fill in. Kept off-screen rather than display:none, which some bots skip. */
 export const Honeypot = ({ value, onChange }: { value: string; onChange: (v: string) => void }) => (
   <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>

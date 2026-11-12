@@ -4,7 +4,7 @@ import { Mail, Send, CheckCircle } from "lucide-react";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { useTranslation } from "react-i18next";
 import { submitForm } from "@/lib/submit-form";
-import { Honeypot, FormError } from "@/components/customs/form-extras";
+import { Honeypot, FormError, RequiredMark, FieldError } from "@/components/customs/form-extras";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/event";
 import { PageHeader } from "@/components/customs/page-header";
 
@@ -16,7 +16,6 @@ export const Contact = () => {
     t("contact_page.subjects.s2"),
     t("contact_page.subjects.s3"),
     t("contact_page.subjects.s4"),
-    t("contact_page.subjects.s5"),
     t("contact_page.subjects.s6"),
   ];
 
@@ -167,7 +166,7 @@ export const Contact = () => {
                     <div className="form-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                       <div>
                         <label className="bbu-label" htmlFor="c-nom">
-                          {t("contact_page.form.nom_label")} <span style={{ color: "#c44" }}>*</span>
+                          {t("contact_page.form.nom_label")} <RequiredMark />
                         </label>
                         <input
                           id="c-nom"
@@ -176,13 +175,14 @@ export const Contact = () => {
                           placeholder={t("contact_page.form.nom_ph")}
                           value={formData.nom}
                           onChange={handleChange("nom")}
-                          style={errors.nom ? { borderColor: "#e53" } : {}}
+                          aria-invalid={!!errors.nom}
+                          aria-describedby={errors.nom ? "c-nom-error" : undefined}
                         />
-                        {errors.nom && <p style={{ color: "#e53", fontSize: "0.78rem", marginTop: "0.3rem" }}>{errors.nom}</p>}
+                        <FieldError id="c-nom-error" message={errors.nom} />
                       </div>
                       <div>
                         <label className="bbu-label" htmlFor="c-email">
-                          {t("contact_page.form.email_label")} <span style={{ color: "#c44" }}>*</span>
+                          {t("contact_page.form.email_label")} <RequiredMark />
                         </label>
                         <input
                           id="c-email"
@@ -191,9 +191,10 @@ export const Contact = () => {
                           placeholder={t("contact_page.form.email_ph")}
                           value={formData.email}
                           onChange={handleChange("email")}
-                          style={errors.email ? { borderColor: "#e53" } : {}}
+                          aria-invalid={!!errors.email}
+                          aria-describedby={errors.email ? "c-email-error" : undefined}
                         />
-                        {errors.email && <p style={{ color: "#e53", fontSize: "0.78rem", marginTop: "0.3rem" }}>{errors.email}</p>}
+                        <FieldError id="c-email-error" message={errors.email} />
                       </div>
                     </div>
 
@@ -213,7 +214,7 @@ export const Contact = () => {
 
                     <div style={{ marginBottom: "1.5rem" }}>
                       <label className="bbu-label" htmlFor="c-message">
-                        {t("contact_page.form.msg_label")} <span style={{ color: "#c44" }}>*</span>
+                        {t("contact_page.form.msg_label")} <RequiredMark />
                       </label>
                       <textarea
                         id="c-message"
@@ -222,9 +223,11 @@ export const Contact = () => {
                         placeholder={t("contact_page.form.msg_ph")}
                         value={formData.message}
                         onChange={handleChange("message")}
-                        style={{ resize: "vertical", ...(errors.message ? { borderColor: "#e53" } : {}) }}
+                        aria-invalid={!!errors.message}
+                        aria-describedby={errors.message ? "c-message-error" : undefined}
+                        style={{ resize: "vertical" }}
                       />
-                      {errors.message && <p style={{ color: "#e53", fontSize: "0.78rem", marginTop: "0.3rem" }}>{errors.message}</p>}
+                      <FieldError id="c-message-error" message={errors.message} />
                     </div>
 
                     {sendError && <FormError />}

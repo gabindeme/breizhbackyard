@@ -3,7 +3,7 @@ import { HeartHandshake, Map, Shield, Hammer, Send } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { submitForm } from "@/lib/submit-form";
-import { Honeypot, FormError } from "@/components/customs/form-extras";
+import { Honeypot, FormError, RequiredMark, FieldError } from "@/components/customs/form-extras";
 import { PageHeader } from "@/components/customs/page-header";
 
 export const Benevoles = () => {
@@ -19,6 +19,11 @@ export const Benevoles = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [website, setWebsite] = useState("");
   const [sendError, setSendError] = useState(false);
+
+  const handleChange = (field: keyof typeof formState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormState((prev) => ({ ...prev, [field]: e.target.value }));
+    if (errors[field]) setErrors((prev) => { const n = { ...prev }; delete n[field]; return n; });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -181,51 +186,62 @@ export const Benevoles = () => {
                 <form onSubmit={handleSubmit} noValidate style={{ display: "grid", gap: "1.5rem", position: "relative" }}>
                   <Honeypot value={website} onChange={setWebsite} />
                   
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "1.5rem" }}>
-                    <div>
-                      <label style={{ display: "block", color: "#164030", fontWeight: "600", marginBottom: "0.5rem" }}>{t("benevoles_page.form.nom_label")}</label>
-                      <input 
-                        type="text" 
-                        value={formState.nom}
-                        onChange={(e) => setFormState({...formState, nom: e.target.value})}
-                        placeholder={t("benevoles_page.form.nom_ph")}
-                        style={{ width: "100%", padding: "1rem", borderRadius: "12px", border: `2px solid ${errors.nom ? "#ef4444" : "#e5e7eb"}`, fontSize: "1rem", outline: "none", transition: "border-color 0.2s" }}
-                      />
-                      {errors.nom && <span style={{ color: "#ef4444", fontSize: "0.875rem", marginTop: "0.5rem", display: "block" }}>{errors.nom}</span>}
-                    </div>
+                  <div>
+                    <label className="bbu-label" htmlFor="b-nom">
+                      {t("benevoles_page.form.nom_label")} <RequiredMark />
+                    </label>
+                    <input
+                      id="b-nom"
+                      type="text"
+                      className="bbu-input"
+                      value={formState.nom}
+                      onChange={handleChange("nom")}
+                      placeholder={t("benevoles_page.form.nom_ph")}
+                      aria-invalid={!!errors.nom}
+                      aria-describedby={errors.nom ? "b-nom-error" : undefined}
+                    />
+                    <FieldError id="b-nom-error" message={errors.nom} />
                   </div>
 
                   <div>
-                    <label style={{ display: "block", color: "#164030", fontWeight: "600", marginBottom: "0.5rem" }}>{t("benevoles_page.form.email_label")}</label>
-                    <input 
-                      type="email" 
+                    <label className="bbu-label" htmlFor="b-email">
+                      {t("benevoles_page.form.email_label")} <RequiredMark />
+                    </label>
+                    <input
+                      id="b-email"
+                      type="email"
+                      className="bbu-input"
                       value={formState.email}
-                      onChange={(e) => setFormState({...formState, email: e.target.value})}
+                      onChange={handleChange("email")}
                       placeholder={t("benevoles_page.form.email_ph")}
-                      style={{ width: "100%", padding: "1rem", borderRadius: "12px", border: `2px solid ${errors.email ? "#ef4444" : "#e5e7eb"}`, fontSize: "1rem", outline: "none", transition: "border-color 0.2s" }}
+                      aria-invalid={!!errors.email}
+                      aria-describedby={errors.email ? "b-email-error" : undefined}
                     />
-                    {errors.email && <span style={{ color: "#ef4444", fontSize: "0.875rem", marginTop: "0.5rem", display: "block" }}>{errors.email}</span>}
+                    <FieldError id="b-email-error" message={errors.email} />
                   </div>
-                  
+
                   <div>
-                    <label style={{ display: "block", color: "#164030", fontWeight: "600", marginBottom: "0.5rem" }}>{t("benevoles_page.form.dispo_label")}</label>
-                    <input 
-                      type="text" 
+                    <label className="bbu-label" htmlFor="b-dispo">{t("benevoles_page.form.dispo_label")}</label>
+                    <input
+                      id="b-dispo"
+                      type="text"
+                      className="bbu-input"
                       value={formState.dispo}
-                      onChange={(e) => setFormState({...formState, dispo: e.target.value})}
+                      onChange={handleChange("dispo")}
                       placeholder={t("benevoles_page.form.dispo_ph")}
-                      style={{ width: "100%", padding: "1rem", borderRadius: "12px", border: `2px solid #e5e7eb`, fontSize: "1rem", outline: "none", transition: "border-color 0.2s" }}
                     />
                   </div>
 
                   <div>
-                    <label style={{ display: "block", color: "#164030", fontWeight: "600", marginBottom: "0.5rem" }}>{t("benevoles_page.form.msg_label")}</label>
-                    <textarea 
+                    <label className="bbu-label" htmlFor="b-msg">{t("benevoles_page.form.msg_label")}</label>
+                    <textarea
+                      id="b-msg"
                       rows={5}
+                      className="bbu-input"
                       value={formState.msg}
-                      onChange={(e) => setFormState({...formState, msg: e.target.value})}
+                      onChange={handleChange("msg")}
                       placeholder={t("benevoles_page.form.msg_ph")}
-                      style={{ width: "100%", padding: "1rem", borderRadius: "12px", border: `2px solid #e5e7eb`, fontSize: "1rem", outline: "none", transition: "border-color 0.2s", resize: "vertical" }}
+                      style={{ resize: "vertical" }}
                     />
                   </div>
 

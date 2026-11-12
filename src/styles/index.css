@@ -10,7 +10,7 @@
 
 
 /* ============================================================
-   BBU Design System — Breizh Backyard Ultra
+   BBU Design System — Breizh Backyard
    ============================================================ */
 
 :root {
@@ -26,6 +26,7 @@
   --bbu-yellow-green: #BFC53C;
   --bbu-yellow:       #F5C92C;
   --bbu-off-white:    #EFEFEF;
+  --bbu-error:        #d32f2f; /* form errors: 5:1 contrast on white */
 
   /* ---- Semantic tokens (Tailwind compat) ---- */
   --background:          #EFEFEF;
@@ -609,6 +610,25 @@
 .bbu-input:focus {
   border-color: var(--bbu-green-dark);
   box-shadow: 0 0 0 3px rgba(39,121,86,0.12);
+}
+
+/* ---- Form validation, shared by every form (site forms and the Brevo newsletter) ---- */
+.bbu-input[aria-invalid="true"],
+.bbu-input[aria-invalid="true"]:focus {
+  border-color: var(--bbu-error);
+}
+.bbu-input[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.12);
+}
+.bbu-required {
+  color: var(--bbu-error);
+  margin-left: 0.2rem;
+}
+.bbu-field-error {
+  color: var(--bbu-error);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.35rem;
 }
 
 .bbu-input::placeholder {

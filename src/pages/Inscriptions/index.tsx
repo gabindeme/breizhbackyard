@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Mail, Bell, Send, AlertCircle, CheckCircle2, X, PartyPopper } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { PageHeader } from "@/components/customs/page-header";
+import { RequiredMark } from "@/components/customs/form-extras";
 
 export const Inscriptions = () => {
   const { t, i18n } = useTranslation();
@@ -44,18 +45,17 @@ export const Inscriptions = () => {
     script.defer = true;
     document.body.appendChild(script);
 
-    // MutationObserver : détecte quand Brevo affiche le message de succès
+    // Brevo's script reports a successful signup by adding this class to #success-message.
+    // We show our own popup instead of Brevo's panel (hidden in CSS below).
     const successEl = document.getElementById('success-message');
     let observer: MutationObserver | null = null;
     if (successEl) {
       observer = new MutationObserver(() => {
-        const style = successEl.getAttribute('style') || '';
-        const computed = window.getComputedStyle(successEl);
-        if (!style.includes('display: none') && !style.includes('display:none') && computed.display !== 'none') {
+        if (successEl.classList.contains('sib-form-message-panel--active')) {
           setShowSuccessPopup(true);
         }
       });
-      observer.observe(successEl, { attributes: true, attributeFilter: ['style'] });
+      observer.observe(successEl, { attributes: true, attributeFilter: ['class'] });
     }
 
     return () => {
@@ -276,13 +276,20 @@ export const Inscriptions = () => {
       {/* Dynamic CSS override & Mobile Accessibility Rules */}
       <style>{`
         .input--hidden { display: none !important; }
-        .entry__error { color: #e53935; font-size: 0.8rem; margin-top: 0.35rem; display: block; font-weight: 500; }
+        /* Brevo validation, styled like the other forms: red border on .entry_errored fields, red message below. */
+        .entry__error { color: var(--bbu-error); font-size: 0.8rem; margin-top: 0.35rem; display: block; font-weight: 500; }
+        .entry__error:empty { display: none; }
+        #sib-container .entry_errored .bbu-input { border-color: var(--bbu-error) !important; }
+        .entry_errored input[type="checkbox"] { border-color: var(--bbu-error) !important; }
         #sib-container input:focus {
           border-color: #277956 !important;
           box-shadow: 0 0 0 4px rgba(39, 121, 86, 0.15) !important;
           outline: none !important;
         }
         .sib-hide-loader-icon { display: inline-block; }
+        /* Brevo toggles --active on its message panels. Success is shown as a popup instead. */
+        .sib-form-message-panel { display: none; }
+        #error-message.sib-form-message-panel--active { display: block; }
 
         /* Responsive Mobile Accessibility & Fix iPhone 14 Pro overflow */
         .bbu-form-card {
@@ -381,7 +388,6 @@ export const Inscriptions = () => {
                       padding: "1rem 1.25rem",
                       marginBottom: "1.5rem",
                       maxWidth: "100%",
-                      display: "none",
                       border: "1.5px solid #f5c6cb",
                     }}
                   >
@@ -408,7 +414,6 @@ export const Inscriptions = () => {
                       padding: "1.25rem 1.5rem",
                       marginBottom: "1.5rem",
                       maxWidth: "100%",
-                      display: "none",
                       border: "1.5px solid #c3e6cb",
                     }}
                   >
@@ -445,8 +450,8 @@ export const Inscriptions = () => {
                       {/* Champ PRENOM */}
                       <div className="sib-input sib-form-block" style={{ marginBottom: "1.25rem" }}>
                         <div className="form__entry entry_block">
-                          <label className="bbu-label" htmlFor="PRENOM" style={{ display: "block", marginBottom: "0.45rem", fontWeight: "600", fontSize: "0.88rem", color: "#1a2e22" }}>
-                            {t("inscriptions_page.form.prenom_label")}
+                          <label className="bbu-label" htmlFor="PRENOM">
+                            {t("inscriptions_page.form.prenom_label")} <RequiredMark />
                           </label>
                           <div className="entry__field">
                             <input
@@ -459,18 +464,6 @@ export const Inscriptions = () => {
                               placeholder={t("inscriptions_page.form.prenom_ph")}
                               data-required="true"
                               required
-                              style={{
-                                width: "100%",
-                                boxSizing: "border-box",
-                                padding: "0.8rem 1rem",
-                                borderRadius: "0.75rem",
-                                border: "1.5px solid #d0dcd5",
-                                background: "#f8faf9",
-                                fontSize: "0.95rem",
-                                color: "#1a2e22",
-                                minHeight: "46px",
-                                transition: "all 0.2s ease",
-                              }}
                             />
                           </div>
                           <label className="entry__error entry__error--primary"></label>
@@ -480,8 +473,8 @@ export const Inscriptions = () => {
                       {/* Champ EMAIL */}
                       <div className="sib-input sib-form-block" style={{ marginBottom: "1.25rem" }}>
                         <div className="form__entry entry_block">
-                          <label className="bbu-label" htmlFor="EMAIL" style={{ display: "block", marginBottom: "0.45rem", fontWeight: "600", fontSize: "0.88rem", color: "#1a2e22" }}>
-                            {t("inscriptions_page.form.email_label")}
+                          <label className="bbu-label" htmlFor="EMAIL">
+                            {t("inscriptions_page.form.email_label")} <RequiredMark />
                           </label>
                           <div className="entry__field">
                             <input
@@ -493,18 +486,6 @@ export const Inscriptions = () => {
                               placeholder={t("inscriptions_page.form.email_ph")}
                               data-required="true"
                               required
-                              style={{
-                                width: "100%",
-                                boxSizing: "border-box",
-                                padding: "0.8rem 1rem",
-                                borderRadius: "0.75rem",
-                                border: "1.5px solid #d0dcd5",
-                                background: "#f8faf9",
-                                fontSize: "0.95rem",
-                                color: "#1a2e22",
-                                minHeight: "46px",
-                                transition: "all 0.2s ease",
-                              }}
                             />
                           </div>
                           <label className="entry__error entry__error--primary"></label>
@@ -542,7 +523,7 @@ export const Inscriptions = () => {
                                 />
                                 <span style={{ fontSize: "0.82rem", color: "#3c5245", lineHeight: 1.5 }}>
                                   {t("inscriptions_page.form.optin_text")}
-                                  <span data-required="*" style={{ display: "inline" }} className="entry__label entry__label_optin"></span>
+                                  <RequiredMark />
                                 </span>
                               </label>
                             </div>
