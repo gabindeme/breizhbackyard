@@ -384,7 +384,7 @@ export const Home = () => {
           >
             <StatCard number={6} suffix={t("home.stats.stat1_suffix")} label={t("home.stats.stat1_label")} desc={t("home.stats.stat1_desc")} />
             <StatCard number={150} suffix={t("home.stats.stat2_suffix")} label={t("home.stats.stat2_label")} desc={t("home.stats.stat2_desc")} />
-            <StatCard number={114} suffix={t("home.stats.stat3_suffix")} label={t("home.stats.stat3_label")} desc={t("home.stats.stat3_desc")} />
+            <StatCard number={124} suffix={t("home.stats.stat3_suffix")} label={t("home.stats.stat3_label")} desc={t("home.stats.stat3_desc")} />
             <StatCard number={1} suffix={t("home.stats.stat4_suffix")} label={t("home.stats.stat4_label")} desc={t("home.stats.stat4_desc")} />
           </div>
         </div>

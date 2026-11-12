@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { FR, GB } from "country-flag-icons/react/3x2";
 import { listOfLocales, getFullNamesOfLocales } from "@/lib/i18n";
 import { storageSet } from "@/lib/safe-storage";
+import { EVENT_YEAR } from "@/lib/event";
 
 const navLinks = [
   { to: "/concept", key: "concept" },
@@ -232,7 +233,7 @@ export const Navbar = () => {
           >
             <img
               src="/assets/logos/logo-white.svg"
-              alt="Logo Breizh Backyard Ultra"
+              alt="Logo Breizh Backyard"
               style={{ width: "40px", height: "40px", objectFit: "contain", flexShrink: 0 }}
             />
             <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
@@ -259,7 +260,7 @@ export const Navbar = () => {
                   lineHeight: 1,
                 }}
               >
-                ULTRA
+                {EVENT_YEAR}
               </span>
             </div>
           </Link>
@@ -368,11 +369,11 @@ export const Navbar = () => {
           <Link to="/" onClick={close} style={{ display: "flex", alignItems: "center", gap: "0.5rem", textDecoration: "none" }}>
             <img
               src="/assets/logos/logo-white.svg"
-              alt="Logo Breizh Backyard Ultra"
+              alt="Logo Breizh Backyard"
               style={{ width: "32px", height: "32px", objectFit: "contain", flexShrink: 0 }}
             />
             <span style={{ fontFamily: "'Hobo', sans-serif", color: "#fff", fontSize: "1rem" }}>
-              Breizh Backyard Ultra
+              Breizh Backyard
             </span>
           </Link>
           <button

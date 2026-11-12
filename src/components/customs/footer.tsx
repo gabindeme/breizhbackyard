@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { Countdown } from "@/components/customs/countdown";
 import { useCookieConsent } from "@/providers/cookie-context";
-import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/lib/event";
+import { CONTACT_EMAIL, EVENT_YEAR, SOCIAL_LINKS } from "@/lib/event";
 
 const footerLinks = [
   { to: "/", labelKey: "home" },
@@ -70,7 +70,7 @@ export const Footer = () => {
             <Link to="/" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none", marginBottom: "1.25rem" }}>
               <img
                 src="/assets/logos/logo-white.svg"
-                alt="Logo Breizh Backyard Ultra"
+                alt="Logo Breizh Backyard"
                 style={{ width: "44px", height: "44px", objectFit: "contain", flexShrink: 0 }}
               />
               <div>
@@ -78,7 +78,7 @@ export const Footer = () => {
                   Breizh Backyard
                 </div>
                 <div style={{ fontFamily: "'Hobo', sans-serif", color: "#F5C92C", fontSize: "0.62rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                  ULTRA
+                  {EVENT_YEAR}
                 </div>
               </div>
             </Link>

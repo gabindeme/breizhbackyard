@@ -248,7 +248,7 @@ const gradients = [
                 </div>
                 <div style={{ fontSize: "0.85rem", opacity: 0.7 }}>{filtered[lightboxIndex].desc}</div>
                 <div style={{ fontSize: "0.72rem", opacity: 0.5, marginTop: "0.25rem" }}>
-                  {t("galerie_page.lightbox.photo")} {lightboxIndex + 1} / {filtered.length} — {filtered[lightboxIndex].category}
+                  {t("galerie_page.lightbox.photo")} {lightboxIndex + 1} / {filtered.length} · {filtered[lightboxIndex].category}
                 </div>
               </div>
             </motion.div>

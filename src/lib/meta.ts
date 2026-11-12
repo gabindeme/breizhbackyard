@@ -19,7 +19,7 @@ export type SeoPage =
 
 const OG_LOCALES: Record<string, string> = { fr: "fr_FR", en: "en_US", br: "br_FR" };
 const KEYWORDS = "backyard ultra, breizh, bretagne, ultra endurance, trail, course, sport, rennes, running";
-const BRAND = "Breizh Backyard Ultra";
+const BRAND = "Breizh Backyard";
 
 interface PageMetaOptions {
   page: SeoPage;

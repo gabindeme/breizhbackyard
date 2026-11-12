@@ -17,7 +17,7 @@ export const MentionsLegales = () => {
         title={t("mentions_page.title", "Mentions Légales")}
         description={t(
           "mentions_page.desc",
-          "Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), retrouvez ci-dessous les informations légales relatives à l'éditeur et à l'hébergeur du site Breizh Backyard Ultra."
+          "Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), retrouvez ci-dessous les informations légales relatives à l'éditeur et à l'hébergeur du site Breizh Backyard."
         )}
       />
 
@@ -122,7 +122,7 @@ export const MentionsLegales = () => {
                 </h2>
               </div>
               <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: 1.75, marginBottom: "1rem" }}>
-                Le site Breizh Backyard Ultra est hébergé par la société :
+                Le site Breizh Backyard est hébergé par la société :
               </p>
               <div
                 style={{

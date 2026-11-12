@@ -7,11 +7,11 @@ export const BANNER_URL = `${BASE_URL}/assets/banners/OG-banner-1.png`;
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "SportsOrganization",
-  "name": "Breizh Backyard Ultra",
+  "name": "Breizh Backyard",
   "url": BASE_URL,
   "logo": LOGO_URL,
   "image": BANNER_URL,
-  "description": "Organisation officielle de la Breizh Backyard Ultra, épreuve d'ultra-endurance au format Backyard Ultra en Bretagne.",
+  "description": "Organisation officielle de la Breizh Backyard, épreuve d'ultra-endurance au format Backyard Ultra en Bretagne.",
   "sameAs": Object.values(SOCIAL_LINKS),
   "address": {
     "@type": "PostalAddress",
@@ -24,9 +24,9 @@ export const organizationSchema = {
 export const sportsEventSchema = {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Breizh Backyard Ultra",
-  "alternateName": "Breizh Backyard Ultra 2027",
-  "description": "La Breizh Backyard Ultra est une épreuve d'ultra-endurance au format Backyard Ultra organisée en Bretagne. Les coureurs parcourent une boucle de 6,706 km (4,167 miles) toutes les heures, jusqu'au dernier coureur debout.",
+  "name": "Breizh Backyard",
+  "alternateName": "Breizh Backyard Ultra",
+  "description": "La Breizh Backyard est une épreuve d'ultra-endurance au format Backyard Ultra organisée en Bretagne. Les coureurs parcourent une boucle de 6,706 km (4,167 miles) toutes les heures, jusqu'au dernier coureur debout.",
   "startDate": EVENT_START,
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",

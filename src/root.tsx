@@ -29,7 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="preload" href="/fonts/hobo.woff2" as="font" type="font/woff2" crossOrigin="" />
-        <meta name="author" content="Breizh Backyard Ultra" />
+        <meta name="author" content="Breizh Backyard" />
         <meta name="theme-color" content="#113322" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -72,7 +72,7 @@ export function ErrorBoundary({ error }: { error: unknown }) {
   return (
     <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: "2rem", textAlign: "center" }}>
       <div>
-        <h1 style={{ fontFamily: "'Hobo', sans-serif", color: "var(--bbu-green-dark)" }}>Breizh Backyard Ultra</h1>
+        <h1 style={{ fontFamily: "'Hobo', sans-serif", color: "var(--bbu-green-dark)" }}>Breizh Backyard</h1>
         <p>{message}</p>
         <a href="/">breizhbackyard.com</a>
       </div>

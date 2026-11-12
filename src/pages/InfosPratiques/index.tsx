@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import { MapPin, Utensils, Backpack, BookOpen } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import type { LucideIcon } from "lucide-react";
 import { PageHeader } from "@/components/customs/page-header";
 
@@ -34,12 +34,15 @@ const CheckItem = ({ text }: { text: string }) => (
   </div>
 );
 
-const RuleItem = ({ number, text, variant = "default" }: { number: number; text: string; variant?: "default" | "warning" }) => (
+// The rule text can wrap its key parts in <b>…</b> to put them in bold.
+const RuleItem = ({ number, i18nKey }: { number: number; i18nKey: string }) => (
   <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start", marginBottom: "1rem" }}>
-    <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: variant === "warning" ? "#F5C92C" : "#277956", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: variant === "warning" ? "#1a2e22" : "#fff", fontWeight: "700", fontSize: "0.78rem" }}>
+    <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "var(--bbu-green-dark)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: "#fff", fontWeight: "700", fontSize: "0.78rem" }}>
       {number}
     </div>
-    <p style={{ margin: 0, color: "#4a6b56", fontSize: "0.92rem", lineHeight: 1.7 }}>{text}</p>
+    <p style={{ margin: 0, color: "#4a6b56", fontSize: "0.92rem", lineHeight: 1.7 }}>
+      <Trans i18nKey={i18nKey} components={{ b: <strong style={{ color: "#1a2e22", fontWeight: 700 }} /> }} />
+    </p>
   </div>
 );
 
@@ -250,20 +253,19 @@ export const InfosPratiques = () => {
                   <h4 style={{ fontWeight: "700", fontSize: "0.9rem", color: "#277956", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                     {t("infos_page.reglement.r_bu_title")}
                   </h4>
-                  <RuleItem number={1} text={t("infos_page.reglement.r1")} />
-                  <RuleItem number={2} text={t("infos_page.reglement.r2")} />
-                  <RuleItem number={3} text={t("infos_page.reglement.r3")} />
-                  <RuleItem number={4} text={t("infos_page.reglement.r4")} variant="warning" />
+                  <RuleItem number={1} i18nKey="infos_page.reglement.r1" />
+                  <RuleItem number={2} i18nKey="infos_page.reglement.r2" />
+                  <RuleItem number={3} i18nKey="infos_page.reglement.r3" />
+                  <RuleItem number={4} i18nKey="infos_page.reglement.r4" />
                 </div>
                 <div>
                   <h4 style={{ fontWeight: "700", fontSize: "0.9rem", color: "#277956", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                     {t("infos_page.reglement.r_breizh_title")}
                   </h4>
-                  <RuleItem number={1} text={t("infos_page.reglement.br1")} />
-                  <RuleItem number={2} text={t("infos_page.reglement.br2")} />
-                  <RuleItem number={3} text={t("infos_page.reglement.br3")} />
-                  <RuleItem number={4} text={t("infos_page.reglement.br4")} variant="warning" />
-                  <RuleItem number={5} text={t("infos_page.reglement.br5")} />
+                  <RuleItem number={1} i18nKey="infos_page.reglement.br1" />
+                  <RuleItem number={2} i18nKey="infos_page.reglement.br2" />
+                  <RuleItem number={3} i18nKey="infos_page.reglement.br3" />
+                  <RuleItem number={4} i18nKey="infos_page.reglement.br4" />
                 </div>
               </div>
             </InfoSection>

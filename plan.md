@@ -245,8 +245,16 @@ Links to the home page already preview correctly. This matters most before big a
 
 ## New findings (2026-11-10)
 
-- [ ] **`breizhbackyard.com` redirects to `www.breizhbackyard.com` (HTTP 307, temporary)**, while every canonical URL, `og:url`, the sitemap, `robots.txt` and the structured data use the bare domain. Search engines then see canonicals that point at a redirect. Fix in Vercel › Settings › Domains: make `breizhbackyard.com` the primary domain and redirect `www` to it (308), or switch every URL in the code to `www`. The first is less work.
+- [x] **`breizhbackyard.com` redirects to `www.breizhbackyard.com` (HTTP 307, temporary)**, while every canonical URL, `og:url`, the sitemap, `robots.txt` and the structured data use the bare domain. Search engines then see canonicals that point at a redirect. Fix in Vercel › Settings › Domains: make `breizhbackyard.com` the primary domain and redirect `www` to it (308), or switch every URL in the code to `www`. The first is less work. *Fixed (checked 2026-11-12): the bare domain answers 200 and `www` redirects to it with a 308.*
 - [ ] **Production is behind**: it serves `main` (61 days old, 24 commits behind `dev`). Merge `dev` into `main` to ship this plan's work.
+
+## New findings (2026-11-12)
+
+- [x] **The newsletter gave no feedback after signing up.** Brevo's script marks success and error by adding `sib-form-message-panel--active` to the panels, but the page watched the `style` attribute and the panels had `display: none` inline. Fixed: the success popup opens, the error panel shows, and the popup badge no longer says "confirmed" before the visitor clicks the confirmation email.
+- [ ] **Protect the forms from signup bombing (before registrations open) (M).** Bots can fill the forms with other people's addresses so they get flooded with confirmation emails. That burns the Brevo sending quota (check whether double opt-in emails count), and complaints can get the Brevo account suspended.
+  - The newsletter form posts straight to a public Brevo URL (`sibforms.com/serve/…`, visible in the page source), so a bot can skip our site entirely and anything added to the page only stops naive bots. Brevo's only form captcha is Google reCAPTCHA (removed, and against the "no requests to Google" choice). Brevo's hidden `email_address_check` honeypot is already there.
+  - `api/contact.ts` has the same exposure: it emails a confirmation to whatever address is typed, with only the `website` honeypot.
+  - Planned fix: move the newsletter signup to our own Vercel Function, which calls Brevo's double opt-in API (`POST /v3/contacts/doubleOptinConfirmation`); add Cloudflare Turnstile to the newsletter and the three forms, checked server-side; then disable the hosted Brevo form so its public URL stops working. Needs a free Turnstile key in Vercel, and Cloudflare named in `PolitiqueConfidentialite`.
 
 ## Phase 6: Content backlog (organisers; from TODO.md)
 

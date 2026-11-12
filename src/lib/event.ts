@@ -2,7 +2,9 @@
 // Written-out dates stay in the locale files (they differ by language). Static files that can't
 // import this (index.html, public/llms*.txt, public/site.webmanifest) are listed in CLAUDE.md.
 
-export const EVENT_START = "2027-05-15T10:00:00+02:00";
+export const EVENT_START = "2027-05-15T12:00:00+02:00";
+/** Edition year, shown in yellow under the name in the navbar, hero and footer. */
+export const EVENT_YEAR = EVENT_START.slice(0, 4);
 
 export const LOOP_KM = 6.706;
 export const LOOP_MILES = 4.167;

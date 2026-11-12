@@ -51,8 +51,8 @@ export const CookieBanner = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "1.5rem",
             }}
+            className="p-4 sm:p-6"
             role="dialog"
             aria-modal="true"
             aria-label={t("cookies.banner_title")}
@@ -69,21 +69,22 @@ export const CookieBanner = () => {
                 border: "1px solid rgba(245, 201, 44, 0.35)",
                 borderRadius: "1.5rem",
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(39, 121, 86, 0.25)",
-                padding: "2rem",
                 color: "#fff",
                 position: "relative",
               }}
+              className="p-5 sm:p-8"
             >
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+              <div className="flex flex-col gap-5 sm:gap-6">
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "1.25rem" }}>
+                  {/* Hidden on phones so the text gets the full width. */}
                   <div
+                    className="hidden sm:flex"
                     style={{
                       width: "52px",
                       height: "52px",
                       borderRadius: "50%",
                       background: "rgba(245, 201, 44, 0.15)",
                       border: "1px solid rgba(245, 201, 44, 0.35)",
-                      display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       color: "#F5C92C",
@@ -140,24 +141,42 @@ export const CookieBanner = () => {
                         {t("cookies.learn_more")}
                       </Link>
                     </p>
+                    <p
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.45rem",
+                        margin: "0.75rem 0 0",
+                        padding: "0.4rem 0.8rem",
+                        borderRadius: "0.75rem",
+                        lineHeight: 1.35,
+                        background: "rgba(140, 190, 79, 0.15)",
+                        border: "1px solid rgba(140, 190, 79, 0.4)",
+                        color: "#8CBE4F",
+                        fontSize: "0.85rem",
+                        fontWeight: 600,
+                      }}
+                    >
+                      <ShieldCheck size={16} aria-hidden="true" style={{ flexShrink: 0 }} />
+                      {t("cookies.no_ads")}
+                    </p>
                   </div>
                 </div>
 
+                {/* Phones: Refuse and Accept side by side at equal width, Customize below. */}
                 <div
+                  className="grid grid-cols-2 gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:justify-end sm:gap-3"
                   style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    alignItems: "center",
-                    justifyContent: "flex-end",
-                    gap: "0.75rem",
                     borderTop: "1px solid rgba(255, 255, 255, 0.12)",
                     paddingTop: "1.25rem",
                   }}
                 >
                   <button
                     onClick={openModal}
+                    className="order-last col-span-2 sm:order-none"
                     style={{
                       display: "inline-flex",
+                      justifyContent: "center",
                       alignItems: "center",
                       gap: "0.4rem",
                       padding: "0.65rem 1.25rem",
@@ -186,11 +205,15 @@ export const CookieBanner = () => {
                   {/* Refusing must be as visible and as easy as accepting (CNIL guidelines). */}
                   <button
                     onClick={declineAll}
+                    className="px-3 sm:px-6"
                     style={{
                       display: "inline-flex",
+                      justifyContent: "center",
                       alignItems: "center",
                       gap: "0.4rem",
-                      padding: "0.65rem 1.5rem",
+                      paddingTop: "0.65rem",
+                      paddingBottom: "0.65rem",
+                      whiteSpace: "nowrap",
                       borderRadius: "999px",
                       background: "#fff",
                       border: "none",
@@ -210,17 +233,21 @@ export const CookieBanner = () => {
                       e.currentTarget.style.transform = "translateY(0)";
                     }}
                   >
-                    <X size={17} />
+                    <X size={17} className="hidden sm:block" />
                     {t("cookies.btn_refuse")}
                   </button>
 
                   <button
                     onClick={acceptAll}
+                    className="px-3 sm:px-6"
                     style={{
                       display: "inline-flex",
+                      justifyContent: "center",
                       alignItems: "center",
                       gap: "0.4rem",
-                      padding: "0.65rem 1.5rem",
+                      paddingTop: "0.65rem",
+                      paddingBottom: "0.65rem",
+                      whiteSpace: "nowrap",
                       borderRadius: "999px",
                       background: "#F5C92C",
                       border: "none",
@@ -240,7 +267,7 @@ export const CookieBanner = () => {
                       e.currentTarget.style.transform = "translateY(0)";
                     }}
                   >
-                    <Check size={17} />
+                    <Check size={17} className="hidden sm:block" />
                     {t("cookies.btn_accept")}
                   </button>
                 </div>
@@ -313,7 +340,7 @@ export const CookieBanner = () => {
                       {t("cookies.modal_title")}
                     </h2>
                     <p style={{ margin: 0, fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.6)" }}>
-                      Breizh Backyard Ultra — Conforme RGPD
+                      Breizh Backyard · Conforme RGPD
                     </p>
                   </div>
                 </div>

@@ -1,17 +1,17 @@
-# Breizh Backyard Ultra — Documentation Complète pour IA & Moteurs de Recherche
+# Breizh Backyard : Documentation Complète pour IA & Moteurs de Recherche
 
 ## Présentation Générale
 
-Breizh Backyard Ultra est une compétition internationale d'ultra-endurance au format "Backyard Ultra", se déroulant à Rennes, en Bretagne (France).
+Breizh Backyard est une compétition internationale d'ultra-endurance au format "Backyard Ultra", se déroulant à Rennes, en Bretagne (France).
 
 L'événement s'inspire du format légendaire créé par Lazarus Lake. Le principe est d'une simplicité redoutable : parcourir une boucle de 6,706 km (4,167 miles) en moins d'une heure, et recommencer chaque heure, jusqu'à ce qu'il ne reste plus qu'un seul coureur debout.
 
 ## Fiche Technique de l'Événement
 
-- **Nom Officiel**: Breizh Backyard Ultra
-- **Nom Alternatif**: Breizh Backyard Ultra 2027
-- **Date de Départ**: Samedi 15 Mai 2027 à 10:00 CEST
-- **Lieu**: Camp de base, Parc des Gayeulles — Rennes, Bretagne, France (Coordonnées GPS : 48.134762, -1.647241)
+- **Nom Officiel**: Breizh Backyard
+- **Nom Alternatif**: Breizh Backyard 2027
+- **Date de Départ**: Samedi 15 Mai 2027 à 12:00 CEST
+- **Lieu**: Camp de base, Parc des Gayeulles, Rennes, Bretagne, France (Coordonnées GPS : 48.134762, -1.647241)
 - **Carte / Localisation GPS**: https://maps.google.com/?q=48.13476195656116,-1.6472409293385937
 - **Distance par boucle**: 6,706 km / 4,167 miles
 - **Temps alloué par boucle**: 60 minutes
@@ -21,7 +21,7 @@ L'événement s'inspire du format légendaire créé par Lazarus Lake. Le princi
   - 24 Heures = 100 Miles (160.94 km)
   - 48 Heures = 200 Miles (321.88 km)
 - **Type d'épreuve**: Ultra-Trail / Ultra-Marathon / Endurance Extrême
-- **Organisateur**: Breizh Backyard Ultra
+- **Organisateur**: Breizh Backyard
 - **Site web**: https://breizhbackyard.com
 - **Email de contact**: contact@breizhbackyard.com
 

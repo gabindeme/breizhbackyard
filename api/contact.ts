@@ -88,7 +88,7 @@ function layout(lang: Lang, title: string, content: string, footer: string): str
 <body style="margin:0;padding:0;background-color:#EFEFEF">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#EFEFEF" style="background-color:#EFEFEF"><tr><td align="center" style="padding:32px 12px">
 <table role="presentation" width="560" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:560px;background-color:#ffffff;border-radius:12px;overflow:hidden">
-<tr><td bgcolor="${GREEN}" style="background-color:${GREEN};padding:0"><a href="${SITE_URL}" target="_blank" style="display:block;text-decoration:none"><img src="${SITE_URL}/email/header.png" width="560" alt="Breizh Backyard Ultra" style="display:block;width:100%;max-width:560px;height:auto;border:0;${FONT};font-size:24px;font-weight:bold;color:#ffffff;text-align:center;line-height:80px"></a></td></tr>
+<tr><td bgcolor="${GREEN}" style="background-color:${GREEN};padding:0"><a href="${SITE_URL}" target="_blank" style="display:block;text-decoration:none"><img src="${SITE_URL}/email/header.png" width="560" alt="Breizh Backyard" style="display:block;width:100%;max-width:560px;height:auto;border:0;${FONT};font-size:24px;font-weight:bold;color:#ffffff;text-align:center;line-height:80px"></a></td></tr>
 <tr><td style="padding:40px 40px 32px">${content}</td></tr>
 <tr><td bgcolor="${GREEN}" align="center" style="background-color:${GREEN};padding:28px 24px">
 <p style="margin:0 0 14px;${FONT};font-size:13px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#F5C92C">${escapeHtml(e.follow)}</p>
@@ -127,8 +127,8 @@ ${para("Répondez directement à cet email pour écrire à la personne.", "margi
   const text = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
 
   return {
-    sender: { name: "Site Breizh Backyard Ultra", email: SENDER_EMAIL },
-    to: [{ email: ORGANISER_EMAIL, name: "Breizh Backyard Ultra" }],
+    sender: { name: "Site Breizh Backyard", email: SENDER_EMAIL },
+    to: [{ email: ORGANISER_EMAIL, name: "Breizh Backyard" }],
     replyTo: { email: fields.email, ...(fields.nom ? { name: oneLine(fields.nom) } : {}) },
     subject,
     htmlContent: html,
@@ -162,9 +162,9 @@ ${para(`${escapeHtml(e.signoff)}<br><strong style="color:${GREEN}">${escapeHtml(
   const text = `${greeting}\n\n${body}\n\n${e.reply_hint}\n\n${e.signoff}\n${e.team}\n\n${e.event}\n${e.cta} : ${SITE_URL}\n\n--\n${e.footer}`;
 
   return {
-    sender: { name: "Breizh Backyard Ultra", email: SENDER_EMAIL },
+    sender: { name: "Breizh Backyard", email: SENDER_EMAIL },
     to: [{ email: fields.email, ...(name ? { name } : {}) }],
-    replyTo: { email: ORGANISER_EMAIL, name: "Breizh Backyard Ultra" },
+    replyTo: { email: ORGANISER_EMAIL, name: "Breizh Backyard" },
     subject,
     htmlContent: html,
     textContent: text,
