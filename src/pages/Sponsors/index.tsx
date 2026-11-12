@@ -3,7 +3,7 @@ import { Mail, Download } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { submitForm } from "@/lib/submit-form";
-import { Honeypot, FormError } from "@/components/customs/form-extras";
+import { Honeypot, FormError, RequiredMark, FieldError } from "@/components/customs/form-extras";
 import { PageHeader } from "@/components/customs/page-header";
 
 export const Sponsors = () => {
@@ -14,10 +14,18 @@ export const Sponsors = () => {
   const [loading, setLoading] = useState(false);
   const [website, setWebsite] = useState("");
   const [sendError, setSendError] = useState(false);
+  const [emailError, setEmailError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.email) return;
+    const email = formData.email.trim();
+    const error = !email
+      ? t("contact_page.errors.email_req")
+      : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+        ? t("contact_page.errors.email_inv")
+        : "";
+    setEmailError(error);
+    if (error) return;
     setLoading(true);
     setSendError(false);
     const ok = await submitForm("sponsor", { ...formData, website });
@@ -71,8 +79,9 @@ export const Sponsors = () => {
                 {t("sponsors_page.dossier.desc")}
               </p>
             </div>
+            {/* Built from sponsor-kit/dossier.html with `pnpm build:sponsor-kit`. */}
             <a
-              href="#"
+              href="/dossier-partenariat-breizh-backyard-2027.pdf"
               download
               className="bbu-btn"
               style={{
@@ -106,25 +115,41 @@ export const Sponsors = () => {
 
           {!submitted ? (
             <div style={{ background: "#fff", borderRadius: "1.5rem", padding: "2.5rem", border: "1px solid #D0D0D0", boxShadow: "0 4px 24px rgba(39,121,86,0.08)" }}>
-              <form onSubmit={handleSubmit} style={{ position: "relative" }}>
+              <form onSubmit={handleSubmit} noValidate style={{ position: "relative" }}>
                 <Honeypot value={website} onChange={setWebsite} />
                 <div className="form-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
                   <div>
-                    <label className="bbu-label">{t("sponsors_page.contact.nom_label")}</label>
-                    <input className="bbu-input" type="text" value={formData.nom} onChange={(e) => setFormData(p => ({ ...p, nom: e.target.value }))} placeholder={t("sponsors_page.contact.nom_ph")} />
+                    <label className="bbu-label" htmlFor="s-nom">{t("sponsors_page.contact.nom_label")}</label>
+                    <input id="s-nom" className="bbu-input" type="text" value={formData.nom} onChange={(e) => setFormData(p => ({ ...p, nom: e.target.value }))} placeholder={t("sponsors_page.contact.nom_ph")} />
                   </div>
                   <div>
-                    <label className="bbu-label">{t("sponsors_page.contact.societe_label")}</label>
-                    <input className="bbu-input" type="text" value={formData.societe} onChange={(e) => setFormData(p => ({ ...p, societe: e.target.value }))} placeholder={t("sponsors_page.contact.societe_ph")} />
+                    <label className="bbu-label" htmlFor="s-societe">{t("sponsors_page.contact.societe_label")}</label>
+                    <input id="s-societe" className="bbu-input" type="text" value={formData.societe} onChange={(e) => setFormData(p => ({ ...p, societe: e.target.value }))} placeholder={t("sponsors_page.contact.societe_ph")} />
                   </div>
                 </div>
                 <div style={{ marginBottom: "1rem" }}>
-                  <label className="bbu-label">{t("sponsors_page.contact.email_label")} <span style={{ color: "#c44" }}>*</span></label>
-                  <input className="bbu-input" type="email" required value={formData.email} onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))} placeholder={t("sponsors_page.contact.email_ph")} />
+                  <label className="bbu-label" htmlFor="s-email">
+                    {t("sponsors_page.contact.email_label")} <RequiredMark />
+                  </label>
+                  <input
+                    id="s-email"
+                    className="bbu-input"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => {
+                      setFormData((p) => ({ ...p, email: e.target.value }));
+                      if (emailError) setEmailError("");
+                    }}
+                    placeholder={t("sponsors_page.contact.email_ph")}
+                    aria-invalid={!!emailError}
+                    aria-describedby={emailError ? "s-email-error" : undefined}
+                  />
+                  <FieldError id="s-email-error" message={emailError} />
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                  <label className="bbu-label">{t("sponsors_page.contact.message_label")}</label>
+                  <label className="bbu-label" htmlFor="s-message">{t("sponsors_page.contact.message_label")}</label>
                   <textarea
+                    id="s-message"
                     className="bbu-input"
                     rows={4}
                     value={formData.message}

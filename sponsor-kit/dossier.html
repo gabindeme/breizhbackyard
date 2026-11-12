@@ -1,0 +1,803 @@
+<!doctype html>
+<!--
+  Dossier de partenariat de la Breizh Backyard (A4, 6 pages).
+  Source of public/dossier-partenariat-breizh-backyard-2027.pdf: edit this file, then run `pnpm build:sponsor-kit`.
+  Keep the facts in line with src/lib/event.ts and the site (date, time, venue, loop, runners expected).
+-->
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Breizh Backyard 2027 · Dossier de partenariat</title>
+    <style>
+      @font-face {
+        font-family: "Hobo";
+        src: url("../public/fonts/hobo.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 400;
+        src: url("../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 600;
+        src: url("../node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 700;
+        src: url("../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Inter";
+        font-weight: 800;
+        src: url("../node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2") format("woff2");
+      }
+
+      :root {
+        --green-dark: #277956;
+        --green-deep: #0f2d1d;
+        --teal: #2d9185;
+        --green-mid: #4da154;
+        --green-light: #8cbe4f;
+        --yellow: #f5c92c;
+        --off-white: #efefef;
+        --ink: #1a2e22;
+        --muted: #4a6b56;
+        --line: #d6e2da;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        color: var(--ink);
+        font-family: "Inter", sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.55;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        width: 210mm;
+        height: 297mm;
+        position: relative;
+        overflow: hidden;
+        page-break-after: always;
+        break-after: page;
+        background: var(--off-white);
+        padding: 22mm 20mm 20mm;
+      }
+      .page:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+      .page.dark {
+        background: linear-gradient(160deg, var(--green-dark) 0%, #1c5a40 55%, var(--green-deep) 100%);
+        color: #fff;
+      }
+
+      /* Shared header strip on content pages */
+      .strip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4mm;
+        background: linear-gradient(90deg, var(--green-dark) 0%, var(--green-light) 50%, var(--yellow) 100%);
+      }
+      .folio {
+        position: absolute;
+        bottom: 10mm;
+        left: 20mm;
+        right: 20mm;
+        display: flex;
+        justify-content: space-between;
+        font-size: 8pt;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+        padding-top: 3mm;
+      }
+      .dark .folio {
+        color: rgba(255, 255, 255, 0.6);
+        border-top-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .kicker {
+        font-size: 8.5pt;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--green-light);
+        margin: 0 0 2mm;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Hobo", sans-serif;
+        font-weight: normal;
+        margin: 0;
+        line-height: 1.1;
+      }
+      h2 {
+        font-size: 26pt;
+        color: var(--green-dark);
+        margin-bottom: 6mm;
+      }
+      h3 {
+        font-size: 13.5pt;
+        color: var(--ink);
+        margin-bottom: 1.5mm;
+      }
+      p {
+        margin: 0 0 3.5mm;
+      }
+      .lead {
+        font-size: 12pt;
+        color: var(--ink);
+        margin-bottom: 7mm;
+      }
+      strong {
+        font-weight: 700;
+      }
+
+      /* ---------- Page 1: cover ---------- */
+      .cover {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 0;
+      }
+      .cover .logo {
+        width: 52mm;
+        margin-bottom: 12mm;
+      }
+      .cover h1 {
+        font-size: 50pt;
+        letter-spacing: 0.01em;
+        color: #fff;
+      }
+      .cover .year {
+        font-family: "Hobo", sans-serif;
+        font-size: 26pt;
+        letter-spacing: 0.3em;
+        color: var(--yellow);
+        margin: 3mm 0 16mm;
+        padding-left: 0.3em;
+      }
+      .cover .doc-title {
+        display: inline-block;
+        font-size: 12pt;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        border: 1.5px solid rgba(245, 201, 44, 0.6);
+        color: var(--yellow);
+        border-radius: 999px;
+        padding: 2.5mm 7mm;
+        margin-bottom: 12mm;
+      }
+      .cover .facts {
+        font-size: 13pt;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .cover .tagline {
+        margin-top: 14mm;
+        font-size: 11pt;
+        color: rgba(255, 255, 255, 0.75);
+        font-style: italic;
+      }
+
+      /* ---------- Stats ---------- */
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4mm;
+        margin: 6mm 0 8mm;
+      }
+      .stat {
+        background: #fff;
+        border-radius: 4mm;
+        padding: 5mm 4mm;
+        text-align: center;
+        border: 1px solid var(--line);
+      }
+      .stat .num {
+        font-family: "Hobo", sans-serif;
+        font-size: 22pt;
+        color: var(--green-dark);
+        line-height: 1;
+      }
+      .stat .num small {
+        font-size: 12pt;
+      }
+      .stat .lbl {
+        font-size: 8.5pt;
+        font-weight: 600;
+        color: var(--muted);
+        margin-top: 2mm;
+        line-height: 1.3;
+      }
+
+      .photo {
+        width: 100%;
+        height: 62mm;
+        object-fit: cover;
+        border-radius: 4mm;
+        display: block;
+        margin-bottom: 7mm;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7mm;
+      }
+
+      /* ---------- Values / audience cards ---------- */
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 4mm;
+        padding: 5mm 5.5mm;
+      }
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+      .card .icon {
+        font-size: 15pt;
+        margin-bottom: 1.5mm;
+      }
+      .cards-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4mm;
+        margin-bottom: 7mm;
+      }
+      .highlight {
+        background: var(--green-dark);
+        color: #fff;
+        border-radius: 4mm;
+        padding: 6mm 7mm;
+        margin-bottom: 7mm;
+      }
+      .highlight h3 {
+        color: var(--yellow);
+      }
+      ul.clean {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      ul.clean li {
+        position: relative;
+        padding-left: 5mm;
+        margin-bottom: 1.6mm;
+      }
+      ul.clean li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 2.1mm;
+        width: 2mm;
+        height: 2mm;
+        border-radius: 50%;
+        background: var(--green-light);
+      }
+
+      /* ---------- Needs ---------- */
+      .needs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4.5mm;
+      }
+      .need {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-left: 2mm solid var(--green-light);
+        border-radius: 3mm;
+        padding: 4.5mm 5mm;
+      }
+      .need h3 {
+        font-size: 12.5pt;
+      }
+      .need p {
+        font-size: 9.5pt;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      /* ---------- Tiers ---------- */
+      .tiers {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4mm;
+        margin-bottom: 7mm;
+      }
+      .tier {
+        border-radius: 4mm;
+        padding: 5mm;
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+      .tier.main {
+        background: var(--green-dark);
+        color: #fff;
+        border: none;
+      }
+      .tier .badge {
+        display: inline-block;
+        font-size: 7.5pt;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: 999px;
+        padding: 1mm 3mm;
+        margin-bottom: 3mm;
+        background: rgba(39, 121, 86, 0.1);
+        color: var(--green-dark);
+      }
+      .tier.main .badge {
+        background: var(--yellow);
+        color: var(--ink);
+      }
+      .tier h3 {
+        font-size: 14pt;
+      }
+      .tier.main h3 {
+        color: #fff;
+      }
+      .tier p {
+        font-size: 9pt;
+        margin: 0;
+        color: var(--muted);
+      }
+      .tier.main p {
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      table.benefits {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 4mm;
+        overflow: hidden;
+        font-size: 9.5pt;
+      }
+      table.benefits th,
+      table.benefits td {
+        padding: 2.6mm 4mm;
+        border-bottom: 1px solid var(--line);
+        text-align: center;
+      }
+      table.benefits th:first-child,
+      table.benefits td:first-child {
+        text-align: left;
+      }
+      table.benefits thead th {
+        background: var(--green-deep);
+        color: #fff;
+        font-size: 8.5pt;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      table.benefits tbody tr:last-child td {
+        border-bottom: none;
+      }
+      table.benefits tbody tr:nth-child(even) td {
+        background: #f7faf8;
+      }
+      .yes {
+        color: var(--green-dark);
+        font-weight: 800;
+      }
+      .no {
+        color: #b9c7be;
+      }
+      .note {
+        font-size: 8.5pt;
+        color: var(--muted);
+        margin-top: 4mm;
+      }
+
+      /* ---------- Contact ---------- */
+      .contact {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 30mm;
+      }
+      .contact h2 {
+        color: #fff;
+        font-size: 32pt;
+      }
+      .contact .lead {
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 150mm;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4mm;
+        margin: 4mm 0 12mm;
+      }
+      .step {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 4mm;
+        padding: 5mm;
+        font-size: 9.5pt;
+        color: rgba(255, 255, 255, 0.88);
+      }
+      .step .n {
+        font-family: "Hobo", sans-serif;
+        font-size: 20pt;
+        color: var(--yellow);
+        line-height: 1;
+        margin-bottom: 2mm;
+      }
+      .contact-box {
+        background: #fff;
+        color: var(--ink);
+        border-radius: 5mm;
+        padding: 8mm 9mm;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4mm 10mm;
+      }
+      .contact-box .lbl {
+        font-size: 8pt;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .contact-box .val {
+        font-size: 11.5pt;
+        font-weight: 700;
+        color: var(--green-dark);
+      }
+      .contact-box a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .contact .logo-small {
+        width: 22mm;
+        position: absolute;
+        top: 20mm;
+        right: 20mm;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ================= 1. Couverture ================= -->
+    <section class="page dark cover">
+      <img class="logo" src="../public/assets/logos/logo-white.svg" alt="Logo Breizh Backyard" />
+      <h1>BREIZH BACKYARD</h1>
+      <div class="year">2027</div>
+      <div class="doc-title">Dossier de partenariat</div>
+      <div class="facts">
+        Samedi 15 mai 2027 · 12h00<br />
+        Parc des Gayeulles, Rennes
+      </div>
+      <div class="tagline">6,706 km. Toutes les heures. Jusqu'au dernier debout.</div>
+    </section>
+
+    <!-- ================= 2. L'événement ================= -->
+    <section class="page">
+      <div class="strip"></div>
+      <p class="kicker">L'événement</p>
+      <h2>Une course sans ligne d'arrivée</h2>
+      <p class="lead">
+        La Breizh Backyard, c'est la seule course de Rennes sans distance et sans limite. Le principe tient en une phrase : une boucle de
+        <strong>6,706 km</strong> à boucler <strong>toutes les heures</strong>, jusqu'à ce qu'il ne reste plus qu'un seul coureur.
+      </p>
+
+      <img class="photo" src="../public/assets/images/lac-automne.webp" alt="" />
+
+      <div class="two-col">
+        <div>
+          <h3>Le format</h3>
+          <p>
+            Toutes les heures, pile, les coureurs repartent pour un nouveau tour. Celui qui ne prend pas le départ, ou ne boucle pas son
+            tour dans l'heure, est éliminé. Le dernier debout l'emporte.
+          </p>
+          <p>
+            Pas de distance fixée, pas d'heure d'arrivée : la course peut durer une journée comme plusieurs. Le record du monde est de
+            <strong>124 heures</strong>, soit plus de 830 km.
+          </p>
+        </div>
+        <div>
+          <h3>Le cadre</h3>
+          <p>La course se déroule au <strong>Parc des Gayeulles</strong>, à Rennes : forêts, étangs et sentiers nature, en pleine ville.</p>
+          <p>
+            Entre deux tours, coureurs et accompagnants se retrouvent au <strong>camp de base</strong>, le cœur de l'événement, avec un
+            ravitaillement pour les coureurs et une buvette pour les accompagnants.
+          </p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">6,706<small> km</small></div>
+          <div class="lbl">par tour</div>
+        </div>
+        <div class="stat">
+          <div class="num">150</div>
+          <div class="lbl">coureurs attendus</div>
+        </div>
+        <div class="stat">
+          <div class="num">24<small> h/24</small></div>
+          <div class="lbl">de course, jour et nuit</div>
+        </div>
+        <div class="stat">
+          <div class="num">1<small>ère</small></div>
+          <div class="lbl">édition à Rennes</div>
+        </div>
+      </div>
+
+      <div class="folio"><span>Breizh Backyard 2027 · Dossier de partenariat</span><span>2</span></div>
+    </section>
+
+    <!-- ================= 3. Qui sommes-nous ================= -->
+    <section class="page">
+      <div class="strip"></div>
+      <p class="kicker">L'organisation</p>
+      <h2>Un projet 100 % associatif</h2>
+      <p class="lead">
+        La Breizh Backyard est organisée par l'<strong>Association Delta Events</strong> : quatre jeunes passionnés de course à pied et de
+        trail, avec l'envie de créer à Rennes un rendez-vous d'ultra-endurance unique.
+      </p>
+
+      <div class="highlight">
+        <h3>Une équipe 100 % bénévole</h3>
+        <p style="margin: 0">
+          Personne n'est rémunéré. Chaque apport, en matériel, en produits, en services ou financier, va directement dans l'organisation de
+          la course et l'expérience des coureurs.
+        </p>
+      </div>
+
+      <div class="cards-3">
+        <div class="card">
+          <div class="icon">🌳</div>
+          <h3>Nature</h3>
+          <p>Une course en pleine forêt, au cœur d'un grand parc rennais.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔥</div>
+          <h3>Dépassement</h3>
+          <p>Un format où chacun va chercher ses propres limites, heure après heure.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🤝</div>
+          <h3>Convivialité</h3>
+          <p>L'entraide entre coureurs et l'ambiance du camp de base, à la bretonne.</p>
+        </div>
+      </div>
+
+      <h3>Qui vous verra</h3>
+      <div class="two-col" style="margin-top: 3mm">
+        <ul class="clean">
+          <li><strong>Les coureurs</strong> : passionnés de trail et d'ultra, venus de Bretagne et d'ailleurs.</li>
+          <li><strong>Leurs accompagnants</strong> : familles, amis et assistances, présents au camp de base pendant toute la course.</li>
+          <li><strong>Le public</strong> : promeneurs du parc et curieux, de jour comme de nuit.</li>
+        </ul>
+        <ul class="clean">
+          <li><strong>Notre communauté en ligne</strong> : Instagram, Facebook, TikTok et YouTube.</li>
+          <li><strong>Notre site</strong> breizhbackyard.com, qui présente nos partenaires.</li>
+          <li><strong>Les médias locaux</strong>, que nous solliciterons autour de la course.</li>
+        </ul>
+      </div>
+
+      <div class="folio"><span>Breizh Backyard 2027 · Dossier de partenariat</span><span>3</span></div>
+    </section>
+
+    <!-- ================= 4. Nos besoins ================= -->
+    <section class="page">
+      <div class="strip"></div>
+      <p class="kicker">Nos besoins</p>
+      <h2>Ce que vous pouvez apporter</h2>
+      <p class="lead">
+        Nous cherchons surtout des <strong>partenaires matériels</strong> : vos produits, votre équipement ou votre savoir-faire font
+        directement vivre la course. Un soutien financier est aussi le bienvenu.
+      </p>
+
+      <div class="needs">
+        <div class="need">
+          <h3>🥤 Ravitaillement</h3>
+          <p>Boissons, eau, nutrition sportive, fruits, produits locaux, café et boissons chaudes pour tenir la nuit.</p>
+        </div>
+        <div class="need">
+          <h3>⛺ Camp de base</h3>
+          <p>Barnums et tentes, tables, chaises, éclairage, électricité, chauffage d'appoint pour la nuit.</p>
+        </div>
+        <div class="need">
+          <h3>👕 Tenue des coureurs</h3>
+          <p>Tee-shirts, textile technique, dossards, accessoires remis à chaque participant.</p>
+        </div>
+        <div class="need">
+          <h3>🏆 Récompenses et lots</h3>
+          <p>Dotations pour le vainqueur et le dernier à céder, lots pour les coureurs et les bénévoles, bons d'achat.</p>
+        </div>
+        <div class="need">
+          <h3>🖨️ Impression et signalétique</h3>
+          <p>Banderoles, arche de départ, panneaux, balisage du parcours, affiches et flyers.</p>
+        </div>
+        <div class="need">
+          <h3>📸 Services</h3>
+          <p>Chronométrage, photo et vidéo, sonorisation, transport et logistique de matériel.</p>
+        </div>
+      </div>
+
+      <p class="note" style="margin-top: 7mm">
+        Vous avez une autre idée ? Nous sommes ouverts à toute proposition qui colle à l'esprit de la course.
+      </p>
+
+      <div class="folio"><span>Breizh Backyard 2027 · Dossier de partenariat</span><span>4</span></div>
+    </section>
+
+    <!-- ================= 5. Grille ================= -->
+    <section class="page">
+      <div class="strip"></div>
+      <p class="kicker">Formules</p>
+      <h2>Trois façons de nous rejoindre</h2>
+
+      <div class="tiers">
+        <div class="tier main">
+          <span class="badge">1 à 2 places</span>
+          <h3>Partenaire principal</h3>
+          <p>Vous prenez en charge un poste entier de la course, par exemple tout le ravitaillement ou la tenue des coureurs.</p>
+        </div>
+        <div class="tier">
+          <span class="badge">Par poste</span>
+          <h3>Partenaire officiel</h3>
+          <p>Vous apportez une contribution importante à un poste : produits, matériel ou service.</p>
+        </div>
+        <div class="tier">
+          <span class="badge">Commerces locaux</span>
+          <h3>Partenaire soutien</h3>
+          <p>Vous offrez des lots, des bons d'achat, du petit matériel ou un coup de main.</p>
+        </div>
+      </div>
+
+      <table class="benefits">
+        <thead>
+          <tr>
+            <th>Contreparties</th>
+            <th>Principal</th>
+            <th>Officiel</th>
+            <th>Soutien</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Logo et lien sur le site, page Sponsors</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td>Remerciements sur nos réseaux sociaux</td>
+            <td>Publication dédiée</td>
+            <td>Publication dédiée</td>
+            <td>Publication groupée</td>
+          </tr>
+          <tr>
+            <td>Remerciements au micro pendant la course</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+          </tr>
+          <tr>
+            <td>Titre « Partenaire officiel » de votre poste</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="no">·</td>
+          </tr>
+          <tr>
+            <td>Logo sur les banderoles du camp de base</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="no">·</td>
+          </tr>
+          <tr>
+            <td>Photos et vidéos de la course pour votre communication</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="no">·</td>
+          </tr>
+          <tr>
+            <td>Logo sur le tee-shirt des coureurs</td>
+            <td class="yes">✓</td>
+            <td class="yes">✓</td>
+            <td class="no">·</td>
+          </tr>
+          <tr>
+            <td>Stand ou présence au camp de base</td>
+            <td class="yes">✓</td>
+            <td>Selon le poste</td>
+            <td class="no">·</td>
+          </tr>
+          <tr>
+            <td>Logo sur le dossard</td>
+            <td class="yes">✓</td>
+            <td class="no">·</td>
+            <td class="no">·</td>
+          </tr>
+          <tr>
+            <td>Remise d'un prix aux coureurs par vos soins</td>
+            <td class="yes">✓</td>
+            <td class="no">·</td>
+            <td class="no">·</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">
+        Cette grille est un point de départ : nous construisons chaque partenariat avec vous, selon ce que vous pouvez apporter et ce qui
+        compte pour vous.
+      </p>
+
+      <div class="folio"><span>Breizh Backyard 2027 · Dossier de partenariat</span><span>5</span></div>
+    </section>
+
+    <!-- ================= 6. Contact ================= -->
+    <section class="page dark contact">
+      <img class="logo-small" src="../public/assets/logos/logo-white.svg" alt="" />
+      <p class="kicker">Contact</p>
+      <h2>Construisons ce partenariat ensemble</h2>
+      <p class="lead">Un échange suffit pour voir ce que nous pouvons faire ensemble. Écrivez-nous, nous répondons vite.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          Vous nous écrivez avec vos idées ou vos produits.
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          Nous en parlons ensemble et ajustons le partenariat.
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          Votre marque rejoint l'aventure, et nous la faisons connaître.
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <div>
+          <div class="lbl">Email</div>
+          <div class="val"><a href="mailto:contact@breizhbackyard.com">contact@breizhbackyard.com</a></div>
+        </div>
+        <div>
+          <div class="lbl">Site</div>
+          <div class="val"><a href="https://breizhbackyard.com/sponsors">breizhbackyard.com/sponsors</a></div>
+        </div>
+        <div>
+          <div class="lbl">Réseaux sociaux</div>
+          <div class="val">@breizhbackyard</div>
+        </div>
+        <div>
+          <div class="lbl">Organisateur</div>
+          <div class="val">Association Delta Events</div>
+        </div>
+      </div>
+
+      <div class="folio"><span>Breizh Backyard 2027 · Dossier de partenariat</span><span>6</span></div>
+    </section>
+  </body>
+</html>
