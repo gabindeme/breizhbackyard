@@ -916,6 +916,14 @@
     grid-column: span 1 !important;
   }
 
+  /* Taller touch targets for the text links (they were about 20px high). */
+  footer nav a,
+  footer a[href^="mailto:"],
+  footer .footer-legal a,
+  footer .footer-legal button {
+    padding-block: 0.35rem !important; /* the cookie button sets padding: 0 inline */
+  }
+
   /* ---------- Cards ---------- */
   .bbu-card {
     padding: 1.5rem;
@@ -1260,4 +1268,10 @@ input.input_replaced[type="checkbox"]:checked::after {
 @keyframes checkmark-draw {
   0%   { opacity: 0; transform: rotate(45deg) scale(0); }
   100% { opacity: 1; transform: rotate(45deg) scale(1); }
+}
+/* Grid and flex children default to min-width: auto, so one long unbreakable child widens the whole
+   page on a phone. Let the columns of the stacked mobile grids shrink to the screen instead. */
+.mobile-grid-1 > *,
+.form-grid-2 > * {
+  min-width: 0;
 }

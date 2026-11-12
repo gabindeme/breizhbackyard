@@ -71,7 +71,7 @@ export const Benevoles = () => {
             <h2 className="section-title" style={{ color: "#164030" }}>{t("benevoles_page.intro.title")}</h2>
           </div>
           
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: "2rem" }}>
             {[
               {
                 icon: <HeartHandshake size={32} color="#277956" />,
@@ -121,10 +121,10 @@ export const Benevoles = () => {
           <div style={{ 
             background: "#fff",
             borderRadius: "24px",
-            padding: "3rem",
+            padding: "clamp(1.5rem, 6vw, 3rem)",
             boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(250px, 100%), 1fr))",
             gap: "2rem"
           }}>
             {[
@@ -160,11 +160,11 @@ export const Benevoles = () => {
         {/* Form Section */}
         <section style={{ maxWidth: "800px", margin: "0 auto" }}>
           <div style={{ background: "#fff", borderRadius: "32px", overflow: "hidden", boxShadow: "0 20px 40px rgba(0,0,0,0.08)" }}>
-            <div style={{ padding: "3rem", background: "#164030", color: "#fff", textAlign: "center" }}>
+            <div style={{ padding: "clamp(1.5rem, 6vw, 3rem)", background: "#164030", color: "#fff", textAlign: "center" }}>
               <h2 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "2.5rem", marginBottom: "1rem" }}>{t("benevoles_page.form.title")}</h2>
             </div>
             
-            <div style={{ padding: "3rem" }}>
+            <div style={{ padding: "clamp(1.5rem, 6vw, 3rem)" }}>
               {isSuccess ? (
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} style={{ textAlign: "center", padding: "2rem 0" }}>
                   <div style={{ width: "80px", height: "80px", background: "rgba(39,121,86,0.1)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem" }}>

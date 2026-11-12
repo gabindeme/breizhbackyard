@@ -288,7 +288,7 @@ export const Concept = () => {
             <FormatTimeline />
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))", gap: "1rem" }}>
             <RuleCard
               icon={Timer}
               title={t("concept_page.rules.r1_title")}

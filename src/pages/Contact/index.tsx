@@ -93,7 +93,7 @@ export const Contact = () => {
                 <h3 style={{ fontWeight: "700", fontSize: "0.85rem", color: "#4a6b56", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: "1rem" }}>
                   {t("contact_page.info.socials")}
                 </h3>
-                <div style={{ display: "flex", gap: "0.75rem" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
                   {[
                     { icon: InstagramIcon, label: "Instagram", href: SOCIAL_LINKS.instagram },
                     { icon: FacebookIcon, label: "Facebook", href: SOCIAL_LINKS.facebook },

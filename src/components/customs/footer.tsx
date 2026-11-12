@@ -61,7 +61,7 @@ export const Footer = () => {
             margin: "0 auto",
             padding: "0 1.5rem 3rem",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))",
             gap: "3rem",
           }}
         >
@@ -233,7 +233,7 @@ export const Footer = () => {
             gap: "0.75rem",
           }}
         >
-          <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+          <div className="footer-legal" style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
             <Link to="/mentions-legales" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", textDecoration: "none", transition: "color 0.2s ease" }}
               onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#8CBE4F"}
               onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)"}

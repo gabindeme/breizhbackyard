@@ -71,7 +71,7 @@ export const Sponsors = () => {
             <div style={{ position: "absolute", top: -40, right: -40, opacity: 0.04, color: "#277956", pointerEvents: "none" }}>
               <Download size={200} />
             </div>
-            <div style={{ position: "relative", zIndex: 1, flex: 1, minWidth: "250px" }}>
+            <div style={{ position: "relative", zIndex: 1, flex: 1, minWidth: "min(250px, 100%)" }}>
               <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#1a2e22", marginBottom: "0.5rem" }}>
                 {t("sponsors_page.dossier.title")}
               </h3>
@@ -91,7 +91,7 @@ export const Sponsors = () => {
                 alignItems: "center",
                 gap: "0.5rem",
                 textDecoration: "none",
-                flexShrink: 0,
+                maxWidth: "100%",
                 position: "relative",
                 zIndex: 1,
                 padding: "0.85rem 1.5rem",

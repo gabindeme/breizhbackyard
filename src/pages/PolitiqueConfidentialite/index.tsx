@@ -172,7 +172,7 @@ export const PolitiqueConfidentialite = () => {
                   3. Finalités et Bases Légales du Traitement
                 </h2>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1.25rem", marginTop: "1rem" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(250px, 100%), 1fr))", gap: "1.25rem", marginTop: "1rem" }}>
                 <div style={{ background: "#f9fbf9", padding: "1.25rem", borderRadius: "0.85rem", border: "1px solid #e2ece5" }}>
                   <h4 style={{ color: "#277956", margin: "0 0 0.5rem 0", fontSize: "1rem", fontWeight: 700 }}>
                     Exécution du contrat
@@ -296,7 +296,7 @@ export const PolitiqueConfidentialite = () => {
               <p style={{ color: "#333", fontSize: "0.95rem", lineHeight: 1.75 }}>
                 Conformément à la réglementation européenne, vous disposez des droits suivants sur vos données :
               </p>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1rem", margin: "1.25rem 0" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(240px, 100%), 1fr))", gap: "1rem", margin: "1.25rem 0" }}>
                 <div style={{ padding: "0.85rem 1rem", background: "#f8faf8", borderRadius: "0.5rem", borderLeft: "3px solid #8CBE4F" }}>
                   <strong>Droit d'accès :</strong> Obtenir la confirmation et la copie de vos données.
                 </div>

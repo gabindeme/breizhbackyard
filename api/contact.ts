@@ -33,24 +33,60 @@ const FIELD_LABEL: Record<string, string> = {
   message: "Message",
 };
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// One plain address only: no separators, quotes or brackets that a mail server could read as a second recipient.
+const EMAIL_RE = /^[^\s@,;:<>()[\]"'\\]+@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/i;
 
-// Best-effort rate limit, per server instance: at most 5 submissions per IP every 10 minutes.
+// The largest valid body is about 6 kB of text (see MAX below); 4 bytes per character at worst.
+const MAX_BODY_BYTES = 32 * 1024;
+
+// Best-effort rate limits, per server instance (an instance can be recycled at any time, so the
+// real protection against floods is a rate-limit rule on /api/contact in the Vercel Firewall):
+// at most 5 submissions per IP and 2 per email address every 10 minutes.
 const WINDOW_MS = 10 * 60 * 1000;
-const MAX_PER_WINDOW = 5;
+const MAX_PER_IP = 5;
+const MAX_PER_ADDRESS = 2;
 const hits = new Map<string, number[]>();
 
-function rateLimited(ip: string): boolean {
+function rateLimited(key: string, max: number): boolean {
   const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  if (hits.size > 5000) {
+    // Drop expired entries first; only forget everything if the map is still full.
+    for (const [k, times] of hits) if (times.every((t) => now - t >= WINDOW_MS)) hits.delete(k);
+    if (hits.size > 5000) hits.clear();
+  }
+  const recent = (hits.get(key) ?? []).filter((t) => now - t < WINDOW_MS);
   recent.push(now);
-  hits.set(ip, recent);
-  if (hits.size > 5000) hits.clear();
-  return recent.length > MAX_PER_WINDOW;
+  hits.set(key, recent.slice(-(max + 1)));
+  return recent.length > max;
 }
 
 const json = (status: number, body: object) =>
-  new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } });
+  new Response(JSON.stringify(body), {
+    status,
+    headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", "x-content-type-options": "nosniff" },
+  });
+
+// Browsers always send Origin on a cross-site POST, so this stops another website from submitting
+// the form through a visitor's browser. Comparing with the requested host also covers preview deployments.
+function sameOrigin(request: Request): boolean {
+  const origin = request.headers.get("origin");
+  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
+  if (!origin || !host) return false;
+  try {
+    return new URL(origin).host === host;
+  } catch {
+    return false;
+  }
+}
+
+// Removes control and invisible formatting characters (kept: tab and line breaks).
+const clean = (s: string) =>
+  // eslint-disable-next-line no-control-regex
+  s.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F\u200B-\u200F\u202A-\u202E\u2060-\u2069\uFEFF]/g, "");
+
+// A name that carries a link or an address is not repeated in the confirmation email:
+// that email goes to whatever address was typed, and must not deliver someone else's advert.
+const looksLikeLink = (s: string) => /[/\\@<>]|www\.|\.[a-z]{2,}(\s|$)/i.test(s);
 
 const escapeHtml = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
@@ -63,6 +99,7 @@ async function sendEmail(apiKey: string, payload: object): Promise<void> {
     method: "POST",
     headers: { "api-key": apiKey, "content-type": "application/json", accept: "application/json" },
     body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(10_000),
   });
   if (!res.ok) throw new Error(`Brevo ${res.status}: ${await res.text()}`);
 }
@@ -141,7 +178,8 @@ ${para("Répondez directement à cet email pour écrire à la personne.", "margi
 // so the form can't be used to send arbitrary content to someone else's address.
 function confirmationEmail(type: FormType, fields: Record<string, string>, lang: Lang) {
   const e = LOCALES[lang].emails;
-  const name = oneLine(fields.nom ?? "").slice(0, 60);
+  const rawName = oneLine(fields.nom ?? "").slice(0, 60);
+  const name = looksLikeLink(rawName) ? "" : rawName;
   const greeting = name ? e.greeting.replace("{{nom}}", name) : e.greeting_anonymous;
   const subject = { contact: e.subject_contact, benevole: e.subject_benevole, sponsor: e.subject_sponsor }[type];
   const title = { contact: e.title_contact, benevole: e.title_benevole, sponsor: e.title_sponsor }[type];
@@ -179,30 +217,40 @@ export async function POST(request: Request): Promise<Response> {
     return json(500, { ok: false, error: "server_config" });
   }
 
+  if (!sameOrigin(request)) return json(403, { ok: false, error: "forbidden" });
+  if (!(request.headers.get("content-type") ?? "").toLowerCase().startsWith("application/json")) {
+    return json(415, { ok: false, error: "unsupported_media_type" });
+  }
+  if (Number(request.headers.get("content-length") ?? 0) > MAX_BODY_BYTES) return json(413, { ok: false, error: "too_large" });
+
   let body: Record<string, unknown>;
   try {
-    body = (await request.json()) as Record<string, unknown>;
+    const raw = await request.text();
+    if (raw.length > MAX_BODY_BYTES) return json(413, { ok: false, error: "too_large" });
+    body = JSON.parse(raw) as Record<string, unknown>;
   } catch {
     return json(400, { ok: false, error: "invalid_json" });
   }
-  if (!body || typeof body !== "object") return json(400, { ok: false, error: "invalid_json" });
+  if (!body || typeof body !== "object" || Array.isArray(body)) return json(400, { ok: false, error: "invalid_json" });
 
   // Honeypot: real visitors never see this field. Pretend it worked so bots don't adapt.
   if (typeof body.website === "string" && body.website.trim() !== "") return json(200, { ok: true });
 
-  const ip = (request.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
-  if (rateLimited(ip)) return json(429, { ok: false, error: "rate_limited" });
+  // Vercel sets both headers itself, so a client can't choose its own value.
+  const ip = request.headers.get("x-real-ip") || (request.headers.get("x-forwarded-for") ?? "").split(",")[0].trim();
+  if (rateLimited(`ip:${ip || "unknown"}`, MAX_PER_IP)) return json(429, { ok: false, error: "rate_limited" });
 
+  // Object.hasOwn, not `in`: "constructor" or "__proto__" must not pass as a form type or a language.
+  if (typeof body.type !== "string" || !Object.hasOwn(REQUIRED, body.type)) return json(400, { ok: false, error: "invalid_type" });
   const type = body.type as FormType;
-  if (!(type in REQUIRED)) return json(400, { ok: false, error: "invalid_type" });
-  const lang: Lang = typeof body.lang === "string" && body.lang in LOCALES ? (body.lang as Lang) : "fr";
+  const lang: Lang = typeof body.lang === "string" && Object.hasOwn(LOCALES, body.lang) ? (body.lang as Lang) : "fr";
 
   const fields: Record<string, string> = {};
   for (const [key, max] of Object.entries(MAX)) {
     const value = body[key];
     if (value === undefined || value === null || value === "") continue;
     if (typeof value !== "string") return json(400, { ok: false, error: "invalid_field", field: key });
-    const trimmed = value.trim();
+    const trimmed = clean(value).trim();
     if (trimmed.length > max) return json(400, { ok: false, error: "too_long", field: key });
     if (trimmed) fields[key] = trimmed;
   }
@@ -210,6 +258,8 @@ export async function POST(request: Request): Promise<Response> {
     if (!fields[key]) return json(400, { ok: false, error: "missing_field", field: key });
   }
   if (!EMAIL_RE.test(fields.email)) return json(400, { ok: false, error: "invalid_email", field: "email" });
+  // Limits how many confirmation emails one address can be sent, whoever is asking.
+  if (rateLimited(`to:${fields.email.toLowerCase()}`, MAX_PER_ADDRESS)) return json(429, { ok: false, error: "rate_limited" });
 
   try {
     await sendEmail(apiKey, organiserEmail(type, fields, lang));

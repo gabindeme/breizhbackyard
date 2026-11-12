@@ -10,6 +10,10 @@
 - [ ] Add video trailer as background for the landing page + loading page in that case
 
 
+## Security follow-up
+- [ ] **Around 26 Nov 2026: check the DMARC reports** (Brevo → DMARC reports). DMARC was set to `p=quarantine` on 12 Nov 2026 (OVH → DNS zone → `_dmarc` TXT record). If OVH and Brevo mail both pass, change `p=quarantine` to `p=reject` in the same record. If legitimate mail fails, go back to `p=none` and find which sender isn't signed.
+- [ ] After the first deploy of `dev` (CSP and new headers): send one real contact form, do one real newsletter signup, download the sponsor PDF, then check the grade on securityheaders.com.
+
 ## Checklist before shipping
 - [ ] check all i18n translations
 - [ ] check responsiveness
