@@ -756,7 +756,13 @@
     "reply_hint": "To add anything to your request, simply reply to this email.",
     "signoff": "Best regards,",
     "team": "The Breizh Backyard Ultra team",
-    "footer": "You're receiving this email because you filled in a form on breizhbackyard.com."
+    "footer": "You're receiving this email because you filled in a form on breizhbackyard.com.",
+    "title_contact": "Message received!",
+    "title_benevole": "Thanks for joining us!",
+    "title_sponsor": "Thank you for your interest!",
+    "event": "Saturday, May 15, 2027 · 10:00 AM · Parc des Gayeulles, Rennes",
+    "cta": "Discover the race",
+    "follow": "Follow the adventure"
   },
   "cookies": {
     "banner_title": "Your privacy matters",

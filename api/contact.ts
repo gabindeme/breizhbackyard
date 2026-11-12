@@ -67,6 +67,41 @@ async function sendEmail(apiKey: string, payload: object): Promise<void> {
   if (!res.ok) throw new Error(`Brevo ${res.status}: ${await res.text()}`);
 }
 
+// Shared email layout. Images are hosted on the site (PNG, since Outlook can't show WebP);
+// every email also reads fine with images blocked (alt text, real text for everything important).
+const FONT = "font-family:helvetica,arial,sans-serif";
+const GREEN = "#277956";
+const SOCIALS = [
+  ["instagram", "Instagram", "https://www.instagram.com/breizhbackyard/"],
+  ["tiktok", "TikTok", "https://www.tiktok.com/@breizhbackyard"],
+  ["youtube", "YouTube", "https://www.youtube.com/@breizhbackyard"],
+  ["facebook", "Facebook", "https://www.facebook.com/people/BreizhBackyard/61588328941008/"],
+] as const;
+
+function layout(lang: Lang, title: string, content: string, footer: string): string {
+  const e = LOCALES[lang].emails;
+  const icons = SOCIALS.map(
+    ([id, label, url]) =>
+      `<td style="padding:0 8px"><a href="${url}" target="_blank"><img src="${SITE_URL}/email/${id}.png" width="32" height="32" alt="${label}" style="display:block;border:0;width:32px;height:32px;${FONT};font-size:11px;color:#ffffff"></a></td>`,
+  ).join("");
+  return `<!DOCTYPE html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${escapeHtml(title)}</title></head>
+<body style="margin:0;padding:0;background-color:#EFEFEF">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#EFEFEF" style="background-color:#EFEFEF"><tr><td align="center" style="padding:32px 12px">
+<table role="presentation" width="560" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:560px;background-color:#ffffff;border-radius:12px;overflow:hidden">
+<tr><td bgcolor="${GREEN}" style="background-color:${GREEN};padding:0"><a href="${SITE_URL}" target="_blank" style="display:block;text-decoration:none"><img src="${SITE_URL}/email/header.png" width="560" alt="Breizh Backyard Ultra" style="display:block;width:100%;max-width:560px;height:auto;border:0;${FONT};font-size:24px;font-weight:bold;color:#ffffff;text-align:center;line-height:80px"></a></td></tr>
+<tr><td style="padding:40px 40px 32px">${content}</td></tr>
+<tr><td bgcolor="${GREEN}" align="center" style="background-color:${GREEN};padding:28px 24px">
+<p style="margin:0 0 14px;${FONT};font-size:13px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#F5C92C">${escapeHtml(e.follow)}</p>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center"><tr>${icons}</tr></table>
+<p style="margin:20px 0 0;${FONT};font-size:12px;line-height:1.6;color:#d6e6dc">${footer}</p>
+</td></tr></table></td></tr></table></body></html>`;
+}
+
+const para = (html: string, style = "") =>
+  `<p style="margin:0 0 16px;${FONT};font-size:15px;line-height:1.7;color:#1a2e22;${style}">${html}</p>`;
+
+const divider = `<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="48" style="margin:0 0 28px"><tr><td height="3" bgcolor="#F5C92C" style="background-color:#F5C92C;font-size:0;line-height:0">&nbsp;</td></tr></table>`;
+
 function organiserEmail(type: FormType, fields: Record<string, string>, lang: Lang) {
   const who = oneLine(fields.nom || fields.email);
   const extra = type === "contact" ? fields.sujet : type === "sponsor" ? fields.societe : "";
@@ -77,15 +112,18 @@ function organiserEmail(type: FormType, fields: Record<string, string>, lang: La
     .map((k) => [FIELD_LABEL[k], fields[k]] as const);
   rows.push(["Langue du site", lang.toUpperCase()]);
 
-  const html = `<div style="font-family:helvetica,arial,sans-serif;font-size:15px;color:#1a2e22">
-<p>Nouveau message depuis le formulaire <strong>${TYPE_LABEL[type]}</strong> du site.</p>
-<table cellpadding="6" style="border-collapse:collapse">${rows
+  const table = rows
     .map(
       ([label, value]) =>
-        `<tr><td style="vertical-align:top;font-weight:bold;white-space:nowrap">${label}</td><td style="white-space:pre-wrap">${escapeHtml(value)}</td></tr>`,
+        `<tr><td style="padding:12px 0;border-bottom:1px solid #EFEFEF"><p style="margin:0 0 4px;${FONT};font-size:11px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:${GREEN}">${label}</p><p style="margin:0;${FONT};font-size:15px;line-height:1.6;color:#1a2e22;white-space:pre-wrap">${escapeHtml(value)}</p></td></tr>`,
     )
-    .join("")}</table>
-<p style="color:#4a6b56">Répondez directement à cet email pour écrire à la personne.</p></div>`;
+    .join("");
+  const content = `<p style="margin:0 0 8px;${FONT};font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#8a9e90">Formulaire ${TYPE_LABEL[type]}</p>
+<p style="margin:0 0 20px;${FONT};font-size:22px;font-weight:bold;line-height:1.3;color:#1a2e22">${escapeHtml(who)}</p>
+${divider}
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">${table}</table>
+${para("Répondez directement à cet email pour écrire à la personne.", "margin:24px 0 0;font-size:13px;color:#4a6b56")}`;
+  const html = layout("fr", subject, content, "Message envoyé depuis le site breizhbackyard.com");
   const text = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
 
   return {
@@ -106,26 +144,22 @@ function confirmationEmail(type: FormType, fields: Record<string, string>, lang:
   const name = oneLine(fields.nom ?? "").slice(0, 60);
   const greeting = name ? e.greeting.replace("{{nom}}", name) : e.greeting_anonymous;
   const subject = { contact: e.subject_contact, benevole: e.subject_benevole, sponsor: e.subject_sponsor }[type];
+  const title = { contact: e.title_contact, benevole: e.title_benevole, sponsor: e.title_sponsor }[type];
   const body = { contact: e.body_contact, benevole: e.body_benevole, sponsor: e.body_sponsor }[type];
 
-  const p = (content: string, style = "") =>
-    `<p style="margin:0 0 16px;font-family:helvetica,arial,sans-serif;font-size:15px;line-height:1.6;color:#1a2e22;${style}">${content}</p>`;
-
-  const html = `<!DOCTYPE html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(subject)}</title></head>
-<body style="margin:0;padding:0;background-color:#EFEFEF">
-<table width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#EFEFEF" style="background-color:#EFEFEF"><tr><td align="center" style="padding:32px 16px">
-<table width="560" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:560px;background-color:#ffffff;border:1px solid #D0D0D0;border-radius:12px">
-<tr><td bgcolor="#277956" style="background-color:#277956;padding:20px 32px;border-radius:12px 12px 0 0;font-family:helvetica,arial,sans-serif;font-size:20px;font-weight:bold;color:#ffffff">Breizh Backyard Ultra</td></tr>
-<tr><td style="padding:32px">
-${p(escapeHtml(greeting))}
-${p(escapeHtml(body))}
-${p(escapeHtml(e.reply_hint))}
-${p(`${escapeHtml(e.signoff)}<br>${escapeHtml(e.team)}`, "margin-bottom:0")}
-</td></tr>
-<tr><td style="padding:16px 32px;border-top:1px solid #EFEFEF;font-family:helvetica,arial,sans-serif;font-size:12px;line-height:1.5;color:#6b7f72">
-${escapeHtml(e.footer)}<br><a href="${SITE_URL}" style="color:#277956">breizhbackyard.com</a>
-</td></tr></table></td></tr></table></body></html>`;
-  const text = `${greeting}\n\n${body}\n\n${e.reply_hint}\n\n${e.signoff}\n${e.team}\n\n--\n${e.footer}\n${SITE_URL}`;
+  const content = `<p style="margin:0 0 20px;${FONT};font-size:24px;font-weight:bold;line-height:1.3;color:#1a2e22">${escapeHtml(title)}</p>
+${divider}
+${para(escapeHtml(greeting))}
+${para(escapeHtml(body))}
+${para(escapeHtml(e.reply_hint))}
+${para(`${escapeHtml(e.signoff)}<br><strong style="color:${GREEN}">${escapeHtml(e.team)}</strong>`, "margin-bottom:32px")}
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#EFEFEF" style="background-color:#EFEFEF;border-radius:10px"><tr><td align="center" style="padding:24px 20px">
+<p style="margin:0 0 16px;${FONT};font-size:14px;font-weight:bold;line-height:1.5;color:#1a2e22">${escapeHtml(e.event)}</p>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center"><tr><td bgcolor="${GREEN}" style="background-color:${GREEN};border-radius:8px"><a href="${SITE_URL}" target="_blank" style="display:inline-block;padding:14px 32px;${FONT};font-size:15px;font-weight:bold;color:#ffffff;text-decoration:none;border-radius:8px">${escapeHtml(e.cta)}</a></td></tr></table>
+</td></tr></table>`;
+  const footer = `${escapeHtml(e.footer)}<br><a href="${SITE_URL}" style="color:#ffffff">breizhbackyard.com</a>`;
+  const html = layout(lang, subject, content, footer);
+  const text = `${greeting}\n\n${body}\n\n${e.reply_hint}\n\n${e.signoff}\n${e.team}\n\n${e.event}\n${e.cta} : ${SITE_URL}\n\n--\n${e.footer}`;
 
   return {
     sender: { name: "Breizh Backyard Ultra", email: SENDER_EMAIL },
