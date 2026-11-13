@@ -12,7 +12,11 @@
 
 ## Security follow-up
 - [ ] **Around 26 Nov 2026: check the DMARC reports** (Brevo → DMARC reports). DMARC was set to `p=quarantine` on 12 Nov 2026 (OVH → DNS zone → `_dmarc` TXT record). If OVH and Brevo mail both pass, change `p=quarantine` to `p=reject` in the same record. If legitimate mail fails, go back to `p=none` and find which sender isn't signed.
-- [ ] After the first deploy of `dev` (CSP and new headers): send one real contact form, do one real newsletter signup, download the sponsor PDF, then check the grade on securityheaders.com.
+- After the first deploy of `dev` (CSP and new headers):
+  - [x] Send one real contact form (checked on the dev preview on 13 Nov 2026: organiser copy and visitor confirmation both arrived)
+  - [ ] Do one real newsletter signup and click the confirmation link
+  - [ ] Download the sponsor PDF once the final version replaces the temporary one
+  - [ ] After the release to `main`: check the grade on securityheaders.com
 
 ## Checklist before shipping
 - [ ] check all i18n translations
