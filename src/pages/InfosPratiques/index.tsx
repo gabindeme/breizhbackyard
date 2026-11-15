@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { enter, Reveal } from "@/components/customs/reveal";
 import { useState, useEffect } from "react";
 import { MapPin, Utensils, Backpack, BookOpen } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
@@ -6,13 +6,9 @@ import type { LucideIcon } from "lucide-react";
 import { PageHeader } from "@/components/customs/page-header";
 
 const InfoSection = ({ id, icon: Icon, color, title, children }: { id: string; icon: LucideIcon; color: string; title: string; children: React.ReactNode }) => (
-  <motion.div
+  <Reveal y={24} duration={0.6}
     id={id}
     className="bbu-card"
-    initial={{ opacity: 0, y: 24 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
     style={{ padding: "2.5rem", scrollMarginTop: "180px" }}
   >
     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.75rem" }}>
@@ -22,7 +18,7 @@ const InfoSection = ({ id, icon: Icon, color, title, children }: { id: string; i
       <h2 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#1a2e22", margin: 0 }}>{title}</h2>
     </div>
     {children}
-  </motion.div>
+  </Reveal>
 );
 
 const CheckItem = ({ text }: { text: string }) => (
@@ -80,12 +76,8 @@ export const InfosPratiques = () => {
 
       {/* Quick nav */}
       <div style={{ position: "sticky", top: "85px", zIndex: 50, padding: "1.5rem 1rem", display: "flex", justifyContent: "center", pointerEvents: "none" }}>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          style={{
-            background: "rgba(255, 255, 255, 0.85)",
+        <div
+          style={{ ...enter({ y: -20, delay: 0.2, duration: 0.5 }), background: "rgba(255, 255, 255, 0.85)",
             backdropFilter: "blur(16px)",
             WebkitBackdropFilter: "blur(16px)",
             border: "1px solid rgba(39, 121, 86, 0.2)",
@@ -97,9 +89,8 @@ export const InfosPratiques = () => {
             overflowX: "auto",
             maxWidth: "100%",
             pointerEvents: "auto",
-            scrollbarWidth: "none"
-          }}
-          className="no-scrollbar"
+            scrollbarWidth: "none" }}
+          className="bbu-enter no-scrollbar"
         >
           {[
             { anchor: "#acces", label: t("infos_page.nav.acces"), icon: MapPin },
@@ -144,7 +135,7 @@ export const InfosPratiques = () => {
               </a>
             );
           })}
-        </motion.div>
+        </div>
       </div>
 
       <section className="section-light section-py">
@@ -250,18 +241,18 @@ export const InfosPratiques = () => {
             <InfoSection id="reglement" icon={BookOpen} color="#F5C92C" title={t("infos_page.reglement.title")}>
               <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                 <div>
-                  <h4 style={{ fontWeight: "700", fontSize: "0.9rem", color: "#277956", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                  <h3 style={{ fontWeight: "700", fontSize: "0.9rem", color: "#277956", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                     {t("infos_page.reglement.r_bu_title")}
-                  </h4>
+                  </h3>
                   <RuleItem number={1} i18nKey="infos_page.reglement.r1" />
                   <RuleItem number={2} i18nKey="infos_page.reglement.r2" />
                   <RuleItem number={3} i18nKey="infos_page.reglement.r3" />
                   <RuleItem number={4} i18nKey="infos_page.reglement.r4" />
                 </div>
                 <div>
-                  <h4 style={{ fontWeight: "700", fontSize: "0.9rem", color: "#277956", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                  <h3 style={{ fontWeight: "700", fontSize: "0.9rem", color: "#277956", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                     {t("infos_page.reglement.r_breizh_title")}
-                  </h4>
+                  </h3>
                   <RuleItem number={1} i18nKey="infos_page.reglement.br1" />
                   <RuleItem number={2} i18nKey="infos_page.reglement.br2" />
                   <RuleItem number={3} i18nKey="infos_page.reglement.br3" />

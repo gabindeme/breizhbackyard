@@ -15,7 +15,9 @@
     "newsletter": "S'inscrire",
     "benevoles": "Bénévoles",
     "start": "Départ : {{date}}",
-    "flag_br": "Drapeau breton"
+    "flag_br": "Drapeau breton",
+    "open_menu": "Ouvrir le menu",
+    "close_menu": "Fermer le menu"
   },
   "footer": {
     "rights": "© {{year}} Breizh Backyard. Tous droits réservés",

@@ -320,7 +320,8 @@ export const Navbar = () => {
               color: "#fff",
               transition: "background 0.2s ease",
             }}
-            aria-label="Menu"
+            aria-label={open ? t("navbar.close_menu") : t("navbar.open_menu")}
+            aria-expanded={open}
             className="mobile-burger"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
@@ -378,6 +379,7 @@ export const Navbar = () => {
           </Link>
           <button
             onClick={close}
+            aria-label={t("navbar.close_menu")}
             style={{
               background: "rgba(255,255,255,0.1)",
               border: "none",

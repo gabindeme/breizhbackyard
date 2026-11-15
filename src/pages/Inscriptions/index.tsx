@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
+import { enter } from "@/components/customs/reveal";
 import { useEffect, useState } from "react";
 import { Mail, Bell, Send, AlertCircle, CheckCircle2, X, PartyPopper } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -323,7 +324,7 @@ export const Inscriptions = () => {
           <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3.5rem", alignItems: "start" }}>
 
             {/* Info côté gauche */}
-            <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
+            <div className="bbu-enter" style={enter({ x: -24, duration: 0.7 })}>
               <h2 className="section-title" style={{ marginBottom: "1.25rem" }}>
                 {t("inscriptions_page.info.title")}
               </h2>
@@ -366,10 +367,10 @@ export const Inscriptions = () => {
                   {t("inscriptions_page.info.depart_loc")}
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Formulaire Brevo + reCAPTCHA Enterprise côté droit */}
-            <motion.div initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.15 }} style={{ width: "100%", maxWidth: "100%" }}>
+            <div className="bbu-enter" style={{ ...enter({ x: 24, delay: 0.15, duration: 0.7 }), width: "100%", maxWidth: "100%" }}>
               <div className="sib-form" style={{ background: "transparent", width: "100%" }}>
                 <div id="sib-form-container" className="sib-form-container" style={{ width: "100%" }}>
 
@@ -570,7 +571,7 @@ export const Inscriptions = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

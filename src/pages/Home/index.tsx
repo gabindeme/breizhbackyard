@@ -1,5 +1,5 @@
 import Aurora from "@/components/Aurora";
-import { motion } from "motion/react";
+import { enter, Reveal } from "@/components/customs/reveal";
 import { Link } from "react-router";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Navbar } from "@/components/customs/navbar";
@@ -168,11 +168,8 @@ export const Home = () => {
             zIndex: 10,
           }}
         >
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}
+          <div className="bbu-enter"
+            style={{ ...enter({ y: -20, duration: 0.7 }), display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}
           >
             <span className="bbu-badge" style={{ background: "rgba(245,201,44,0.15)", color: "#F5C92C", borderColor: "rgba(245,201,44,0.4)" }}>
               <Timer size={12} />
@@ -181,62 +178,44 @@ export const Home = () => {
             <div style={{ color: "rgba(255,255,255,0.9)", fontSize: "0.9rem" }}>
               <Countdown />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.4 }}
-            style={{
-              fontFamily: "'Hobo', sans-serif",
+          <h1 className="bbu-enter"
+            style={{ ...enter({ y: 30, delay: 0.1, duration: 0.9 }), fontFamily: "'Hobo', sans-serif",
               fontSize: "clamp(2.2rem, 8vw, 6.5rem)",
               fontWeight: "500",
               color: "#fff",
               lineHeight: 1.0,
               textShadow: "0 4px 40px rgba(0,0,0,0.5)",
-              marginBottom: "0.3rem",
-            }}
+              marginBottom: "0.3rem" }}
           >
             {t("home.hero.title")}
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.6 }}
-            style={{
-              fontFamily: "'Hobo', sans-serif",
+          </h1>
+          <div className="bbu-enter"
+            style={{ ...enter({ y: 30, delay: 0.2, duration: 0.9 }), fontFamily: "'Hobo', sans-serif",
               fontSize: "clamp(1rem, 3vw, 2rem)",
               color: "#F5C92C",
               letterSpacing: "0.3em",
               textTransform: "uppercase",
-              marginBottom: "1.25rem",
-            }}
+              marginBottom: "1.25rem" }}
           >
             {t("home.hero.subtitle")}
-          </motion.div>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.8 }}
-            style={{
-              color: "rgba(255,255,255,0.8)",
+          <p className="bbu-fade"
+            style={{ ...enter({ delay: 0.3, duration: 0.9 }), color: "rgba(255,255,255,0.8)",
               fontSize: "clamp(0.95rem, 2.5vw, 1.2rem)",
               maxWidth: "540px",
               lineHeight: 1.7,
-              marginBottom: "2rem",
-            }}
+              marginBottom: "2rem" }}
           >
             {t("home.hero.desc_line1")}
             <br />
             {t("home.hero.desc_line2")}
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.0 }}
-            style={{ display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}
+          <div className="bbu-enter"
+            style={{ ...enter({ y: 20, delay: 0.4, duration: 0.7 }), display: "flex", gap: "1rem", flexWrap: "wrap", justifyContent: "center" }}
           >
             <Link to="/inscriptions" className="btn-primary" style={{ fontSize: "1rem", padding: "0.85rem 2rem" }}>
               {t("home.hero.btn_newsletter")}
@@ -244,16 +223,12 @@ export const Home = () => {
             <Link to="/concept" className="btn-outline-white" style={{ fontSize: "1rem", padding: "0.85rem 2rem" }}>
               {t("home.hero.btn_concept")}
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          style={{
-            position: "absolute",
+        <div className="bbu-fade"
+          style={{ ...enter({ delay: 0.8 }), position: "absolute",
             bottom: "2rem",
             left: "50%",
             transform: "translateX(-50%)",
@@ -265,8 +240,7 @@ export const Home = () => {
             fontSize: "0.7rem",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
-            zIndex: 10,
-          }}
+            zIndex: 10 }}
         >
           <span>{t("home.hero.scroll")}</span>
           <div
@@ -277,7 +251,7 @@ export const Home = () => {
               animation: "fadeInUp 1s ease infinite",
             }}
           />
-        </motion.div>
+        </div>
       </section>
 
       {/* ============================================================
@@ -337,15 +311,11 @@ export const Home = () => {
                 delay: 0.3,
               },
             ].map((card, i) => (
-              <motion.div
+              <Reveal y={24} delay={card.delay} duration={0.6}
                 key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: card.delay }}
               >
                 <ConceptCard icon={card.icon} title={card.title} text={card.text} color={card.color} />
-              </motion.div>
+              </Reveal>
             ))}
           </div>
 
@@ -396,12 +366,7 @@ export const Home = () => {
       <section className="section-light section-py" ref={parcours}>
         <div className="page-container">
           <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr", gap: "3rem", alignItems: "center" }}>
-            <motion.div
-              initial={{ opacity: 0, x: -32 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
+            <Reveal x={-32} duration={0.7}>
               <p className="section-subtitle">{t("home.parcours.subtitle")}</p>
               <h2 className="section-title" style={{ marginTop: "0.5rem", marginBottom: "1.25rem" }}>
                 {t("home.parcours.title")}
@@ -439,14 +404,9 @@ export const Home = () => {
               {/* <Link to="/parcours" className="btn-outline">
                 {t("home.parcours.btn")} <ChevronRight size={16} />
               </Link> */}
-            </motion.div>
+            </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, x: 32 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-            >
+            <Reveal x={32} delay={0.1} duration={0.7}>
               <div
                 style={{
                   borderRadius: "1.5rem",
@@ -457,11 +417,17 @@ export const Home = () => {
               >
                 <img
                   src="/assets/images/lac-automne.webp"
+                  srcSet="/assets/images/lac-automne-640.webp 640w, /assets/images/lac-automne.webp 1024w"
+                  sizes="(min-width: 1200px) 1150px, 100vw"
+                  width={1024}
+                  height={683}
+                  loading="lazy"
+                  decoding="async"
                   alt={t("home.course_preview_alt")}
-                  style={{ width: "100%", minHeight: "350px", objectFit: "cover", display: "block", borderRadius: "1.5rem" }}
+                  style={{ width: "100%", height: "auto", minHeight: "350px", objectFit: "cover", display: "block", borderRadius: "1.5rem" }}
                 />
               </div>
-            </motion.div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -499,13 +465,9 @@ export const Home = () => {
                 color: "#8CBE4F",
               },
             ].map((item, i) => (
-              <motion.div
+              <Reveal y={24} delay={i * 0.1} duration={0.6}
                 key={i}
                 className="bbu-card"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
                 style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
               >
                 <div
@@ -521,7 +483,7 @@ export const Home = () => {
                 </div>
                 <h3 style={{ fontSize: "1.05rem", fontWeight: "700", color: "#1a2e22", margin: 0 }}>{item.title}</h3>
                 <p style={{ fontSize: "0.9rem", color: "#4a6b56", lineHeight: 1.75, margin: 0 }}>{item.text}</p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -560,12 +522,7 @@ export const Home = () => {
         />
 
         <div className="page-container" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
+          <Reveal y={24} duration={0.7}>
             <span className="bbu-badge" style={{ background: "rgba(255,255,255,0.15)", color: "#fff", borderColor: "rgba(255,255,255,0.3)", marginBottom: "1.5rem" }}>
               <Timer size={12} />
               {t("home.cta.badge")}
@@ -579,7 +536,7 @@ export const Home = () => {
             <Link to="/inscriptions" className="btn-primary" style={{ fontSize: "1.05rem", padding: "0.9rem 2.5rem" }}>
               {t("home.cta.btn")}
             </Link>
-          </motion.div>
+          </Reveal>
         </div>
       </section>
 

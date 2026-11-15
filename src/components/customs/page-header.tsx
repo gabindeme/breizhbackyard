@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { enter } from "@/components/customs/reveal";
 
 interface PageHeaderProps {
   title: string;
@@ -44,10 +44,10 @@ export const PageHeader = ({ title, subtitle, description, variant = "default" }
             {subtitle}
           </p>
         )}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+        <h1
+          className="bbu-enter"
           style={{
+            ...enter({ y: 20 }),
             fontFamily: "'Hobo', sans-serif",
             fontSize: `clamp(2rem, 5vw, ${legal ? "3.5rem" : "4rem"})`,
             color: "#fff",
@@ -55,13 +55,12 @@ export const PageHeader = ({ title, subtitle, description, variant = "default" }
           }}
         >
           {title}
-        </motion.h1>
+        </h1>
         {description && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
+          <p
+            className="bbu-fade"
             style={{
+              ...enter({ delay: 0.15 }),
               color: legal ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,0.75)",
               maxWidth: legal ? "700px" : "600px",
               fontSize: "1.05rem",
@@ -69,7 +68,7 @@ export const PageHeader = ({ title, subtitle, description, variant = "default" }
             }}
           >
             {description}
-          </motion.p>
+          </p>
         )}
       </div>
     </div>

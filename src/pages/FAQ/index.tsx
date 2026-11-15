@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { enter } from "@/components/customs/reveal";
 import { useState } from "react";
 import { Link } from "react-router";
 import { ChevronRight } from "lucide-react";
@@ -72,12 +72,9 @@ export const FAQ = () => {
           {/* FAQ items */}
           <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
             {filteredData.map((category, ci) => (
-              <motion.div
+              <div className="bbu-enter"
                 key={category.category}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: ci * 0.05 }}
-              >
+               style={enter({ y: 16, delay: ci * 0.05, duration: 0.5 })}>
                 <h2 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.2rem", color: "#277956", marginBottom: "1.25rem" }}>
                   {category.category}
                 </h2>
@@ -98,7 +95,7 @@ export const FAQ = () => {
                     );
                   })}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 

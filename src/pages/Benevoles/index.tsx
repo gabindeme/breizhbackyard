@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Reveal } from "@/components/customs/reveal";
 import { HeartHandshake, Map, Shield, Hammer, Send } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -89,12 +90,8 @@ export const Benevoles = () => {
                 desc: t("benevoles_page.intro.card3_text")
               }
             ].map((feature, i) => (
-              <motion.div 
+              <Reveal y={20} delay={i * 0.1}
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
                 style={{ 
                   background: "#fff", 
                   padding: "2.5rem", 
@@ -107,7 +104,7 @@ export const Benevoles = () => {
                 </div>
                 <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#164030", marginBottom: "1rem" }}>{feature.title}</h3>
                 <p style={{ color: "#666", lineHeight: 1.6 }}>{feature.desc}</p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -149,7 +146,7 @@ export const Benevoles = () => {
                   <div style={{ padding: "0.5rem", background: "rgba(245,201,44,0.1)", borderRadius: "12px" }}>
                     {role.icon}
                   </div>
-                  <h4 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.25rem", color: "#164030" }}>{role.title}</h4>
+                  <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.25rem", color: "#164030" }}>{role.title}</h3>
                 </div>
                 <p style={{ color: "#666", lineHeight: 1.6 }}>{role.desc}</p>
               </div>

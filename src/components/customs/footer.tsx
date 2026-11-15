@@ -127,9 +127,9 @@ export const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h4 style={{ color: "#F5C92C", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.25rem", fontFamily: "'Inter', sans-serif" }}>
+            <h2 style={{ color: "#F5C92C", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.25rem", fontFamily: "'Inter', sans-serif" }}>
               {t("footer.nav_title")}
-            </h4>
+            </h2>
             <nav style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {footerLinks.slice(0, 5).map((link) => (
                 <Link
@@ -155,9 +155,9 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 style={{ color: "#F5C92C", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.25rem", fontFamily: "'Inter', sans-serif" }}>
+            <h2 style={{ color: "#F5C92C", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.25rem", fontFamily: "'Inter', sans-serif" }}>
               {t("footer.course_title")}
-            </h4>
+            </h2>
             <nav style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {footerLinks.slice(5).map((link) => (
                 <Link
@@ -184,9 +184,9 @@ export const Footer = () => {
 
           {/* Contact & Infos */}
           <div>
-            <h4 style={{ color: "#F5C92C", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.25rem", fontFamily: "'Inter', sans-serif" }}>
+            <h2 style={{ color: "#F5C92C", fontSize: "0.75rem", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1.25rem", fontFamily: "'Inter', sans-serif" }}>
               {t("footer.info_title")}
-            </h4>
+            </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
               <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
                 <Mail size={15} style={{ color: "#8CBE4F", flexShrink: 0 }} />

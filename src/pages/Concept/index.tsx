@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { Reveal } from "@/components/customs/reveal";
 import { Link } from "react-router";
 import { Timer, Repeat, AlertTriangle, Trophy, ChevronRight, Clock, Footprints } from "lucide-react";
 import { useState } from "react";
@@ -52,13 +52,9 @@ const FormatTimeline = () => {
         }
 
         return (
-          <motion.div
+          <Reveal x={-16} delay={i * 0.06} duration={0.4}
             key={i}
             className={`stepper-row stepper-row--${step.type}`}
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.4, delay: i * 0.06 }}
           >
             {/* Left: connector line + bubble */}
             <div className="stepper-left">
@@ -99,7 +95,7 @@ const FormatTimeline = () => {
                 <div className="stepper-desc">{t("concept_page.schema.desc_24h")}</div>
               )}
             </div>
-          </motion.div>
+          </Reveal>
         );
       })}
     </div>
@@ -119,7 +115,7 @@ const RuleCard = ({ icon: Icon, title, text, variant = "default" }: { icon: Luci
         <Icon size={20} strokeWidth={1.5} />
       </div>
       <div>
-        <h4 style={{ fontWeight: "700", fontSize: "0.95rem", color: "#1a2e22", marginBottom: "0.3rem" }}>{title}</h4>
+        <h3 style={{ fontWeight: "700", fontSize: "0.95rem", color: "#1a2e22", marginBottom: "0.3rem" }}>{title}</h3>
         <p style={{ fontSize: "0.88rem", color: "#4a6b56", lineHeight: 1.7, margin: 0 }}>{text}</p>
       </div>
     </div>
@@ -186,12 +182,7 @@ export const Concept = () => {
       <section className="section-light section-py">
         <div className="page-container">
           <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
+            <Reveal x={-24} duration={0.7}>
               <p className="section-subtitle">{t("concept_page.principe.subtitle")}</p>
               <h2 className="section-title" style={{ marginTop: "0.5rem", marginBottom: "1.5rem" }}>
                 {t("concept_page.principe.title_line1")}<br />{t("concept_page.principe.title_line2")}
@@ -205,19 +196,14 @@ export const Concept = () => {
                 {t("concept_page.principe.desc2")}
               </p>
               <p style={{ color: "#4a6b56", lineHeight: 1.8, marginBottom: "1.25rem" }}>
-                {t("concept_page.principe.desc3_start")}<strong style={{ color: "#c44" }}>{t("concept_page.principe.desc3_bold")}</strong>{t("concept_page.principe.desc3_end")}
+                {t("concept_page.principe.desc3_start")}<strong style={{ color: "#b83a3a" }}>{t("concept_page.principe.desc3_bold")}</strong>{t("concept_page.principe.desc3_end")}
               </p>
               <p style={{ color: "#4a6b56", lineHeight: 1.8 }}>
                 {t("concept_page.principe.desc4_start")}<strong>{t("concept_page.principe.desc4_bold")}</strong>{t("concept_page.principe.desc4_end")}
               </p>
-            </motion.div>
+            </Reveal>
 
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-            >
+            <Reveal x={24} delay={0.15} duration={0.7}>
               {/* Visual info cards */}
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 <div
@@ -261,13 +247,13 @@ export const Concept = () => {
                   <div key={i} className="bbu-card" style={{ display: "flex", gap: "1rem" }}>
                     <card.icon size={20} strokeWidth={1.5} style={{ color: "#277956", flexShrink: 0, marginTop: "2px" }} />
                     <div>
-                      <h4 style={{ fontWeight: "700", margin: "0 0 0.35rem", fontSize: "0.95rem" }}>{card.title}</h4>
+                      <h3 style={{ fontWeight: "700", margin: "0 0 0.35rem", fontSize: "0.95rem" }}>{card.title}</h3>
                       <p style={{ margin: 0, fontSize: "0.88rem", color: "#4a6b56", lineHeight: 1.6 }}>{card.text}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </Reveal>
           </div>
         </div>
       </section>

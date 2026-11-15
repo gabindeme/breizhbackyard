@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { enter } from "@/components/customs/reveal";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, Play, RotateCcw } from "lucide-react";
@@ -771,18 +771,14 @@ export const NotFound = () => {
           className="page-container"
           style={{ position: "relative", zIndex: 1, textAlign: "center" }}
         >
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{
-              fontFamily: "'Hobo', sans-serif",
+          <h1 className="bbu-enter"
+            style={{ ...enter({ y: 20 }), fontFamily: "'Hobo', sans-serif",
               fontSize: "clamp(2rem, 5vw, 4rem)",
               color: "#fff",
-              marginBottom: "1rem",
-            }}
+              marginBottom: "1rem" }}
           >
             {t("notfound.title", "404 - Hors course")}
-          </motion.h1>
+          </h1>
           <p
             style={{
               color: "rgba(255,255,255,0.8)",

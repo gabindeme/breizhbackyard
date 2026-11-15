@@ -15,7 +15,9 @@
     "newsletter": "Sign up",
     "benevoles": "Volunteers",
     "start": "Start: {{date}}",
-    "flag_br": "Breton flag"
+    "flag_br": "Breton flag",
+    "open_menu": "Open the menu",
+    "close_menu": "Close the menu"
   },
   "footer": {
     "rights": "© {{year}} Breizh Backyard. All rights reserved",

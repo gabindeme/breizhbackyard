@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { enter } from "@/components/customs/reveal";
 import { useState } from "react";
 import { Mail, Send, CheckCircle } from "lucide-react";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
@@ -71,7 +72,7 @@ export const Contact = () => {
           <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "4rem", alignItems: "start" }}>
 
             {/* Infos contact */}
-            <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7 }}>
+            <div className="bbu-enter" style={enter({ x: -24, duration: 0.7 })}>
               <h2 className="section-title" style={{ marginBottom: "2rem" }}>{t("contact_page.info.title")}</h2>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", marginBottom: "2.5rem" }}>
@@ -149,12 +150,12 @@ export const Contact = () => {
                   lineHeight: 1.65,
                 }}
               >
-                <strong style={{ color: "#277956" }}>{t("contact_page.info.delay")}</strong>{t("contact_page.info.delay_text")}
+                <strong style={{ color: "#1f6346" }}>{t("contact_page.info.delay")}</strong>{t("contact_page.info.delay_text")}
               </div>
-            </motion.div>
+            </div>
 
             {/* Formulaire */}
-            <motion.div initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.7, delay: 0.15 }}>
+            <div className="bbu-enter" style={enter({ x: 24, delay: 0.15, duration: 0.7 })}>
               {!submitted ? (
                 <div style={{ background: "#fff", borderRadius: "1.5rem", padding: "2.5rem", border: "1.5px solid #D0D0D0", boxShadow: "0 8px 40px rgba(39,121,86,0.08)" }}>
                   <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.4rem", color: "#1a2e22", marginBottom: "2rem" }}>
@@ -267,7 +268,7 @@ export const Contact = () => {
                   </p>
                 </motion.div>
               )}
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

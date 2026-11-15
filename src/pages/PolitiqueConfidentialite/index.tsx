@@ -58,9 +58,9 @@ export const PolitiqueConfidentialite = () => {
                 <Shield size={24} />
               </div>
               <div>
-                <h3 style={{ fontSize: "1.05rem", color: "#1a2e22", margin: 0, fontWeight: 700 }}>
+                <h2 style={{ fontSize: "1.05rem", color: "#1a2e22", margin: 0, fontWeight: 700 }}>
                   {t("privacy_page.status_title", "Vos Préférences de Consentement")}
-                </h3>
+                </h2>
                 <p style={{ fontSize: "0.88rem", color: "#4a6b56", margin: 0 }}>
                   {t("privacy_page.status_desc", "Vous pouvez modifier ou retirer vos choix de cookies à tout moment.")}
                 </p>
@@ -174,25 +174,25 @@ export const PolitiqueConfidentialite = () => {
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(250px, 100%), 1fr))", gap: "1.25rem", marginTop: "1rem" }}>
                 <div style={{ background: "#f9fbf9", padding: "1.25rem", borderRadius: "0.85rem", border: "1px solid #e2ece5" }}>
-                  <h4 style={{ color: "#277956", margin: "0 0 0.5rem 0", fontSize: "1rem", fontWeight: 700 }}>
+                  <h3 style={{ color: "#277956", margin: "0 0 0.5rem 0", fontSize: "1rem", fontWeight: 700 }}>
                     Exécution du contrat
-                  </h4>
+                  </h3>
                   <p style={{ fontSize: "0.88rem", color: "#555", margin: 0, lineHeight: 1.6 }}>
                     Gestion des inscriptions, attribution des dossards, suivi du chronométrage et sécurité médicale des participants pendant l'épreuve.
                   </p>
                 </div>
                 <div style={{ background: "#f9fbf9", padding: "1.25rem", borderRadius: "0.85rem", border: "1px solid #e2ece5" }}>
-                  <h4 style={{ color: "#277956", margin: "0 0 0.5rem 0", fontSize: "1rem", fontWeight: 700 }}>
+                  <h3 style={{ color: "#277956", margin: "0 0 0.5rem 0", fontSize: "1rem", fontWeight: 700 }}>
                     Consentement
-                  </h4>
+                  </h3>
                   <p style={{ fontSize: "0.88rem", color: "#555", margin: 0, lineHeight: 1.6 }}>
                     Envoi de la newsletter d'information et activation des cookies de mesure d'audience anonymes.
                   </p>
                 </div>
                 <div style={{ background: "#f9fbf9", padding: "1.25rem", borderRadius: "0.85rem", border: "1px solid #e2ece5" }}>
-                  <h4 style={{ color: "#277956", margin: "0 0 0.5rem 0", fontSize: "1rem", fontWeight: 700 }}>
+                  <h3 style={{ color: "#277956", margin: "0 0 0.5rem 0", fontSize: "1rem", fontWeight: 700 }}>
                     Intérêt légitime
-                  </h4>
+                  </h3>
                   <p style={{ fontSize: "0.88rem", color: "#555", margin: 0, lineHeight: 1.6 }}>
                     Réponse aux demandes envoyées via les formulaires de contact, de bénévolat et de partenariat, protection des formulaires contre le spam, sécurité et optimisation technique du site.
                   </p>

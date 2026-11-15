@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { enter, Reveal } from "@/components/customs/reveal";
 import { CheckCircle, Compass, MapPin, Info, ArrowRight, Sparkles, Heart } from "lucide-react";
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
@@ -36,12 +36,8 @@ export const Bienvenue = () => {
 
         <div className="page-container" style={{ position: "relative", zIndex: 1, maxWidth: "800px" }}>
           {/* Badge confirmation */}
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, type: "spring" }}
-            style={{
-              width: "80px",
+          <div className="bbu-enter"
+            style={{ ...enter({ scale: 0, duration: 0.5 }), width: "80px",
               height: "80px",
               borderRadius: "50%",
               background: "rgba(245,201,44,0.2)",
@@ -50,18 +46,13 @@ export const Bienvenue = () => {
               alignItems: "center",
               justifyContent: "center",
               margin: "0 auto 1.5rem",
-              boxShadow: "0 0 30px rgba(245,201,44,0.3)",
-            }}
+              boxShadow: "0 0 30px rgba(245,201,44,0.3)" }}
           >
             <CheckCircle size={44} style={{ color: "#F5C92C" }} />
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            style={{
-              display: "inline-flex",
+          <div className="bbu-enter"
+            style={{ ...enter({ y: 15, delay: 0.2 }), display: "inline-flex",
               alignItems: "center",
               gap: "0.5rem",
               padding: "0.4rem 1rem",
@@ -71,51 +62,37 @@ export const Bienvenue = () => {
               color: "#8CBE4F",
               fontSize: "0.85rem",
               fontWeight: "600",
-              marginBottom: "1rem",
-            }}
+              marginBottom: "1rem" }}
           >
             <Sparkles size={16} /> {t("bienvenue_page.badge")}
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            style={{
-              fontFamily: "'Hobo', sans-serif",
+          <h1 className="bbu-enter"
+            style={{ ...enter({ y: 20, delay: 0.3 }), fontFamily: "'Hobo', sans-serif",
               fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
               color: "#fff",
               marginBottom: "1rem",
-              lineHeight: 1.15,
-            }}
+              lineHeight: 1.15 }}
           >
             {t("bienvenue_page.title")}
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            style={{
-              color: "rgba(255,255,255,0.85)",
+          <p className="bbu-fade"
+            style={{ ...enter({ delay: 0.4 }), color: "rgba(255,255,255,0.85)",
               fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
               lineHeight: 1.7,
               maxWidth: "680px",
-              margin: "0 auto",
-            }}
+              margin: "0 auto" }}
           >
             {t("bienvenue_page.subtitle")}
-          </motion.p>
+          </p>
         </div>
       </div>
 
       {/* Contenu principal */}
       <section className="section-light section-py">
         <div className="page-container" style={{ maxWidth: "1000px" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <Reveal y={20}
             style={{ textAlign: "center", marginBottom: "3rem" }}
           >
             <h2 className="section-title" style={{ marginBottom: "0.75rem" }}>
@@ -124,7 +101,7 @@ export const Bienvenue = () => {
             <p style={{ color: "#4a6b56", fontSize: "1.05rem", maxWidth: "600px", margin: "0 auto" }}>
               {t("bienvenue_page.explore_desc")}
             </p>
-          </motion.div>
+          </Reveal>
 
           {/* Cartes d'action */}
           <div
@@ -137,11 +114,7 @@ export const Bienvenue = () => {
             }}
           >
             {/* Carte Concept */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+            <Reveal y={20} delay={0.1}
               className="bbu-card"
               style={{
                 background: "#fff",
@@ -180,14 +153,10 @@ export const Bienvenue = () => {
               <Link to="/concept" className="btn-outline" style={{ justifyContent: "center", width: "100%" }}>
                 {t("bienvenue_page.card_concept_btn")} <ArrowRight size={16} style={{ marginLeft: "0.4rem" }} />
               </Link>
-            </motion.div>
+            </Reveal>
 
             {/* Carte Parcours */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+            <Reveal y={20} delay={0.2}
               className="bbu-card"
               style={{
                 background: "#fff",
@@ -226,14 +195,10 @@ export const Bienvenue = () => {
               {/* <Link to="/parcours" className="btn-outline" style={{ justifyContent: "center", width: "100%" }}>
                 {t("bienvenue_page.card_parcours_btn")} <ArrowRight size={16} style={{ marginLeft: "0.4rem" }} />
               </Link> */}
-            </motion.div>
+            </Reveal>
 
             {/* Carte Infos */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
+            <Reveal y={20} delay={0.3}
               className="bbu-card"
               style={{
                 background: "#fff",
@@ -272,14 +237,11 @@ export const Bienvenue = () => {
               <Link to="/infos-pratiques" className="btn-outline" style={{ justifyContent: "center", width: "100%" }}>
                 {t("bienvenue_page.card_infos_btn")} <ArrowRight size={16} style={{ marginLeft: "0.4rem" }} />
               </Link>
-            </motion.div>
+            </Reveal>
           </div>
 
           {/* Banner réassurance */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+          <Reveal scale={0.98}
             style={{
               background: "linear-gradient(135deg, #277956 0%, #1a4d36 100%)",
               borderRadius: "1.5rem",
@@ -299,7 +261,7 @@ export const Bienvenue = () => {
             <Link to="/" className="btn-primary" style={{ background: "#F5C92C", color: "#1a2e22", padding: "0.75rem 2rem", fontWeight: "700" }}>
               {t("bienvenue_page.btn_home")}
             </Link>
-          </motion.div>
+          </Reveal>
         </div>
       </section>
     </div>

@@ -216,9 +216,9 @@ export const MentionsLegales = () => {
               <div style={{ display: "flex", alignItems: "center", gap: "0.85rem" }}>
                 <ShieldCheck style={{ color: "#F5C92C" }} size={28} />
                 <div>
-                  <h4 style={{ fontSize: "1.1rem", margin: 0, fontWeight: 700, fontFamily: "'Hobo', sans-serif" }}>
+                  <h3 style={{ fontSize: "1.1rem", margin: 0, fontWeight: 700, fontFamily: "'Hobo', sans-serif" }}>
                     Protection des Données Personnelles (RGPD)
-                  </h4>
+                  </h3>
                   <p style={{ fontSize: "0.88rem", margin: 0, color: "rgba(255,255,255,0.8)" }}>
                     Consultez les détails sur la collecte, la conservation et vos droits sur vos données.
                   </p>

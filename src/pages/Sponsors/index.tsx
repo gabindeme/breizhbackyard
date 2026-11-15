@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { enter } from "@/components/customs/reveal";
 import { Mail, Download } from "lucide-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -49,12 +49,8 @@ export const Sponsors = () => {
       <section className="section-light" style={{ paddingTop: "2rem", paddingBottom: "5rem" }}>
         {/* Card Dossier - Largeur standard du site */}
         <div className="page-container" style={{ marginBottom: "3rem" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            style={{
-              background: "#fff",
+          <div className="bbu-enter"
+            style={{ ...enter({ y: 20, delay: 0.1 }), background: "#fff",
               borderRadius: "1rem",
               padding: "2.5rem 2rem",
               display: "flex",
@@ -65,16 +61,15 @@ export const Sponsors = () => {
               border: "1px solid rgba(39, 121, 86, 0.15)",
               flexWrap: "wrap",
               position: "relative",
-              overflow: "hidden"
-            }}
+              overflow: "hidden" }}
           >
             <div style={{ position: "absolute", top: -40, right: -40, opacity: 0.04, color: "#277956", pointerEvents: "none" }}>
               <Download size={200} />
             </div>
             <div style={{ position: "relative", zIndex: 1, flex: 1, minWidth: "min(250px, 100%)" }}>
-              <h3 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#1a2e22", marginBottom: "0.5rem" }}>
+              <h2 style={{ fontFamily: "'Hobo', sans-serif", fontSize: "1.5rem", color: "#1a2e22", marginBottom: "0.5rem" }}>
                 {t("sponsors_page.dossier.title")}
-              </h3>
+              </h2>
               <p style={{ color: "#4a6b56", fontSize: "1rem", margin: 0, maxWidth: "600px", lineHeight: 1.6 }}>
                 {t("sponsors_page.dossier.desc")}
               </p>
@@ -101,7 +96,7 @@ export const Sponsors = () => {
               <Download size={18} strokeWidth={2.5} />
               {t("sponsors_page.dossier.btn")}
             </a>
-          </motion.div>
+          </div>
         </div>
 
         {/* Formulaire - Largeur réduite centrée */}

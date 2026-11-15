@@ -15,7 +15,9 @@
     "newsletter": "Enskrivañ",
     "benevoles": "Tud a-youl vat",
     "start": "Loc'hañ: {{date}}",
-    "flag_br": "Gwenn-ha-du"
+    "flag_br": "Gwenn-ha-du",
+    "open_menu": "Digeriñ al lañser",
+    "close_menu": "Serriñ al lañser"
   },
   "footer": {
     "rights": "© {{year}} Breizh Backyard. An holl wirioù miret strizh",
