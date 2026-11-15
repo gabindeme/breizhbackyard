@@ -11,6 +11,15 @@ const ORGANISER_EMAIL = process.env.CONTACT_TO ?? "contact@breizhbackyard.com";
 const SENDER_EMAIL = process.env.SENDER_EMAIL ?? "contact@breizhbackyard.com";
 const SITE_URL = "https://breizhbackyard.com";
 
+// Address the emails use for their images and links. Outside production (the password-protected
+// dev site, previews) it is the deployment that received the form, so a test email shows that
+// deployment's images instead of the live site's. The host is the one Vercel routed the request to.
+function emailBaseUrl(request: Request): string {
+  if (process.env.VERCEL_ENV === "production" || !process.env.VERCEL_ENV) return SITE_URL;
+  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "";
+  return /^[a-z0-9.-]+$/i.test(host) ? `https://${host}` : SITE_URL;
+}
+
 const LOCALES = { fr, en, br };
 type Lang = keyof typeof LOCALES;
 type FormType = "contact" | "benevole" | "sponsor";
@@ -115,17 +124,17 @@ const SOCIALS = [
   ["facebook", "Facebook", "https://www.facebook.com/people/BreizhBackyard/61588328941008/"],
 ] as const;
 
-function layout(lang: Lang, title: string, content: string, footer: string): string {
+function layout(base: string, lang: Lang, title: string, content: string, footer: string): string {
   const e = LOCALES[lang].emails;
   const icons = SOCIALS.map(
     ([id, label, url]) =>
-      `<td style="padding:0 8px"><a href="${url}" target="_blank"><img src="${SITE_URL}/email/${id}.png" width="32" height="32" alt="${label}" style="display:block;border:0;width:32px;height:32px;${FONT};font-size:11px;color:#ffffff"></a></td>`,
+      `<td style="padding:0 8px"><a href="${url}" target="_blank"><img src="${base}/email/${id}.png" width="32" height="32" alt="${label}" style="display:block;border:0;width:32px;height:32px;${FONT};font-size:11px;color:#ffffff"></a></td>`,
   ).join("");
   return `<!DOCTYPE html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${escapeHtml(title)}</title></head>
 <body style="margin:0;padding:0;background-color:#EFEFEF">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#EFEFEF" style="background-color:#EFEFEF"><tr><td align="center" style="padding:32px 12px">
 <table role="presentation" width="560" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:560px;background-color:#ffffff;border-radius:12px;overflow:hidden">
-<tr><td bgcolor="${GREEN}" style="background-color:${GREEN};padding:0"><a href="${SITE_URL}" target="_blank" style="display:block;text-decoration:none"><img src="${SITE_URL}/email/header.png" width="560" alt="Breizh Backyard" style="display:block;width:100%;max-width:560px;height:auto;border:0;${FONT};font-size:24px;font-weight:bold;color:#ffffff;text-align:center;line-height:80px"></a></td></tr>
+<tr><td bgcolor="${GREEN}" style="background-color:${GREEN};padding:0"><a href="${base}" target="_blank" style="display:block;text-decoration:none"><img src="${base}/email/header.png" width="560" alt="Breizh Backyard" style="display:block;width:100%;max-width:560px;height:auto;border:0;${FONT};font-size:24px;font-weight:bold;color:#ffffff;text-align:center;line-height:80px"></a></td></tr>
 <tr><td style="padding:40px 40px 32px">${content}</td></tr>
 <tr><td bgcolor="${GREEN}" align="center" style="background-color:${GREEN};padding:28px 24px">
 <p style="margin:0 0 14px;${FONT};font-size:13px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#F5C92C">${escapeHtml(e.follow)}</p>
@@ -139,7 +148,7 @@ const para = (html: string, style = "") =>
 
 const divider = `<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="48" style="margin:0 0 28px"><tr><td height="3" bgcolor="#F5C92C" style="background-color:#F5C92C;font-size:0;line-height:0">&nbsp;</td></tr></table>`;
 
-function organiserEmail(type: FormType, fields: Record<string, string>, lang: Lang) {
+function organiserEmail(base: string, type: FormType, fields: Record<string, string>, lang: Lang) {
   const who = oneLine(fields.nom || fields.email);
   const extra = type === "contact" ? fields.sujet : type === "sponsor" ? fields.societe : "";
   const subject = `[${TYPE_LABEL[type]}] ${extra ? `${oneLine(extra)} | ` : ""}${who}`;
@@ -160,7 +169,7 @@ function organiserEmail(type: FormType, fields: Record<string, string>, lang: La
 ${divider}
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">${table}</table>
 ${para("Répondez directement à cet email pour écrire à la personne.", "margin:24px 0 0;font-size:13px;color:#4a6b56")}`;
-  const html = layout("fr", subject, content, "Message envoyé depuis le site breizhbackyard.com");
+  const html = layout(base, "fr", subject, content, "Message envoyé depuis le site breizhbackyard.com");
   const text = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
 
   return {
@@ -176,7 +185,7 @@ ${para("Répondez directement à cet email pour écrire à la personne.", "margi
 
 // The confirmation never repeats what the visitor typed (apart from their name),
 // so the form can't be used to send arbitrary content to someone else's address.
-function confirmationEmail(type: FormType, fields: Record<string, string>, lang: Lang) {
+function confirmationEmail(base: string, type: FormType, fields: Record<string, string>, lang: Lang) {
   const e = LOCALES[lang].emails;
   const rawName = oneLine(fields.nom ?? "").slice(0, 60);
   const name = looksLikeLink(rawName) ? "" : rawName;
@@ -193,11 +202,11 @@ ${para(escapeHtml(e.reply_hint))}
 ${para(`${escapeHtml(e.signoff)}<br><strong style="color:${GREEN}">${escapeHtml(e.team)}</strong>`, "margin-bottom:32px")}
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#EFEFEF" style="background-color:#EFEFEF;border-radius:10px"><tr><td align="center" style="padding:24px 20px">
 <p style="margin:0 0 16px;${FONT};font-size:14px;font-weight:bold;line-height:1.5;color:#1a2e22">${escapeHtml(e.event)}</p>
-<table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center"><tr><td bgcolor="${GREEN}" style="background-color:${GREEN};border-radius:8px"><a href="${SITE_URL}" target="_blank" style="display:inline-block;padding:14px 32px;${FONT};font-size:15px;font-weight:bold;color:#ffffff;text-decoration:none;border-radius:8px">${escapeHtml(e.cta)}</a></td></tr></table>
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center"><tr><td bgcolor="${GREEN}" style="background-color:${GREEN};border-radius:8px"><a href="${base}" target="_blank" style="display:inline-block;padding:14px 32px;${FONT};font-size:15px;font-weight:bold;color:#ffffff;text-decoration:none;border-radius:8px">${escapeHtml(e.cta)}</a></td></tr></table>
 </td></tr></table>`;
-  const footer = `${escapeHtml(e.footer)}<br><a href="${SITE_URL}" style="color:#ffffff">breizhbackyard.com</a>`;
-  const html = layout(lang, subject, content, footer);
-  const text = `${greeting}\n\n${body}\n\n${e.reply_hint}\n\n${e.signoff}\n${e.team}\n\n${e.event}\n${e.cta} : ${SITE_URL}\n\n--\n${e.footer}`;
+  const footer = `${escapeHtml(e.footer)}<br><a href="${base}" style="color:#ffffff">breizhbackyard.com</a>`;
+  const html = layout(base, lang, subject, content, footer);
+  const text = `${greeting}\n\n${body}\n\n${e.reply_hint}\n\n${e.signoff}\n${e.team}\n\n${e.event}\n${e.cta} : ${base}\n\n--\n${e.footer}`;
 
   return {
     sender: { name: "Breizh Backyard", email: SENDER_EMAIL },
@@ -261,8 +270,9 @@ export async function POST(request: Request): Promise<Response> {
   // Limits how many confirmation emails one address can be sent, whoever is asking.
   if (rateLimited(`to:${fields.email.toLowerCase()}`, MAX_PER_ADDRESS)) return json(429, { ok: false, error: "rate_limited" });
 
+  const base = emailBaseUrl(request);
   try {
-    await sendEmail(apiKey, organiserEmail(type, fields, lang));
+    await sendEmail(apiKey, organiserEmail(base, type, fields, lang));
   } catch (err) {
     console.error("Organiser email failed:", err);
     return json(502, { ok: false, error: "send_failed" });
@@ -270,7 +280,7 @@ export async function POST(request: Request): Promise<Response> {
 
   // The organisers have the message at this point, so a failed confirmation is logged, not reported.
   try {
-    await sendEmail(apiKey, confirmationEmail(type, fields, lang));
+    await sendEmail(apiKey, confirmationEmail(base, type, fields, lang));
   } catch (err) {
     console.error("Confirmation email failed:", err);
   }
