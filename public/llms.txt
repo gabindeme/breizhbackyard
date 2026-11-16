@@ -7,6 +7,7 @@
 - **Date**: Samedi 15 Mai 2027 à 12h00 (CEST)
 - **Lieu**: Rennes, Bretagne, France (Coordonnées GPS : 48.134762, -1.647241)
 - **Format**: Backyard Ultra (Format officiel Big Dog's Backyard Ultra)
+- **Affiliation**: course affiliée au circuit mondial des Backyard Ultra
 - **Distance par boucle**: 6,706 km (4,167 miles)
 - **Chrono par boucle**: 1 heure exacte (départ à chaque heure pile)
 - **Site Officiel**: https://breizhbackyard.com

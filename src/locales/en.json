@@ -97,7 +97,7 @@
       "list4_label": "Location",
       "list4_value": "Parc des Gayeulles, Rennes",
       "btn": "View the course",
-      "placeholder1": "📍 Course photo coming soon",
+      "placeholder1": "Course photo coming soon",
       "placeholder2": "Replace with your real photos"
     },
     "ambiance": {
@@ -242,7 +242,7 @@
       "title": "The living area & base camp",
       "p1": "At the center of the loop is the base camp: your headquarters for the entire race. This is where you come back after each loop to recover, eat, and sleep if needed.",
       "p2": "You can set up your own space (tent, deck chair, table...). Your crew, family, and friends can stay in this area to support you throughout the race.",
-      "placeholder": "📸 Photo of the living area coming soon"
+      "placeholder": "Photo of the living area coming soon"
     },
     "galerie": {
       "subtitle": "Preview",
@@ -276,12 +276,12 @@
     },
     "acces": {
       "title": "Access & Location",
-      "loc_title": "📍 Location",
+      "loc_title": "Location",
       "loc_p1_start": "The Breizh Backyard takes place in Brittany, in a protected natural setting.",
       "loc_p1_bold": " The exact address will be provided",
       "loc_p1_end": " to registered runners by email before the race.",
-      "loc_info": "ℹ️ GPS coordinates and detailed access information will be shared in the participant pack, available 2 weeks before the race.",
-      "parking_title": "🚗 Access & Parking",
+      "loc_info": "GPS coordinates and detailed access information will be shared in the participant pack, available 2 weeks before the race.",
+      "parking_title": "Access & Parking",
       "p1": "Free parking on site (limited spaces)",
       "p2": "Carpooling strongly encouraged, forum available after registration",
       "p3": "Public transport access possible (details coming soon)",
@@ -310,12 +310,12 @@
     },
     "ravitaillement": {
       "title": "Aid station",
-      "fourni_title": "✅ What's provided",
+      "fourni_title": "What's provided",
       "f1": "Continuous supply of drinking water at the living area",
       "f2": "Fresh fruit (bananas, oranges...) between each loop",
       "f3": "Hot broth during the night",
       "f4": "Coffee / tea throughout",
-      "apporter_title": "🎒 What to bring",
+      "apporter_title": "What to bring",
       "a1": "Your favorite, tried-and-tested foods (no experimenting during the race!)",
       "a2": "Energy gels / bars as you're used to",
       "a3": "Recovery drinks",
@@ -373,7 +373,7 @@
     },
     "popup": {
       "badge": "One last step!",
-      "title": "Email sent successfully 🎉",
+      "title": "Email sent successfully",
       "message": "A confirmation email has been sent to you. Check your inbox (and spam folder!) to finalize your newsletter subscription.",
       "email_hint": "Remember to add our email address to your contacts so you don't miss any registration opening notifications.",
       "btn_close": "Great, thanks!"
@@ -394,7 +394,7 @@
   },
   "bienvenue_page": {
     "badge": "Registration successfully confirmed",
-    "title": "Welcome to the starting pen! 🏃‍♂️🌳",
+    "title": "Welcome to the starting pen!",
     "subtitle": "Your email address is now validated. You are officially among the privileged who will receive preview alerts as soon as registration and ticketing open.",
     "explore_title": "What would you like to discover first?",
     "explore_desc": "While waiting to hit the starting line, explore everything you need to know about the event.",
@@ -450,7 +450,7 @@
     },
     "data": [
       {
-        "category": "🏃 The Backyard Ultra format",
+        "category": "The Backyard Ultra format",
         "items": [
           {
             "q": "What is the Backyard Ultra format?",
@@ -471,11 +471,15 @@
           {
             "q": "What is Big's Backyard Ultra?",
             "a": "It's the original race, created by Lazarus Lake in Bell Buckle, Tennessee (USA). It now hosts the Backyard Ultra Individual World Championship in odd years: about 75 runners qualify, the national champions (the \"Golden Ticket\", with at least 24 loops) and the best performances worldwide over the previous two years. In even years comes the Team World Championship: each country holds its national race on the same day, with a team of 15 runners."
+          },
+          {
+            "q": "Is the Breizh Backyard an official race?",
+            "a": "Yes. The Breizh Backyard is an affiliated race of the worldwide Backyard Ultra circuit. It follows the official rules of the format: a 6.706 km loop, a start every hour and a single winner."
           }
         ]
       },
       {
-        "category": "📋 Registration",
+        "category": "Registration",
         "items": [
           {
             "q": "When does registration open?",
@@ -496,7 +500,7 @@
         ]
       },
       {
-        "category": "🎒 Gear & Logistics",
+        "category": "Gear & Logistics",
         "items": [
           {
             "q": "What gear do I need?",
@@ -517,7 +521,7 @@
         ]
       },
       {
-        "category": "🍌 Aid station",
+        "category": "Aid station",
         "items": [
           {
             "q": "What does the organization provide?",
@@ -534,7 +538,7 @@
         ]
       },
       {
-        "category": "🌙 Night & recovery",
+        "category": "Night & recovery",
         "items": [
           {
             "q": "How are nights handled?",
@@ -547,7 +551,7 @@
         ]
       },
       {
-        "category": "🤝 The organisation",
+        "category": "The organisation",
         "items": [
           {
             "q": "Who organises the Breizh Backyard?",
@@ -593,7 +597,7 @@
       "title": "Find us",
       "email": "Email",
       "socials": "Social media",
-      "delay": "⏱ Response time",
+      "delay": "Response time",
       "delay_text": ": we usually reply within 48 business hours. For urgent requests, please mention it in your message."
     },
     "form": {

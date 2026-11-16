@@ -97,7 +97,7 @@
       "list4_label": "Localisation",
       "list4_value": "Parc des Gayeulles, Rennes",
       "btn": "Voir le parcours",
-      "placeholder1": "📍 Photo du parcours à venir",
+      "placeholder1": "Photo du parcours à venir",
       "placeholder2": "Remplacer par vos vraies photos"
     },
     "ambiance": {
@@ -242,7 +242,7 @@
       "title": "Le camp de base",
       "p1": "Au centre de la boucle se trouve le camp de base : votre QG pendant toute la durée de la course. C'est ici que vous revenez après chaque tour pour récupérer, manger, dormir si nécessaire.",
       "p2": "Vous pouvez installer votre propre installation (tente, chaise longue, table...). Vos accompagnants, famille et amis peuvent rester dans cette zone pour vous soutenir tout au long de la course.",
-      "placeholder": "📸 Photo du camp de base à venir"
+      "placeholder": "Photo du camp de base à venir"
     },
     "galerie": {
       "subtitle": "Aperçu",
@@ -276,12 +276,12 @@
     },
     "acces": {
       "title": "Accès & Lieu",
-      "loc_title": "📍 Localisation",
+      "loc_title": "Localisation",
       "loc_p1_start": "La Breizh Backyard se déroule en Bretagne, dans un cadre naturel préservé.",
       "loc_p1_bold": " L'adresse exacte sera communiquée",
       "loc_p1_end": " aux inscrits par email avant la course.",
-      "loc_info": "ℹ️ Les coordonnées GPS et l'accès détaillé seront partagés dans le pack participant, disponible 2 semaines avant la course.",
-      "parking_title": "🚗 Accès & Parking",
+      "loc_info": "Les coordonnées GPS et l'accès détaillé seront partagés dans le pack participant, disponible 2 semaines avant la course.",
+      "parking_title": "Accès & Parking",
       "p1": "Parking gratuit sur place (nombre de places limitées)",
       "p2": "Covoiturage fortement encouragé, forum disponible après inscription",
       "p3": "Accès en transport en commun possible (informations à venir)",
@@ -310,12 +310,12 @@
     },
     "ravitaillement": {
       "title": "Ravitaillement",
-      "fourni_title": "✅ Ce qui est fourni",
+      "fourni_title": "Ce qui est fourni",
       "f1": "Point d'eau potable permanent au camp de base",
       "f2": "Fruits frais (bananes, oranges...) entre chaque tour",
       "f3": "Bouillons chauds pendant la nuit",
       "f4": "Café / thé en continu",
-      "apporter_title": "🎒 À apporter",
+      "apporter_title": "À apporter",
       "a1": "Vos aliments préférés et éprouvés (pas d'expérimentation en course !)",
       "a2": "Gels / barres énergétiques selon vos habitudes",
       "a3": "Boissons de récupération",
@@ -373,7 +373,7 @@
     },
     "popup": {
       "badge": "Plus qu'une étape !",
-      "title": "Email envoyé avec succès 🎉",
+      "title": "Email envoyé avec succès",
       "message": "Un email de confirmation vous a été envoyé. Vérifiez votre boîte de réception (et vos spams !) pour finaliser votre inscription à la newsletter.",
       "email_hint": "Pensez à ajouter notre adresse email à vos contacts pour ne rater aucune notification d'ouverture d'inscriptions.",
       "btn_close": "Parfait, merci !"
@@ -394,7 +394,7 @@
   },
   "bienvenue_page": {
     "badge": "Inscription confirmée avec succès",
-    "title": "Bienvenue dans le sas de départ ! 🏃‍♂️🌳",
+    "title": "Bienvenue dans le sas de départ !",
     "subtitle": "Votre adresse email est désormais validée. Vous faites officiellement partie des privilégiés qui recevront les alertes en avant-première dès l'ouverture de la billetterie et des inscriptions.",
     "explore_title": "Que souhaitez-vous découvrir en premier ?",
     "explore_desc": "En attendant de fouler la ligne de départ, explorez tout ce qu'il faut savoir sur l'événement.",
@@ -450,7 +450,7 @@
     },
     "data": [
       {
-        "category": "🏃 Le format Backyard Ultra",
+        "category": "Le format Backyard Ultra",
         "items": [
           {
             "q": "Qu'est-ce que le format Backyard Ultra ?",
@@ -471,11 +471,15 @@
           {
             "q": "Qu'est-ce que la Big's Backyard Ultra ?",
             "a": "C'est la course originale, créée par Lazarus Lake à Bell Buckle, dans le Tennessee (États-Unis). Elle accueille aujourd'hui le championnat du monde individuel de backyard ultra, les années impaires : environ 75 coureurs y sont qualifiés, les champions nationaux (le « Golden Ticket », avec au moins 24 boucles) et les meilleures performances mondiales des deux années précédentes. Les années paires, place au championnat du monde par équipes : chaque pays organise sa course nationale le même jour, avec une équipe de 15 coureurs."
+          },
+          {
+            "q": "La Breizh Backyard est-elle une course officielle ?",
+            "a": "Oui. La Breizh Backyard est une course affiliée au circuit mondial des Backyard Ultra. Elle applique le règlement officiel du format : une boucle de 6,706 km, un départ toutes les heures et un seul vainqueur."
           }
         ]
       },
       {
-        "category": "📋 Les inscriptions",
+        "category": "Les inscriptions",
         "items": [
           {
             "q": "Quand ouvrent les inscriptions ?",
@@ -496,7 +500,7 @@
         ]
       },
       {
-        "category": "🎒 Matériel & Logistique",
+        "category": "Matériel & Logistique",
         "items": [
           {
             "q": "De quoi ai-je besoin comme matériel ?",
@@ -517,7 +521,7 @@
         ]
       },
       {
-        "category": "🍌 Ravitaillement",
+        "category": "Ravitaillement",
         "items": [
           {
             "q": "Qu'est-ce qui est fourni par l'organisation ?",
@@ -534,7 +538,7 @@
         ]
       },
       {
-        "category": "🌙 La nuit & La récupération",
+        "category": "La nuit & La récupération",
         "items": [
           {
             "q": "Comment gère-t-on les nuits ?",
@@ -547,7 +551,7 @@
         ]
       },
       {
-        "category": "🤝 L'organisation",
+        "category": "L'organisation",
         "items": [
           {
             "q": "Qui organise la Breizh Backyard ?",
@@ -593,7 +597,7 @@
       "title": "Nous trouver",
       "email": "Email",
       "socials": "Réseaux sociaux",
-      "delay": "⏱ Délai de réponse",
+      "delay": "Délai de réponse",
       "delay_text": " : nous répondons généralement sous 48h ouvrées. Pour les demandes urgentes, merci de l'indiquer dans votre message."
     },
     "form": {

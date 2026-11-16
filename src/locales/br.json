@@ -97,7 +97,7 @@
       "list4_label": "Lec'hiadur",
       "list4_value": "Parc des Gayeulles, Roazhon",
       "btn": "Gwelet an hent",
-      "placeholder1": "📍 Foto an hent da zont",
+      "placeholder1": "Foto an hent da zont",
       "placeholder2": "Erlerc'hiañ gant ho fotoioù gwirion"
     },
     "ambiance": {
@@ -242,7 +242,7 @@
       "title": "Ar maez-bevañ & ar c'hamp diazez",
       "p1": "E-kreiz an dro emañ ar c'hamp diazez: ho ti-post e-pad ar red a-bezh. Amañ eo e teuit en-dro goude pep tro da ziskuizhañ, debriñ, kousket ma vez ret.",
       "p2": "Gallout a rit sevel ho stalidigezh hoc'h-unan (teltenn, kador-hir, taol...). Ho skoazellerien, tud vat ha mignoned a c'hell chom en takad-mañ evit ho skoazellañ e-pad ar red a-bezh.",
-      "placeholder": "📸 Foto ar maez-bevañ da zont"
+      "placeholder": "Foto ar maez-bevañ da zont"
     },
     "galerie": {
       "subtitle": "Un taol-lagad",
@@ -276,12 +276,12 @@
     },
     "acces": {
       "title": "Tremen & Lec'h",
-      "loc_title": "📍 Lec'hiadur",
+      "loc_title": "Lec'hiadur",
       "loc_p1_start": "Ar Breizh Backyard a c'hoarvez e Breizh, en un endro natur miret.",
       "loc_p1_bold": " Roet e vo an chomlec'h resis",
       "loc_p1_end": " d'ar re enskrivet dre bostel a-raok ar red.",
-      "loc_info": "ℹ️ Koordonadoù GPS hag an tremen munudek a vo rannet er pakad kemperzhour, hegerz 2 sizhun a-raok ar red.",
-      "parking_title": "🚗 Tremen & Parking",
+      "loc_info": "Koordonadoù GPS hag an tremen munudek a vo rannet er pakad kemperzhour, hegerz 2 sizhun a-raok ar red.",
+      "parking_title": "Tremen & Parking",
       "p1": "Parking digoust war al lec'h (niver a blasennoù bevennet)",
       "p2": "Kenrannañ karr broudet start, forom hegerz goude enskrivadur",
       "p3": "Tremen dre garr-boutin posupl (titouroù da zont)",
@@ -310,12 +310,12 @@
     },
     "ravitaillement": {
       "title": "Boued & Dour",
-      "fourni_title": "✅ Ar pezh a zo pourvezet",
+      "fourni_title": "Ar pezh a zo pourvezet",
       "f1": "Poent dour evañ padus war ar maez-bevañ",
       "f2": "Frouezh fresk (banantez, orañjez) etre pep tro",
       "f3": "Soubenn tomm e-pad an noz",
       "f4": "Kafe / te hep dilezel",
-      "apporter_title": "🎒 Da zegas",
+      "apporter_title": "Da zegas",
       "a1": "Ho boued muiañ-karet ha klasket dija (n'eo ket amzer da esae en dro red!)",
       "a2": "Jelaj / barennoù energiezh diouzh hoc'h ijinamant",
       "a3": "Evajoù diskuizhañ",
@@ -373,7 +373,7 @@
     },
     "popup": {
       "badge": "Ur bazenn diwezhañ !",
-      "title": "Postel kaset gant berzh 🎉",
+      "title": "Postel kaset gant berzh",
       "message": "Kaset eo bet ur bostel kadarnaat deoc'h. Sellout a reoc'h ho boest postel (hag spamm !) evit klokaat ho enskrivadur d'ar c'helaouenn.",
       "email_hint": "Sonjit ouzhpenn hon postel d'ho c'hontaktoù evit chom pell eus ar skignadurioù digoradur enskrivadurioù.",
       "btn_close": "Kaer, trugarez !"
@@ -394,7 +394,7 @@
   },
   "bienvenue_page": {
     "badge": "Kadarnaet eo an enskrivadur gant berzh",
-    "title": "Degemer mat e-barzh ar sas nisañ! 🏃‍♂️🌳",
+    "title": "Degemer mat e-barzh ar sas nisañ!",
     "subtitle": "Kadarnaet eo ho postel bremañ. E-touez ar re gentañ e vefec meur a c'heleier a-raok an holl.",
     "explore_title": "Petra a fell deoc'h dizoleiñ da gentañ?",
     "explore_desc": "Tra ma 'maoc'h o prientiñ ho tivc'har, dizoloit pep tra diwar-benn ar redadeg.",
@@ -450,7 +450,7 @@
     },
     "data": [
       {
-        "category": "🏃 Furm ar Backyard Ultra",
+        "category": "Furm ar Backyard Ultra",
         "items": [
           {
             "q": "Petra eo furm ar Backyard Ultra?",
@@ -471,11 +471,15 @@
           {
             "q": "Petra eo ar Big's Backyard Ultra?",
             "a": "Ar red orin eo, krouet gant Lazarus Lake e Bell Buckle, e Tennessee (Stadoù-Unanet). Bremañ e vez dalc'het enni kampionad hiniennel ar bed ar backyard ultra, ar bloavezhioù ampar: war-dro 75 redour a vez dibabet, ar gampioned broadel (ar « Golden Ticket », gant 24 tro d'an nebeutañ) hag an disoc'hoù gwellañ er bed e-pad an daou vloaz a-raok. Ar bloavezhioù par e vez kampionad ar bed dre skipailhoù: pep bro a aoz he red broadel en hevelep deiz, gant ur skipailh a 15 redour."
+          },
+          {
+            "q": "Hag ur redadeg ofisiel eo ar Breizh Backyard?",
+            "a": "Ya. Ar Breizh Backyard a zo ur redadeg kevreet ouzh troiad bedel ar Backyard Ultra. Heuliañ a ra reolennoù ofisiel ar furm: ur c'helc'hiad 6,706 km, un disparti bep eur hag ur gounezer hepken."
           }
         ]
       },
       {
-        "category": "📋 An enskrivadurioù",
+        "category": "An enskrivadurioù",
         "items": [
           {
             "q": "Pegoulz e tigor an enskrivadurioù?",
@@ -496,7 +500,7 @@
         ]
       },
       {
-        "category": "🎒 Ostilhoù & Lojerezh",
+        "category": "Ostilhoù & Lojerezh",
         "items": [
           {
             "q": "Peseurt ostilhoù am eus ezhomm?",
@@ -517,7 +521,7 @@
         ]
       },
       {
-        "category": "🍌 Boued & Dour",
+        "category": "Boued & Dour",
         "items": [
           {
             "q": "Petra a bourvez an aozadur?",
@@ -534,7 +538,7 @@
         ]
       },
       {
-        "category": "🌙 An noz & An diskuizh",
+        "category": "An noz & An diskuizh",
         "items": [
           {
             "q": "Penaos e verer an nozioù?",
@@ -547,7 +551,7 @@
         ]
       },
       {
-        "category": "🤝 An aozadur",
+        "category": "An aozadur",
         "items": [
           {
             "q": "Piv a aoz ar Breizh Backyard?",
@@ -593,7 +597,7 @@
       "title": "Hor c'havout",
       "email": "Postel",
       "socials": "Rouedadoù sokial",
-      "delay": "⏱ Amzer respont",
+      "delay": "Amzer respont",
       "delay_text": ": e-doare hor bez respont e-barzh 48 eur labour. Evit goulennoù prim, trugarez o veneg en ho kemennadenn."
     },
     "form": {

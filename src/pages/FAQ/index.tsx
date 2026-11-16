@@ -64,7 +64,7 @@ export const FAQ = () => {
                   transition: "all 0.2s ease",
                 }}
               >
-                {cat.category.split(" ").slice(1).join(" ")}
+                {cat.category}
               </button>
             ))}
           </div>

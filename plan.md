@@ -101,7 +101,7 @@ All three submit handlers fake a delay with `setTimeout`, show a success screen,
 - [x] ~~Name Google reCAPTCHA~~ (not needed any more: reCAPTCHA was removed, see 1.3).
 - [x] Make the "data collected" list match the real forms.
 - [x] Keep the "13 months" wording only once 1.2 implements it.
-- [ ] Have the organisers check the final text, since it's legal content.
+- [x] Have the organisers check the final text, since it's legal content. *Done 16 Nov 2026.*
 
 **Done when:** every third party that shows up in the Network tab is named in the policy.
 

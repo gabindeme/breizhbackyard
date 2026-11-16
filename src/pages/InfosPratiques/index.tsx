@@ -1,6 +1,6 @@
 import { enter, Reveal } from "@/components/customs/reveal";
 import { useState, useEffect } from "react";
-import { MapPin, Utensils, Backpack, BookOpen } from "lucide-react";
+import { MapPin, Utensils, Backpack, BookOpen, Car, Info, PackageCheck, ShoppingBag } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import type { LucideIcon } from "lucide-react";
 import { PageHeader } from "@/components/customs/page-header";
@@ -19,6 +19,14 @@ const InfoSection = ({ id, icon: Icon, color, title, children }: { id: string; i
     </div>
     {children}
   </Reveal>
+);
+
+// Sub-heading inside a section: a small line icon in the section colour, then the title.
+const SubHeading = ({ icon: Icon, color, children }: { icon: LucideIcon; color: string; children: React.ReactNode }) => (
+  <h3 style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>
+    <Icon size={18} strokeWidth={2} aria-hidden="true" style={{ color, flexShrink: 0 }} />
+    {children}
+  </h3>
 );
 
 const CheckItem = ({ text }: { text: string }) => (
@@ -146,20 +154,21 @@ export const InfosPratiques = () => {
             <InfoSection id="acces" icon={MapPin} color="#277956" title={t("infos_page.acces.title")}>
               <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                 <div>
-                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>{t("infos_page.acces.loc_title")}</h3>
+                  <SubHeading icon={MapPin} color="var(--bbu-green-dark)">{t("infos_page.acces.loc_title")}</SubHeading>
                   <p style={{ color: "#4a6b56", lineHeight: 1.75, marginBottom: "1rem" }}>
                     {t("infos_page.acces.loc_p1_start")}
                     <strong style={{ color: "#277956" }}>{t("infos_page.acces.loc_p1_bold")}</strong>
                     {t("infos_page.acces.loc_p1_end")}
                   </p>
                   <div style={{ padding: "1rem", background: "rgba(245,201,44,0.1)", borderRadius: "0.75rem", border: "1px solid rgba(245,201,44,0.3)" }}>
-                    <p style={{ margin: 0, fontSize: "0.85rem", color: "#8a6200" }}>
-                      {t("infos_page.acces.loc_info")}
+                    <p style={{ margin: 0, display: "flex", gap: "0.5rem", alignItems: "flex-start", fontSize: "0.85rem", color: "#8a6200" }}>
+                      <Info size={16} strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0, marginTop: "2px" }} />
+                      <span>{t("infos_page.acces.loc_info")}</span>
                     </p>
                   </div>
                 </div>
                 <div>
-                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>{t("infos_page.acces.parking_title")}</h3>
+                  <SubHeading icon={Car} color="var(--bbu-green-dark)">{t("infos_page.acces.parking_title")}</SubHeading>
                   <CheckItem text={t("infos_page.acces.p1")} />
                   <CheckItem text={t("infos_page.acces.p2")} />
                   <CheckItem text={t("infos_page.acces.p3")} />
@@ -217,17 +226,17 @@ export const InfosPratiques = () => {
             </InfoSection>
 
             {/* RAVITAILLEMENT */}
-            <InfoSection id="ravitaillement" icon={Utensils} color="#4DA154" title={t("infos_page.ravitaillement.title")}>
+            <InfoSection id="ravitaillement" icon={Utensils} color="var(--bbu-green-mid)" title={t("infos_page.ravitaillement.title")}>
               <div className="mobile-grid-1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                 <div>
-                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>{t("infos_page.ravitaillement.fourni_title")}</h3>
+                  <SubHeading icon={PackageCheck} color="var(--bbu-green-mid)">{t("infos_page.ravitaillement.fourni_title")}</SubHeading>
                   <CheckItem text={t("infos_page.ravitaillement.f1")} />
                   <CheckItem text={t("infos_page.ravitaillement.f2")} />
                   <CheckItem text={t("infos_page.ravitaillement.f3")} />
                   <CheckItem text={t("infos_page.ravitaillement.f4")} />
                 </div>
                 <div>
-                  <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>{t("infos_page.ravitaillement.apporter_title")}</h3>
+                  <SubHeading icon={ShoppingBag} color="var(--bbu-green-mid)">{t("infos_page.ravitaillement.apporter_title")}</SubHeading>
                   <CheckItem text={t("infos_page.ravitaillement.a1")} />
                   <CheckItem text={t("infos_page.ravitaillement.a2")} />
                   <CheckItem text={t("infos_page.ravitaillement.a3")} />
@@ -267,7 +276,7 @@ export const InfosPratiques = () => {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                 <div>
                   <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>
-                    🏥 Assistance médicale
+                    Assistance médicale
                   </h3>
                   <CheckItem text="Équipe médicale présente 24h/24 pendant toute la durée de la course" />
                   <CheckItem text="Point de secours visible et signalisé au camp de base" />
@@ -276,7 +285,7 @@ export const InfosPratiques = () => {
                 </div>
                 <div>
                   <h3 style={{ fontWeight: "700", fontSize: "1rem", color: "#1a2e22", marginBottom: "1rem" }}>
-                    📞 Contacts urgence
+                    Contacts urgence
                   </h3>
                   <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                     {[

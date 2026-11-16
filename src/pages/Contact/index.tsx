@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { enter } from "@/components/customs/reveal";
 import { useState } from "react";
-import { Mail, Send, CheckCircle } from "lucide-react";
+import { Mail, Send, CheckCircle, Clock } from "lucide-react";
 import { InstagramIcon, FacebookIcon, YoutubeIcon, TiktokIcon } from "@/components/customs/icons";
 import { useTranslation } from "react-i18next";
 import { submitForm } from "@/lib/submit-form";
@@ -150,6 +150,7 @@ export const Contact = () => {
                   lineHeight: 1.65,
                 }}
               >
+                <Clock size={15} strokeWidth={2} aria-hidden="true" style={{ display: "inline", verticalAlign: "-2px", marginRight: "0.35rem", color: "#1f6346" }} />
                 <strong style={{ color: "#1f6346" }}>{t("contact_page.info.delay")}</strong>{t("contact_page.info.delay_text")}
               </div>
             </div>
